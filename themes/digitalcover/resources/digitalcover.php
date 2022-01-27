@@ -74,6 +74,7 @@ function display_svg($svg, $getUrl = false) {
 /**
  * Create all image sizes
  */
+add_image_size('xs', 240, 0, true);
 add_image_size('sm', 480, 0, true);
 add_image_size('md', 768, 0, true);
 add_image_size('lg', 1024, 0, true);

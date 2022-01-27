@@ -2,7 +2,7 @@
   <picture>
     <source
       type="image/webp"
-      media="(min-width : 800px)"
+      media="(min-width : 300px)"
       @if (!$data['no-lazy'])
         data-srcset="
           @foreach($data['srcset'] as $key => $value)
