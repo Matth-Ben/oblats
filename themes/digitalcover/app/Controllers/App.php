@@ -26,12 +26,12 @@ class App extends Controller
       $headerMenuNav = wp_get_nav_menu_items($headerMenuId);
 
       foreach($headerMenuNav as $item) {
-        $dataHeader[] = array(
+        $dataHeader[] = [
           'id' => $item->object_id,
           'title' => $item->title,
           'url' => $item->url,
           'target' => $item->target
-        );
+        ];
       }
     }
 
@@ -39,12 +39,12 @@ class App extends Controller
     //   $footerMenuNav = wp_get_nav_menu_items($footerMenuId);
 
     //   foreach($footerMenuNav as $item) {
-    //     $dataFooter[] = array(
+    //     $dataFooter[] = [
     //         'id' => $item->object_id,
     //         'title' => $item->title,
     //         'url' => $item->url,
     //         'target' => $item->target
-    //     );
+    //     ];
     //   }
     // }
 
