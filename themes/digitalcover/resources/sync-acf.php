@@ -10,7 +10,7 @@ function my_admin_menu() {
         'manage_options',
         'sync-acf',
         'my_admin_page_contents',
-        'dashicons-schedule',
+        'dashicons-update-alt',
         80
     );
 }
