@@ -10,12 +10,6 @@ module.exports = merge(common, {
         test: /\.(sa|sc|c)ss$/,
         use: [
           'style-loader',
-          // {
-          //   loader: 'style-loader',
-          //   options: {
-          //     injectType: 'linkTag'
-          //   }
-          // },
           'css-loader',
           {
             loader: 'postcss-loader',
