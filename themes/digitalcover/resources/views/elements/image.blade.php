@@ -21,6 +21,7 @@
     />
     <img
       class="@if(!$data['no-lazy']){{ 'lazy' }}@endif {{ $data['class'] }}"
+      @if ($data['no-lazy']) loading="eager" @endif
       width="150"
       height="150"
       alt="{{ $data['alt'] }}"
