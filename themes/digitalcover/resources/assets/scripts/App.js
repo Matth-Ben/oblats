@@ -45,6 +45,12 @@ export default class App {
       this.scrollThrottled = throttle(50, this.scroll)
     }
 
+    store.w = {
+      w: window.innerWidth,
+      h: window.innerHeight,
+      pixelRatio: Math.min(window.devicePixelRatio, 2)
+    }
+
     this.checkMobile()
     this.start()
   }
@@ -74,7 +80,7 @@ export default class App {
       adminbarLinks && App.Highway.detach(adminbarLinks)
 
       this.loader.play().then(() => {
-        App.smoothScroll && App.smoothScroll.update()
+        store.smoothScroll && store.smoothScroll.update()
         this.checkAnchor()
       })
     })
@@ -134,6 +140,12 @@ export default class App {
   }
 
   resize() {
+    store.w = {
+      w: window.innerWidth,
+      h: window.innerHeight,
+      pixelRatio: Math.min(window.devicePixelRatio, 2)
+    }
+
     this.currentRenderer.resize()
     this.menu && this.menu.resize()
   }
@@ -154,7 +166,7 @@ export default class App {
     window.addEventListener('orientationchange', this.resize)
 
     if (App.globalData.smoothScroll) {
-      App.smoothScroll && App.smoothScroll.on('scroll', this.scroll)
+      store.smoothScroll && store.smoothScroll.on('scroll', this.scroll)
     } else {
       window.addEventListener('scroll', this.scrollThrottled)
       window.addEventListener('scroll', this.scrollDebounced)
