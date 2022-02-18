@@ -5,6 +5,7 @@ export default class Block {
 
     this.bindMethods()
     this.getElems()
+    this.init()
     this.events()
   }
 
@@ -13,6 +14,8 @@ export default class Block {
   bindMethods() {}
 
   getElems() {}
+
+  init() {}
 
   events() {}
 
