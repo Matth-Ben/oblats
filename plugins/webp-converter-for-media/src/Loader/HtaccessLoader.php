@@ -61,6 +61,7 @@ class HtaccessLoader extends LoaderAbstract {
 		$content = $this->add_comments_to_rules(
 			[
 				$this->get_mod_rewrite_rules( $settings ),
+				$this->get_mod_headers_rules( $settings ),
 			]
 		);
 
@@ -87,7 +88,6 @@ class HtaccessLoader extends LoaderAbstract {
 		$content    = $this->add_comments_to_rules(
 			[
 				$this->get_mod_rewrite_rules( $settings, end( $path_parts ) ),
-				$this->get_mod_headers_rules( $settings ),
 			]
 		);
 
@@ -114,7 +114,6 @@ class HtaccessLoader extends LoaderAbstract {
 			[
 				$this->get_mod_mime_rules( $settings ),
 				$this->get_mod_expires_rules( $settings ),
-				$this->get_mod_headers_rules( $settings ),
 			]
 		);
 
@@ -168,11 +167,18 @@ class HtaccessLoader extends LoaderAbstract {
 	 * @return string Rules for .htaccess file.
 	 */
 	private function get_mod_headers_rules( array $settings ): string {
-		$content = '';
+		$content    = '';
+		$extensions = implode( '|', $settings[ SupportedExtensionsOption::OPTION_NAME ] );
 
 		$content .= '<IfModule mod_headers.c>' . PHP_EOL;
-		$content .= '  Header always set Cache-Control "private"' . PHP_EOL;
-		$content .= '  Header append Vary "Accept"' . PHP_EOL;
+		if ( $extensions ) {
+			$content .= '  <FilesMatch "(?i)\.(' . $extensions . ')(\.(webp|avif))?$">' . PHP_EOL;
+		}
+		$content .= '    Header always set Cache-Control "private"' . PHP_EOL;
+		$content .= '    Header append Vary "Accept"' . PHP_EOL;
+		if ( $extensions ) {
+			$content .= '  </FilesMatch>' . PHP_EOL;
+		}
 		$content .= '</IfModule>';
 
 		return apply_filters( 'webpc_htaccess_mod_headers', $content );

@@ -154,7 +154,16 @@ class RewritesErrorsDetector implements ErrorDetector {
 			$ver_param
 		);
 
-		return ( ( $file_webp > 0 ) && ( $file_webp < $file_size ) );
+		if ( $file_webp === 0 ) {
+			$file_original = $this->file_loader->get_file_size_by_url(
+				$uploads_url . self::PATH_OUTPUT_FILE_PNG,
+				false,
+				$ver_param
+			);
+			return ( $file_original === 0 );
+		}
+
+		return ( $file_webp < $file_size );
 	}
 
 	/**

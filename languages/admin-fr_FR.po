@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WordPress - 5.9.x - Development - Administration package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-01-18 20:33:56+0000\n"
+"PO-Revision-Date: 2022-02-03 21:05:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -6494,7 +6494,7 @@ msgstr "%1$s par %2$s (attention : <strong>supprimera également les données l
 #. translators: %s: New admin email.
 #: wp-admin/options-general.php:124
 msgid "There is a pending change of the admin email to %s."
-msgstr "Il y a un changement en attente de l’e-mail de l’administrateur ou de l’administratrice vers %s."
+msgstr "Il y a une modification en attente de l’adresse e-mail d’administration vers %s."
 
 #: wp-admin/install.php:419
 msgid "WordPress has been installed. Thank you, and enjoy!"
@@ -11025,7 +11025,7 @@ msgstr "Traductrices & traducteurs"
 #. https://wordpress.org/about/license
 #: wp-admin/freedoms.php:99
 msgid "Every plugin and theme in WordPress.org&#8217;s directory is 100%% GPL or a similarly free and compatible license, so you can feel safe finding <a href=\"%1$s\">plugins</a> and <a href=\"%2$s\">themes</a> there. If you get a plugin or theme from another source, make sure to <a href=\"%3$s\">ask them if it&#8217;s GPL</a> first. If they don&#8217;t respect the WordPress license, we don&#8217;t recommend them."
-msgstr "Tous les thèmes et extensions disponibles sur le répertoire WordPress.org respectent à 100% la licence GPL, ou une licence libre et compatible. Ainsi, vous pouvez en toute sûreté y rechercher des <a href=\"%1$s\">extensions</a> et des <a href=\"%2$s\">thèmes</a>. Si vous téléchargez une extension ou un thème en provenance d’une autre source, vérifiez bien que la <a href=\"%3$s\">licence GPL</a> est respectée. Si cela n’est pas le cas, nous vous recommandons de ne pas l’utiliser."
+msgstr "Tous les thèmes et extensions disponibles sur le répertoire WordPress.org respectent à 100%% la licence GPL, ou une licence libre et compatible. Ainsi, vous pouvez en toute sûreté y rechercher des <a href=\"%1$s\">extensions</a> et des <a href=\"%2$s\">thèmes</a>. Si vous téléchargez une extension ou un thème en provenance d’une autre source, vérifiez bien que la <a href=\"%3$s\">licence GPL</a> est respectée. Si cela n’est pas le cas, nous vous recommandons de ne pas l’utiliser."
 
 #. translators: %s: https://wordpressfoundation.org/trademark-policy
 #: wp-admin/freedoms.php:87

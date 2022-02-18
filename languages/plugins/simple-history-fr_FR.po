@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Simple History – user activity log, audit tool - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-01-18 15:56:52+0000\n"
+"PO-Revision-Date: 2022-02-17 10:49:17+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -11,9 +11,115 @@ msgstr ""
 "Language: fr\n"
 "Project-Id-Version: Plugins - Simple History – user activity log, audit tool - Stable (latest release)\n"
 
+#: loggers/SimpleUserLogger.php:931 loggers/SimpleUserLogger.php:938
+msgid "Site Default"
+msgstr "Site par défaut"
+
+#: loggers/SimpleUserLogger.php:873
+msgctxt "User logger"
+msgid "Language"
+msgstr "Langue"
+
+#: loggers/SimpleUserLogger.php:870
+msgctxt "User logger"
+msgid "Don't show"
+msgstr "Ne pas afficher"
+
+#: loggers/SimpleUserLogger.php:869
+msgctxt "User logger"
+msgid "Show"
+msgstr "Afficher"
+
+#: loggers/SimpleUserLogger.php:867
+msgctxt "User logger"
+msgid "Toolbar"
+msgstr "Barre d’outils"
+
+#: loggers/SimpleUserLogger.php:855 loggers/SimpleUserLogger.php:864
+msgctxt "User logger"
+msgid "Disable"
+msgstr "Désactiver"
+
+#: loggers/SimpleUserLogger.php:854 loggers/SimpleUserLogger.php:863
+msgctxt "User logger"
+msgid "Enable"
+msgstr "Activer"
+
+#: loggers/SimpleUserLogger.php:110
+msgctxt "User logger: search"
+msgid "User application password deletion"
+msgstr "Suppression du mot de passe de l’application utilisateur·rice"
+
+#: loggers/SimpleUserLogger.php:107
+msgctxt "User logger: search"
+msgid "User application password created"
+msgstr "Mot de passe de l’application utilisateur·rice créé"
+
+#: loggers/SimpleUserLogger.php:104
+msgctxt "User logger: search"
+msgid "User role changes"
+msgstr "Modification du rôle du compte"
+
+#: loggers/SimpleUserLogger.php:72
+msgctxt "User deletes application password"
+msgid "Deleted application password \"{application_password_name}\" for user \"{edited_user_login}\""
+msgstr "Mot de passe d’application « {application_password_name} » pour le compte « {edited_user_login} » supprimé"
+
+#: loggers/SimpleUserLogger.php:67
+msgctxt "User add new application password"
+msgid "Added application password \"{application_password_name}\" for user \"{edited_user_login}\""
+msgstr "Mot de passe d’application « {application_password_name} » pour le compte « {edited_user_login} » ajouté"
+
+#: loggers/SimpleUserLogger.php:62
+msgctxt "User updates the role for a user"
+msgid "Changed role for user \"{edited_user_login}\" to \"{new_role}\" from \"{old_role}\""
+msgstr "Rôle du compte « {edited_user_login} » modifié pour « {new_role} » depuis « {old_role} »"
+
+#: loggers/SimpleUserLogger.php:57
+msgctxt "User clicks confirm admin email on admin email confirm screen"
+msgid "Verified that administration email for website is correct"
+msgstr "A vérifié que l’adresse e-mail d‘administration du site web est correcte"
+
+#: loggers/SimpleThemeLogger.php:37
+msgid "Deleted theme \"{theme_name}\""
+msgstr "A supprimé le thème « {theme_name} »"
+
+#: loggers/SimpleThemeLogger.php:36
+msgid "Installed theme \"{theme_name}\" by {theme_author}"
+msgstr "A installé le thème « {theme_name} » de « {theme_author} »"
+
+#: loggers/SimpleMediaLogger.php:124
+msgid "Uploaded {post_type} <a href=\"{edit_link}\">\"{attachment_title}\"</a> to {attachment_parent_post_type} \"{attachment_parent_title}\""
+msgstr "A téléversé le/la {post_type} <a href=\"{edit_link}\">« {attachment_title} »</a> pour le/la {attachment_parent_post_type} « {attachment_parent_title} »"
+
+#: loggers/SimpleMediaLogger.php:121
+msgid "Uploaded {post_type} <a href=\"{edit_link}\">\"{attachment_title}\"</a> to {attachment_parent_post_type} <a href=\"{attachment_parent_edit_link}\">\"{attachment_parent_title}\"</a>"
+msgstr "A téléversé le/la {post_type} <a href=\"{edit_link}\">\"{attachment_title}\"</a> pour le/la  {attachment_parent_post_type} <a href=\"{attachment_parent_edit_link}\">\"{attachment_parent_title}\"</a>"
+
+#: loggers/SimpleMediaLogger.php:21
+msgid "Logs media uploads and edits"
+msgstr "Journalise les téléversements et modifications des médias"
+
+#: loggers/SimpleMediaLogger.php:20
+msgid "Media/Attachments Logger"
+msgstr "Enregistreur des évènements des médias/fichiers joints"
+
+#: dropins/SimpleHistoryFilterDropin.php:225
+msgctxt "Filter dropin: filter all dates"
+msgid "All dates"
+msgstr "Toutes les dates"
+
 #: templates/settings-statsForGeeks.php:79
 msgid "Database size"
 msgstr "Taille de la base de donnée"
+
+#: templates/settings-statsForGeeks.php:61
+msgid "Clear history interval"
+msgstr "Intervalle d’effacement de l’historique"
+
+#: templates/settings-statsForGeeks.php:55
+msgid "Total %d rows, when grouped by occasion id."
+msgstr "%d au total quand elles sont groupées par id d’occurrence."
 
 #: templates/settings-statsForGeeks.php:48
 msgid "Total %d log rows in db."
@@ -513,11 +619,6 @@ msgstr "Image mise en avant"
 msgid "Simple History requires WordPress version 5.2 or higher (you have version %s)."
 msgstr "Simple History nécessite au minimum la version 5.2 de WordPress (vous avez la version %s)."
 
-#: loggers/SimpleUserLogger.php:908
-msgctxt "User logger"
-msgid "Locale"
-msgstr "Locale"
-
 #: loggers/SimplePluginLogger.php:96
 msgctxt "Plugin was disabled because of an error"
 msgid "Deactivated plugin \"{plugin_slug}\" because of an error (\"{deactivation_reason}\")."
@@ -692,7 +793,7 @@ msgid "Found an update to plugin \"{plugin_name}\""
 msgstr "Mise à jour de l’extension « {plugin_name} » trouvée"
 
 #: loggers/AvailableUpdatesLogger.php:36
-msgid "Found an update to WordPress."
+msgid "Found an update to WordPress"
 msgstr "Mise à jour de WordPress trouvée"
 
 #: dropins/SimpleHistoryFilterDropin.php:637
@@ -941,107 +1042,102 @@ msgctxt "Admin bar network name"
 msgid "View History"
 msgstr "Voir l’historique"
 
-#: loggers/SimpleUserLogger.php:987
+#: loggers/SimpleUserLogger.php:1017
 msgctxt "User logger"
 msgid "Notification"
 msgstr "Notification"
 
-#: loggers/SimpleUserLogger.php:970
+#: loggers/SimpleUserLogger.php:1002
 msgctxt "User logger"
 msgid "Yes, email with account details was sent"
 msgstr "L’e-mail avec les détails du compte a bien été envoyé"
 
-#: loggers/SimpleUserLogger.php:962
+#: loggers/SimpleUserLogger.php:994
 msgctxt "User logger"
 msgid "User notification email sent"
 msgstr "E-mail de notification envoyé à l’utilisateur"
 
-#: loggers/SimpleUserLogger.php:940
+#: loggers/SimpleUserLogger.php:972
 msgctxt "User logger"
 msgid "Changed"
 msgstr "Modifié"
 
-#: loggers/SimpleUserLogger.php:939
+#: loggers/SimpleUserLogger.php:971
 msgctxt "User logger"
 msgid "Password"
 msgstr "Mot de passe"
 
-#: loggers/SimpleUserLogger.php:905
+#: loggers/SimpleUserLogger.php:876
 msgctxt "User logger"
 msgid "Role"
 msgstr "Rôle"
 
-#: loggers/SimpleUserLogger.php:902 loggers/SimpleUserLogger.php:959
+#: loggers/SimpleUserLogger.php:894 loggers/SimpleUserLogger.php:991
 msgctxt "User logger"
 msgid "Website"
 msgstr "Site web"
 
-#: loggers/SimpleUserLogger.php:899
+#: loggers/SimpleUserLogger.php:888
 msgctxt "User logger"
 msgid "Display name"
 msgstr "Nom affiché"
 
-#: loggers/SimpleUserLogger.php:895
+#: loggers/SimpleUserLogger.php:891
 msgctxt "User logger"
 msgid "Email"
 msgstr "E-mail"
 
-#: loggers/SimpleUserLogger.php:888
+#: loggers/SimpleUserLogger.php:906
 msgctxt "User logger"
 msgid "Jabber / Google Talk "
 msgstr "Jabber / Google Talk"
 
-#: loggers/SimpleUserLogger.php:885
+#: loggers/SimpleUserLogger.php:903
 msgctxt "User logger"
 msgid "Yahoo IM"
 msgstr "Yahoo IM"
 
-#: loggers/SimpleUserLogger.php:882
+#: loggers/SimpleUserLogger.php:900
 msgctxt "User logger"
 msgid "AIM"
 msgstr "AIM"
 
-#: loggers/SimpleUserLogger.php:879
+#: loggers/SimpleUserLogger.php:858
 msgctxt "User logger"
-msgid "Colour Scheme"
+msgid "Colour scheme"
 msgstr "Schéma de couleurs"
 
-#: loggers/SimpleUserLogger.php:875
-msgctxt "User logger"
-msgid "Show Toolbar"
-msgstr "Afficher la barre d’outils"
-
-#: loggers/SimpleUserLogger.php:871
+#: loggers/SimpleUserLogger.php:861
 msgctxt "User logger"
 msgid "Keyboard shortcuts"
 msgstr "Raccourcis clavier"
 
-#: loggers/SimpleUserLogger.php:867
+#: loggers/SimpleUserLogger.php:852
 msgctxt "User logger"
 msgid "Visual editor"
 msgstr "Éditeur visuel"
 
-#: loggers/SimpleUserLogger.php:863
+#: loggers/SimpleUserLogger.php:897
 msgctxt "User logger"
 msgid "Description"
 msgstr "Description"
 
-#: loggers/SimpleUserLogger.php:860
+#: loggers/SimpleUserLogger.php:885
 msgctxt "User logger"
 msgid "Nickname"
 msgstr "Surnom"
 
-#: loggers/SimpleUserLogger.php:857 loggers/SimpleUserLogger.php:956
+#: loggers/SimpleUserLogger.php:882 loggers/SimpleUserLogger.php:988
 msgctxt "User logger"
 msgid "Last name"
 msgstr "Nom"
 
-#: loggers/SimpleUserLogger.php:854 loggers/SimpleUserLogger.php:953
+#: loggers/SimpleUserLogger.php:879 loggers/SimpleUserLogger.php:985
 msgctxt "User logger"
 msgid "First name"
 msgstr "Prénom"
 
-#: loggers/SimpleUserLogger.php:594
+#: loggers/SimpleUserLogger.php:584
 msgid "Created user <a href=\"{edit_profile_link}\">{created_user_login} ({created_user_email})</a> with role {created_user_role}"
 msgstr "Création de l’utilisateur <a href=\"{edit_profile_link}\">{created_user_login} ({created_user_email})</a> avec le rôle {created_user_role}"
 
@@ -1087,19 +1183,19 @@ msgstr "Support"
 msgid "If you find Simple History useful please <a href=\"%1$s\">donate</a>."
 msgstr "Si vous trouvez Simple History utile, merci de <a href=\"%1$s\">faire un don</a>."
 
-#: loggers/SimpleUserLogger.php:27
+#: loggers/SimpleUserLogger.php:26
 msgid "Failed to login with username \"{failed_username}\" (username does not exist)"
 msgstr "Échec de connexion avec le nom d’utilisateur « {failed_username} » (nom d’utilisateur inconnu)"
 
-#: loggers/SimpleUserLogger.php:23
+#: loggers/SimpleUserLogger.php:22
 msgid "Failed to login with username \"{login}\" (incorrect password entered)"
 msgstr "Échec de connexion avec le nom d’utilisateur « {login} » (mot de passe incorrect)"
 
-#: loggers/SimpleUserLogger.php:20
+#: loggers/SimpleUserLogger.php:19
 msgid "Logs user logins, logouts, and failed logins"
 msgstr "Journaux de connexion des utilisateurs, et des connexions échouées"
 
-#: loggers/SimpleUserLogger.php:19
+#: loggers/SimpleUserLogger.php:18
 msgid "User Logger"
 msgstr "Utilisateur connecté"
 
@@ -1119,11 +1215,11 @@ msgstr "Terme « {term_name} » dans la taxonomie « {term_taxonomy} » ajou
 msgid "Categories Logger"
 msgstr "Catégories de connectés"
 
-#: loggers/SimpleUserLogger.php:44
+#: loggers/SimpleUserLogger.php:43
 msgid "Requested a password reset link for user with login '{user_login}' and email '{user_email}'"
 msgstr "Demande d’un lien de réinitialisation de mot de passe pour l’utilisateur avec l’identifiant de connexion « {user_login} » et l’e-mail « {user_email} »"
 
-#: loggers/SimpleUserLogger.php:43
+#: loggers/SimpleUserLogger.php:42
 msgid "Reset their password"
 msgstr "Mot de passe réinitialisé"
 
@@ -1138,6 +1234,11 @@ msgstr "Activer le flux RSS"
 #: dropins/SimpleHistoryRSSDropin.php:68
 msgid "Enable"
 msgstr "Permettre"
+
+#: dropins/SimpleHistoryFilterDropin.php:175
+msgctxt "Filter dropin: filter days"
+msgid "Last day"
+msgstr "Dernier jour"
 
 #: loggers/SimpleCoreUpdatesLogger.php:65
 msgid "WordPress database version updated to {new_version} from {prev_version}"
@@ -1201,93 +1302,93 @@ msgstr "Niveaux du journal"
 msgid "<b>%1$s rows</b> have been logged the last <b>%2$s days</b>"
 msgstr "<b>%1$s lignes</b> ont été enregistrés <b>les %2$s derniers jours</b>"
 
-#: loggers/SimpleUserLogger.php:580
+#: loggers/SimpleUserLogger.php:570
 msgid "Edited the profile for user <a href=\"{edit_profile_link}\">{edited_user_login} ({edited_user_email})</a>"
 msgstr "Profil de l’utilisateur <a href=\"{edit_profile_link}\">{edited_user_login} ({edited_user_email})</a> modifié"
 
-#: loggers/SimpleUserLogger.php:573
+#: loggers/SimpleUserLogger.php:563
 msgid "Edited your profile"
 msgstr "A édité votre profil"
 
-#: loggers/SimpleUserLogger.php:567
+#: loggers/SimpleUserLogger.php:557
 msgid "Edited <a href=\"{edit_profile_link}\">their profile</a>"
 msgstr "A modifié <a href=\"{edit_profile_link}\">leur profil</a>"
 
-#: loggers/SimpleUserLogger.php:565
+#: loggers/SimpleUserLogger.php:555
 msgid "Edited <a href=\"{edit_profile_link}\">your profile</a>"
 msgstr "A modifié <a href=\"{edit_profile_link}\">votre profil</a>"
 
-#: loggers/SimpleUserLogger.php:115
+#: loggers/SimpleUserLogger.php:101
 msgctxt "User logger: search"
 msgid "User deletions"
 msgstr "Suppressions d’utilisateur"
 
-#: loggers/SimpleUserLogger.php:112
+#: loggers/SimpleUserLogger.php:98
 msgctxt "User logger: search"
 msgid "User profile updates"
 msgstr "Profil utilisateur mis à jour"
 
-#: loggers/SimpleUserLogger.php:109
+#: loggers/SimpleUserLogger.php:95
 msgctxt "User logger: search"
 msgid "Created users"
 msgstr "Création d’utilisateurs"
 
-#: loggers/SimpleUserLogger.php:106
+#: loggers/SimpleUserLogger.php:92
 msgctxt "User logger: search"
 msgid "User logouts"
 msgstr "Déconnexions de l’utilisateur"
 
-#: loggers/SimpleUserLogger.php:102
+#: loggers/SimpleUserLogger.php:88
 msgctxt "User logger: search"
 msgid "Failed user logins"
 msgstr "Connexions échouées de l’utilisateur"
 
-#: loggers/SimpleUserLogger.php:98
+#: loggers/SimpleUserLogger.php:84
 msgctxt "User logger: search"
 msgid "Successful user logins"
 msgstr "Connexions réussies de l’utilisateur"
 
-#: loggers/SimpleUserLogger.php:96
+#: loggers/SimpleUserLogger.php:82
 msgctxt "User logger: search"
 msgid "All user activity"
 msgstr "Toutes les activités de l’utilisateur"
 
-#: loggers/SimpleUserLogger.php:95
+#: loggers/SimpleUserLogger.php:81
 msgctxt "User logger: search"
 msgid "Users"
 msgstr "Utilisateurs"
 
-#: loggers/SimpleUserLogger.php:64
+#: loggers/SimpleUserLogger.php:52
 msgctxt "User destroys all login sessions for a user"
 msgid "Logged out \"{user_display_name}\" from all sessions"
 msgstr "Déconnexion de « {user_display_name} » de toutes les sessions"
 
-#: loggers/SimpleUserLogger.php:55
+#: loggers/SimpleUserLogger.php:47
 msgctxt "User destroys other login sessions for themself"
 msgid "Logged out from all other sessions"
 msgstr "Déconnecté de toutes les autres sessions"
 
-#: loggers/SimpleUserLogger.php:42
+#: loggers/SimpleUserLogger.php:41
 msgid "Deleted user {deleted_user_login} ({deleted_user_email})"
 msgstr "Utilisateur supprimé {deleted_user_login} ({deleted_user_email})"
 
-#: loggers/SimpleUserLogger.php:38
+#: loggers/SimpleUserLogger.php:37
 msgid "Created user {created_user_login} ({created_user_email}) with role {created_user_role}"
 msgstr "Utilisateur {created_user_login} ({created_user_email}) créé avec le rôle {created_user_role}"
 
-#: loggers/SimpleUserLogger.php:34
-msgid "Edited the profile for user {edited_user_login} ({edited_user_email})"
-msgstr "Profil de l’utilisateur {edited_user_login} ({edited_user_email}) modifié"
-
 #: loggers/SimpleUserLogger.php:33
+msgid "Edited the profile for user \"{edited_user_login}\" ({edited_user_email})"
+msgstr "Profil du compte « {edited_user_login} » ({edited_user_email}) modifié"
+
+#: loggers/SimpleUserLogger.php:32
 msgid "Logged out"
 msgstr "Déconnecté"
 
-#: loggers/SimpleUserLogger.php:32
+#: loggers/SimpleUserLogger.php:31
 msgid "Unknown user logged in"
 msgstr "Utilisateur inconnu connecté"
 
-#: loggers/SimpleUserLogger.php:31
+#: loggers/SimpleUserLogger.php:30
 msgid "Logged in"
 msgstr "Connecté"
 
@@ -2505,6 +2606,12 @@ msgctxt "rss settings headline"
 msgid "RSS feed"
 msgstr "Flux RSS"
 
+#: dropins/SimpleHistoryNewRowsNotifier.php:93
+msgid "%s new event"
+msgid_plural "%s new events"
+msgstr[0] "1 nouvel évènement"
+msgstr[1] "%d nouveaux évènements"
+
 #: dropins/SimpleHistoryNewRowsNotifier.php:40
 msgctxt "New rows notifier: error while checking for new rows"
 msgid "An error occured while checking for new events"
@@ -2577,6 +2684,26 @@ msgstr "Afficher les options de recherche"
 #: dropins/SimpleHistoryFilterDropin.php:448
 msgid "Search events"
 msgstr "Rechercher un évènement"
+
+#: dropins/SimpleHistoryFilterDropin.php:203
+msgctxt "Filter dropin: filter days"
+msgid "Last 60 days"
+msgstr "Les 60 derniers jours"
+
+#: dropins/SimpleHistoryFilterDropin.php:196
+msgctxt "Filter dropin: filter days"
+msgid "Last 30 days"
+msgstr "Les 30 derniers jours"
+
+#: dropins/SimpleHistoryFilterDropin.php:189
+msgctxt "Filter dropin: filter days"
+msgid "Last 14 days"
+msgstr "Les 14 derniers jours"
+
+#: dropins/SimpleHistoryFilterDropin.php:182
+msgctxt "Filter dropin: filter days"
+msgid "Last 7 days"
+msgstr "Les 7 derniers jours"
 
 #: dropins/SimpleHistoryFilterDropin.php:157
 msgid "All dates"

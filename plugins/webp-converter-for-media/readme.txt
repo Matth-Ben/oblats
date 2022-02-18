@@ -23,7 +23,7 @@ This will be a profit both for your users who will not have to download so much 
 
 #### AVIF support
 
-Now you can use AVIF as the output format for your images. The AVIF format is a new extension - is the successor to WebP. It allows you to achieve even higher levels of image compression, and the quality of the converted images is better than in WebP.
+Now in the PRO version you can use AVIF as the output format for your images. The AVIF format is a new extension - is the successor to WebP. It allows you to achieve even higher levels of image compression, and the quality of the converted images is better than in WebP.
 
 #### How does this work?
 
@@ -108,7 +108,7 @@ If you get an error: `File "%s" is unreadable. Please check file permissions.` m
 
 If you get an error: `"%s" is not a valid image file.` means that the file is damaged in some way. Download the file to disk, save it again using any graphics program and add again to the page. If the error applies to individual images then you can ignore it - just the original images will load, not WebP.
 
-If you get an error: `"%s" converted to .webp is larger than original and has been deleted.` means the original image weighed less than WebP. This happens when images have been compressed before. Disable the *"Automatic removal of files in output formats larger than original"* option in plugin settings to force always using WebP.
+If you get an error: `Image "%s" converted to .webp is larger than original and converted .webp file has been deleted.` means the original image weighed less than WebP. This happens when images have been compressed before. Disable the *"Automatic removal of files in output formats larger than original"* option in plugin settings to force always using WebP.
 
 In the case of the above problems, **contacting the support forum will be useless**. Unfortunately, we are unable to help you if your files are damaged. You have to fix it yourself. If you have previously used other tools that changed the original files and damaged them, you will do nothing more.
 
@@ -242,17 +242,7 @@ If you would like to integrate with your plugin, which generates images by yours
 
 It is a solution for advanced users. If you would like to integrate with another plugin, it's best to contact the author of that plugin and give him information about the actions available in our plugin. This will help you find a solution faster.
 
-You can automatically run the option to regenerate all new images. This is useful when you use external plugins that generate images themselves. To do this, use the following code:
-
-`do_action( 'webpc_regenerate_all', $paths );`
-
-Below is an example of how to use this action to automatically regenerate images after changing the theme:
-
-`add_action('init', function() {
-	do_action( 'webpc_regenerate_all' );
-});`
-
-To manually start converting selected files, you can use the action to which you will pass an array with a list of paths *(they must be absolute server paths)*:
+You can manually run converting selected files, you can use the action to which you will pass an array with a list of paths *(they must be absolute server paths)*:
 
 `do_action( 'webpc_convert_paths', $paths );`
 
@@ -392,19 +382,22 @@ This is all very important to us and allows us to do even better things for you!
 
 == Changelog ==
 
-= 4.1.1 (2022-01-19) =
-* `[Fixed]` Loading images with special character in filename using Pass Thru method
-* `[Changed]` Error messages on plugin settings page
-* `[Added]` Value hiding for access token in plugin settings
+= 4.2.1 (2022-02-17) =
+* `[Fixed]` Cache settings for .htaccess rewrites
+* `[Added]` Limit for error messages displayed while converting
+* `[Added]` Support for plain permalink structure
 
-= 4.1.0 (2022-01-12) =
-* `[Fixed]` Auto-generation of rewrite rules for Multisite Network
-* `[Fixed]` Detection of server configuration error related to non-working rewrites
-* `[Fixed]` URL validation for Pass Thru loading mode
-* `[Fixed]` Verification of supported formats by Imagick
-* `[Changed]` Error messages on plugin settings page
-* `[Changed]` Styles for plugin settings page
-* `[Added]` Debug information about PHP configuration
+= 4.2.0 (2022-02-13) =
+* `[Removed]` Action `webpc_regenerate_all`
+* `[Fixed]` Issue with plugin settings after changing Gd or Imagick library configuration
+* `[Fixed]` Server configuration error detection when cURL is disabled
+* `[Fixed]` URL for the server configuration tab
+* `[Changed]` Automatically conversion of images after upload
+* `[Changed]` Automatically conversion of images from outside the Media Library
+* `[Changed]` Message for conversion error when converted file is larger than original
+* `[Added]` List of allowed file extensions for cache rules in .htaccess file
+* `[Added]` Status of automatic image conversion on the top bar in the WordPress Dashboard
+* `[Added]` Debug information about plugin settings
 
 See [changelog.txt](https://plugins.svn.wordpress.org/webp-converter-for-media/trunk/changelog.txt) for previous versions.
 

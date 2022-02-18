@@ -181,6 +181,12 @@ class Ai1wmue_Main_Controller {
 
 			// Settings
 			add_action( 'admin_post_ai1wmue_settings', 'Ai1wmue_Settings_Controller::settings' );
+
+			// Register stats collect actions if URL is defined
+			if ( defined( 'AI1WMUE_STATS_URL' ) ) {
+				add_action( 'ai1wm_status_export_done', 'Ai1wmue_Stats_Controller::export' );
+				add_action( 'ai1wm_status_import_done', 'Ai1wmue_Stats_Controller::import' );
+			}
 		}
 	}
 
