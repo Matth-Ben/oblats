@@ -13,16 +13,6 @@ body {
 * { box-sizing: border-box; }
 [data-router-view] { min-height: 100vh; }
 
-.panel {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: $white;
-  pointer-events: none;
-  z-index: $z-loader;
-}
 
 .b-gutenberg {
   &:first-child {
