@@ -79,6 +79,10 @@ form {
               color: $font-color;
             }
           }
+
+          select {
+            option { color: $black; }
+          }
         }
 
         &_error {
