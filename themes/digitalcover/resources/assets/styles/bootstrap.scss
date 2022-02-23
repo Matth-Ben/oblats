@@ -1,5 +1,5 @@
 @use "sass:math";
-@use "./mixins" as *;
+@use "./config" as *;
 
 .container {
   @each $breakpoint, $width in $container-max-widths {

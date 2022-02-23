@@ -13,7 +13,6 @@ body {
 * { box-sizing: border-box; }
 [data-router-view] { min-height: 100vh; }
 
-
 .b-gutenberg {
   &:first-child {
     margin-top: 30px;
@@ -32,3 +31,6 @@ body {
   }
 }
 
+section { height: 100vh; }
+
+.reel { background: lightblue; }
