@@ -25,5 +25,7 @@ export default class Block {
 
   scroll() {}
 
+  inView() {}
+
   update() {}
 }

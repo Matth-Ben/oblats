@@ -132,6 +132,14 @@ export default class Page extends Highway.Renderer {
     }
   }
 
+  inView(value, way, object) {
+    for (let i = 0; i < this.blocks.length; i++) {
+      for (let j = 0; j < this.blocks[i].instances.length; j++) {
+        if (this.blocks[i].instances[j].el === object.el) this.blocks[i].instances[j].class.inView(value, way, object)
+      }
+    }
+  }
+
   update() {
     if (this.blocks) {
       for (let i = 0; i < this.blocks.length; i++) {

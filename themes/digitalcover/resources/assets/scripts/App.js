@@ -165,8 +165,11 @@ export default class App {
     window.addEventListener('resize', this.resizeDebounced)
     window.addEventListener('orientationchange', this.resize)
 
-    if (App.globalData.smoothScroll) {
+    if (store.smoothScroll) {
       store.smoothScroll && store.smoothScroll.on('scroll', this.scroll)
+      store.smoothScroll.on('call', (value, way, object) => {
+        this.currentRenderer.inView(value, way, object)
+      })
     } else {
       window.addEventListener('scroll', this.scrollThrottled)
       window.addEventListener('scroll', this.scrollDebounced)
