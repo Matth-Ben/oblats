@@ -31,6 +31,7 @@ class Element extends Controller {
   /* Get the title and headings  */
   public static function title($data) {
     return [
+      'suptitle' => $data['suptitle'],
       'title' => $data['title'],
       'hn' => $data['hn']
     ];

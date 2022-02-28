@@ -123,6 +123,17 @@ function dc_allowed_block_types ($allowed_block_types, $editor_context) {
 add_filter( 'allowed_block_types_all', 'dc_allowed_block_types', 10, 2 );
 
 /**
+* Change slug to camel case
+*/
+function toCamelCase($string) {
+  return preg_replace_callback(
+    '/[-_](.)/',
+    function($matches) {
+      return strtoupper($matches[1]);
+    }, $string);
+}
+
+/**
 * Add a custom endpoint to access TwitterFeed data
 */
 // require_once dirname(__DIR__) . '/resources/TwitterFeed.php';
