@@ -3,16 +3,16 @@
 namespace WebpConverter\Notice;
 
 use WebpConverter\Service\OptionsAccessManager;
+use WebpConverter\Settings\Page\PageIntegration;
 
 /**
- * Supports notice displayed as thank you for using plugin.
+ * Supports notice asking to clear CDN cache for Cloudflare.
  */
-class ThanksNotice extends NoticeAbstract implements NoticeInterface {
+class CloudflareNotice extends NoticeAbstract implements NoticeInterface {
 
-	const NOTICE_OPTION      = 'webpc_notice_thanks';
-	const NOTICE_OLD_OPTION  = 'webpc_notice_hidden';
-	const NOTICE_VIEW_PATH   = 'components/notices/thanks.php';
-	const NOTICE_ACTION_NAME = 'webpc_notice_thanks';
+	const NOTICE_OPTION      = 'webpc_notice_cloudflare';
+	const NOTICE_VIEW_PATH   = 'components/notices/cloudflare.php';
+	const NOTICE_ACTION_NAME = 'webpc_notice_cloudflare';
 
 	/**
 	 * {@inheritdoc}
@@ -25,14 +25,19 @@ class ThanksNotice extends NoticeAbstract implements NoticeInterface {
 	 * {@inheritdoc}
 	 */
 	public function get_default_value(): string {
-		return (string) strtotime( '+ 1 week' );
+		return '';
 	}
 
 	/**
 	 * {@inheritdoc}
 	 */
 	public function is_available(): bool {
-		return ( basename( $_SERVER['PHP_SELF'] ) === 'index.php' ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput
+		$cdn_server = strtolower( $_SERVER['HTTP_CDN_LOOP'] ?? '' ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput
+		if ( $cdn_server !== 'cloudflare' ) {
+			return false;
+		}
+
+		return ( isset( $_GET['page'] ) && ( $_GET['page'] === PageIntegration::ADMIN_MENU_PAGE ) ); // phpcs:ignore WordPress.Security.NonceVerification
 	}
 
 	/**
@@ -40,15 +45,14 @@ class ThanksNotice extends NoticeAbstract implements NoticeInterface {
 	 */
 	public function is_active(): bool {
 		$option_value = OptionsAccessManager::get_option( $this->get_option_name() );
-		return ( ( $option_value !== null ) && ( $option_value < time() ) );
+		return ( $option_value !== 'yes' );
 	}
 
 	/**
 	 * {@inheritdoc}
 	 */
 	public function get_disable_value(): string {
-		$is_permanent = ( isset( $_REQUEST['is_permanently'] ) && $_REQUEST['is_permanently'] ); // phpcs:ignore
-		return (string) strtotime( ( $is_permanent ) ? '+1 year' : '+ 1 month' );
+		return 'yes';
 	}
 
 	/**

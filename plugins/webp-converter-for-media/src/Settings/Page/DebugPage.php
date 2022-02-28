@@ -59,7 +59,7 @@ class DebugPage extends PageAbstract {
 	public function show_page_view() {
 		$uploads_url  = apply_filters( 'webpc_dir_url', '', 'uploads' );
 		$uploads_path = apply_filters( 'webpc_dir_path', '', 'uploads' );
-		$ver_param    = sprintf( 'ver=%s', time() );
+		$ver_param    = time();
 
 		do_action( LoaderAbstract::ACTION_NAME, true, true );
 

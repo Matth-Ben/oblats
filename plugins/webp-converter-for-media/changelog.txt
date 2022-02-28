@@ -1,5 +1,14 @@
 == Changelog ==
 
+= 4.2.3 (2022-02-27) =
+* `[Fixed]` Closing of admin notice
+
+= 4.2.2 (2022-02-21) =
+* `[Changed]` Error message for bypassing_apache error in server configuration
+* `[Added]` Automatic continuation of conversion process after connection lost
+* `[Added]` ICC/ICM profile support for conversion using Imagick
+* `[Added]` Notification asking to clear cache for Cloudflare
+
 = 4.2.1 (2022-02-17) =
 * `[Fixed]` Cache settings for .htaccess rewrites
 * `[Added]` Limit for error messages displayed while converting

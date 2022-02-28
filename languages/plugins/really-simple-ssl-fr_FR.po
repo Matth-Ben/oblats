@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Really Simple SSL - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-01-10 20:08:22+0000\n"
+"PO-Revision-Date: 2022-02-24 13:16:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -868,7 +868,7 @@ msgstr "Après avoir terminé l’installation, vous pouvez passer à l’étape
 #: lets-encrypt/class-letsencrypt-handler.php:1098
 #: lets-encrypt/functions.php:393
 msgid "According to our information, your hosting provider supplies your account with an SSL certificate by default. Please contact your %shosting support%s if this is not the case."
-msgstr "D’après nos informations, votre votre fournisseur d’hébergement fournit à votre compte un certificat SSL par défaut. Veuillez contacter votre %ssupport pour l’hébergement%s si ce n’est pas le cas."
+msgstr "D’après nos informations, votre hébergeur fournit à votre compte un certificat SSL par défaut. Veuillez contacter votre %ssupport pour l’hébergement%s si ce n’est pas le cas."
 
 #: lets-encrypt/functions.php:389
 msgid "Go to installation"

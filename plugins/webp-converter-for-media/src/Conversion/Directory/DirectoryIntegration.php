@@ -148,7 +148,7 @@ class DirectoryIntegration implements HookableInterface {
 	 * @internal
 	 */
 	public function get_prefix_path(): string {
-		$document_root  = realpath( $_SERVER['DOCUMENT_ROOT'] ) ?: ''; // phpcs:ignore
+		$document_root  = preg_replace( '/(\/|\\\\)/', DIRECTORY_SEPARATOR, $_SERVER['DOCUMENT_ROOT'] ); // phpcs:ignore
 		$root_directory = $this->paths_generator->get_wordpress_root_path();
 		$diff_dir       = trim( str_replace( $document_root, '', $root_directory ), '\/' );
 		$diff_path      = sprintf( '/%s/', $diff_dir );
