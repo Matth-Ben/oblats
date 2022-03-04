@@ -8,7 +8,7 @@ const ESLintPlugin = require('eslint-webpack-plugin')
 const StyleLintPlugin = require('stylelint-webpack-plugin')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CopyPlugin = require("copy-webpack-plugin")
 
 const target = process.env.DEVURL || config.devUrl
 const assetsFilenames = config.enabled.cacheBusting ? config.cacheBusting : '[name]'
@@ -81,9 +81,15 @@ let webpackConfig = {
     ]
   },
   plugins: [
-    new CleanWebpackPlugin({
-      verbose: false
+    new CopyPlugin({
+      patterns: [
+        {
+          from: 'images/favicons',
+          to: 'images/favicons'
+        }
+      ]
     }),
+    new CleanWebpackPlugin({ verbose: false }),
     new HtmlWebpackPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.HotModuleReplacementPlugin(),
