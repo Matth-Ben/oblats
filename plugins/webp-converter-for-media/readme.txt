@@ -370,6 +370,9 @@ After making changes, remember to restart the machine: `systemctl restart nginx`
 
 == Changelog ==
 
+= 4.2.4 (2022-03-01) =
+* `[Fixed]` Generating paths for via .htaccess loading mode
+
 = 4.2.3 (2022-02-27) =
 * `[Fixed]` Closing of admin notice
 

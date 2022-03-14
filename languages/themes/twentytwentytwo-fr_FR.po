@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Themes - Twenty Twenty-Two package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-01-20 10:14:54+0000\n"
+"PO-Revision-Date: 2022-02-28 06:40:23+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -14,6 +14,19 @@ msgstr ""
 #. Theme Name of the theme
 msgid "Twenty Twenty-Two"
 msgstr "Twenty Twenty-Two"
+
+#. Description of the theme
+msgid "Built on a solidly designed foundation, Twenty Twenty-Two embraces the idea that everyone deserves a truly unique website. The theme’s subtle styles are inspired by the diversity and versatility of birds: its typography is lightweight yet strong, its color palette is drawn from nature, and its layout elements sit gently on the page. The true richness of Twenty Twenty-Two lies in its opportunity for customization. The theme is built to take advantage of the Full Site Editing features introduced in WordPress 5.9, which means that colors, typography, and the layout of every single page on your site can be customized to suit your vision. It also includes dozens of block patterns, opening the door to a wide range of professionally designed layouts in just a few clicks. Whether you’re building a single-page website, a blog, a business website, or a portfolio, Twenty Twenty-Two will help you create a site that is uniquely yours."
+msgstr "Construit sur une base solidement désignée, Twenty Twenty-Two embrasse l‘idée que tout le monde mérite un site vraiment unique. Les styles subtils du thème sont inspirés par la diversité et la polyvalence des oiseaux : sa typographie est légère mais forte, sa palette de couleurs est tirée de la nature et ses éléments de mise en page se positionnent doucement sur la page. La vraie richesse de Twenty Twenty-Two réside dans ses possibilités de personnalisation. Le thème est conçu pour tirer parti des fonctionnalités d'édition de site complète introduites dans WordPress 5.9, ce qui signifie que les couleurs, la typographie et la mise en page de chaque page de votre site peuvent être personnalisées en fonction de votre vision. Il comprend également des dizaines de compositions de blocs, ouvrant la porte à un large éventail de mises en page professionnels en quelques clics. Que vous construisiez un site d‘une seule page, un blog, un site web d‘entreprise ou un portfolio, Twenty Twenty-Two vous aidera à créer un site qui vous est propre."
+
+#: inc/patterns/hidden-404.php:14
+msgid "Search"
+msgstr "Rechercher"
+
+#: inc/patterns/hidden-404.php:14
+msgctxt "label"
+msgid "Search"
+msgstr "Rechercher"
 
 #: theme.json
 msgctxt "Template part name"
@@ -205,6 +218,26 @@ msgstr "<em>Observation des oiseaux </em><br><em>dans le jardin</em>"
 msgid "Page layout with image and text"
 msgstr "Mise en page avec image et texte"
 
+#: inc/patterns/page-about-solid-color.php:14
+msgid "Edvard<br>Smith"
+msgstr "Edvard<br>Smith"
+
+#: inc/patterns/page-about-simple-dark.php:18
+msgid "Jesús<br>Rodriguez"
+msgstr "Jesús<br>Rodriguez"
+
+#: inc/patterns/page-about-media-right.php:16
+msgid "Emery<br>Driscoll"
+msgstr "Emery<br>Driscoll"
+
+#: inc/patterns/page-about-media-left.php:17
+msgid "Stilton"
+msgstr "Stilton"
+
+#: inc/patterns/page-about-media-left.php:17
+msgid "Doug"
+msgstr "Doug"
+
 #: inc/patterns/page-about-links.php:21
 msgid "A podcast about birds"
 msgstr "Un podcast sur les oiseaux"
@@ -259,13 +292,29 @@ msgstr "404"
 msgid "Header with tagline"
 msgstr "En-tête avec slogan"
 
+#: inc/patterns/header-stacked.php:6
+msgid "Logo and navigation header"
+msgstr "Logo et en-tête de navigation"
+
 #: inc/patterns/header-default.php:6
 msgid "Default header"
 msgstr "En-tête par défaut"
 
+#: inc/patterns/header-centered-logo.php:6
+msgid "Header with centered logo"
+msgstr "En-tête avec logo centré"
+
+#: inc/patterns/general-wide-image-intro-buttons.php:16
+msgid "Welcome to<br>the Aviary"
+msgstr "Bienvenue à<br>la Volière"
+
 #: inc/patterns/general-video-header-details.php:35
 msgid "Jesús Rodriguez<br>Doug Stilton<br>Emery Driscoll<br>Megan Perry<br>Rowan Price"
 msgstr "Jesús Rodriguez<br>Doug Stilton<br>Emery Driscoll<br>Megan Perry<br>Rowan Price"
+
+#: inc/patterns/general-video-header-details.php:29
+msgid "Featuring"
+msgstr "Avec"
 
 #: inc/patterns/general-video-header-details.php:6
 msgid "Video with header and details"
@@ -320,6 +369,11 @@ msgstr "Amy Jensen"
 msgid "May 18th, 2022, 7 PM"
 msgstr "18 mai 2022, 19h"
 
+#: inc/patterns/general-list-events.php:61
+#: inc/patterns/general-list-events.php:109
+msgid "The Swell Theater<br>120 River Rd.<br>Rainfall, NH"
+msgstr "Le théâtre Swell<br>120 River Rd.<br>Rainfall, NH"
+
 #: inc/patterns/general-list-events.php:55
 msgid "Doug Stilton"
 msgstr "Doug Stilton"
@@ -327,6 +381,11 @@ msgstr "Doug Stilton"
 #: inc/patterns/general-list-events.php:49
 msgid "May 16th, 2022, 6 PM"
 msgstr "16 mai 2022, 18h"
+
+#: inc/patterns/general-list-events.php:37
+#: inc/patterns/general-list-events.php:85
+msgid "The Vintagé Theater<br>245 Arden Rd.<br>Gardenville, NH"
+msgstr "Le théâtre Vintagé<br>245 Arden Rd.<br>Gardenville, NH"
 
 #: inc/patterns/general-list-events.php:31
 msgid "Jesús Rodriguez"
@@ -357,6 +416,10 @@ msgstr "Illustration de colibri"
 msgid "Image with caption"
 msgstr "Image avec légende"
 
+#: inc/patterns/footer-social-copyright.php:6
+msgid "Footer with social links and copyright"
+msgstr "Pied de page avec liens sociaux et copyright"
+
 #: inc/patterns/footer-query-title-citation.php:6
 msgid "Footer with query, title, and citation"
 msgstr "Pied de page avec requête, titre et citation"
@@ -369,6 +432,10 @@ msgstr "Pied de page avec navigation et citation"
 #: inc/patterns/footer-social-copyright.php:24
 msgid "© Site Title"
 msgstr "© Titre du site"
+
+#: inc/patterns/footer-navigation-copyright.php:6
+msgid "Footer with navigation and copyright"
+msgstr "Pied de page avec navigation et copyright"
 
 #: inc/patterns/footer-logo.php:6
 msgid "Footer with logo and citation"
@@ -521,6 +588,206 @@ msgstr "Séparateur avec image et couleur (sombre)"
 msgid "Sparrow"
 msgstr "Moineau"
 
+#: inc/patterns/general-large-list-names.php:21
+msgid "Jesús Rodriguez, Doug Stilton, Emery Driscoll, Megan Perry, Rowan Price, Angelo Tso, Edward Stilton, Amy Jensen, Boston Bell, Shay Ford, Lee Cunningham, Evelynn Ray, Landen Reese, Ewan Hart, Jenna Chan, Phoenix Murray, Mel Saunders, Aldo Davidson, Zain Hall."
+msgstr "Jesús Rodriguez, Doug Stilton, Emery Driscoll, Megan Perry, Rowan Price, Angelo Tso, Edward Stilton, Amy Jensen, Boston Bell, Shay Ford, Lee Cunningham, Evelynn Ray, Landen Reese, Ewan Hart, Jenna Chan, Phoenix Murray, Mel Saunders, Aldo Davidson, Zain Hall."
+
+#: inc/patterns/general-video-header-details.php:41
+msgid "Angelo Tso<br>Edward Stilton<br>Amy Jensen<br>Boston Bell<br>Shay Ford"
+msgstr "Angelo Tso<br>Edward Stilton<br>Amy Jensen<br>Boston Bell<br>Shay Ford"
+
+#: inc/patterns/query-default.php:6
+msgid "Default posts"
+msgstr "Articles par défaut"
+
+#: inc/patterns/query-grid.php:6
+msgid "Grid of posts"
+msgstr "Grilles d‘articles"
+
+#: inc/patterns/query-irregular-grid.php:6
+msgid "Irregular grid of posts"
+msgstr "Grille irrégulière d‘articles"
+
+#: inc/patterns/footer-about-title-logo.php:17 inc/patterns/footer-blog.php:17
+msgid "We are a rogue collective of bird watchers. We’ve been known to sneak through fences, climb perimeter walls, and generally trespass in order to observe the rarest of birds."
+msgstr "Nous sommes un collectif d‘observateurs d‘oiseaux filous. Nous sommes connus pour nous faufiler à travers les clôtures, escalader les murs d‘enceinte et généralement nous infiltrer afin d‘observer les oiseaux les plus rares."
+
+#: inc/patterns/general-layered-images-with-duotone.php:10
+#: inc/patterns/page-sidebar-blog-posts-right.php:58
+msgid "Illustration of a flying bird."
+msgstr "Illustration d‘un oiseau en vol."
+
+#: inc/patterns/general-layered-images-with-duotone.php:9
+#: inc/patterns/header-image-background-overlay.php:11
+msgid "Painting of ducks in the water."
+msgstr "Peinture de canards dans l‘eau."
+
+#: inc/patterns/general-large-list-names.php:30
+msgid "Read more"
+msgstr "En savoir plus"
+
+#: inc/patterns/general-image-with-caption.php:15
+msgid "A beautiful bird featuring a surprising set of color feathers."
+msgstr "Un bel oiseau doté d‘un surprenant ensemble de plumes colorées."
+
+#: inc/patterns/page-about-solid-color.php:6
+msgid "About page on solid color background"
+msgstr "Page À propos avec une couleur d‘arrière-plan unie"
+
+#: inc/patterns/page-about-simple-dark.php:6
+msgid "Simple dark about page"
+msgstr "Page À propos simple et sombre"
+
+#: inc/patterns/page-about-media-right.php:9
+msgid "An image of a bird flying"
+msgstr "Une image d‘un oiseau en vole"
+
+#: inc/patterns/page-about-media-left.php:9
+#: inc/patterns/page-sidebar-poster.php:26
+msgid "Image of a bird on a branch"
+msgstr "Image d‘un oiseau sur une branche"
+
+#: inc/patterns/page-about-links.php:6
+msgid "About page links"
+msgstr "Liens de la page À propos"
+
+#: inc/patterns/page-about-links-dark.php:42
+#: inc/patterns/page-about-links.php:46
+msgid "About the hosts"
+msgstr "À propos des hébergeurs"
+
+#: inc/patterns/header-small-dark.php:6
+msgid "Small header with dark background"
+msgstr "Petit en-tête avec un arrière-plan sombre"
+
+#: inc/patterns/header-large-dark.php:24
+#: inc/patterns/hidden-heading-and-bird.php:14
+msgid "<em>The Hatchery</em>: a blog about my adventures in bird watching"
+msgstr "<em>The Hatchery</em> : un blog sur mes aventures dans l‘observation des oiseaux"
+
+#: inc/patterns/general-wide-image-intro-buttons.php:31
+msgid "Learn More"
+msgstr "En savoir plus"
+
+#: inc/patterns/general-video-trailer.php:6
+msgid "Video trailer"
+msgstr "Bande-annonce vidéo"
+
+#: inc/patterns/page-about-solid-color.php:22
+msgid "Oh hello. My name’s Edvard, and you’ve found your way to my website. I’m an avid bird watcher, and I also broadcast my own radio show every Tuesday evening at 11PM EDT. Listen in sometime!"
+msgstr "Bonjour. Je m‘appelle Edvard, et vous avez trouvé le chemin de mon site. Je suis un observateur d‘oiseaux passionné et je diffuse également ma propre émission de radio tous les mardis soirs à 23 heures. Écoutez-moi un jour !"
+
+#: inc/patterns/page-about-simple-dark.php:22
+msgid "Oh hello. My name’s Jesús, and you’ve found your way to my website. I’m an avid bird watcher, and I also broadcast my own radio show on Tuesday evenings at 11PM EDT."
+msgstr "Bonjour. Je m‘appelle Jesús, et vous avez trouvé le chemin de mon site. Je suis un observateur d‘oiseaux passionné et je diffuse également ma propre émission de radio tous les mardis soirs à 23 heures."
+
+#: inc/patterns/page-about-media-right.php:20
+msgid "Oh hello. My name’s Emery, and you’ve found your way to my website. I’m an avid bird watcher, and I also broadcast my own radio show on Tuesday evenings at 11PM EDT."
+msgstr "Bonjour. Je m‘appelle Emery, et vous avez trouvé le chemin de mon site. Je suis un observateur d‘oiseaux passionné et je diffuse également ma propre émission de radio tous les mardis soirs à 23 heures. Écoutez-moi un jour !"
+
+#: inc/patterns/page-about-media-right.php:6
+msgid "About page with media on the right"
+msgstr "Page À propos avec les médias sur la droite"
+
+#: inc/patterns/page-about-media-left.php:21
+msgid "Oh hello. My name’s Doug, and you’ve found your way to my website. I’m an avid bird watcher, and I also broadcast my own radio show on Tuesday evenings at 11PM EDT."
+msgstr "Bonjour. Je m‘appelle Doug, et vous avez trouvé le chemin de mon site. Je suis un observateur d‘oiseaux passionné et je diffuse également ma propre émission de radio tous les mardis soirs à 23 heures. Écoutez-moi un jour !"
+
+#: inc/patterns/page-about-large-image-and-buttons.php:6
+msgid "About page with large image and buttons"
+msgstr "Page À propos avec une grande image et des boutons"
+
+#: inc/patterns/page-about-large-image-and-buttons.php:59
+msgid "Join my mailing list"
+msgstr "Rejoindre ma liste d’e-mails"
+
+#: inc/patterns/hidden-bird.php:9 inc/patterns/hidden-heading-and-bird.php:10
+msgid "Heading and bird image"
+msgstr "Titre et image d‘oiseau"
+
+#: inc/patterns/hidden-404.php:12
+msgid "This page could not be found. Maybe try a search?"
+msgstr "Cette page n‘a pas pu être trouvée. Essayez peut-être une recherche ?"
+
+#: inc/patterns/header-image-background.php:11
+msgid "Illustration of a flying bird"
+msgstr "Illustration d‘un oiseau en vol"
+
+#: inc/patterns/header-centered-logo-black-background.php:6
+msgid "Header with centered logo and black background"
+msgstr "En-tête avec logo centré et arrière-plan noir"
+
+#: inc/patterns/general-wide-image-intro-buttons.php:6
+msgid "Wide image with introduction and buttons"
+msgstr "Grande image avec introduction et boutons"
+
+#: inc/patterns/general-two-images-text.php:17
+#: inc/patterns/general-wide-image-intro-buttons.php:10
+#: inc/patterns/header-large-dark.php:29 inc/patterns/header-small-dark.php:25
+#: inc/patterns/hidden-bird.php:12 inc/patterns/hidden-heading-and-bird.php:19
+msgid "Illustration of a bird flying."
+msgstr "Illustration d‘un oiseau en vol."
+
+#: inc/patterns/general-pricing-table.php:51
+msgid "Join at the Sparrow level and become a member of our flock! You’ll receive our newsletter, plus a bird pin that you can wear with pride when you’re out in nature."
+msgstr "Adhérez au niveau Moineau et devenez membre de notre communauté ! Vous recevrez notre bulletin newsletter, ainsi qu‘un magnifique pin‘s d‘oiseau que vous pourrez porter fièrement lorsque vous serez dans la nature."
+
+#: inc/patterns/general-pricing-table.php:23
+msgid "Help support our growing community by joining at the Pigeon level. Your support will help pay our writers, and you’ll get access to our exclusive newsletter."
+msgstr "Aidez à soutenir notre communauté grandissante en adhérant au niveau Pigeon. Vous aiderez à payer notre équipe rédactionnelle et vous aurez accès à notre newsletter exclusive."
+
+#: inc/patterns/general-pricing-table.php:28
+msgid "$25"
+msgstr "25 €"
+
+#: inc/patterns/general-pricing-table.php:56
+msgid "$75"
+msgstr "75 €"
+
+#: inc/patterns/general-pricing-table.php:84
+msgid "$150"
+msgstr "150 €"
+
+#: inc/patterns/general-pricing-table.php:79
+msgid "Play a leading role for our community by joining at the Falcon level. This level earns you a seat on our board, where you can help plan future birdwatching expeditions."
+msgstr "Jouez un rôle de premier plan pour notre communauté en adhérant au niveau Faucon. Ce niveau vous donnera accès à notre conseil d‘administration, où vous pourrez aider à planifier les futures expéditions d‘observation des oiseaux."
+
+#: inc/patterns/general-subscribe.php:11
+msgid "Watch birds<br>from your inbox"
+msgstr "Observez les oiseaux<br>depuis votre boite de réception"
+
+#: inc/patterns/general-subscribe.php:16
+msgid "Join our mailing list"
+msgstr "Rejoindre notre liste d’e-mails"
+
+#: inc/patterns/general-two-images-text.php:11
+msgid "Illustration of a bird sitting on a branch."
+msgstr "Illustration d‘un oiseau assis sur une branche."
+
+#: inc/patterns/general-divider-light.php:6
+msgid "Divider with image and color (light)"
+msgstr "Séparateur avec image et couleur (clair)"
+
+#: inc/patterns/footer-query-images-title-citation.php:6
+msgid "Footer with query, featured images, title, and citation"
+msgstr "Pied de page avec requête, images mises en avant, titre et citation"
+
+#: inc/patterns/page-about-links-dark.php:6
+msgid "About page links (dark)"
+msgstr "Liens de la page À propos (sombre)"
+
+#: inc/patterns/header-large-dark.php:6
+msgid "Large header with dark background"
+msgstr "Grand en-tête avec arrière-plan sombre"
+
+#: inc/patterns/page-about-large-image-and-buttons.php:33
+msgid "Take a class"
+msgstr "Prendre un cours"
+
+#. Theme URI of the theme
+msgid "https://wordpress.org/themes/twentytwentytwo/"
+msgstr "https://fr.wordpress.org/themes/twentytwentytwo/"
+
 #. Author of the theme
 msgid "the WordPress team"
 msgstr "L’équipe WordPress"
@@ -528,7 +795,3 @@ msgstr "L’équipe WordPress"
 #. Author URI of the theme
 msgid "https://wordpress.org/"
 msgstr "https://fr.wordpress.org/"
-
-#. Theme URI of the theme
-msgid "https://github.com/wordpress/twentytwentytwo/"
-msgstr "https://github.com/wordpress/twentytwentytwo/"
