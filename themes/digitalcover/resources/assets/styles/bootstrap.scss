@@ -2,6 +2,8 @@
 @use "./config" as *;
 
 .container {
+  width: 100%;
+
   @each $breakpoint, $width in $container-max-widths {
     @include media-breakpoint-up($breakpoint) {
       max-width: $width;
@@ -10,7 +12,6 @@
 
   &,
   &-fluid {
-    width: 100%;
     padding-left: math.div($grid-gutter-width, 2) + px;
     padding-right: math.div($grid-gutter-width, 2) + px;
     margin-left: auto;
@@ -18,6 +19,7 @@
   }
 
   &-fluid {
+    width: 100vw;
     max-width: 1920px;
 
     @include media-breakpoint-down(md) {
