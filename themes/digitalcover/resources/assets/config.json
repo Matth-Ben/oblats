@@ -17,7 +17,7 @@
   "publicPath": "/wp-content/themes/digitalcover",
   "devUrl": "http://starter-dc.localhost",
   "proxyUrl": "http://localhost:3000",
-  "cacheBusting": "[name]_[hash:8]",
+  "cacheBusting": "[name]",
   "watch": [
     "app/**/*.php",
     "config/**/*.php",
