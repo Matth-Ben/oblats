@@ -12,12 +12,20 @@
 //     );
 // }
 
-function my_acf_block_render_callback($block)
+function my_acf_block_render_callback($block, $content = '', $is_preview = false)
 {
+  /**
+   * Back-end preview
+   */
   $slug = str_replace('acf/', '', $block['name']);
-  $block['slug'] = $slug;
-  $block['classes'] = implode(' ', [$block['slug'], $block['align']]);
-  echo \App\template("blocks/${slug}", ['block' => $block]);
+
+  if ($is_preview && array_key_exists('preview_image', $block['data'])) {
+    echo '<img src="'. get_template_directory_uri() . "/assets/images/acf-block/${slug}.png" .'">';
+    return;
+  } else {
+    echo \App\template("blocks/${slug}", ['block' => $block]);
+    return;
+  }
 }
 
 add_action('acf/init', function () {
@@ -33,7 +41,7 @@ add_action('acf/init', function () {
           'category' => 'Category',
           'icon' => 'Icon',
           'post-type' => 'Post-type',
-          'keywords' => 'Keywords',
+          'keywords' => 'Keywords'
         ]);
         if (empty($file_headers['title'])) {
           die(_e('This block needs a title: ' . $file_path));
@@ -41,18 +49,36 @@ add_action('acf/init', function () {
         if (empty($file_headers['category'])) {
           die(_e('This block needs a category: ' . $file_path));
         }
-        
+
         $datas = [
           'name' => $slug,
           'title' => $file_headers['title'],
           'description' => $file_headers['description'],
           'category' => $file_headers['category'],
-          'icon' => $file_headers['icon'],
+          'icon' => array(
+            'background' => '#000',
+            'foreground' => '#bda67f',
+            'src' => $file_headers['icon'],
+            ),
           'keywords' => explode(' ', $file_headers['keywords']),
           'post_types' => explode(' ', $file_headers['post-type']),
+          'mode' => 'edit',
+          'supports' => array(
+              'align' => false,
+              'mode' => true,
+              'jsx' => false
+          ),
           'render_callback'  => 'my_acf_block_render_callback',
+          'example' => array(
+            'attributes' => array(
+              'mode' => 'preview',
+              'data' => array(
+                  'preview_image' => '<img src="'. get_template_directory_uri() . "/assets/images/acf-block/${slug}.png" .'">',
+              )
+            ),
+          ),
         ];
-        
+
         acf_register_block($datas);
       }
     }
