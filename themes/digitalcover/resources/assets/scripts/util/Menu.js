@@ -18,10 +18,6 @@ export default class Menu {
     this.toggler && this.toggler.addEventListener('click', this.toggle)
   }
 
-  /**
-  * Toggle Menu to open or close it
-  * @returns {any} null
-  */
   toggle() {
     if (this.isAnimating) return
 
@@ -29,10 +25,6 @@ export default class Menu {
     else this.open()
   }
 
-  /**
-  * Open Menu
-  * @returns {Promise} return Promise when open animation end
-  */
   open() {
     return new Promise((resolve) => {
       this.menuOpen = true
@@ -40,10 +32,6 @@ export default class Menu {
     })
   }
 
-  /**
-  * Close Menu
-  * @returns {Promise} return Promise when close animation end
-  */
   close() {
     return new Promise((resolve) => {
       this.menuOpen = false
