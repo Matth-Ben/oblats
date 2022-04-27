@@ -115,6 +115,7 @@ function dc_allowed_block_types ($allowed_block_types, $editor_context) {
         'core/paragraph',
         'core/heading',
         'core/list',
+        'core/image',
         'core/columns'
     ];
 
