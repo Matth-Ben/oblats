@@ -1,6 +1,8 @@
 <?php
 
-include "admin/tinymce-insert-li/insert-lorem-ipsum.php";
+if (is_admin()) {
+    include "admin/tinymce-insert-li/insert-lorem-ipsum.php";
+}
 
 if (function_exists('acf_add_options_page')) {
   acf_add_options_page();
