@@ -103,8 +103,7 @@ export default class App {
   checkMobile() {
     store.isMobile && document.body.classList.remove('isMobile')
     store.isMobile && document.documentElement.classList.remove('isMobile')
-    /* eslint-disable */
-    store.isMobile = (/Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))
+    store.isMobile = (/Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i).test(navigator.userAgent)
     store.isMobile && document.body.classList.add('isMobile')
     store.isMobile && document.documentElement.classList.add('isMobile')
   }
@@ -176,7 +175,9 @@ export default class App {
     }
 
     App.Highway.on('NAVIGATE_IN', () => {
-      this.setCurrentRenderer().then((renderer) => { document.title = renderer.properties.page.title })
+      this.setCurrentRenderer().then((renderer) => {
+        document.title = renderer.properties.page.title
+      })
     })
 
     App.Highway.on('NAVIGATE_END', ({ to, location }) => {
@@ -226,8 +227,9 @@ export default class App {
       if (validate) anchor = 'gform_confirmation_message_' + bodyClassSubmit.split('-')[1]
       else if (error) anchor = 'gform_wrapper_' + bodyClassSubmit.split('-')[1]
     } else {
-      const idx = window.location.href.indexOf("#")
-      if (idx != -1) anchor = window.location.href.substring(idx + 1 )
+      const idx = window.location.href.indexOf('#')
+
+      if (idx !== -1) anchor = window.location.href.substring(idx + 1)
     }
 
     if (anchor) {
@@ -239,6 +241,7 @@ export default class App {
           store.smoothScroll.update()
         } else {
           const elRect = el.getBoundingClientRect()
+
           window.scrollTo(0, elRect.top)
         }
       }
