@@ -70,7 +70,7 @@ export default class Page extends Highway.Renderer {
   }
 
   initBlocks() {
-    store.isMobile && (this.blockList = this.blockList.filter((e) => e.mobile !== false))
+    store.detect.isMobile && (this.blockList = this.blockList.filter((e) => e.mobile !== false))
 
     for (let i = 0; i < this.blockList.length; i++) {
       const foundBlocks = this.view.querySelectorAll('.' + this.blockList[i].name)

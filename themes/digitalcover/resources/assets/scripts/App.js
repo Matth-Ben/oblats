@@ -51,7 +51,6 @@ export default class App {
       pixelRatio: Math.min(window.devicePixelRatio, 2)
     }
 
-    this.checkMobile()
     this.start()
   }
 
@@ -98,14 +97,6 @@ export default class App {
       passive: true,
       inertia: 1.0
     })
-  }
-
-  checkMobile() {
-    store.isMobile && document.body.classList.remove('isMobile')
-    store.isMobile && document.documentElement.classList.remove('isMobile')
-    store.isMobile = (/Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i).test(navigator.userAgent)
-    store.isMobile && document.body.classList.add('isMobile')
-    store.isMobile && document.documentElement.classList.add('isMobile')
   }
 
   /**
