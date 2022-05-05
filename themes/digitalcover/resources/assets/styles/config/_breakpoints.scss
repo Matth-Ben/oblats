@@ -1,5 +1,6 @@
 $grid-columns: 24;
 $grid-gutter-width: 10;
+$gutter-size: $grid-gutter-width * 1px;
 
 $grid-breakpoints: (
   xxs: 0,
