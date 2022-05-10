@@ -79,6 +79,7 @@ function gti_page()
 
 function gti_update()
 {
+    $empty = false;
     if (empty($_POST['clientid']) || empty($_POST['userid']) || empty($_POST['accesstoken'])) $empty = true;
     if (!$empty) {
         update_option('clientid', $_POST['clientid']);
