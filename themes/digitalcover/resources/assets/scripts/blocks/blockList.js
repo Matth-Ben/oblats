@@ -1,18 +1,18 @@
-/* eslint-disable lines-around-comment */
 /* eslint-disable no-inline-comments */
-import SocialMedia from './SocialMedia'
-import Video from './Video'
-/* generated script here */
-
 const blockList = [
   {
     name: 'social-media',
-    Class: SocialMedia
+    fileName: 'SocialMedia'
     // mobile: false
+    // hasMobileBlock: false
   },
   {
     name: 'c-video',
-    Class: Video
+    fileName: 'Video'
+  },
+  {
+    name: 'instafeed',
+    fileName: 'InstaFeed'
   }/* generated class */
 ]
 

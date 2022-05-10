@@ -80,13 +80,18 @@ export default class Page extends Highway.Renderer {
       }
 
       for (let j = 0; j < foundBlocks.length; j++) {
-        const instance = {
-          el: foundBlocks[j],
-          class: new this.blockList[i].Class(foundBlocks[j])
-        }
+        const { fileName, hasMobileBlock } = this.blockList[i]
+        const file = store.detect.isMobile && hasMobileBlock ? 'mobile/' + fileName : fileName
 
-        block.instances.push(instance)
+        // eslint-disable-next-line no-loop-func
+        import('../blocks/' + file).then(({ default: BlockInstance }) => {
+          block.instances.push({
+            el: foundBlocks[j],
+            class: new BlockInstance(foundBlocks[j])
+          })
+        })
       }
+
       this.blocks.push(block)
     }
   }
