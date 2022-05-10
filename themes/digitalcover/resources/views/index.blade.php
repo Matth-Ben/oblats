@@ -4,6 +4,7 @@
   <div data-router-view="page">
     <div class="news">
       <div class="news__posts">
+        {!! $content !!}
         @while(have_posts()) @php the_post() @endphp
 
         @endwhile

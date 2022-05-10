@@ -10,6 +10,7 @@ class App extends Controller
   public function __construct() {
     $GLOBALS['options'] = $this->options();
     $GLOBALS['navigation'] = $this->menu();
+    $GLOBALS['page-for-posts'] = get_option('page_for_posts');
   }
 
   public static function formSubmit() {
