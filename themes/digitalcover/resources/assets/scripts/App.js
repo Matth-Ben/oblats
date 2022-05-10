@@ -169,6 +169,8 @@ export default class App {
       this.setCurrentRenderer().then((renderer) => {
         document.title = renderer.properties.page.title
       })
+
+      this.lazyLoad.update()
     })
 
     App.Highway.on('NAVIGATE_END', ({ to, location }) => {
@@ -181,8 +183,6 @@ export default class App {
 
       this.checkAnchor(location)
       listen({ el: to.view })
-
-      this.lazyLoad.update()
 
       if (!App.globalData.smoothScroll) {
         this.DOMObserver = null
