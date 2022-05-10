@@ -50,6 +50,11 @@
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="application-name" content="">
   <meta name="theme-color" content="#ffffff">
+  <script>
+    window.ClientId = {!! get_option('clientid') !!}
+    window.UserId = {!! get_option('userid') !!}
+    window.AccessToken = {!! get_option('accesstoken') !!}
+  </script>
 
   @php wp_head() @endphp
 
