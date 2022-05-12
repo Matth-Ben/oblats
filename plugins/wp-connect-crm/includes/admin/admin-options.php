@@ -19,15 +19,6 @@ function display_options() {
   <?php
 }
 
-function get_api_key() {
-  global $wpdb;
-
-  $query = "SELECT meta_value FROM wp_ctcrm_options WHERE meta_key = 'api_key'";
-  $query_results = $wpdb->get_results($query);
-
-  return $query_results[0]->meta_value;
-}
-
 function check_api_key_not_empty() {
   if (!empty($_POST)) {
     global $wpdb;

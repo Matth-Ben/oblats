@@ -1,5 +1,14 @@
 <?php
 
+function get_api_key() {
+  global $wpdb;
+
+  $query = "SELECT meta_value FROM wp_ctcrm_options WHERE meta_key = 'api_key'";
+  $query_results = $wpdb->get_results($query);
+
+  return $query_results[0]->meta_value;
+}
+
 function unaccent($str) {
   $transliteration = [
     'Ĳ' => 'I','Ö' => 'O','Œ' => 'O','Ü' => 'U','ä' => 'a','æ' => 'a',
