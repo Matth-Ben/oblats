@@ -48,11 +48,10 @@ function gti_page()
     setlocale(LC_TIME, 'fr_FR');
     date_default_timezone_set('Europe/Paris');
     $date_now = get_option('api_generate_token_date');
-    $lifedate = strtotime('+60 days', strtotime($date_now));
-    $newdate = date('d/m/Y', $lifedate);
+    $lifedate = date_interval_create_from_date_string('60 days');
 
     $current_date = date_create_from_format('d/m/Y', $date_now);
-    $end_date = date_create_from_format('d/m/Y', $newdate);
+    $end_date = date_add(date_create_from_format('d/m/Y', $date_now), $lifedate);
     $datediff = date_diff($current_date, $end_date);
 
     echo '<h1>Generator token Instagram</h1>';
@@ -71,7 +70,7 @@ function gti_page()
     </div>';
     echo '<a href="?page=generator-token-instagram&token=true">Réinitialiser le token</a>';
     echo '<div>Dernière réinitialisation : ' . get_option('api_generate_token_date') . '</div>';
-    echo '<div>Date de fin : ' . $newdate . '</div>';
+    echo '<div>Date de fin : ' . $end_date->format('d/m/Y') . '</div>';
     echo '<div>Il reste : ' . $datediff->days . ' jours</div>';
     submit_button();
     echo '</form>';
