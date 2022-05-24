@@ -48,12 +48,15 @@
   <meta name="msapplication-square310x310logo" content="@asset('images/favicons/ms-icon-310x310.png')">
   <link rel="manifest" href="@asset('images/favicons/manifest.json')">
   <meta name="msapplication-TileColor" content="#ffffff">
-  <meta name="application-name" content="">
-  <meta name="theme-color" content="#ffffff">
+  <meta name="msapplication-TileImage" content="@asset('images/favicons/ms-icon-144x144.png')">
+  <meta name="theme-color" content="#090909">
   <script>
     window.ClientId = {!! get_option('clientid') !!}
     window.UserId = {!! get_option('userid') !!}
     window.AccessToken = {!! json_encode(get_option('accesstoken')) !!}
+  </script>
+  <script>
+    if ('serviceWorker' in navigator) navigator.serviceWorker.register('{{ get_home_url() }}/wp-content/themes/digitalcover/service-worker.js');
   </script>
 
   @php wp_head() @endphp
