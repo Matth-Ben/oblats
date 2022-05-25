@@ -32,6 +32,7 @@
     "lint:scripts": "eslint resources/assets/scripts resources/assets/build",
     "lint:styles": "stylelint \"resources/assets/styles/**/*.{css,sass,scss,sss,less}\"",
     "test": "npm run -s lint",
+    "favicon": "node favicons.js",
     "deploy:preprod": "branch=$npm_config_PREPROD_BRANCH user=$npm_config_PREPROD_FTP_USERNAME pwd=$npm_config_PREPROD_FTP_PSSWRD host=$npm_config_PREPROD_FTP_ADDRESS dir=$npm_config_PREPROD_FTP_DIR ./deploy.sh",
     "deploy:prod": "branch=$npm_config_PROD_BRANCH user=$npm_config_PROD_FTP_USERNAME pwd=$npm_config_PROD_FTP_PSSWRD host=$npm_config_PROD_FTP_ADDRESS dir=$npm_config_PROD_FTP_DIR ./deploy.sh",
     "purge": "purgecss --css dist/styles/bootstrap.css --content resources/views/*.blade.php resources/views/**/*.blade.php resources/views/**/**/*.blade.php --out dist/styles/"
@@ -56,6 +57,7 @@
     "eslint-loader": "^4.0.2",
     "eslint-plugin-import": "^2.25.4",
     "eslint-webpack-plugin": "^3.1.1",
+    "favicons": "^7.0.0-beta.4",
     "friendly-errors-webpack-plugin": "^1.7.0",
     "html-webpack-plugin": "^5.5.0",
     "image-minimizer-webpack-plugin": "^3.2.3",
