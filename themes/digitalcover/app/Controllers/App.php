@@ -8,9 +8,13 @@ use WP_Query;
 class App extends Controller
 {
   public function __construct() {
+    $GLOBALS['App'] = [];
     $GLOBALS['options'] = $this->options();
     $GLOBALS['navigation'] = $this->menu();
     $GLOBALS['page-for-posts'] = get_option('page_for_posts');
+
+    $GLOBALS['App']['debug'] = $GLOBALS['options']['debug'];
+    $GLOBALS['App']['instagram'] = $GLOBALS['options']['instagram'];
   }
 
   public static function formSubmit() {
@@ -60,8 +64,14 @@ class App extends Controller
     $options = get_fields('options');
 
     return [
+      'debug' => $options['debug'],
       'gtm' => $options['google_tag_manager'],
-      'analytics' => $options['google_analytics_key']
+      'analytics' => $options['google_analytics_key'],
+      'instagram' => [
+        'clientId' => get_option('clientid'),
+        'userId' => get_option('userid'),
+        'accessToken' => get_option('accesstoken')
+      ]
     ];
   }
 

@@ -13,7 +13,9 @@
 
       @include('partials.header')
 
-      @include('partials.grid')
+      @if ($GLOBALS['options']['debug'])
+        @include('partials.grid')
+      @endif
 
       <div class="content" data-router-wrapper role="document">
         @yield('content')

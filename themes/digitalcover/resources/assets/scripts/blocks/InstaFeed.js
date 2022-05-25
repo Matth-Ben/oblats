@@ -1,39 +1,27 @@
 import Block from './Block'
 import Instafeed from '../util/Instafeed'
-import App from '../App'
+import store from '../util/store'
 
 export default class InstaFeed extends Block {
-  constructor(el, destroyLast) {
-    super(el, destroyLast)
+  init() {
+    this.a = window.App
 
     this.createFeed()
-  }
-
-  bindMethods() {
-    super.bindMethods()
-  }
-
-  getElems() {
-    super.getElems()
-  }
-
-  events() {
-    super.events()
   }
 
   createFeed() {
     this.feed = new Instafeed(
     {
-      accessToken: window.AccessToken,
-      clientId: window.ClientId,
+      accessToken: this.a.instagram.accessToken,
+      clientId: this.a.instagram.clientId,
       target: 'instafeed',
       get: 'user',
-      userId: window.UserId,
+      userId: this.a.instagram.userId,
       template: '<div class="feed-square"><a href="{{link}}" aria-label="Photo Instagram" target="_blank" rel="noopener"><img src="{{image}}" alt="Photo Instagram"/></a></div>',
       limit: 5,
       sortBy: 'most-recent',
       after: () => {
-        App.smoothScroll.update()
+        store.smoothScroll && store.smoothScroll.update()
       }
     })
     this.feed.run()

@@ -1,5 +1,9 @@
 <head>
-  @php $gtm = App::options()['gtm']; @endphp
+  @php
+    $analytics = $GLOBALS['options']['analytics'];
+    $gtm = $GLOBALS['options']['gtm'];
+  @endphp
+
   @if ($gtm)
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -10,18 +14,17 @@
     <!-- End Google Tag Manager -->
   @endif
 
-  @php $analytics = App::options()['analytics']; @endphp
   @if ($analytics)
     <!-- Google Analytics -->
-      <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-        ga('create', '{{$analytics}}', 'auto');
-        ga('send', 'pageview');
-      </script>
+      ga('create', '{{$analytics}}', 'auto');
+      ga('send', 'pageview');
+    </script>
     <!-- End Google Analytics -->
   @endif
 
@@ -53,11 +56,7 @@
   <meta name="msapplication-TileColor" content="#fff">
   <meta name="msapplication-TileImage" content="@asset('images/favicons/mstile-144x144.png')">
   <meta name="msapplication-config" content="@asset('images/favicons/browserconfig.xml')">
-  <script>
-    window.ClientId = {!! get_option('clientid') !!}
-    window.UserId = {!! get_option('userid') !!}
-    window.AccessToken = {!! json_encode(get_option('accesstoken')) !!}
-  </script>
+  <script>window.App = {!! json_encode($GLOBALS['App']) !!}</script>
   <script>
     if ('serviceWorker' in navigator) navigator.serviceWorker.register('{{ get_home_url() }}/wp-content/themes/digitalcover/service-worker.js');
   </script>

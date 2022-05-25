@@ -1,5 +1,5 @@
 export default {
-  isMobile: null,
+  debug: window.App.debug,
   smoothScroll: null,
   panel: null,
   detect: {

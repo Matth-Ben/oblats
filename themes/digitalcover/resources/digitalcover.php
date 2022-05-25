@@ -7,52 +7,35 @@ if (is_admin()) {
 if (function_exists('acf_add_options_page')) {
   acf_add_options_page();
 }
-// require_once __DIR__ . '/app/bootstrap.php';
 
 if (function_exists('acf_add_local_field_group')) {
-  acf_add_local_field_group(array(
-    'key' => 'tracking',
-    'title' => 'Tracking',
-    'fields' => array(
-      array(
-        'key' => 'google_tag_manager',
-        'label' => 'Code Google Tag Manager',
-        'name' => 'google_tag_manager',
-        'type' => 'text',
-      )
-    ),
-    'location' => array(
-      array(
-        array(
-          'param' => 'options_page',
-          'operator' => '==',
-          'value' => 'acf-options',
-        ),
-      ),
-    ),
-  ));
-
-  acf_add_local_field_group(array(
-    'key' => 'analytics',
-    'title' => 'Analytics',
-    'fields' => array(
-      array(
-        'key' => 'google_analytics_key',
-        'label' => 'Code Google Analytics : UA-XXXXXXXXX-X',
-        'name' => 'google_analytics_key',
-        'type' => 'text',
-      )
-    ),
-    'location' => array(
-      array(
-        array(
-          'param' => 'options_page',
-          'operator' => '==',
-          'value' => 'acf-options',
-        ),
-      ),
-    ),
-  ));
+    acf_add_local_field_group(array(
+        'key' => 'tracking',
+        'title' => 'Tracking',
+        'fields' => [
+            [
+                'key' => 'google_tag_manager',
+                'label' => 'Code Google Tag Manager',
+                'name' => 'google_tag_manager',
+                'type' => 'text'
+            ],
+            [
+                'key' => 'google_analytics_key',
+                'label' => 'Code Google Analytics : UA-XXXXXXXXX-X',
+                'name' => 'google_analytics_key',
+                'type' => 'text'
+            ]
+        ],
+        'location' => [
+            [
+                [
+                'param' => 'options_page',
+                'operator' => '==',
+                'value' => 'acf-options',
+                ]
+            ]
+        ]
+    ));
 }
 
 require_once dirname(__DIR__) . '/resources/blocs-setup.php';
