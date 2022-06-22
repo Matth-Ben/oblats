@@ -2,6 +2,7 @@ export default {
   debug: window.App.debug,
   smoothScroll: null,
   panel: null,
+  modules: {},
   detect: {
     uA: navigator.userAgent.toLowerCase(),
     get iPadIOS13() {
