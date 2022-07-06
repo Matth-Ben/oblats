@@ -29,10 +29,9 @@ class Subscriber implements Subscriber_Interface {
 	 *
 	 * @return array
 	 */
-	public static function get_subscribed_events() : array {
+	public static function get_subscribed_events(): array {
 		return [
-			'rocket_buffer'                => [ 'treeshake', 12 ],
-			'rocket_rucss_retries_cron'    => 'rucss_retries',
+			'rocket_buffer'                => [ 'treeshake', 1000 ],
 			'rocket_disable_preload_fonts' => 'maybe_disable_preload_fonts',
 		];
 	}
@@ -44,21 +43,12 @@ class Subscriber implements Subscriber_Interface {
 	 *
 	 * @return string  HTML content.
 	 */
-	public function treeshake( string $html ) : string {
+	public function treeshake( string $html ): string {
 		return $this->used_css->treeshake( $html );
 	}
 
 	/**
-	 * Retries to regenerate the used css.
-	 *
-	 * @return void
-	 */
-	public function rucss_retries() {
-		$this->used_css->retries_pages_with_unprocessed_css();
-	}
-
-	/**
-	 * Disables the preload fonts if RUCSS is enabled + CPCSS disabled
+	 * Disables the preload fonts if RUCSS is enabled
 	 *
 	 * @since 3.9
 	 *
@@ -67,11 +57,7 @@ class Subscriber implements Subscriber_Interface {
 	 * @return bool
 	 */
 	public function maybe_disable_preload_fonts( $value ): bool {
-		if (
-			$this->used_css->is_allowed()
-			&&
-			! $this->used_css->cpcss_enabled()
-		) {
+		if ( $this->used_css->is_allowed() ) {
 			return true;
 		}
 

@@ -2,7 +2,7 @@
 namespace WP_Rocket\Engine\Admin\Settings;
 
 use WP_Rocket\Admin\Options_Data;
-use WP_Rocket\Subscriber\Third_Party\Plugins\Security\Sucuri_Subscriber;
+use WP_Rocket\Addon\Sucuri\Subscriber as SucuriSubscriber;
 
 /**
  * Settings class.
@@ -43,7 +43,7 @@ class Settings {
 	 * @since 3.6
 	 * @see   $this->sanitize_font()
 	 *
-	 * @var string|bool
+	 * @var array
 	 */
 	private $font_formats = [
 		'otf',
@@ -142,7 +142,14 @@ class Settings {
 			$page          = $args['page'];
 			$section       = $args['section'];
 			unset( $args['page'], $args['section'] );
-
+			/**
+			 * Filters the field  before add to the settings
+			 *
+			 * @since 3.10
+			 *
+			 * @param array    $input    Array of sanitized values after being submitted by the form.
+			 */
+			$args = apply_filters( 'rocket_before_add_field_to_settings', $args );
 			$this->settings[ $page ]['sections'][ $section ]['fields'][ $id ] = $args;
 		}
 	}
@@ -222,8 +229,7 @@ class Settings {
 		$input['defer_all_js']     = ! empty( $input['defer_all_js'] ) ? 1 : 0;
 		$input['exclude_defer_js'] = ! empty( $input['exclude_defer_js'] ) ? rocket_sanitize_textarea_field( 'exclude_defer_js', $input['exclude_defer_js'] ) : [];
 
-		$input['embeds'] = ! empty( $input['embeds'] ) ? 1 : 0;
-		$input['emoji']  = ! empty( $input['emoji'] ) ? 1 : 0;
+		$input['emoji'] = ! empty( $input['emoji'] ) ? 1 : 0;
 
 		$input['lazyload']         = ! empty( $input['lazyload'] ) ? 1 : 0;
 		$input['lazyload_iframes'] = ! empty( $input['lazyload_iframes'] ) ? 1 : 0;
@@ -257,6 +263,7 @@ class Settings {
 		// Option : Never cache the following pages.
 		if ( ! empty( $input['cache_reject_uri'] ) ) {
 			$input['cache_reject_uri'] = rocket_sanitize_textarea_field( 'cache_reject_uri', $input['cache_reject_uri'] );
+			$input['cache_reject_uri'] = $this->check_global_exclusion( $input['cache_reject_uri'] );
 		} else {
 			$input['cache_reject_uri'] = [];
 		}
@@ -310,15 +317,14 @@ class Settings {
 		$input['critical_css'] = ! empty( $input['critical_css'] ) ? wp_strip_all_tags( str_replace( [ '<style>', '</style>' ], '', $input['critical_css'] ), [ "\'", '\"' ] ) : '';
 
 		// Database options.
-		$input['database_revisions']          = ! empty( $input['database_revisions'] ) ? 1 : 0;
-		$input['database_auto_drafts']        = ! empty( $input['database_auto_drafts'] ) ? 1 : 0;
-		$input['database_trashed_posts']      = ! empty( $input['database_trashed_posts'] ) ? 1 : 0;
-		$input['database_spam_comments']      = ! empty( $input['database_spam_comments'] ) ? 1 : 0;
-		$input['database_trashed_comments']   = ! empty( $input['database_trashed_comments'] ) ? 1 : 0;
-		$input['database_expired_transients'] = ! empty( $input['database_expired_transients'] ) ? 1 : 0;
-		$input['database_all_transients']     = ! empty( $input['database_all_transients'] ) ? 1 : 0;
-		$input['database_optimize_tables']    = ! empty( $input['database_optimize_tables'] ) ? 1 : 0;
-		$input['schedule_automatic_cleanup']  = ! empty( $input['schedule_automatic_cleanup'] ) ? 1 : 0;
+		$input['database_revisions']         = ! empty( $input['database_revisions'] ) ? 1 : 0;
+		$input['database_auto_drafts']       = ! empty( $input['database_auto_drafts'] ) ? 1 : 0;
+		$input['database_trashed_posts']     = ! empty( $input['database_trashed_posts'] ) ? 1 : 0;
+		$input['database_spam_comments']     = ! empty( $input['database_spam_comments'] ) ? 1 : 0;
+		$input['database_trashed_comments']  = ! empty( $input['database_trashed_comments'] ) ? 1 : 0;
+		$input['database_all_transients']    = ! empty( $input['database_all_transients'] ) ? 1 : 0;
+		$input['database_optimize_tables']   = ! empty( $input['database_optimize_tables'] ) ? 1 : 0;
+		$input['schedule_automatic_cleanup'] = ! empty( $input['schedule_automatic_cleanup'] ) ? 1 : 0;
 
 		$cleanup_frequencies = [
 			'daily'   => 1,
@@ -378,7 +384,7 @@ class Settings {
 
 		$input['sucury_waf_api_key'] = trim( $input['sucury_waf_api_key'] );
 
-		if ( ! Sucuri_Subscriber::is_api_key_valid( $input['sucury_waf_api_key'] ) ) {
+		if ( ! SucuriSubscriber::is_api_key_valid( $input['sucury_waf_api_key'] ) ) {
 			$input['sucury_waf_api_key'] = '';
 
 			if ( $input['sucury_waf_cache_sync'] && empty( $input['ignore'] ) ) {
@@ -654,5 +660,43 @@ class Settings {
 		}
 
 		return $this->hosts;
+	}
+
+	/**
+	 * Sets radio buttons sub fields value from wp options.
+	 *
+	 * @since 3.10
+	 *
+	 * @param array $sub_fields Array of fields to display..
+	 * @return array
+	 */
+	public function set_radio_buttons_sub_fields_value( $sub_fields ) {
+
+		foreach ( $sub_fields as $id => &$args ) {
+			$args['id']    = $id;
+			$args['value'] = $this->options->get( $id, $args['default'] );
+			$args          = apply_filters( 'rocket_before_render_option_extra_field', $args );
+		}
+
+		return $sub_fields;
+	}
+
+	/**
+	 * Checks if the global exclusion pattern is used in the given field
+	 *
+	 * @since 3.10.3
+	 *
+	 * @param array $field A field array value.
+	 *
+	 * @return array
+	 */
+	private function check_global_exclusion( $field ) {
+		if ( ! in_array( '/(.*)', $field, true ) ) {
+			return $field;
+		}
+
+		add_settings_error( 'general', 'reject_uri_global_exclusion', __( 'Sorry! Adding /(.*) in Advanced Rules > Never Cache URL(s) was not saved because it disables caching and optimizations for every page on your site.', 'rocket' ) );
+
+		return array_diff_key( $field, array_flip( array_keys( $field, '/(.*)', true ) ) );
 	}
 }

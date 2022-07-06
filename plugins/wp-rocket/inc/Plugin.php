@@ -99,7 +99,7 @@ class Plugin {
 		$this->container->addServiceProvider( 'WP_Rocket\ServiceProvider\Options' );
 		$this->options = $this->container->get( 'options' );
 
-		$this->container->addServiceProvider( 'WP_Rocket\ServiceProvider\Database' );
+		$this->container->addServiceProvider( 'WP_Rocket\Engine\Admin\Database\ServiceProvider' );
 		$this->container->addServiceProvider( 'WP_Rocket\Engine\Support\ServiceProvider' );
 		$this->container->addServiceProvider( 'WP_Rocket\Engine\Admin\Beacon\ServiceProvider' );
 		$this->container->addServiceProvider( 'WP_Rocket\Engine\CDN\RocketCDN\ServiceProvider' );
@@ -199,7 +199,6 @@ class Plugin {
 			'minify_css_subscriber',
 			'minify_js_subscriber',
 			'cache_dynamic_resource',
-			'embeds_subscriber',
 			'emojis_subscriber',
 			'delay_js_subscriber',
 			'image_dimensions_subscriber',
@@ -231,7 +230,7 @@ class Plugin {
 		$this->container->addServiceProvider( 'WP_Rocket\ServiceProvider\Common_Subscribers' );
 		$this->container->addServiceProvider( 'WP_Rocket\ThirdParty\ServiceProvider' );
 		$this->container->addServiceProvider( 'WP_Rocket\ThirdParty\Hostings\ServiceProvider' );
-		$this->container->addServiceProvider( 'WP_Rocket\ServiceProvider\Updater_Subscribers' );
+		$this->container->addServiceProvider( 'WP_Rocket\Engine\Plugin\ServiceProvider' );
 		$this->container->addServiceProvider( 'WP_Rocket\Engine\Optimization\DelayJS\ServiceProvider' );
 		$this->container->addServiceProvider( 'WP_Rocket\Engine\Optimization\RUCSS\ServiceProvider' );
 		$this->container->addServiceProvider( 'WP_Rocket\Engine\Heartbeat\ServiceProvider' );
@@ -273,20 +272,29 @@ class Plugin {
 			'delay_js_admin_subscriber',
 			'rucss_admin_subscriber',
 			'rucss_frontend_subscriber',
+			'rucss_cron_subscriber',
 			'divi',
 			'preload_links_admin_subscriber',
 			'preload_links_subscriber',
 			'support_subscriber',
 			'mod_pagespeed',
-			'rucss_warmup_subscriber',
 			'webp_subscriber',
 			'imagify_webp_subscriber',
 			'shortpixel_webp_subscriber',
 			'ewww_webp_subscriber',
 			'optimus_webp_subscriber',
 			'adthrive',
+			'autoptimize',
 			'wp-meteor',
 			'revolution_slider_subscriber',
+			'wordfence_subscriber',
+			'ezoic',
+			'thirstyaffiliates',
+			'pwa',
+			'yoast_seo',
+			'flatsome',
+			'convertplug',
+			'inline_related_posts',
 		];
 
 		$host_type = HostResolver::get_host_service();
