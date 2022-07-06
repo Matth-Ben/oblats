@@ -1,24 +1,28 @@
 <?php
-namespace WP_Rocket\Engine\Admin\Database;
+namespace WP_Rocket\Admin\Database;
 
 use WP_Rocket_WP_Background_Process;
 
 /**
  * Extends the background process class for the database optimization background process.
  *
- * @see WP_Rocket_WP_Background_Process
+ * @since 2.11
+ *
+ * @see WP_Background_Process
  */
-class OptimizationProcess extends WP_Rocket_WP_Background_Process {
+class Optimization_Process extends WP_Rocket_WP_Background_Process {
 	/**
 	 * Prefix
 	 *
 	 * @var string
+	 * @access protected
 	 */
 	protected $prefix = 'rocket';
 
 	/**
 	 * Specific action identifier for sitemap preload.
 	 *
+	 * @access protected
 	 * @var string Action identifier
 	 */
 	protected $action = 'database_optimization';
@@ -26,6 +30,7 @@ class OptimizationProcess extends WP_Rocket_WP_Background_Process {
 	/**
 	 * Count the number of optimized items.
 	 *
+	 * @access protected
 	 * @var array $count An array of indexed number of optimized items.
 	 */
 	protected $count = [];
@@ -33,6 +38,7 @@ class OptimizationProcess extends WP_Rocket_WP_Background_Process {
 	/**
 	 * Dispatch
 	 *
+	 * @access public
 	 * @return array|WP_Error
 	 */
 	public function dispatch() {
@@ -103,6 +109,20 @@ class OptimizationProcess extends WP_Rocket_WP_Background_Process {
 					$number = 0;
 					foreach ( $query as $id ) {
 						$number += (int) wp_delete_comment( intval( $id ), true );
+					}
+
+					$this->count[ $item ] = $number;
+				}
+				break;
+			case 'database_expired_transients':
+				$time  = isset( $_SERVER['REQUEST_TIME'] ) ? (int) $_SERVER['REQUEST_TIME'] : time();
+				$query = $wpdb->get_col( $wpdb->prepare( "SELECT option_name FROM $wpdb->options WHERE option_name LIKE %s AND option_value < %d", $wpdb->esc_like( '_transient_timeout' ) . '%', $time ) );
+
+				if ( $query ) {
+					$number = 0;
+					foreach ( $query as $transient ) {
+						$key     = str_replace( '_transient_timeout_', '', $transient );
+						$number += (int) delete_transient( $key );
 					}
 
 					$this->count[ $item ] = $number;

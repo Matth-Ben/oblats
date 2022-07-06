@@ -513,9 +513,6 @@ class WooCommerceSubscriber implements Event_Manager_Aware_Subscriber_Interface 
 	 */
 	private function product_has_gallery_images() {
 		$product = wc_get_product( get_the_ID() );
-		if ( empty( $product ) ) {
-			return false;
-		}
 		return ! empty( $product->get_gallery_image_ids() );
 	}
 
@@ -550,7 +547,7 @@ class WooCommerceSubscriber implements Event_Manager_Aware_Subscriber_Interface 
 	 *
 	 * @return array
 	 */
-	public function show_notempty_product_gallery_with_delayJS( $exclusions = [] ): array {
+	public function show_notempty_product_gallery_with_delayJS( array $exclusions = [] ) {
 		global $wp_version;
 
 		if ( ! $this->delayjs_html->is_allowed() ) {
@@ -565,31 +562,20 @@ class WooCommerceSubscriber implements Event_Manager_Aware_Subscriber_Interface 
 			return $exclusions;
 		}
 
-		$exclusions_gallery = [
-			'/jquery-?[0-9.]*(.min|.slim|.slim.min)?.js',
-			'/woocommerce/assets/js/zoom/jquery.zoom(.min)?.js',
-			'/woocommerce/assets/js/photoswipe/',
-			'/woocommerce/assets/js/flexslider/jquery.flexslider(.min)?.js',
-			'/woocommerce/assets/js/frontend/single-product(.min)?.js',
-		];
+		$exclusions[] = '/jquery-?[0-9.]*(.min|.slim|.slim.min)?.js';
+		$exclusions[] = '/woocommerce/assets/js/zoom/jquery.zoom(.min)?.js';
+		$exclusions[] = '/woocommerce/assets/js/photoswipe/';
+		$exclusions[] = '/woocommerce/assets/js/flexslider/jquery.flexslider(.min)?.js';
+		$exclusions[] = '/woocommerce/assets/js/frontend/single-product(.min)?.js';
 
 		if (
 			isset( $wp_version )
 			&&
 			version_compare( $wp_version, '5.7', '<' )
 		) {
-			$exclusions_gallery[] = '/jquery-migrate(.min)?.js';
+			$exclusions[] = '/jquery-migrate(.min)?.js';
 		}
 
-		/**
-		 * Filters the JS files excluded from delay JS when WC product gallery has images.
-		 *
-		 * @since 3.10.2
-		 *
-		 * @param array $exclusions_gallery Array of excluded filepaths.
-		 */
-		$exclusions_gallery = apply_filters( 'rocket_wc_product_gallery_delay_js_exclusions', $exclusions_gallery );
-
-		return array_merge( $exclusions, $exclusions_gallery );
+		return $exclusions;
 	}
 }

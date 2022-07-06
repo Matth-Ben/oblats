@@ -140,9 +140,7 @@ class ResourcesQuery extends Query {
 	 */
 	public function remove_by_url( $url ) {
 		$db_row = $this->get_item_by( 'url', $url );
-		if ( ! is_object( $db_row ) ) {
-			return;
-		}
+
 		$this->delete_item( $db_row->id );
 	}
 

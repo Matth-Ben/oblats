@@ -1,18 +1,26 @@
 <?php
-namespace WP_Rocket\Engine\Admin\Database;
+namespace WP_Rocket\Subscriber\Admin\Database;
 
 use WP_Rocket\Event_Management\Subscriber_Interface;
+use WP_Rocket\Admin\Database\Optimization;
 use WP_Rocket\Admin\Options_Data;
+
+defined( 'ABSPATH' ) || exit;
 
 /**
  * Subscriber for the database optimization
+ *
+ * @since 3.3
+ * @author Remy Perona
  */
-class Subscriber implements Subscriber_Interface {
+class Optimization_Subscriber implements Subscriber_Interface {
 
 	/**
 	 * Optimization process instance.
 	 *
 	 * @since  3.4
+	 * @access private
+	 * @author Grégory Viguier
 	 *
 	 * @var Optimization
 	 */
@@ -22,6 +30,8 @@ class Subscriber implements Subscriber_Interface {
 	 * WP Rocket Options instance.
 	 *
 	 * @since  3.4
+	 * @access private
+	 * @author Grégory Viguier
 	 *
 	 * @var Options_Data
 	 */
@@ -41,7 +51,8 @@ class Subscriber implements Subscriber_Interface {
 	/**
 	 * Return an array of events that this subscriber wants to listen to.
 	 *
-	 * @since 3.3
+	 * @since  3.3
+	 * @author Remy Perona
 	 *
 	 * @return array
 	 */
@@ -62,7 +73,9 @@ class Subscriber implements Subscriber_Interface {
 	 * Add a new interval for the cron job.
 	 * This adds a weekly/monthly interval for database optimization.
 	 *
-	 * @since 3.4
+	 * @since  3.4
+	 * @access public
+	 * @author Grégory Viguier
 	 *
 	 * @param  array $schedules An array of intervals used by cron jobs.
 	 * @return array            Updated array of intervals.
@@ -95,6 +108,7 @@ class Subscriber implements Subscriber_Interface {
 	 * If the task is not programmed, it is automatically triggered
 	 *
 	 * @since 2.8
+	 * @author Remy Perona
 	 *
 	 * @see process_handler()
 	 */
@@ -112,6 +126,7 @@ class Subscriber implements Subscriber_Interface {
 	 * Database Optimization cron callback
 	 *
 	 * @since 3.0.4
+	 * @author Remy Perona
 	 */
 	public function cron_optimize() {
 		$items = array_filter( array_keys( $this->optimize->get_options() ), [ $this->options, 'get' ] );
@@ -127,6 +142,7 @@ class Subscriber implements Subscriber_Interface {
 	 * Launches the database optimization when the settings are saved with optimize button
 	 *
 	 * @since 2.8
+	 * @author Remy Perona
 	 *
 	 * @see process_handler()
 	 *
@@ -170,6 +186,7 @@ class Subscriber implements Subscriber_Interface {
 	 * This notice is displayed after launching the database optimization process
 	 *
 	 * @since 2.11
+	 * @author Remy Perona
 	 */
 	public function notice_process_running() {
 		$screen = get_current_screen();
@@ -200,6 +217,7 @@ class Subscriber implements Subscriber_Interface {
 	 * This notice is displayed when the database optimization process is complete
 	 *
 	 * @since 2.11
+	 * @author Remy Perona
 	 */
 	public function notice_process_complete() {
 		$screen = get_current_screen();
