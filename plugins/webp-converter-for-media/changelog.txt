@@ -1,5 +1,29 @@
 == Changelog ==
 
+= 4.4.1 (2022-06-30) =
+* `[Added]` Inheritance of mod_rewrite rules from parent directories
+* `[Added]` Support for custom /wp-content directory name
+
+= 4.4.0 (2022-06-19) =
+* `[Changed]` Calculation of number of images to be converted
+* `[Added]` Resizing of images before conversion
+* `[Added]` Notification asking to clear cache for LiteSpeed
+
+= 4.3.6 (2022-06-03) =
+* `[Fixed]` Notification about Cloudflare cache
+
+= 4.3.5 (2022-06-02) =
+* `[Changed]` Generating rewrite rules for via .htaccess loading mode (applies to rewrites_not_working server configuration error)
+* `[Added]` Support for Hide My WP plugin
+
+= 4.3.4 (2022-05-10) =
+* `[Changed]` Generating rewrite rules for via .htaccess loading mode (applies to rewrites_not_working server configuration error)
+* `[Changed]` Message about rewrites_not_executed server configuration error
+
+= 4.3.3 (2022-05-08) =
+* `[Fixed]` Calculation of number of images to be converted
+* `[Added]` Filter `webpc_option_quality_levels` to change conversion quality levels
+
 = 4.3.2 (2022-04-20) =
 * `[Added]` Added conversion skip for animated GIF images
 * `[Added]` Added new information about status of image conversion

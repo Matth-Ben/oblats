@@ -412,6 +412,34 @@ class Ai1wmue_Main_Controller {
 			)
 		);
 
+		wp_localize_script(
+			'ai1wmue_settings',
+			'ai1wmue_folder_browser',
+			array(
+				'ajax'       => array(
+					'url' => wp_make_link_relative( admin_url( 'admin-ajax.php?action=ai1wmue_folder_browser' ) ),
+				),
+				'secret_key' => get_option( AI1WM_SECRET_KEY ),
+			)
+		);
+
+		wp_localize_script(
+			'ai1wmue_settings',
+			'ai1wmue_locale',
+			array(
+				'folder_browser_change' => __( 'Change', AI1WMUE_PLUGIN_NAME ),
+				'title_name'            => __( 'Name', AI1WMUE_PLUGIN_NAME ),
+				'title_date'            => __( 'Date', AI1WMUE_PLUGIN_NAME ),
+				'empty_list_message'    => __( 'No folders to list. Click on the navbar to go back.', AI1WMUE_PLUGIN_NAME ),
+				'legend_select_info'    => __( 'Select with a click', AI1WMUE_PLUGIN_NAME ),
+				'legend_open_info'      => __( 'Open with two clicks', AI1WMUE_PLUGIN_NAME ),
+				'button_close'          => __( 'Close', AI1WMUE_PLUGIN_NAME ),
+				'button_select'         => __( 'Select folder &gt;', AI1WMUE_PLUGIN_NAME ),
+				'show_more'             => __( 'more', AI1WMUE_PLUGIN_NAME ),
+				'show_less'             => __( 'less', AI1WMUE_PLUGIN_NAME ),
+			)
+		);
+
 		add_action( 'admin_print_scripts', array( $this, 'google_tag_manager' ) );
 	}
 
@@ -423,6 +451,7 @@ class Ai1wmue_Main_Controller {
 	public function router() {
 		if ( current_user_can( 'export' ) ) {
 			add_action( 'wp_ajax_ai1wmue_file_list', 'Ai1wmue_Export_Controller::list_files' );
+			add_action( 'wp_ajax_ai1wmue_folder_browser', 'Ai1wmue_Settings_Controller::list_folders' );
 		}
 	}
 

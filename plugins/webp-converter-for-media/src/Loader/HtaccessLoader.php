@@ -18,6 +18,13 @@ class HtaccessLoader extends LoaderAbstract {
 	/**
 	 * {@inheritdoc}
 	 */
+	public function init_hooks() {
+		add_action( 'webpc_htaccess_rewrite_root', [ $this, 'modify_document_root_path' ] );
+	}
+
+	/**
+	 * {@inheritdoc}
+	 */
 	public function is_active_loader(): bool {
 		$settings = $this->plugin_data->get_plugin_settings();
 		return ( ( $settings[ LoaderTypeOption::OPTION_NAME ] ?? '' ) === self::LOADER_TYPE );
@@ -45,6 +52,20 @@ class HtaccessLoader extends LoaderAbstract {
 		$this->add_rewrite_rules_to_wp_content( false, $settings );
 		$this->add_rewrite_rules_to_uploads( false, $settings );
 		$this->add_rewrite_rules_to_uploads_webp( false, $settings );
+	}
+
+	/**
+	 * @param string $original_path .
+	 *
+	 * @return string
+	 * @internal
+	 */
+	public function modify_document_root_path( string $original_path ): string {
+		if ( isset( $_SERVER['SERVER_ADMIN'] ) && strpos( $_SERVER['SERVER_ADMIN'], '.home.pl' ) ) { // phpcs:ignore WordPress.Security.ValidatedSanitizedInput
+			return '%{DOCUMENT_ROOT}' . ABSPATH;
+		}
+
+		return $original_path;
 	}
 
 	/**
@@ -139,18 +160,18 @@ class HtaccessLoader extends LoaderAbstract {
 			return $content;
 		}
 
-		$root_document     = preg_replace( '/(\/|\\\\)/', '/', rtrim( realpath( $_SERVER['DOCUMENT_ROOT'] ) ?: '', '\/' ) ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput
-		$root_wordpress    = preg_replace( '/(\/|\\\\)/', '/', rtrim( PathsGenerator::get_wordpress_root_path(), '\/' ) );
-		$is_force_document = ( in_array( ExtraFeaturesOption::OPTION_VALUE_FORCE_DOCUMENT_ROOT, $settings[ ExtraFeaturesOption::OPTION_NAME ] ) );
+		$root_document      = preg_replace( '/(\/|\\\\)/', '/', rtrim( $_SERVER['DOCUMENT_ROOT'], '\/' ) ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput
+		$root_document_real = preg_replace( '/(\/|\\\\)/', '/', rtrim( realpath( $_SERVER['DOCUMENT_ROOT'] ) ?: '', '\/' ) ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput
+		$root_wordpress     = preg_replace( '/(\/|\\\\)/', '/', rtrim( PathsGenerator::get_wordpress_root_path(), '\/' ) );
 
-		$root_path     = trim( str_replace( $root_document ?: '', '', $root_wordpress ?: '' ), '\/' );
+		$root_path     = trim( str_replace( $root_document_real ?: '', '', $root_wordpress ?: '' ), '\/' );
 		$root_suffix   = apply_filters(
 			'webpc_htaccess_rewrite_path',
 			apply_filters( 'webpc_uploads_prefix', str_replace( '//', '/', sprintf( '/%s/', $root_path ) ) )
 		);
 		$document_root = apply_filters(
 			'webpc_htaccess_rewrite_root',
-			( $is_force_document ) ? ( $root_wordpress . '/' ) : ( '%{DOCUMENT_ROOT}' . $root_suffix )
+			( $root_document !== $root_document_real ) ? ( $root_wordpress . '/' ) : ( '%{DOCUMENT_ROOT}' . $root_suffix )
 		);
 
 		$output_path = apply_filters( 'webpc_dir_name', '', 'webp' );
@@ -161,9 +182,16 @@ class HtaccessLoader extends LoaderAbstract {
 		foreach ( $this->format_factory->get_mime_types( $settings[ OutputFormatsOption::OPTION_NAME ] ) as $format => $mime_type ) {
 			$content .= '<IfModule mod_rewrite.c>' . PHP_EOL;
 			$content .= '  RewriteEngine On' . PHP_EOL;
+			$content .= '  RewriteOptions Inherit' . PHP_EOL;
 			foreach ( $settings[ SupportedExtensionsOption::OPTION_NAME ] as $ext ) {
 				$content .= "  RewriteCond %{HTTP_ACCEPT} ${mime_type}" . PHP_EOL;
-				$content .= "  RewriteCond ${document_root}${output_path}/$1.${ext}.${format} -f" . PHP_EOL;
+				$content .= "  RewriteCond %{REQUEST_FILENAME} -f" . PHP_EOL;
+				if ( strpos( $document_root, '%{DOCUMENT_ROOT}' ) !== false ) {
+					$content .= "  RewriteCond ${document_root}${output_path}/$1.${ext}.${format} -f" . PHP_EOL;
+				} else {
+					$content .= "  RewriteCond ${document_root}${output_path}/$1.${ext}.${format} -f [OR]" . PHP_EOL;
+					$content .= "  RewriteCond %{DOCUMENT_ROOT}${root_suffix}${output_path}/$1.${ext}.${format} -f" . PHP_EOL;
+				}
 				if ( ! in_array( ExtraFeaturesOption::OPTION_VALUE_REFERER_DISABLED, $settings[ ExtraFeaturesOption::OPTION_NAME ] ) ) {
 					$content .= "  RewriteCond %{HTTP_HOST}@@%{HTTP_REFERER} ^([^@]*)@@https?://\\1/.*" . PHP_EOL;
 				}
@@ -190,7 +218,9 @@ class HtaccessLoader extends LoaderAbstract {
 		if ( $extensions ) {
 			$content .= '  <FilesMatch "(?i)\.(' . $extensions . ')(\.(webp|avif))?$">' . PHP_EOL;
 		}
-		$content .= '    Header always set Cache-Control "private"' . PHP_EOL;
+		if ( ( ( $_SERVER['X-LSCACHE'] ?? '' ) !== 'on' ) || isset( $_SERVER['HTTP_CDN_LOOP'] ) ) { // phpcs:ignore WordPress.Security.ValidatedSanitizedInput
+			$content .= '    Header always set Cache-Control "private"' . PHP_EOL;
+		}
 		$content .= '    Header append Vary "Accept"' . PHP_EOL;
 		if ( $extensions ) {
 			$content .= '  </FilesMatch>' . PHP_EOL;

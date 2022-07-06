@@ -33,13 +33,16 @@ class WebpConverter {
 		( new Endpoint\EndpointIntegration( new Endpoint\PathsEndpoint( $plugin_data, $token_repository ) ) )->init_hooks();
 		( new Endpoint\EndpointIntegration( new Endpoint\RegenerateEndpoint( $plugin_data ) ) )->init_hooks();
 		( new Endpoint\EndpointIntegration( new Endpoint\CronConversionEndpoint( $plugin_data, $token_repository ) ) )->init_hooks();
-		( new Conversion\SkipConvertedPaths( $plugin_data ) )->init_hooks();
 		( new Conversion\SkipExcludedPaths() )->init_hooks();
 		( new Cron\CronEventGenerator( $plugin_data, $token_repository ) )->init_hooks();
 		( new Cron\CronSchedulesGenerator() )->init_hooks();
 		( new Cron\CronStatusViewer( $plugin_info ) )->init_hooks();
 		( new ErrorDetectorAggregator( $plugin_info, $plugin_data ) )->init_hooks();
-		( new Notice\NoticeFactory( $plugin_info ) )->init_hooks();
+		( new Notice\NoticeIntegration( $plugin_info, new Notice\WelcomeNotice() ) )->init_hooks();
+		( new Notice\NoticeIntegration( $plugin_info, new Notice\ThanksNotice() ) )->init_hooks();
+		( new Notice\NoticeIntegration( $plugin_info, new Notice\AvifSupportNotice( $token_repository ) ) )->init_hooks();
+		( new Notice\NoticeIntegration( $plugin_info, new Notice\CloudflareNotice() ) )->init_hooks();
+		( new Notice\NoticeIntegration( $plugin_info, new Notice\LitespeedNotice() ) )->init_hooks();
 		( new Loader\LoaderIntegration( new Loader\HtaccessLoader( $plugin_info, $plugin_data ) ) )->init_hooks();
 		( new Loader\LoaderIntegration( new Loader\PassthruLoader( $plugin_info, $plugin_data ) ) )->init_hooks();
 		( new Media\Delete() )->init_hooks();

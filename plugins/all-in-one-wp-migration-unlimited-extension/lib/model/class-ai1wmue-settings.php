@@ -52,4 +52,17 @@ class Ai1wmue_Settings {
 	public function get_days() {
 		return get_option( 'ai1wmue_days', false );
 	}
+
+	public function get_backups_path() {
+		return get_option( AI1WM_BACKUPS_PATH_OPTION, AI1WM_DEFAULT_BACKUPS_PATH );
+	}
+
+	public function set_backups_path( $path ) {
+		return update_option( AI1WM_BACKUPS_PATH_OPTION, $path );
+	}
+
+	public function reset_backups_path() {
+		return delete_option( AI1WM_BACKUPS_PATH_OPTION );
+	}
+
 }

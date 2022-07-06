@@ -40,6 +40,16 @@ if ( defined( 'WP_CLI' ) && ! class_exists( 'Ai1wm_Backup_WP_CLI_Command' ) ) {
 				exit;
 			}
 
+			if ( is_multisite() && ! defined( 'AI1WMME_PLUGIN_NAME' ) ) {
+				WP_CLI::error_multi_line(
+					array(
+						__( 'WordPress Multisite is supported via our All-in-One WP Migration Multisite Extension.', AI1WM_PLUGIN_NAME ),
+						__( 'You can get a copy of it here: https://servmask.com/products/multisite-extension', AI1WM_PLUGIN_NAME ),
+					)
+				);
+				exit;
+			}
+
 			if ( ! is_dir( AI1WM_STORAGE_PATH ) ) {
 				if ( ! mkdir( AI1WM_STORAGE_PATH ) ) {
 					WP_CLI::error_multi_line(

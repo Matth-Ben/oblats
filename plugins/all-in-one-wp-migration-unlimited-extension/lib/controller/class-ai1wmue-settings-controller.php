@@ -35,9 +35,10 @@ class Ai1wmue_Settings_Controller {
 		Ai1wm_Template::render(
 			'settings/index',
 			array(
-				'backups' => get_option( 'ai1wmue_backups', false ),
-				'total'   => get_option( 'ai1wmue_total', false ),
-				'days'    => get_option( 'ai1wmue_days', false ),
+				'backups'     => $model->get_backups(),
+				'total'       => $model->get_total(),
+				'days'        => $model->get_days(),
+				'destination' => $model->get_backups_path(),
 			),
 			AI1WMUE_TEMPLATES_PATH
 		);
@@ -76,12 +77,71 @@ class Ai1wmue_Settings_Controller {
 				$model->set_days( 0 );
 			}
 
+			// Set backups path
+			if ( ! empty( $params[ AI1WM_BACKUPS_PATH_OPTION ] ) ) {
+				$model->set_backups_path( $params[ AI1WM_BACKUPS_PATH_OPTION ] );
+			} else {
+				$model->reset_backups_path();
+			}
+
 			// Set message
 			Ai1wm_Message::flash( 'settings', __( 'Your changes have been saved.', AI1WMUE_PLUGIN_NAME ) );
 		}
 
 		// Redirect to settings page
 		wp_redirect( network_admin_url( 'admin.php?page=ai1wmue_settings' ) );
+		exit;
+	}
+
+	public static function list_folders( $params = array() ) {
+		ai1wm_setup_environment();
+
+		// Set params
+		if ( empty( $params ) ) {
+			$params = stripslashes_deep( $_POST );
+		}
+
+		// Set secret key
+		$secret_key = null;
+		if ( isset( $params['secret_key'] ) ) {
+			$secret_key = trim( $params['secret_key'] );
+		}
+
+		try {
+			// Ensure that unauthorized people cannot access backups list action
+			ai1wm_verify_secret_key( $secret_key );
+		} catch ( Ai1wm_Not_Valid_Secret_Key_Exception $e ) {
+			exit;
+		}
+
+		// Set directory
+		$directory = '/';
+		if ( isset( $params['directory'] ) ) {
+			$directory = $params['directory'];
+		}
+
+		// Iterate over content directory
+		$iterator = new Ai1wm_Recursive_Directory_Iterator( $directory );
+
+		// Loop over content directory
+		$names = $files = array();
+		foreach ( $iterator as $item ) {
+			if ( $item->isDir() && ! $item->isLink() && $item->isReadable() ) {
+				try {
+					$files[] = array(
+						'name'     => $item->getRealPath(),
+						'writable' => $item->isWritable(),
+						'date'     => human_time_diff( $item->getMTime() ),
+					);
+					$names[] = strtolower( $item->getRealPath() );
+				} catch ( Exception $e ) {
+				}
+			}
+		}
+
+		array_multisort( $names, $files );
+
+		echo json_encode( $files );
 		exit;
 	}
 }

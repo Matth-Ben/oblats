@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '1075fa1fbb083ccea6d31b2bd9bfa9429dfd092d',
+        'reference' => '13553a8ad12935989fcfb9178e34d0423411e51f',
         'name' => 'gbiorczyk/webp-converter-for-media',
         'dev' => false,
     ),
@@ -16,7 +16,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '1075fa1fbb083ccea6d31b2bd9bfa9429dfd092d',
+            'reference' => '13553a8ad12935989fcfb9178e34d0423411e51f',
             'dev_requirement' => false,
         ),
         'matt-plugins/deactivation-modal' => array(
