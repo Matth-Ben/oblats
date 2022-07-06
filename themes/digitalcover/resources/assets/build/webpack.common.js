@@ -99,12 +99,18 @@ let webpackConfig = {
       port: 3000,
       open: true,
       watch: config.watch,
+      rewriteRules: [
+        {
+          match: /starter-dc\.localhost/g,
+          replace: "localhost:3000",
+        }
+      ],
       proxy: {
-        target: config.devUrl
+        target: 'http://localhost:3030/',
       }
     }, {
-      reload: true,
-      // injectCss: true
+      reload: false,
+      injectCss: true
     }),
     new ESLintPlugin({
       failOnWarning: false,

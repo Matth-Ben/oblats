@@ -26,7 +26,7 @@
     "build": "webpack --progress --config resources/assets/build/webpack.prod.js",
     "build:production": "webpack --env production --progress --config resources/assets/build/webpack.prod.js && yarn purge",
     "build:profile": "webpack --progress --profile --json --config resources/assets/build/webpack.prod.js",
-    "start": "webpack --watch --config resources/assets/build/webpack.dev.js",
+    "start": "webpack serve --config resources/assets/build/webpack.dev.js",
     "rmdist": "rimraf dist",
     "lint": "npm run -s lint:scripts && npm run -s lint:styles",
     "lint:scripts": "eslint resources/assets/scripts resources/assets/build",
