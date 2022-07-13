@@ -57,6 +57,7 @@ export default class Page extends Highway.Renderer {
   */
   onEnter(props = {}) {
     this.view = this.wrap.lastElementChild
+    this.startBlocksEnterCompleted = this.startBlocksEnterCompleted.bind(this)
 
     this.props = props
 
@@ -72,6 +73,15 @@ export default class Page extends Highway.Renderer {
   initBlocks() {
     store.detect.isMobile && (this.blockList = this.blockList.filter((e) => e.mobile !== false))
 
+    let totalBlocks = 0
+    let loadedBlocks = 0
+
+    for (let i = 0; i < this.blockList.length; i++) {
+      const foundBlocks = this.view.querySelectorAll('.' + this.blockList[i].name)
+
+      totalBlocks += foundBlocks.length
+    }
+
     for (let i = 0; i < this.blockList.length; i++) {
       const foundBlocks = this.view.querySelectorAll('.' + this.blockList[i].name)
       const block = {
@@ -85,10 +95,15 @@ export default class Page extends Highway.Renderer {
 
         // eslint-disable-next-line no-loop-func
         import('../blocks/' + file).then(({ default: BlockInstance }) => {
+          loadedBlocks++
           block.instances.push({
             el: foundBlocks[j],
             class: new BlockInstance(foundBlocks[j])
           })
+          if (!store.isFirstLoaded && loadedBlocks === totalBlocks) {
+            window.dispatchEvent(new CustomEvent('loaderComplete'))
+            store.isFirstLoaded = true
+          }
         })
       }
 
@@ -97,6 +112,11 @@ export default class Page extends Highway.Renderer {
   }
 
   onEnterCompleted() {
+    if (store.isFirstLoaded) this.startBlocksEnterCompleted()
+    else window.addEventListener('loaderComplete', this.startBlocksEnterCompleted)
+  }
+
+  startBlocksEnterCompleted() {
     for (let i = 0; i < this.blocks.length; i++) {
       for (let j = 0; j < this.blocks[i].instances.length; j++) {
         this.blocks[i].instances[j].class.onEnterCompleted()
