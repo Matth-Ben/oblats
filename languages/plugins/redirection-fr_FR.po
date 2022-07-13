@@ -2,12 +2,12 @@
 # This file is distributed under the same license as the Plugins - Redirection - Development (trunk) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-04-21 05:52:10+0000\n"
+"PO-Revision-Date: 2022-07-13 05:52:21+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: GlotPress/3.0.0\n"
+"X-Generator: GlotPress/4.0.0-alpha.1\n"
 "Language: fr\n"
 "Project-Id-Version: Plugins - Redirection - Development (trunk)\n"
 
@@ -97,7 +97,7 @@ msgstr "(Niveau de journalisation des IP)"
 
 #: redirection-strings.php:439
 msgid "Are you sure you want to delete the selected items?"
-msgstr "Confirmez-vous vouloir supprimer les éléments sélectionnés ?"
+msgstr "Confirmez-vous vouloir supprimer les éléments sélectionnés ?"
 
 #: redirection-strings.php:388
 msgid "View Redirect"
@@ -739,7 +739,7 @@ msgstr "Lisez ce guide de l’API REST pour plus d’informations."
 
 #: redirection-strings.php:113
 msgid "URL options / Regex"
-msgstr "Options d’URL / Regex"
+msgstr "Options d’URL/Regex"
 
 #: redirection-strings.php:333
 msgid "Export 404"
@@ -1973,7 +1973,7 @@ msgstr "Page courante"
 
 #: redirection-strings.php:613
 msgid "of %(page)s"
-msgstr "de %(page)s"
+msgstr "de % (page)s"
 
 #: redirection-strings.php:614
 msgid "Next page"
@@ -2079,7 +2079,7 @@ msgstr "Journaux"
 
 #: redirection-strings.php:455
 msgid "Selecting this option will delete all redirections, all logs, and any options associated with the Redirection plugin.  Make sure this is what you want to do."
-msgstr "Sélectionner cette option supprimera toutes les redirections, les journaux et toutes les options associées à l&rsquo;extension Redirection. Soyez sûr que c&rsquo;est ce que vous voulez&nbsp;!"
+msgstr "Sélectionner cette option supprimera toutes les redirections, les journaux et toutes les options associées à l’extension Redirection. Soyez sûr que c’est ce que vous voulez !"
 
 #: redirection-strings.php:454
 msgid "Delete Redirection"

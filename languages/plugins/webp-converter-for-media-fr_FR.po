@@ -1,24 +1,151 @@
-# Translation of Plugins - WebP Converter for Media &#8211; Convert WebP and AVIF &amp; Optimize Images - Stable (latest release) in French (France)
-# This file is distributed under the same license as the Plugins - WebP Converter for Media &#8211; Convert WebP and AVIF &amp; Optimize Images - Stable (latest release) package.
+# Translation of Plugins - Converter for Media &#8211; Convert WebP and AVIF &amp; Optimize Images | Ease image optimization - Stable (latest release) in French (France)
+# This file is distributed under the same license as the Plugins - Converter for Media &#8211; Convert WebP and AVIF &amp; Optimize Images | Ease image optimization - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-23 17:29:44+0000\n"
+"PO-Revision-Date: 2022-07-11 09:02:08+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: GlotPress/3.0.0\n"
+"X-Generator: GlotPress/4.0.0-alpha.1\n"
 "Language: fr\n"
-"Project-Id-Version: Plugins - WebP Converter for Media &#8211; Convert WebP and AVIF &amp; Optimize Images - Stable (latest release)\n"
+"Project-Id-Version: Plugins - Converter for Media &#8211; Convert WebP and AVIF &amp; Optimize Images | Ease image optimization - Stable (latest release)\n"
 
-#: templates/components/notices/cloudflare.php:73
+#: templates/components/fields/image_size.php:40
+msgid "Max. height:"
+msgstr "Hauteur max. :"
+
+#: templates/components/fields/image_size.php:27
+msgid "Max. width:"
+msgstr "Largeur max. :"
+
+#: src/Settings/Option/ImageResizeOption.php:56
+msgid "Resize large images to maximum dimensions in pixels during image conversion, keeping the original aspect ratio"
+msgstr "Redimensionnez les grandes images aux dimensions maximales en pixels pendant la conversion d’image, en conservant la proportion de taille originale."
+
+#: src/Settings/Option/ImageResizeOption.php:49
+msgid "Maximum image dimensions"
+msgstr "Dimensions maximales des images"
+
+#. translators: %1$s: images count
+#: src/Conversion/Endpoint/ImagesCounterEndpoint.php:52
+msgid "%1$s for AVIF and %2$s for WebP"
+msgstr "%1$s pour AVIF et %2$s pour WebP"
+
+#. translators: %1$s: button label
+#: templates/components/notices/litespeed.php:35
+msgid "Look for the %1$s icon in the admin bar."
+msgstr "Recherchez l’icône %1$s dans la barre d’administration."
+
+#. translators: %1$s: width value, %2$s: height value
+#: src/Settings/Option/ImageResizeOption.php:88
+msgid "Reduce even more the weight of converted images that are larger than their largest image size (thumbnail size) using in your theme. The recommended value for you is %1$s x %2$s pixels."
+msgstr "Réduisez encore plus le poids des images converties dont la taille est supérieure à la taille d’image maximale (taille de la miniature) utilisée dans votre thème. La valeur recommandée pour vous est de %1$s x %2$s pixels."
+
+#: templates/components/widgets/regenerate.php:99
+msgid "Test image optimization"
+msgstr "Tester l’optimisation d’image"
+
+#. Description of the plugin
+msgid "Speed up your website by using our WebP & AVIF Converter. Serve WebP and AVIF images instead of standard formats JPEG, PNG and GIF just now!"
+msgstr "Accélérez votre site en utilisant notre convertisseur WebP & AVIF. Servez des images WebP et AVIF au lieu des formats standards JPEG, PNG et GIF dès maintenant !"
+
+#. translators: %s images count
+#: src/Service/WpCliManager.php:131
+#: templates/components/widgets/regenerate.php:47
+msgid "Successfully converted files: %s"
+msgstr "Fichiers convertis avec succès : %s"
+
+#. translators: %s images count
+#: src/Service/WpCliManager.php:138
+#: templates/components/widgets/regenerate.php:55
+msgid "Failed or skipped file conversion attempts: %s"
+msgstr "Tentatives de conversion de fichiers échouées ou ignorées : %s"
+
+#: templates/components/notices/avif-support.php:41
+#: templates/components/widgets/about.php:51
+msgid "Find out more"
+msgstr "En savoir plus"
+
+#. translators: %s: file extension
+#: src/Settings/Option/SupportedExtensionsOption.php:72
+msgid "%s (converting to AVIF only)"
+msgstr "%s (conversion vers AVIF uniquement)"
+
+#: src/Settings/Option/SupportedExtensionsOption.php:56
+msgid "Files from supported directories that will be converted to output formats."
+msgstr "Fichiers des répertoires pris en charge qui seront convertis aux formats de sortie."
+
+#: templates/components/notices/cloudflare.php:77
+#: templates/components/notices/litespeed.php:58
 msgid "Done"
 msgstr "Fait"
 
+#. translators: %1$s: button label
+#: templates/components/notices/cloudflare.php:43
+#: templates/components/notices/litespeed.php:47
+msgid "Click %1$s."
+msgstr "Cliquez sur %1$s."
+
+#. translators: %1$s: button label
+#: templates/components/notices/cloudflare.php:66
+msgid "If you agree, click %1$s."
+msgstr "Si vous êtes d’accord, cliquez sur %1$s."
+
+#: templates/components/notices/cloudflare.php:33
+msgid "Log in to your Cloudflare dashboard."
+msgstr "Se connecter à votre tableau de bord Cloudflare"
+
+#. translators: %1$s: section label, %2$s: button label
+#: templates/components/notices/cloudflare.php:54
+msgid "Under %1$s, click %2$s. A warning window appears."
+msgstr "Sous %1$s, cliquez sur %2$s. Une fenêtre d’avertissement apparait."
+
+#. translators: %s: setting name
+#: src/Error/Notice/BypassingApacheNotice.php:36
+msgid "%s or similar in the section related to speed or caching"
+msgstr "%s ou similaire dans la section relative à la vitesse ou à la mise en cache"
+
+#. translators: %1$s: service name
+#: templates/components/notices/cloudflare.php:22
+#: templates/components/notices/litespeed.php:22
+msgid "You are using %1$s, right? Please follow the steps below for the plugin to function properly:"
+msgstr "Vous utilisez %1$s, n’est-ce pas ? Veuillez suivre les étapes ci-dessous pour que l’extension fonctionne correctement :"
+
+#. translators: %s: setting name
+#: src/Error/Notice/BypassingApacheNotice.php:31
+msgid "%s or similar in the section related to Apache and Nginx configuration (instead of disabling this setting you can remove the following extensions from the list of files handled only by Nginx: .jpg, .jpeg, .png and .gif)"
+msgstr "%s ou similaire dans la section relative à la configuration d’Apache et de Nginx (au lieu de désactiver ce réglage, vous pouvez retirer les extensions suivantes de la liste des fichiers gérés uniquement par Nginx : .jpg, .jpeg, .png et .gif)"
+
 #. translators: %1$s: open anchor tag, %2$s: close anchor tag
-#: src/Error/Notice/RewritesNotExecutedNotice.php:33
-msgid "If you are using a Nginx server, check the configuration for Nginx in %1$sthe plugin FAQ%2$s. Proper configuration of virtual hosts for Nginx is required for the plugin to function properly. Manual configuration is also necessary if you are using the WordPress Multisite Network."
-msgstr "Si vous utilisez un serveur Nginx, vérifiez la configuration pour Nginx dans la %1$sFAQ de l’extension%2$s. Une configuration correcte des hôtes virtuels pour Nginx est nécessaire pour que l’extension fonctionne correctement. Une configuration manuelle est également nécessaire si vous utilisez le réseau Multisite WordPress."
+#: src/Plugin/Links.php:101 src/Settings/Option/ConversionMethodOption.php:72
+#: src/Settings/Option/ImageResizeOption.php:97
+#: src/Settings/Option/OutputFormatsOption.php:80
+msgid "%1$sUpgrade to PRO%2$s"
+msgstr "%1$sPassez à la version PRO%2$s"
+
+#. translators: %1$s: images count
+#: src/Conversion/Cron/CronStatusViewer.php:80
+msgid "Converting images (%s) is in progress."
+msgstr "La conversion des images (%s) est en cours."
+
+#: src/Error/Notice/BypassingApacheNotice.php:46
+msgid "If you have any of the above settings active, you must disable them for .htaccess rules to work properly."
+msgstr "Si l’un des réglages ci-dessus est actif, vous devez le désactiver pour que les règles .htaccess fonctionnent correctement."
+
+#. translators: %s: setting name
+#: src/Error/Notice/BypassingApacheNotice.php:41
+msgid "%s or similar (instead of disabling this setting you can remove the following extensions from the list of saved to the cache: .jpg, .jpeg, .png and .gif)"
+msgstr "%s ou similaire (au lieu de désactiver ce réglage, vous pouvez retirer les extensions suivantes de la liste des extensions enregistrées dans le cache : .jpg, .jpeg, .png et .gif)"
+
+#: src/Service/DeactivationModalGenerator.php:86
+msgid "Images are not displayed in WebP format"
+msgstr "Les images ne s’affichent pas au format WebP"
+
+#. translators: %1$s: open anchor tag, %2$s: close anchor tag
+#: src/Service/DeactivationModalGenerator.php:74
+msgid "If your server does not meet the technical requirements, you can use \"Remote server\" as \"Conversion method\", in %1$sthe plugin settings%2$s."
+msgstr "Si votre serveur ne répond pas aux exigences techniques, vous pouvez utiliser « Serveur distant » comme « Méthode de conversion », dans %1$sles réglages de l’extension%2$s."
 
 #: templates/components/notices/thanks.php:32
 msgid "Add plugin review"
@@ -34,18 +161,19 @@ msgid "%1$s loading mode is not compatible with your server. Sorry for the incon
 msgstr "Le mode de chargement %1$s n’est pas compatible avec votre serveur. Nous nous excusons pour ce désagrément."
 
 #. translators: %1$s: open strong tag, %2$s: close strong tag
-#: src/Error/Notice/RewritesNotWorkingNotice.php:40
+#: src/Error/Notice/RewritesNotWorkingNotice.php:26
 msgid "Redirects on your server are not working. Check the correct configuration for you in %1$sthe plugin FAQ%2$s. If you have checked the configuration, it means that your server does not support redirects from the .htaccess file or your server configuration is not compatible with this plugin."
 msgstr "Les redirections sur votre serveur ne fonctionnent pas. Vérifiez la configuration correcte pour vous dans la %1$sFAQ de l’extension%2$s. Si vous avez vérifié la configuration, cela signifie que votre serveur ne prend pas en charge les redirections à partir du fichier .htaccess ou que la configuration de votre serveur n’est pas compatible avec cette extension."
 
+#: templates/components/notices/avif-support.php:46
 #: templates/components/notices/thanks.php:37
 msgid "Hide, do not show again"
 msgstr "Masquer, ne plus afficher à nouveau"
 
 #: src/Error/Notice/PassthruExecutionNotice.php:33
 #: src/Error/Notice/RewritesCachedNotice.php:25
-#: src/Error/Notice/RewritesNotExecutedNotice.php:37
-#: src/Error/Notice/RewritesNotWorkingNotice.php:54
+#: src/Error/Notice/RewritesNotExecutedNotice.php:49
+#: src/Error/Notice/RewritesNotWorkingNotice.php:30
 msgid "In this case, please contact your server administrator."
 msgstr "Dans ce cas, veuillez contacter votre administrateur de serveur ou hébergeur web."
 
@@ -54,7 +182,7 @@ msgstr "Dans ce cas, veuillez contacter votre administrateur de serveur ou hébe
 msgid "%1$sSettings%2$s"
 msgstr "%1$sRéglages%2$s"
 
-#: src/Settings/Option/OutputFormatsOption.php:59
+#: src/Settings/Option/OutputFormatsOption.php:66
 msgid "List of supported output formats"
 msgstr "Liste de formats de sortie compatibles"
 
@@ -135,23 +263,23 @@ msgstr "Offrez-moi un café"
 msgid "Additional informations about process:"
 msgstr "Informations supplémentaires sur le processus :"
 
-#: templates/components/notices/welcome.php:13
+#: templates/components/notices/welcome.php:15
 msgid "Thank you for installing our plugin WebP Converter for Media!"
 msgstr "Merci d’avoir installé notre extension WebP Converter for Media !"
 
-#: templates/components/notices/welcome.php:31
+#: templates/components/notices/welcome.php:33
 msgid "Speed up my website"
 msgstr "Accélérer mon site"
 
-#: src/Settings/Option/ExtraFeaturesOption.php:84
+#: src/Settings/Option/ExtraFeaturesOption.php:83
 msgid "Log errors while converting to debug.log file (when debugging in WordPress is active)"
 msgstr "Consigner les erreurs lors de la conversion en fichier debug.log (lorsque le débogage dans WordPress est actif)"
 
-#: src/Settings/Option/ExtraFeaturesOption.php:76
+#: src/Settings/Option/ExtraFeaturesOption.php:75
 msgid "Enable cron to automatically convert images from outside Media Library (images from Media Library are converted immediately after upload)"
 msgstr "Activer cron pour convertir automatiquement les images de l’extérieur de la médiathèque (les images de la médiathèque sont converties immédiatement après le téléchargement)"
 
-#: src/Settings/Option/ExtraFeaturesOption.php:54
+#: src/Settings/Option/ExtraFeaturesOption.php:53
 msgid "Options allow you to enable new functionalities that will increase capabilities of plugin"
 msgstr "Ces options vous permettent d’activer de nouvelles fonctionnalités qui augmenteront les capacités de l’extension."
 
@@ -196,7 +324,7 @@ msgstr "Retourner aux réglages"
 msgid "List of supported files extensions"
 msgstr "Liste des extensions de fichiers pris en charge"
 
-#: src/Settings/Option/ConversionMethodOption.php:51
+#: src/Settings/Option/ConversionMethodOption.php:58
 msgid "Conversion method"
 msgstr "Méthode de conversion"
 
@@ -205,7 +333,7 @@ msgstr "Méthode de conversion"
 msgid "%s (recommended)"
 msgstr "%s (recommandé)"
 
-#: src/Settings/Option/ExtraFeaturesOption.php:47
+#: src/Settings/Option/ExtraFeaturesOption.php:46
 msgid "Extra features"
 msgstr "Fonctions supplémentaires"
 
@@ -233,18 +361,18 @@ msgstr "Réglages"
 msgid "Save Changes"
 msgstr "Enregistrer les modifications"
 
-#: src/Service/WpCliManager.php:78
+#: src/Service/WpCliManager.php:81
 #: templates/components/widgets/regenerate.php:16
 msgid "Regenerate images"
 msgstr "Régénération des images"
 
 #. translators: %s progress value
-#: src/Service/WpCliManager.php:120
+#: src/Service/WpCliManager.php:123
 #: templates/components/widgets/regenerate.php:39
 msgid "Saving the weight of your images: %s"
 msgstr "Poids sauvegardé de vos images : %s"
 
-#: src/Service/WpCliManager.php:113
+#: src/Service/WpCliManager.php:116
 #: templates/components/widgets/regenerate.php:63
 msgid "The process was completed successfully. Your images have been converted!"
 msgstr "Le processus s’est bien passé. Vos images ont été converties !"
@@ -295,12 +423,6 @@ msgstr "Vous rencontrez un problème technique ? Merci de nous contacter. Nous 
 msgid "However, working on plugins and technical support requires many hours of work. If you want to appreciate it, you can provide me a coffee."
 msgstr "Par ailleurs, travailler sur des extensions et sur le support technique nécessite de nombreuses heures de travail. Si vous appréciez cela, vous pouvez nous offrir un café."
 
-#. translators: %1$s: open strong tag, %2$s: close strong tag, %3$s: errors
-#. codes
-#: templates/components/widgets/errors.php:31
-msgid "%1$sError codes:%2$s %3$s"
-msgstr "%1$sCodes d’erreur :%2$s %3$s"
-
 #: templates/components/widgets/donate.php:24
 msgid "If every plugin user did it, I could devote myself fully to working on this plugin. Thanks everyone!"
 msgstr "Si chaque utilisateur ou utilisatrice de l’extension le faisait, je pourrais me consacrer entièrement à travailler dessus. Merci à tous !"
@@ -314,20 +436,20 @@ msgstr "J’aime ce que je fais !"
 msgid "%s (without rewrites in .htaccess files or Nginx configuration)"
 msgstr "%s (sans réécriture dans les fichiers .htaccess ou la configuration Nginx)"
 
-#. translators: %s: anchor tag
-#: src/Error/Notice/PassthruExecutionNotice.php:29
-msgid "Execution of the PHP file from path \"%s\" is blocked on your server, or access to this file is blocked. Add an exception and enable this file to be executed via HTTP request. To do this, check the security plugin settings (if you are using) or the security settings of your server."
-msgstr "L’exécution du fichier PHP depuis « %s » est bloquée sur le serveur, ou l’accès à ce fichier est bloqué. Ajoutez une exception et activez l’exécution de ce fichier via une requête HTTP. Pour ce faire, vérifiez les réglages de l’extension de sécurité (si vous en utilisez une) ou les réglages de sécurité du serveur. %s Dans ce cas, veuillez contacter l’administrateur ou l’administratrice de votre serveur."
-
 #. translators: %1$s: anchor tag, %2$s: anchor tag, %3$s: anchor tag
 #: src/Error/Notice/RestApiDisabledNotice.php:26
 msgid "The REST API on your website is not available. Please verify this and try again. Pay special attention to the filters: %1$s, %2$s and %3$s."
 msgstr "L’API REST n’est pas disponible sur votre site. Veuillez vérifier ceci et essayez à nouveau. Faites particulièrement attention aux filtres : %1$s, %2$s and %3$s."
 
 #. translators: %1$s: br tag, %2$s: icon heart
-#: templates/components/notices/welcome.php:20
+#: templates/components/notices/welcome.php:22
 msgid "Would you like to speed up your website using our plugin? %1$sGo to plugin settings and convert all your images to WebP with one click! Thank you for being with us! %2$s"
 msgstr "Souhaitez-vous accélérer votre site en utilisant notre extension ? %1$sAccédez aux réglages et convertissez toutes vos images en WebP en un seul clic ! Merci d’être avec nous ! %2$s"
+
+#. translators: %s: anchor tag
+#: src/Error/Notice/PassthruExecutionNotice.php:29
+msgid "Execution of the PHP file from path \"%s\" is blocked on your server, or access to this file is blocked. Add an exception and enable this file to be executed via HTTP request. To do this, check the security plugin settings (if you are using) or the security settings of your server."
+msgstr "L’exécution du fichier PHP depuis « %s » est bloquée sur le serveur, ou l’accès à ce fichier est bloqué. Ajoutez une exception et activez l’exécution de ce fichier via une requête HTTP. Pour ce faire, vérifiez les réglages de l’extension de sécurité (si vous en utilisez une) ou les réglages de sécurité du serveur. %s Dans ce cas, veuillez contacter l’administrateur ou l’administratrice de votre serveur."
 
 #: templates/components/fields/token.php:58
 msgid "Please wait..."
@@ -346,33 +468,28 @@ msgstr "Désactiver le jeton"
 msgid "Activate Token"
 msgstr "Activer le jeton"
 
-#: src/Settings/Option/OutputFormatsOption.php:67
+#: src/Settings/Option/OutputFormatsOption.php:74
+#: templates/components/notices/avif-support.php:29
 msgid "The AVIF format is a new extension - is the successor to WebP. It allows you to achieve even higher levels of image compression, and the quality of the converted images is better than in WebP."
 msgstr "Le format AVIF est une nouvelle extension - c’est le successeur de WebP. Il autorise des niveaux de compression d’image encore plus élevés et la qualité des images converties est meilleure que celle de WebP."
 
-#: src/Settings/Option/ExtraFeaturesOption.php:80
+#: src/Settings/Option/ExtraFeaturesOption.php:79
 msgid "Force redirections to output formats for all domains (by default, images in output formats are loaded only in domain of your website - when image is displayed via URL on another domain that original file is loaded)"
 msgstr "Forcer les redirections vers les formats de sortie pour tous les domaines (par défaut, les images dans les formats de sortie sont chargées uniquement dans le domaine de votre site - lorsque l’image est affichée via une URL sur un autre domaine, le fichier original est chargé)."
 
-#: src/Settings/Option/ExtraFeaturesOption.php:72
+#: src/Settings/Option/ExtraFeaturesOption.php:71
 msgid "Keep images metadata stored in EXIF or XMP formats (unavailable for GD conversion method)"
 msgstr "Conserver les métadonnées des images stockées aux formats EXIF ou XMP (disponible uniquement pour la méthode de conversion GD)"
 
-#: src/Settings/Option/ExtraFeaturesOption.php:68
+#: src/Settings/Option/ExtraFeaturesOption.php:67
 msgid "Browser Caching for files in output formats (saving images in browser cache memory)"
 msgstr "Mise en cache du navigateur pour les fichiers dans les formats de sortie (enregistrer les images dans la mémoire cache du navigateur)"
 
-#: src/Settings/Option/ExtraFeaturesOption.php:64
+#: src/Settings/Option/ExtraFeaturesOption.php:63
 msgid "Automatic removal of files in output formats larger than original"
 msgstr "Suppression automatique des fichiers dans les formats de sortie plus grands que l’original"
 
-#. translators: %1$s: open anchor tag, %2$s: arrow icon, %3$s: close anchor tag
-#: src/Settings/Option/ConversionMethodOption.php:62
-#: src/Settings/Option/OutputFormatsOption.php:70
-msgid "%1$sRead more %2$s%3$s"
-msgstr "%1$sLire plus %2$s%3$s"
-
-#: src/Settings/Option/ConversionMethodOption.php:59
+#: src/Settings/Option/ConversionMethodOption.php:66
 msgid "The Remote server allows you to reduce the server load, because your images are converted by our server. This option is also useful when the server does not meet all of the plugin's technical requirements."
 msgstr "Le serveur distant vous autorise à réduire la charge du serveur, car vos images sont converties par notre serveur. Cette option est également utile lorsque le serveur ne répond pas à tous les prérequis techniques de l’extension."
 
@@ -399,30 +516,19 @@ msgstr "WebP comme format de sortie est obligatoire. Dans l’option « Formats
 msgid "The plugin settings are incorrect! Check them out and save them again. Please remember that you must have at least one option selected for each field."
 msgstr "Les réglages de l’extension sont incorrects ! Vérifiez-les et enregistrez-les à nouveau. N’oubliez pas que vous devez avoir sélectionné au moins une option pour chaque champ."
 
-#. translators: %1$s: directory tag, %2$s: invalid config value, %3$s: correct
-#. config value
-#: src/Error/Notice/RewritesNotExecutedNotice.php:26
-msgid "Your server does not supports using .htaccess files from custom locations. This is usually related to the virtual host settings in the Apache configuration. In the .conf file appropriate for your VirtualHost, in the %1$s section, replace the value of %2$s with the value of %3$s."
-msgstr "Votre serveur ne prend pas en charge l’utilisation de fichiers .htaccess à partir d’emplacements personnalisés. Ce problème est généralement similaire aux réglages de l’hébergeur virtuel dans la configuration Apache. Dans le fichier .conf correspondant à votre hébergeur virtuel, dans la section %1$s, remplacez la valeur de %2$s par celle de %3$s."
-
-#: src/Conversion/Method/RemoteMethod.php:73
-#: src/Conversion/Method/RemoteMethod.php:79
+#: src/Conversion/Method/RemoteMethod.php:76
+#: src/Conversion/Method/RemoteMethod.php:82
 msgid "Remote server"
 msgstr "Serveur distant"
 
 #. translators: %1$s: images count
-#: src/Conversion/Endpoint/ImagesCounterEndpoint.php:58
-#: src/Service/WpCliManager.php:60
+#: src/Service/WpCliManager.php:63
 msgid "%1$s for AVIF and %1$s for WebP"
 msgstr "%1$spour AVIF et %1$s pour WebP"
 
 #. Author URI of the plugin
 msgid "https://mattplugins.com/"
 msgstr "https://mattplugins.com/"
-
-#. Description of the plugin
-msgid "Speed up your website by serving WebP and AVIF images instead of standard formats JPEG, PNG and GIF. Reduce image sizes just now!"
-msgstr "Accélérez votre site en servant des images WebP et AVIF au lieu des formats standard JPEG, PNG et GIF. Réduisez la taille des images dès maintenant !"
 
 #: templates/views/settings.php:37
 msgid "The access token has been activated!"
@@ -441,15 +547,52 @@ msgstr "Cette opération ne doit être effectuée qu’une seule fois après l�
 #. translators: %1$s: option name, %2$s: open anchor tag, %3$s: close anchor
 #. tag
 #: src/Conversion/Format/AvifFormat.php:49
-#: src/Conversion/Method/RemoteMethod.php:78
+#: src/Conversion/Method/RemoteMethod.php:81
+#: src/Settings/Option/ImageResizeOption.php:61
 msgid "%1$s (available in %2$sthe PRO version%3$s)"
 msgstr "%1$s (disponible dans la %2$sversion PRO%3$s)"
+
+#: templates/components/widgets/regenerate.php:25
+msgid "Convert all existing images with just one click! This tool uses the WordPress REST API by downloading addresses of all images and converting all files gradually. This is a process that can take anywhere from several minutes to many hours depending on the number of files. During this process, please do not close your browser window."
+msgstr "Convertissez toutes les images existantes en un seul clic ! Cet outil utilise l’API REST de WordPress en téléchargeant les adresses de toutes les images et en convertissant tous les fichiers progressivement. Ce processus peut prendre quelques minutes, voire plus, en fonction du nombre de fichiers. Pendant ce processus, veuillez ne pas fermer la fenêtre de votre navigateur."
 
 #. translators: %1$s: open anchor tag, %2$s: close anchor tag
 #: templates/components/widgets/regenerate.php:70
 msgid "Do you want to know how a plugin works and how to check if it is working properly? Read %1$sour manual%2$s."
 msgstr "Voulez-vous savoir comment fonctionne l’extension et comment vérifier si elle fonctionne correctement ? Lisez %1$snotre manuel%2$s."
 
-#: templates/components/widgets/regenerate.php:25
-msgid "Convert all existing images with just one click! This tool uses the WordPress REST API by downloading addresses of all images and converting all files gradually. This is a process that can take anywhere from several minutes to many hours depending on the number of files. During this process, please do not close your browser window."
-msgstr "Convertissez toutes les images existantes en un seul clic ! Cet outil utilise l’API REST de WordPress en téléchargeant les adresses de toutes les images et en convertissant tous les fichiers progressivement. Ce processus peut prendre quelques minutes, voire plus, en fonction du nombre de fichiers. Pendant ce processus, veuillez ne pas fermer la fenêtre de votre navigateur."
+#: src/Error/Notice/AccessTokenInvalidNotice.php:24
+msgid "Your access token is invalid or your subscription has expired. Check the value given in and try to activate it again."
+msgstr "Votre jeton d’accès est invalide ou votre abonnement a expiré. Vérifiez la valeur indiquée et réessayez de l’activer."
+
+#: src/Error/Notice/LibsWithoutWebpSupportNotice.php:26
+msgid "This will allow you to convert your images to WebP without any problems and thus speed up your website."
+msgstr "Cela vous permettra de convertir vos images en WebP sans aucun problème et d’accélérer ainsi votre site."
+
+#. translators: %1$s: filter name, %2$s: server path
+#: src/Error/Notice/PathWebpDuplicatedNotice.php:26
+msgid "The paths for /uploads files and for saving converted WebP files are the same. Change them using filter %1$s. The current path for them is: %2$s."
+msgstr "Les chemins pour les fichiers téléversés et pour l’enregistrement des fichiers WebP convertis sont les mêmes. Modifiez-les grâce au filtre %1$s. Le chemin actuel est : %2$s."
+
+#: src/Service/WpCliManager.php:52 templates/components/fields/token.php:46
+msgid "How many maximum images for conversion are left on my website?"
+msgstr "Quel est le nombre maximal d’images restant à convertir sur mon site ?"
+
+#: src/Settings/Option/SupportedDirectoriesOption.php:46
+msgid "Files from these directories will be converted to output formats."
+msgstr "Les fichiers de ces répertoires seront convertis aux formats de sortie."
+
+#: templates/components/widgets/about.php:42
+msgid "Image URLs are modified using the module mod_rewrite on the server, i.e. the same, thanks to which we can use friendly links in WordPress. Additionally, the MIME type of the sent file is modified."
+msgstr "Les URL d’image sont modifiées à l’aide du module mod_rewrite sur le serveur, c’est-à-dire identiques, ce qui nous permet d’utiliser des liens conviviaux dans WordPress. De plus, le type MIME du fichier envoyé est modifié."
+
+#: src/Error/Notice/LibsNotInstalledNotice.php:30
+#: src/Error/Notice/LibsWithoutWebpSupportNotice.php:25
+msgid "You can also use \"Remote server\" option in \"Conversion method\" field in the plugin settings. This option allows you to convert your images using a remote server, so your server does not have to meet all technical requirements for libraries."
+msgstr "Vous pouvez également utiliser l’option « Serveur distant » dans le champ « Méthode de conversion » des réglages de l’extension. Cette option vous permet de convertir vos images en utilisant un serveur distant, ainsi votre serveur n’a pas à répondre à tous les prérequis techniques des bibliothèques."
+
+#. translators: %1$s: open strong tag, %2$s: close strong tag, %3$s: errors
+#. codes
+#: templates/components/widgets/errors.php:31
+msgid "%1$sError codes:%2$s %3$s"
+msgstr "%1$sCodes d’erreur : %2$s %3$s"
