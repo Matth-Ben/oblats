@@ -15,7 +15,7 @@ module.exports = merge(common, {
       writeToDisk: true
     },
     client: {
-      progress: true,
+      progress: false,
       overlay: {
         errors: true,
         warnings: false
