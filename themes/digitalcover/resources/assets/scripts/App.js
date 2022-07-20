@@ -74,7 +74,7 @@ export default class App {
       // Detach adminbar links
       const adminbarLinks = document.body.querySelectorAll('#wpadminbar a')
 
-      adminbarLinks && App.Highway.detach(adminbarLinks)
+      adminbarLinks && store.router.detach(adminbarLinks)
 
       this.loader.play().then(() => {
         store.smoothScroll && store.smoothScroll.update()
@@ -105,7 +105,7 @@ export default class App {
   */
   initHighway() {
     return new Promise((resolve) => {
-      App.Highway = new Highway.Core({
+      store.router = new Highway.Core({
         renderers: {
           page: Page
         },
@@ -119,8 +119,8 @@ export default class App {
 
   setCurrentRenderer() {
     return new Promise((resolve) => {
-      App.Highway.properties.renderer.then(() => {
-        this.currentRenderer = App.Highway.To ? App.Highway.To : App.Highway.From
+      store.router.properties.renderer.then(() => {
+        this.currentRenderer = store.router.To ? store.router.To : store.router.From
 
         resolve(this.currentRenderer)
       })
@@ -163,7 +163,7 @@ export default class App {
       window.addEventListener('scroll', this.scrollDebounced)
     }
 
-    App.Highway.on('NAVIGATE_IN', () => {
+    store.router.on('NAVIGATE_IN', () => {
       this.setCurrentRenderer().then((renderer) => {
         document.title = renderer.properties.page.title
       })
@@ -171,7 +171,7 @@ export default class App {
       this.lazyLoad.update()
     })
 
-    App.Highway.on('NAVIGATE_END', ({ to, location }) => {
+    store.router.on('NAVIGATE_END', ({ to, location }) => {
       if (typeof ga !== 'undefined') {
         ga('set', 'location', location.href);
         ga('set', 'page', location.pathname)
@@ -191,7 +191,7 @@ export default class App {
     })
 
     window.addEventListener('highwayredirect', (e) => {
-      App.Highway.redirect(e.detail.url)
+      store.router.redirect(e.detail.url)
     })
   }
 
@@ -201,7 +201,7 @@ export default class App {
 
     for (let i = 0; i < newAdminBarLinks.length; i++) adminBarLinks[i].href = newAdminBarLinks[i].href
 
-    App.Highway.detach(adminBarLinks)
+    store.router.detach(adminBarLinks)
   }
 
   checkAnchor(location = null) {
