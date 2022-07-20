@@ -1,11 +1,15 @@
 const { merge } = require('webpack-merge')
 const common = require('./webpack.common.js')
 const config = require('./config')
-const path = require('path')
+const path = require('path');
 
 module.exports = merge(common, {
   mode: 'development',
-  devtool: 'source-map',
+  devtool: 'eval-cheap-module-source-map',
+  watchOptions: {
+    aggregateTimeout: 600,
+    ignored: /node_modules/
+  },
   devServer: {
     static: path.join(__dirname, '../../assets/'),
     port: 3030,
@@ -15,7 +19,7 @@ module.exports = merge(common, {
       writeToDisk: true
     },
     client: {
-      progress: false,
+      logging: 'error',
       overlay: {
         errors: true,
         warnings: false
@@ -38,7 +42,7 @@ module.exports = merge(common, {
           {
             loader: 'css-loader',
             options: {
-             sourceMap: true
+              sourceMap: true
             }
           },
           {
@@ -55,7 +59,11 @@ module.exports = merge(common, {
           {
             loader: 'sass-loader',
             options: {
-              implementation: require.resolve('sass')
+              implementation: require.resolve('sass'),
+              sourceMap: true,
+              sassOptions: {
+                outputStyle: 'compressed'
+              }
             }
           }
         ]

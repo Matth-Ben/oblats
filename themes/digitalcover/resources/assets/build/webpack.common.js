@@ -92,7 +92,6 @@ let webpackConfig = {
     new CleanWebpackPlugin({ verbose: false }),
     new HtmlWebpackPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
     new BrowserSyncPlugin({
       files: ['resources/views/**/*.blade.php'],
       host: 'localhost',
@@ -100,10 +99,10 @@ let webpackConfig = {
       open: true,
       watch: config.watch,
       rewriteRules: [
-        {
-          match: /starter-dc\.localhost/g,
-          replace: "localhost:3000",
-        }
+          {
+              match: new RegExp(config.devUrl.substring(7),"g"),
+              replace: "localhost:3000",
+          }
       ],
       proxy: {
         target: 'http://localhost:3030/',
@@ -114,10 +113,10 @@ let webpackConfig = {
     }),
     new ESLintPlugin({
       failOnWarning: false,
-      failOnError: true,
+      failOnError: false,
     }),
     new StyleLintPlugin({
-      failOnError: !config.enabled.watcher,
+      failOnError: false,
       syntax: 'scss',
     }),
     new FriendlyErrorsWebpackPlugin()
