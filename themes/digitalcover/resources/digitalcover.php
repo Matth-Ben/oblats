@@ -140,3 +140,36 @@ function wpb_custom_new_menu() {
     register_nav_menu('footer_navigation',__( 'Footer' ));
 }
 add_action( 'init', 'wpb_custom_new_menu' );
+
+
+/**
+* Replace the input submit button in a form by a button element
+*/
+function input_to_button( $button, $form ) {
+    $dom = new DOMDocument();
+    $dom->loadHTML( '<?xml encoding="utf-8" ?>' . $button );
+    $input = $dom->getElementsByTagName( 'input' )->item(0);
+    $new_button = $dom->createElement( 'button' );
+    $val = $dom->createElement( 'div', $input->getAttribute( 'value' ));
+    $wrapper = $dom->createElement( 'div' );
+    $wrapper->setAttribute('class', 'wrapper');
+    $wrapper->appendChild( $val );
+    $new_button->appendChild( $wrapper );
+    $input->removeAttribute( 'value' );
+
+    foreach( $input->attributes as $attribute ) {
+        $new_button->setAttribute( $attribute->name, $attribute->value );
+    }
+
+    $new_button->setAttribute('class', $new_button->getAttribute('class'));
+    $val->setAttribute('data-label', $new_button->textContent);
+
+    $input->parentNode->replaceChild( $new_button, $input );
+
+    return $dom->saveHtml( $new_button );
+  }
+
+  /* CHANGE SUBMIT BUTTON */
+  add_filter( 'gform_next_button', 'input_to_button', 10, 2 );
+  add_filter( 'gform_previous_button', 'input_to_button', 10, 2 );
+  add_filter( 'gform_submit_button', 'input_to_button', 10, 2 );
