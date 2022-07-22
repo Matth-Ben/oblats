@@ -22,42 +22,46 @@ class App extends Controller
   }
 
   public static function menu() {
-    $dataHeader = [];
-
+    $return = [];
+    $menus = ['primary_navigation', 'footer_navigation'];
     $menuLocations = get_nav_menu_locations();
-    $headerMenuId = isset($menuLocations['primary_navigation']) ? $menuLocations['primary_navigation'] : null;
-    // $footerMenuId = isset($menuLocations['footer_navigation']) ? $menuLocations['footer_navigation'] : null;
 
-    if ($headerMenuId) {
-      $headerMenuNav = wp_get_nav_menu_items($headerMenuId);
+    foreach($menus as $menu) {
+        $id = $menuLocations[$menu];
+        $items = wp_get_nav_menu_items($id);
+        $data = [];
 
-      foreach($headerMenuNav as $item) {
-        $dataHeader[] = [
-          'id' => $item->object_id,
-          'title' => $item->title,
-          'url' => $item->url,
-          'target' => $item->target
-        ];
-      }
+        foreach($items as $item) {
+            if ($item->menu_item_parent == 0) {
+                $itemArray = [
+                    'id' => $item->object_id,
+                    'title' => $item->title,
+                    'url' => $item->url,
+                    'target' => $item->target,
+                    'children' => []
+                ];
+
+                foreach ($items as $subItem) {
+                    if ($subItem->menu_item_parent != 0) {
+                        if (intval($subItem->menu_item_parent) === $item->ID) {
+                            $itemArray['children'][] = [
+                                'id' => $subItem->ID,
+                                'title' => $subItem->title,
+                                'url' => $subItem->url,
+                                'target' => $subItem->target
+                            ];
+                        }
+                    }
+                }
+
+                $data[] = $itemArray;
+            }
+        }
+
+        $return[$menu] = $data;
     }
 
-    // if ($footerMenuId) {
-    //   $footerMenuNav = wp_get_nav_menu_items($footerMenuId);
-
-    //   foreach($footerMenuNav as $item) {
-    //     $dataFooter[] = [
-    //         'id' => $item->object_id,
-    //         'title' => $item->title,
-    //         'url' => $item->url,
-    //         'target' => $item->target
-    //     ];
-    //   }
-    // }
-
-    return [
-      'header' => $dataHeader,
-      // 'footer' => $dataFooter
-    ];
+    return $return;
   }
 
   public static function options() {
