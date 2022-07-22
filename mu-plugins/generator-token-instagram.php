@@ -89,7 +89,7 @@ function gti_update()
 
 function gti_api()
 {
-    $url = 'https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token=' . get_option(['accesstoken']);
+    $url = 'https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token=' . get_option('accesstoken');
     $content = file_get_contents($url);
     $content = json_decode($content);
     update_option('accesstoken', $content->access_token);
