@@ -173,3 +173,12 @@ function input_to_button( $button, $form ) {
   add_filter( 'gform_next_button', 'input_to_button', 10, 2 );
   add_filter( 'gform_previous_button', 'input_to_button', 10, 2 );
   add_filter( 'gform_submit_button', 'input_to_button', 10, 2 );
+
+
+function shapeSpace_enable_gutenberg_post_ids($can_edit, $post) {
+    if (get_option('page_for_posts') === $post->ID) return true;
+
+    return $can_edit;
+}
+
+add_filter('use_block_editor_for_post', 'shapeSpace_enable_gutenberg_post_ids', 10, 2);
