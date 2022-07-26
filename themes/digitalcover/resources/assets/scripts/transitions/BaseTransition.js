@@ -14,23 +14,28 @@ export default class BaseTransition extends Highway.Transition {
   scrollToTop() {
     window.scrollTo(0, 0)
 
-    if (store.smoothScroll) store.smoothScroll.setScroll(0, 0)
+    if (store.scrollEngine === 'locomotive-scroll') store.smoothScroll.setScroll(0, 0)
   }
 
   resetScroll() {
     window.scrollTo(0, 0)
 
-    if (store.smoothScroll) {
+    if (store.scrollEngine === 'locomotive-scroll') {
       store.smoothScroll.setScroll(0, 0)
       store.smoothScroll.update()
       store.smoothScroll.start()
+    } else if (store.scrollEngine === 'lenis') {
+      store.smoothScroll.start()
+      store.smoothScroll.scroll = 0
+      store.smoothScroll.targetScroll = 0
     }
   }
 
   transitionComplete() {
     this.from.remove()
 
-    store.smoothScroll ? store.smoothScroll.setScroll(0, 0) : window.scrollTo(0, 0)
+    if (store.scrollEngine === 'locomotive-scroll') store.smoothScroll.setScroll(0, 0)
+    else window.scrollTo(0, 0)
 
     this.hideLoader().then(this.done.bind(this))
   }

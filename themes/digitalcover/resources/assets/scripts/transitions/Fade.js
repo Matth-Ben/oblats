@@ -14,7 +14,8 @@ export default class Fade extends BaseTransition {
           this.scrollToTop()
         },
         onComplete: () => {
-          store.smoothScroll && store.smoothScroll.update()
+          if (store.scrollEngine === 'locomotive-scroll') store.smoothScroll.update()
+
           this.resetScroll()
           resolve()
         }

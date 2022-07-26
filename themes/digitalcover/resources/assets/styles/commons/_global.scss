@@ -10,6 +10,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+html {
+  &.lenis { scroll-behavior: initial; }
+}
+
 * { box-sizing: border-box; }
 [data-router-view] { min-height: 100vh; }
 

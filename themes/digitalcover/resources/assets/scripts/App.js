@@ -10,8 +10,9 @@ import { listen } from 'quicklink'
 import Loader from './util/Loader'
 import Menu from './util/Menu'
 import store from './util/store'
-import DOMObserver from './util/DOMObserver'
+import Observer from './util/Observer'
 import locomotiveScroll from 'locomotive-scroll'
+import Lenis from '@studio-freight/lenis'
 
 // Routes
 import Page from './routes/Page'
@@ -26,9 +27,11 @@ export default class App {
   * then calls `this.start()` when DOM is ready
   */
   constructor() {
-    App.globalData = {
-      smoothScroll: false
-    }
+
+    /**
+     * Availabled values : locomotive-scroll, lenis, false
+     */
+    store.scrollEngine = false
 
     this.resize = this.resize.bind(this)
     this.scroll = this.scroll.bind(this)
@@ -39,7 +42,7 @@ export default class App {
     this.resizeDebounced = debounce(100, this.resize)
     this.resizeThrottled = throttle(150, this.resize)
 
-    if (!App.globalData.smoothScroll) {
+    if (!store.scrollEngine) {
       this.scrollDebounced = debounce(100, this.scroll)
       this.scrollThrottled = throttle(50, this.scroll)
     }
@@ -60,7 +63,9 @@ export default class App {
   * @returns {void}
   */
   start() {
-    App.globalData.smoothScroll ? this.initSmoothScroll() : this.initDOMObserver()
+    if (store.scrollEngine === 'locomotive-scroll') this.initLocomotiveScroll()
+    else if (store.scrollEngine === 'lenis') this.initLenis()
+    else this.initDOMObserver()
 
     this.loader = new Loader()
     this.menu = new Menu()
@@ -69,6 +74,9 @@ export default class App {
     this.initHighway().then(() => {
       this.events()
       this.update()
+
+      if ('scrollRestoration' in history) history.scrollRestoration = 'manual'
+
       window.scrollTo(0, 0)
 
       // Detach adminbar links
@@ -77,17 +85,17 @@ export default class App {
       adminbarLinks && store.router.detach(adminbarLinks)
 
       this.loader.play().then(() => {
-        store.smoothScroll && store.smoothScroll.update()
+        if (store.scrollEngine === 'locomotive-scroll') store.smoothScroll && store.smoothScroll.update()
         this.checkAnchor()
       })
     })
   }
 
   initDOMObserver() {
-    this.DOMObserver = new DOMObserver(this.observerCallBack)
+    store.observer = new Observer()
   }
 
-  initSmoothScroll() {
+  initLocomotiveScroll() {
     /* eslint-disable-next-line */
     store.smoothScroll = new locomotiveScroll({
       el: document.body.querySelector('.js-scroll'),
@@ -95,6 +103,18 @@ export default class App {
       passive: true,
       inertia: 1.0
     })
+  }
+
+  initLenis() {
+    store.smoothScroll = new Lenis({
+      lerp: 0.08,
+      smooth: true,
+      direction: 'vertical'
+    })
+
+    document.documentElement.classList.add('lenis')
+
+    store.observer = new Observer()
   }
 
   /**
@@ -106,9 +126,7 @@ export default class App {
   initHighway() {
     return new Promise((resolve) => {
       store.router = new Highway.Core({
-        renderers: {
-          page: Page
-        },
+        renderers: { page: Page },
         transitions: { default: Fade }
       })
 
@@ -138,13 +156,15 @@ export default class App {
     this.menu && this.menu.resize()
   }
 
-  scroll() {
-    this.currentRenderer.scroll()
+  scroll(e) {
+    this.currentRenderer.scroll(e)
     this.menu && this.menu.scroll()
   }
 
 	update() {
 		this.currentRenderer.update()
+
+    if (store.scrollEngine === 'lenis') store.smoothScroll.raf()
 		requestAnimationFrame(this.update)
 	}
 
@@ -153,10 +173,14 @@ export default class App {
     window.addEventListener('resize', this.resizeDebounced)
     window.addEventListener('orientationchange', this.resize)
 
-    if (store.smoothScroll) {
+    if (store.scrollEngine === 'locomotive-scroll') {
       store.smoothScroll && store.smoothScroll.on('scroll', this.scroll)
       store.smoothScroll.on('call', (value, way, object) => {
         this.currentRenderer.inView(value, way, object)
+      })
+    } else if (store.scrollEngine === 'lenis') {
+      store.smoothScroll.on('scroll', ({ scroll }) => {
+        this.scroll(scroll)
       })
     } else {
       window.addEventListener('scroll', this.scrollThrottled)
@@ -182,10 +206,7 @@ export default class App {
       this.checkAnchor(location)
       listen({ el: to.view })
 
-      if (!App.globalData.smoothScroll) {
-        this.DOMObserver = null
-        this.initDOMObserver()
-      }
+      if (!store.scrollEngine) store.observer.unobserve()
 
       this.detachAdminBarLinks(to)
     })
@@ -225,9 +246,11 @@ export default class App {
       const el = document.querySelector('#' + anchor)
 
       if (el) {
-        if (store.smoothScroll) {
+        if (store.scrollEngine === 'locomotive-scroll') {
           store.smoothScroll.scrollTo(el)
           store.smoothScroll.update()
+        } else if (store.scrollEngine === 'lenis') {
+          store.smoothScroll.scrollTo(el)
         } else {
           const elRect = el.getBoundingClientRect()
 
