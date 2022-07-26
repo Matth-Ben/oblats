@@ -5,8 +5,7 @@ namespace App\Controllers;
 use Sober\Controller\Controller;
 use WP_Query;
 
-class App extends Controller
-{
+class App extends Controller {
   public function __construct() {
     $GLOBALS['App'] = [];
     $GLOBALS['options'] = $this->options();
@@ -26,39 +25,41 @@ class App extends Controller
     $menus = ['primary_navigation', 'footer_navigation'];
     $menuLocations = get_nav_menu_locations();
 
-    foreach($menus as $menu) {
+    if ($menuLocations) {
+      foreach($menus as $menu) {
         $id = $menuLocations[$menu];
         $items = wp_get_nav_menu_items($id);
         $data = [];
 
         foreach($items as $item) {
-            if ($item->menu_item_parent == 0) {
-                $itemArray = [
-                    'id' => $item->object_id,
-                    'title' => $item->title,
-                    'url' => $item->url,
-                    'target' => $item->target,
-                    'children' => []
-                ];
+          if ($item->menu_item_parent == 0) {
+            $itemArray = [
+              'id' => $item->object_id,
+              'title' => $item->title,
+              'url' => $item->url,
+              'target' => $item->target,
+              'children' => []
+            ];
 
-                foreach ($items as $subItem) {
-                    if ($subItem->menu_item_parent != 0) {
-                        if (intval($subItem->menu_item_parent) === $item->ID) {
-                            $itemArray['children'][] = [
-                                'id' => $subItem->ID,
-                                'title' => $subItem->title,
-                                'url' => $subItem->url,
-                                'target' => $subItem->target
-                            ];
-                        }
-                    }
+            foreach ($items as $subItem) {
+              if ($subItem->menu_item_parent != 0) {
+                if (intval($subItem->menu_item_parent) === $item->ID) {
+                  $itemArray['children'][] = [
+                    'id' => $subItem->ID,
+                    'title' => $subItem->title,
+                    'url' => $subItem->url,
+                    'target' => $subItem->target
+                  ];
                 }
-
-                $data[] = $itemArray;
+              }
             }
+
+            $data[] = $itemArray;
+          }
         }
 
         $return[$menu] = $data;
+      }
     }
 
     return $return;
