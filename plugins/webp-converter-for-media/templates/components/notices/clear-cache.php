@@ -2,8 +2,10 @@
 /**
  * Notice displayed in admin panel.
  *
- * @var string $ajax_url     URL of admin-ajax.
- * @var string $close_action Action using in WP Ajax.
+ * @var string   $ajax_url     URL of admin-ajax.
+ * @var string   $close_action Action using in WP Ajax.
+ * @var string   $service_name .
+ * @var string[] $steps        Instructions to follow.
  * @package WebP Converter for Media
  */
 
@@ -20,36 +22,17 @@
 				sprintf(
 				/* translators: %1$s: service name */
 					__( 'You are using %1$s, right? Please follow the steps below for the plugin to function properly:', 'webp-converter-for-media' ),
-					'LiteSpeed Cache'
+					$service_name
 				)
 			);
 			?>
 		</p>
 		<ul>
+			<?php foreach ( $steps as $step_index => $step_message ) : ?>
 			<li>
-				1.
-				<?php
-				echo wp_kses_post(
-					sprintf(
-					/* translators: %1$s: button label */
-						__( 'Look for the %1$s icon in the admin bar.', 'webp-converter-for-media' ),
-						'<strong>"LiteSpeed Cache Purge All - LSCache"</strong>'
-					)
-				);
-				?>
+				<?php echo wp_kses_post( ( $step_index + 1 ) . '. ' . $step_message ); ?>
 			</li>
-			<li>
-				2.
-				<?php
-				echo wp_kses_post(
-					sprintf(
-					/* translators: %1$s: button label */
-						__( 'Click %1$s.', 'webp-converter-for-media' ),
-						'<strong>"Purge All"</strong>'
-					)
-				);
-				?>
-			</li>
+			<?php endforeach; ?>
 		</ul>
 		<div class="webpContent__buttons">
 			<button type="button" data-permanently

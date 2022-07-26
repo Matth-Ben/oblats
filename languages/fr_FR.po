@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WordPress - 6.0.x - Development package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-07-05 16:56:22+0000\n"
+"PO-Revision-Date: 2022-07-25 23:06:21+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -370,7 +370,7 @@ msgstr "Biographie de l’auteur/autrice de la publication"
 #: wp-includes/blocks/home-link/block.json
 msgctxt "block description"
 msgid "Create a link that always points to the homepage of the site. Usually not necessary if there is already a site title link present in the header."
-msgstr "Créé un lien qui pointera toujours vers la page d’accueil du site. Généralement non indispensable s’il y a déjà un lien sur le titre du site dans son en-tête."
+msgstr "Crée un lien qui pointera toujours vers la page d’accueil du site. Généralement non indispensable s’il y a déjà un lien sur le titre du site dans son en-tête."
 
 #: wp-includes/blocks/home-link/block.json
 msgctxt "block title"
@@ -2430,7 +2430,7 @@ msgstr "liste à puces"
 #: wp-includes/blocks/list/block.json
 msgctxt "block description"
 msgid "Create a bulleted or numbered list."
-msgstr "Créé une liste à puces ou une liste numérotée."
+msgstr "Crée une liste à puces ou une liste numérotée."
 
 #: wp-includes/blocks/legacy-widget/block.json
 msgctxt "block description"
@@ -3071,6 +3071,10 @@ msgstr "La largeur préférée de la surface de fenêtre (viewport) lorsqu’une
 #: wp-includes/rest-api/endpoints/class-wp-rest-pattern-directory-controller.php:285
 msgid "A description of the pattern."
 msgstr "Une description de la composition."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-pattern-directory-controller.php:277
+msgid "The pattern's keywords."
+msgstr "Les mots-clés de la composition."
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-pattern-directory-controller.php:269
 msgid "The pattern's category slugs."

@@ -30,6 +30,7 @@ class PluginSettings {
 		OptionsAccessManager::delete_option( ThanksNotice::NOTICE_OLD_OPTION );
 		OptionsAccessManager::delete_option( ThanksNotice::NOTICE_OPTION );
 		OptionsAccessManager::delete_option( AvifSupportNotice::NOTICE_OPTION );
+		OptionsAccessManager::delete_option( 'webpc_notice_cloudways' );
 		OptionsAccessManager::delete_option( CloudflareNotice::NOTICE_OPTION );
 		OptionsAccessManager::delete_option( LitespeedNotice::NOTICE_OPTION );
 
