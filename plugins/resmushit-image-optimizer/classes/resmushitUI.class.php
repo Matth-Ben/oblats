@@ -306,6 +306,8 @@ Class reSmushitUI {
 		curl_setopt($ch, CURLOPT_URL, RESMUSHIT_NEWSFEED);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 3);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 		$data_raw = curl_exec($ch);
 		curl_close($ch);
 		$data = json_decode($data_raw);
@@ -337,11 +339,9 @@ Class reSmushitUI {
 		}
 
 		echo "<div class='social'>"
-				. "<a class='social-maecia' title='"
-				. __('Maecia Agency - Paris France', 'resmushit-image-optimizer')
-				. "' href='https://www.maecia.com' target='_blank'>"
-				. "<img src='"
-				. RESMUSHIT_BASE_URL . "images/maecia.png' /></a>"
+				. "<p class='datainformation'>"
+				. __('No user data nor any information is collected while requesting this news feed.', 'resmushit-image-optimizer')
+				. "<p>"
 				. "<a class='social-resmushit' title='"
 				. __('Visit resmush.it for more informations', 'resmushit-image-optimizer')
 				. "' href='https://resmush.it' target='_blank'>"
