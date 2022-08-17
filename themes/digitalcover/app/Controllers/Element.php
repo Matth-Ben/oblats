@@ -7,6 +7,8 @@ use Sober\Controller\Controller;
 class Element extends Controller {
   /* Get the image url, srcset, sizes & alt attributes for WP image  */
   public static function image($imageId, $maxWidth, $class = null, $noLazy = null) {
+    if (!$imageId) return NULL;
+
     $alt = get_post_meta($imageId, '_wp_attachment_image_alt', TRUE);
     $image_type = get_post_mime_type($imageId);
 
