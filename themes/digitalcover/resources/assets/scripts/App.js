@@ -203,6 +203,8 @@ export default class App {
         ga('send', 'pageview')
       }
 
+      this.menu.onPageChange(location.href)
+
       this.checkAnchor(location)
       listen({ el: to.view })
 

@@ -6,6 +6,8 @@ export default class Menu {
     this.bindMethods()
     this.getElems()
     this.addEvents()
+
+    this.onPageChange(window.location.href)
   }
 
   bindMethods() {
@@ -42,4 +44,6 @@ export default class Menu {
   resize() {}
 
   scroll() {}
+
+  onPageChange(loc) {}
 }
