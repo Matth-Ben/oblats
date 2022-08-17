@@ -29,5 +29,10 @@ class Block extends Controller {
     ];
   }
 
+  public static function form($data) {
+    return [
+      'id' => $data['id-form']
+    ];
+  }
   // generated function here
 }
