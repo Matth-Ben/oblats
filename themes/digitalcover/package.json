@@ -35,7 +35,9 @@
     "favicon": "node favicons.js",
     "deploy:preprod": "branch=$npm_config_PREPROD_BRANCH user=$npm_config_PREPROD_FTP_USERNAME pwd=$npm_config_PREPROD_FTP_PSSWRD host=$npm_config_PREPROD_FTP_ADDRESS dir=$npm_config_PREPROD_FTP_DIR ./deploy.sh",
     "deploy:prod": "branch=$npm_config_PROD_BRANCH user=$npm_config_PROD_FTP_USERNAME pwd=$npm_config_PROD_FTP_PSSWRD host=$npm_config_PROD_FTP_ADDRESS dir=$npm_config_PROD_FTP_DIR ./deploy.sh",
-    "purge": "purgecss --css dist/styles/bootstrap.css --content resources/views/*.blade.php resources/views/**/*.blade.php resources/views/**/**/*.blade.php --out dist/styles/"
+    "purge": "purgecss --css dist/styles/bootstrap.css --content resources/views/*.blade.php resources/views/**/*.blade.php resources/views/**/**/*.blade.php --out dist/styles/",
+    "update-plugins": "node ./update-plugins.js",
+    "activate-main-plugins": "node ./activate-main-plugins.js"
   },
   "engines": {
     "node": ">= 8.0.0"
