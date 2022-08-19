@@ -1,7 +1,7 @@
 export default {
   debug: window.App.debug,
   // Available values : locomotive-scroll, lenis, false
-  scrollEngine: false,
+  scrollEngine: 'lenis',
   smoothScroll: null,
   observer: null,
   panel: null,
@@ -30,5 +30,19 @@ export default {
     get isSafari() {
       return this.safari && !this.isAndroid
     }
+  },
+  lerp: (s, e, v) => s * (1 - v) + e * v,
+  clamp: (v, min, max) => Math.min(Math.max(v, min), max),
+  map: (x, a, b, c, d) => (x - a) * (d - c) / (b - a) + c,
+  round: (v, d) => {
+    const e = d ? Math.pow(10, d) : 100
+
+    return Math.round(v * e) / e
+  },
+  wrap: (v, min, max) => {
+    const r = max - min
+    const func = (e) => (r + (e - min) % r) % r + min
+
+    return v || v === 0 ? func(v) : func
   }
 }

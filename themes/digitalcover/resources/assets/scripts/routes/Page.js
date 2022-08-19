@@ -114,6 +114,8 @@ export default class Page extends Highway.Renderer {
   }
 
   onEnterCompleted() {
+    store.modules.parallax && store.modules.parallax.on()
+
     if (store.isFirstLoaded) this.startBlocksEnterCompleted()
     else window.addEventListener('loaderComplete', this.startBlocksEnterCompleted)
   }
@@ -166,6 +168,8 @@ export default class Page extends Highway.Renderer {
   }
 
   scroll(e) {
+    store.modules.parallax && store.modules.parallax.scroll(e)
+
     for (let i = 0; i < this.blocks.length; i++) {
       for (let j = 0; j < this.blocks[i].instances.length; j++) {
         this.blocks[i].instances[j].class.scroll(e)

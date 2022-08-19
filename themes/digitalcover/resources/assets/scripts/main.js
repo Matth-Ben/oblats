@@ -7,6 +7,12 @@ if (store.debug) {
   })
 }
 
+// if (!store.detect.isMobile) {
+//   import('./util/Parallax').then(({ default: Parallax }) => {
+//     store.modules.parallax = new Parallax()
+//   })
+// }
+
 window.addEventListener('load', () => {
   // eslint-disable-next-line no-new
   new App()
