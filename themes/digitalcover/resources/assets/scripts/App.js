@@ -27,12 +27,6 @@ export default class App {
   * then calls `this.start()` when DOM is ready
   */
   constructor() {
-
-    /**
-     * Availabled values : locomotive-scroll, lenis, false
-     */
-    store.scrollEngine = false
-
     this.resize = this.resize.bind(this)
     this.scroll = this.scroll.bind(this)
     this.update = this.update.bind(this)
@@ -50,7 +44,7 @@ export default class App {
     store.w = {
       w: window.innerWidth,
       h: window.innerHeight,
-      pixelRatio: Math.min(window.devicePixelRatio, 2)
+      pR: Math.min(window.devicePixelRatio, 2)
     }
 
     this.start()
@@ -65,7 +59,7 @@ export default class App {
   start() {
     if (store.scrollEngine === 'locomotive-scroll') this.initLocomotiveScroll()
     else if (store.scrollEngine === 'lenis') this.initLenis()
-    else this.initDOMObserver()
+    else this.initObserver()
 
     this.loader = new Loader()
     this.menu = new Menu()
@@ -91,7 +85,7 @@ export default class App {
     })
   }
 
-  initDOMObserver() {
+  initObserver() {
     store.observer = new Observer()
   }
 
@@ -113,8 +107,7 @@ export default class App {
     })
 
     document.documentElement.classList.add('lenis')
-
-    store.observer = new Observer()
+    this.initObserver()
   }
 
   /**
@@ -149,7 +142,7 @@ export default class App {
     store.w = {
       w: window.innerWidth,
       h: window.innerHeight,
-      pixelRatio: Math.min(window.devicePixelRatio, 2)
+      pR: Math.min(window.devicePixelRatio, 2)
     }
 
     this.currentRenderer.resize()
@@ -157,14 +150,15 @@ export default class App {
   }
 
   scroll(e) {
+    store.scrollEngine === 'lenis' && (store.smoothScroll.direction = this.oldScroll <= e ? 1 : -1)
     this.currentRenderer.scroll(e)
     this.menu && this.menu.scroll()
+    this.oldScroll = e
   }
 
 	update() {
+    store.scrollEngine === 'lenis' && store.smoothScroll.raf()
 		this.currentRenderer.update()
-
-    if (store.scrollEngine === 'lenis') store.smoothScroll.raf()
 		requestAnimationFrame(this.update)
 	}
 
@@ -207,8 +201,6 @@ export default class App {
 
       this.checkAnchor(location)
       listen({ el: to.view })
-
-      if (!store.scrollEngine) store.observer.unobserve()
 
       this.detachAdminBarLinks(to)
     })

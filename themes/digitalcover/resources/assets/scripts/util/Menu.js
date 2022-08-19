@@ -45,5 +45,6 @@ export default class Menu {
 
   scroll() {}
 
+  // eslint-disable-next-line no-unused-vars
   onPageChange(loc) {}
 }

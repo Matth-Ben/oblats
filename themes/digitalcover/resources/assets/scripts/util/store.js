@@ -1,6 +1,9 @@
 export default {
   debug: window.App.debug,
+  // Available values : locomotive-scroll, lenis, false
+  scrollEngine: false,
   smoothScroll: null,
+  observer: null,
   panel: null,
   isFirstLoaded: false,
   modules: {},

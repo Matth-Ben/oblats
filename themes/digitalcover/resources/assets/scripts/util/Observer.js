@@ -1,11 +1,11 @@
+import store from './store'
+
 export default class Observer {
   constructor() {
     this.onObserve = this.onObserve.bind(this)
-
     this.observed = []
 
     this.initObserver()
-    this.setElements()
   }
 
   initObserver() {
@@ -15,7 +15,8 @@ export default class Observer {
     })
   }
 
-  setElements() {
+  on() {
+    this.observed = []
     this.$elems = document.querySelectorAll('.observe')
 
     for (let i = 0; i < this.$elems.length; i++) {
@@ -25,6 +26,10 @@ export default class Observer {
         class: true
       })
     }
+  }
+
+  off() {
+    for (let i = 0; i < this.observed.length; i++) this.unobserve(this.observed[i].el)
   }
 
   observe(observable) {
@@ -43,14 +48,18 @@ export default class Observer {
       if (entry.isIntersecting) {
         const target = this.observed.filter((obs) => obs.el === entry.target)[0]
 
+        target.hasIntersected = true
         target.cb && target.cb(true)
         target.class && target.el.classList.add('in-view')
-        !target.repeat && this.observer.unobserve(target.el)
+        !target.repeat && this.unobserve(target.el)
       } else {
         const target = this.observed.filter((obs) => obs.el === entry.target)[0]
 
-        target.repeat && target.class && target.el.classList.remove('in-view')
-        target.repeat && target.cb && target.cb(false)
+        if (target.hasIntersected) {
+          target.repeat && target.class && target.el.classList.remove('in-view')
+          target.repeat && target.cb && target.cb(false)
+          target.once && store.smoothScroll.direction === 1 && this.unobserve(target.el)
+        }
       }
     }
   }

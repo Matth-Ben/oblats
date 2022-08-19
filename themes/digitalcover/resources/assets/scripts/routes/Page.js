@@ -65,6 +65,8 @@ export default class Page extends Highway.Renderer {
     this.checkIEElems()
     this.checkSafariElems()
 
+    store.observer && store.observer.on()
+
     this.blockList = blockList
     this.blocks = []
     if (this.blockList && this.blockList.length) this.initBlocks()
@@ -119,7 +121,19 @@ export default class Page extends Highway.Renderer {
   startBlocksEnterCompleted() {
     for (let i = 0; i < this.blocks.length; i++) {
       for (let j = 0; j < this.blocks[i].instances.length; j++) {
+        const { el, once } = this.blocks[i].instances[j].class
+
         this.blocks[i].instances[j].class.onEnterCompleted()
+
+        store.observer.observe({
+          el,
+          repeat: true,
+          once,
+          cb: (e) => {
+            this.blocks[i].instances[j].class.isInView = e
+            this.blocks[i].instances[j].class.inView(e)
+          }
+        })
       }
     }
   }
@@ -133,6 +147,8 @@ export default class Page extends Highway.Renderer {
   }
 
   onLeaveCompleted() {
+    store.observer && store.observer.off()
+
     // Destroy blocks with `destroyLast` property set to `true`
     for (let i = 0; i < this.blocks.length; i++) {
       for (let j = 0; j < this.blocks[i].instances.length; j++) {
@@ -157,19 +173,20 @@ export default class Page extends Highway.Renderer {
     }
   }
 
-  inView(value, way, object) {
-    for (let i = 0; i < this.blocks.length; i++) {
-      for (let j = 0; j < this.blocks[i].instances.length; j++) {
-        if (this.blocks[i].instances[j].el === object.el) this.blocks[i].instances[j].class.inView(value, way, object)
-      }
-    }
-  }
+  // Useful with LocomotiveScroll
+  // inView(value, way, object) {
+  //   for (let i = 0; i < this.blocks.length; i++) {
+  //     for (let j = 0; j < this.blocks[i].instances.length; j++) {
+  //       if (this.blocks[i].instances[j].el === object.el) this.blocks[i].instances[j].class.inView(value, way, object)
+  //     }
+  //   }
+  // }
 
   update() {
     if (this.blocks) {
       for (let i = 0; i < this.blocks.length; i++) {
         for (let j = 0; j < this.blocks[i].instances.length; j++) {
-          this.blocks[i].instances[j].class.update()
+          this.blocks[i].instances[j].class.isInView && this.blocks[i].instances[j].class.update()
         }
       }
     }
