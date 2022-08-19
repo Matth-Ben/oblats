@@ -1,10 +1,10 @@
 {{--
-  Title: form
-  Description: block with a form
+  Title: Formulaire de contact
+  Description: Formulaire & informations de contact
   Category: template-blocks
   Icon: welcome-widgets-menus
   Post-Type: page post
-  Keywords: form formulaire
+  Keywords: form formulaire contact
 --}}
 
 @php
