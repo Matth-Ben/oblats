@@ -9,6 +9,7 @@ import { listen } from 'quicklink'
 // Utils
 import Loader from './util/Loader'
 import Menu from './util/Menu'
+import Anchor from './util/Anchor'
 import store from './util/store'
 import Observer from './util/Observer'
 import locomotiveScroll from 'locomotive-scroll'
@@ -63,6 +64,7 @@ export default class App {
 
     this.loader = new Loader()
     this.menu = new Menu()
+    this.anchor = new Anchor()
     this.lazyLoad = new LazyLoad()
 
     this.initHighway().then(() => {
