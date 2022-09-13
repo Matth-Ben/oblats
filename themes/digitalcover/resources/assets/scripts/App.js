@@ -62,7 +62,7 @@ export default class App {
     else if (store.scrollEngine === 'lenis') this.initLenis()
     else this.initObserver()
 
-    this.loader = new Loader()
+    store.loader = new Loader()
     this.menu = new Menu()
     this.anchor = new Anchor()
     this.lazyLoad = new LazyLoad()

@@ -84,6 +84,8 @@ export default class Page extends Highway.Renderer {
       totalBlocks += foundBlocks.length
     }
 
+    if (totalBlocks === 0) store.loader.play()
+
     for (let i = 0; i < this.blockList.length; i++) {
       const foundBlocks = this.view.querySelectorAll('.' + this.blockList[i].name)
       const block = {
