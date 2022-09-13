@@ -78,10 +78,9 @@ export default class App {
 
       adminbarLinks && store.router.detach(adminbarLinks)
 
-      this.loader.play().then(() => {
-        if (store.scrollEngine === 'locomotive-scroll') store.smoothScroll && store.smoothScroll.update()
-        this.checkAnchor()
-      })
+      if (store.scrollEngine === 'locomotive-scroll') store.smoothScroll && store.smoothScroll.update()
+
+      this.checkAnchor()
     })
   }
 

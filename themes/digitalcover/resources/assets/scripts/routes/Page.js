@@ -102,10 +102,8 @@ export default class Page extends Highway.Renderer {
             el: foundBlocks[j],
             class: new BlockInstance(foundBlocks[j])
           })
-          if (!store.isFirstLoaded && loadedBlocks === totalBlocks) {
-            window.dispatchEvent(new CustomEvent('loaderComplete'))
-            store.isFirstLoaded = true
-          }
+
+          !store.isFirstLoaded && loadedBlocks === totalBlocks && store.loader.play()
         })
       }
 
@@ -115,6 +113,8 @@ export default class Page extends Highway.Renderer {
 
   onEnterCompleted() {
     store.modules.parallax && store.modules.parallax.on()
+
+    if (store.scrollEngine === 'lenis' || !store.scrollEngine) store.observer.on()
 
     if (store.isFirstLoaded) this.startBlocksEnterCompleted()
     else window.addEventListener('loaderComplete', this.startBlocksEnterCompleted)
@@ -141,6 +141,8 @@ export default class Page extends Highway.Renderer {
   }
 
   onLeave() {
+    if (store.scrollEngine === 'lenis' || !store.scrollEngine) store.observer.off()
+
     for (let i = 0; i < this.blocks.length; i++) {
       for (let j = 0; j < this.blocks[i].instances.length; j++) {
         if (!this.blocks[i].instances[j].class.destroyLast) this.blocks[i].instances[j].class.destroy()
