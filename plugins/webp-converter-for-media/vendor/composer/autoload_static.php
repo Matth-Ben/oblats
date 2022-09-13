@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit5dda79ecb8a6ed3558675f4c77c86e5a
+class ComposerStaticInitc4d2fe736f48792b51897a53ab3e4b54
 {
     public static $prefixLengthsPsr4 = array (
         'W' => 
@@ -49,10 +49,7 @@ class ComposerStaticInit5dda79ecb8a6ed3558675f4c77c86e5a
         'WebpConverter\\Conversion\\Directory\\DirectoryFactory' => __DIR__ . '/../..' . '/src/Conversion/Directory/DirectoryFactory.php',
         'WebpConverter\\Conversion\\Directory\\DirectoryIntegration' => __DIR__ . '/../..' . '/src/Conversion/Directory/DirectoryIntegration.php',
         'WebpConverter\\Conversion\\Directory\\DirectoryInterface' => __DIR__ . '/../..' . '/src/Conversion/Directory/DirectoryInterface.php',
-        'WebpConverter\\Conversion\\Directory\\GalleryDirectory' => __DIR__ . '/../..' . '/src/Conversion/Directory/GalleryDirectory.php',
-        'WebpConverter\\Conversion\\Directory\\PluginsDirectory' => __DIR__ . '/../..' . '/src/Conversion/Directory/PluginsDirectory.php',
-        'WebpConverter\\Conversion\\Directory\\ThemesDirectory' => __DIR__ . '/../..' . '/src/Conversion/Directory/ThemesDirectory.php',
-        'WebpConverter\\Conversion\\Directory\\UploadsDirectory' => __DIR__ . '/../..' . '/src/Conversion/Directory/UploadsDirectory.php',
+        'WebpConverter\\Conversion\\Directory\\SourceDirectory' => __DIR__ . '/../..' . '/src/Conversion/Directory/SourceDirectory.php',
         'WebpConverter\\Conversion\\Directory\\UploadsWebpcDirectory' => __DIR__ . '/../..' . '/src/Conversion/Directory/UploadsWebpcDirectory.php',
         'WebpConverter\\Conversion\\Endpoint\\CronConversionEndpoint' => __DIR__ . '/../..' . '/src/Conversion/Endpoint/CronConversionEndpoint.php',
         'WebpConverter\\Conversion\\Endpoint\\EndpointAbstract' => __DIR__ . '/../..' . '/src/Conversion/Endpoint/EndpointAbstract.php',
@@ -205,9 +202,9 @@ class ComposerStaticInit5dda79ecb8a6ed3558675f4c77c86e5a
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit5dda79ecb8a6ed3558675f4c77c86e5a::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit5dda79ecb8a6ed3558675f4c77c86e5a::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit5dda79ecb8a6ed3558675f4c77c86e5a::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitc4d2fe736f48792b51897a53ab3e4b54::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitc4d2fe736f48792b51897a53ab3e4b54::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInitc4d2fe736f48792b51897a53ab3e4b54::$classMap;
 
         }, null, ClassLoader::class);
     }

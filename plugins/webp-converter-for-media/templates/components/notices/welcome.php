@@ -33,5 +33,6 @@
 				<?php echo esc_html( __( 'Speed up my website', 'webp-converter-for-media' ) ); ?>
 			</a>
 		</div>
+		<img src="https://mattplugins.com/images/matt-plugins-logo.png" alt="">
 	</div>
 </div>

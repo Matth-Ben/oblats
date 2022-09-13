@@ -67,13 +67,14 @@ class CronInitiator {
 	}
 
 	/**
-	 * @param string[] $new_paths .
+	 * @param string[] $new_paths              .
+	 * @param bool     $force_convert_modified .
 	 *
 	 * @return void
 	 */
-	public function add_paths_to_conversion( array $new_paths ) {
+	public function add_paths_to_conversion( array $new_paths, bool $force_convert_modified = false ) {
 		$paths           = $this->cron_status_manager->get_paths_to_conversion();
-		$valid_new_paths = $this->paths_finder->skip_converted_paths( $new_paths );
+		$valid_new_paths = $this->paths_finder->skip_converted_paths( $new_paths, null, $force_convert_modified );
 
 		$this->cron_status_manager->set_paths_to_conversion( array_merge( $valid_new_paths, $paths ) );
 	}

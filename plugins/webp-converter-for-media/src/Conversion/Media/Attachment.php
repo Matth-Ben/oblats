@@ -58,7 +58,7 @@ class Attachment {
 	private function get_paths_by_attachment( int $post_id, array $settings ): array {
 		$list     = [];
 		$metadata = wp_get_attachment_metadata( $post_id );
-		if ( ! $metadata || ! isset( $metadata['file'] ) ) {
+		if ( ! $metadata ) {
 			return $list;
 		}
 

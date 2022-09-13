@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Simple History – user activity log, audit tool - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-06-02 13:49:01+0000\n"
+"PO-Revision-Date: 2022-09-06 08:20:18+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -74,6 +74,125 @@ msgstr "Journaliser les modifications de thème"
 #: loggers/SimpleThemeLogger.php:31
 msgid "Theme Logger"
 msgstr "Journal de thème"
+
+#: loggers/SimplePostLogger.php:211
+msgid "Logs the creation and modification of posts and pages"
+msgstr "Journalise la création et la modification des publications et des pages"
+
+#: loggers/SimplePostLogger.php:210
+msgid "Post Logger"
+msgstr "Collecteur des données des publications"
+
+#: loggers/SimplePluginLogger.php:42
+msgid "Logs plugin installs, uninstalls and updates"
+msgstr "Journalise les installations, désinstallation et mise à jour des extensions"
+
+#: loggers/SimplePluginLogger.php:41
+msgid "Plugin Logger"
+msgstr "Collecteur des données des extensions"
+
+#: loggers/SimpleOptionsLogger.php:21
+msgid "Logs updates to WordPress settings"
+msgstr "Journalise les modifications des réglages WordPress"
+
+#: loggers/SimpleOptionsLogger.php:20
+msgid "Options Logger"
+msgstr "Collecteur des données des options"
+
+#: loggers/SimpleMenuLogger.php:21
+msgid "Logs menu edits"
+msgstr "Journalise les modifications des menus"
+
+#: loggers/SimpleMenuLogger.php:20
+msgid "Menu Logger"
+msgstr "Collecteur des données des menus"
+
+#: loggers/SimpleLogger.php:95
+msgid "The built in logger for Simple History"
+msgstr "Le collecteur de données intégré à Simple History"
+
+#: loggers/SimpleCoreUpdatesLogger.php:60
+msgid "Logs the update of WordPress (manual and automatic updates)"
+msgstr "Journalise les mises à jour de WordPress (manuelles et automatiques)"
+
+#: loggers/SimpleCoreUpdatesLogger.php:59
+msgid "Core Updates Logger"
+msgstr "Collecteur des données du noyau"
+
+#: loggers/SimpleCommentsLogger.php:94
+msgid "Logs comments, and modifications to them"
+msgstr "Journalise les commentaires et leur modification"
+
+#: loggers/SimpleCommentsLogger.php:93
+msgid "Comments Logger"
+msgstr "Collecteur des données des commentaires"
+
+#: loggers/SimpleCategoriesLogger.php:21
+msgid "Logs changes to categories, tags, and taxonomies"
+msgstr "Journalise les modifications des catégories, étiquettes et taxinomies"
+
+#: loggers/Plugin_Redirection.php:32
+msgctxt "Logger: Redirection"
+msgid "Logs edits in the Redirection plugin"
+msgstr "Journalise les modifications de l’extension « Redirection »"
+
+#: loggers/Plugin_Redirection.php:31
+msgctxt "Logger: Redirection"
+msgid "Plugin: Redirection Logger"
+msgstr "Extension : collecteur des données de « Redirection »"
+
+#: loggers/Plugin_LimitLoginAttempts.php:18
+msgctxt "Logger: Plugin Limit Login Attempts"
+msgid "Plugin: Limit Login Attempts Logger"
+msgstr "Extension : collecteur des données de « Limit Login Attempts »"
+
+#: loggers/Plugin_DuplicatePost.php:19
+msgctxt "Logger: Plugin Duplicate Post"
+msgid "Plugin: Duplicate Posts Logger"
+msgstr "Extension : collecteur des données de « Duplicate Posts »"
+
+#: loggers/Plugin_BeaverBuilder.php:16
+msgctxt "Logger: Plugin Beaver Builder"
+msgid "Plugin: Beaver Builder Logger"
+msgstr "Extension : collecteur des données de « Beaver Builder »"
+
+#: loggers/Plugin_ACF.php:59
+msgctxt "Logger: Plugin ACF"
+msgid "Plugin: Advanced Custom Fields Logger"
+msgstr "Extension : collecteur des données d’ « Advanced Custom Fields »"
+
+#: loggers/FileEditsLogger.php:13
+msgid "Logs edits to theme and plugin files"
+msgstr "Journalise les modifications des fichiers des thèmes et des extensions"
+
+#: loggers/FileEditsLogger.php:12
+msgctxt "Logger: FileEditsLogger"
+msgid "File edits Logger"
+msgstr "Collecteur des données des modifications de fichiers"
+
+#: loggers/class-sh-translations-logger.php:30
+msgctxt "Logger: Translations"
+msgid "Translation Logger"
+msgstr "Collecteur des données des traductions"
+
+#: loggers/class-sh-privacy-logger.php:40
+msgctxt "Logger: privacy"
+msgid "Privacy Logger"
+msgstr "Collecteur des données de confidentialité"
+
+#: loggers/class-sh-jetpack-logger.php:31
+msgctxt "Logger: Jetpack"
+msgid "Plugin: Jetpack Logger"
+msgstr "Extension : collecteur des données de « Jetpack »"
+
+#: loggers/AvailableUpdatesLogger.php:33
+msgid "Logs found updates to WordPress, plugins, and themes"
+msgstr "Journalise les mises à jour trouvées pour WordPress, les extensions et les thèmes"
+
+#: loggers/AvailableUpdatesLogger.php:32
+msgctxt "AvailableUpdatesLogger"
+msgid "Available Updates Logger"
+msgstr "Collecteur des données de mises à jour disponibles"
 
 #: loggers/SimpleUserLogger.php:930 loggers/SimpleUserLogger.php:937
 msgid "Site Default"
@@ -857,7 +976,7 @@ msgstr "Mise à jour de WordPress trouvée"
 
 #: dropins/SimpleHistoryFilterDropin.php:637
 msgid "%1$s %2$s, %3$s"
-msgstr "%1$s %2$s, %3$s "
+msgstr "%2$s %1$s %3$s "
 
 #: dropins/SimpleHistoryFilterDropin.php:604
 msgid "Year"

@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - All-in-One WP Migration - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-06-30 13:38:51+0000\n"
+"PO-Revision-Date: 2022-08-18 09:28:41+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -10,6 +10,10 @@ msgstr ""
 "X-Generator: GlotPress/4.0.0-alpha.1\n"
 "Language: fr\n"
 "Project-Id-Version: Plugins - All-in-One WP Migration - Stable (latest release)\n"
+
+#: lib/model/import/class-ai1wm-import-check-encryption.php:59
+msgid "Backup is encrypted. Please provide decryption password: "
+msgstr "La sauvegarde est chiffrée. Veuillez renseigner le mot de passe de déchiffrement : "
 
 #: lib/view/export/advanced-settings.php:64
 msgid "Password-protect and encrypt backups"
@@ -35,33 +39,38 @@ msgstr "Préparation des comptes…"
 msgid "Importing an encrypted backup is not supported on this server. <a href=\"https://help.servmask.com/knowledgebase/unable-to-encrypt-and-decrypt-backups/\" target=\"_blank\">Technical details</a>"
 msgstr "L’importation d’une sauvegarde chiffrée n’est pas prise en charge par ce serveur. <a href=\"https://help.servmask.com/knowledgebase/unable-to-encrypt-and-decrypt-backups/\" target=\"_blank\">Détails techniques (en anglais)</a>"
 
-#: lib/model/import/class-ai1wm-import-check-decryption-password.php:54
+#: lib/model/import/class-ai1wm-import-check-decryption-password.php:59
 msgid "The decryption password is not valid."
 msgstr "Le mot de passe de déchiffrement n’est pas valide."
 
-#: lib/model/import/class-ai1wm-import-check-decryption-password.php:50
+#: lib/model/import/class-ai1wm-import-check-decryption-password.php:52
 msgid "Done validating the decryption password."
 msgstr "Fin de la validation du mot de passe de déchiffrement."
 
 #: lib/controller/class-ai1wm-main-controller.php:920
+#: lib/controller/class-ai1wm-main-controller.php:1127
 #: lib/view/export/advanced-settings.php:56
 msgid "The passwords do not match"
 msgstr "Les mots de passe ne correspondent pas"
 
 #: lib/controller/class-ai1wm-main-controller.php:919
+#: lib/controller/class-ai1wm-main-controller.php:1126
 #: lib/view/export/advanced-settings.php:54
 msgid "Repeat the password"
 msgstr "Répéter le mot de passe"
 
 #: lib/controller/class-ai1wm-main-controller.php:917
+#: lib/controller/class-ai1wm-main-controller.php:1124
 msgid "Submit"
 msgstr "Envoyer"
 
 #: lib/controller/class-ai1wm-main-controller.php:916
+#: lib/controller/class-ai1wm-main-controller.php:1123
 msgid "Please enter a password to import the file"
 msgstr "Veuillez saisir un mot de passe pour importer le fichier"
 
 #: lib/controller/class-ai1wm-main-controller.php:915
+#: lib/controller/class-ai1wm-main-controller.php:1122
 msgid "The backup is encrypted"
 msgstr "La sauvegarde est chiffrée"
 
@@ -69,19 +78,19 @@ msgstr "La sauvegarde est chiffrée"
 msgid "Unable to check decryption password. Refresh the page and try again"
 msgstr "Impossible de vérifier le mot de passe de déchiffrement. Actualisez la page et réessayez."
 
-#: functions.php:2044
+#: functions.php:2060
 msgid "Unable to decrypt data."
 msgstr "Impossible de déchiffrer les données."
 
-#: functions.php:2022
+#: functions.php:2038
 msgid "Unable to obtain cipher length."
 msgstr "Impossible d’obtenir la longueur de chiffrement."
 
-#: functions.php:2007
+#: functions.php:2023
 msgid "Unable to encrypt data."
 msgstr "Impossible de chiffrer les données."
 
-#: functions.php:2002
+#: functions.php:2018
 msgid "Unable to generate random bytes."
 msgstr "Impossible de générer des octets aléatoires."
 
@@ -474,7 +483,7 @@ msgstr "Préparation de l’exportation..."
 msgid "%s ago"
 msgstr "Il y a %s"
 
-#: lib/controller/class-ai1wm-main-controller.php:1201
+#: lib/controller/class-ai1wm-main-controller.php:1208
 msgid "Your purchase ID is invalid, please <a href=\"mailto:support@servmask.com\">contact us</a>"
 msgstr "Votre ID d’achat est non valide, veuillez <a href=\"mailto:support@servmask.com\">nous contacter</a>"
 
@@ -597,39 +606,35 @@ msgstr "Impossible de commencer l’export. Veuillez recharger la page et réess
 msgid "You are about to stop exporting your website, are you sure?"
 msgstr "Vous êtes sur le point d’arrêter l’export de votre site, confirmez-vous cette action ?"
 
-#: functions.php:1647
+#: functions.php:1663
 msgid "Unable to authenticate the secret key. <a href=\"https://help.servmask.com/knowledgebase/invalid-secret-key/\" target=\"_blank\">Technical details</a>"
 msgstr "Impossible d’authentifier la clé secrète. <a href=\"https://help.servmask.com/knowledgebase/invalid-secret-key/\" target=\"_blank\">Détails techniques (en anglais)</a>"
 
-#: functions.php:1513
+#: functions.php:1529
 msgid "Unable to get current pointer position of %s. <a href=\"https://help.servmask.com/knowledgebase/php-32bit/\" target=\"_blank\">Technical details</a>"
 msgstr "Impossible d’obtenir la position actuelle du pointeur de %s. <a href=\"https://help.servmask.com/knowledgebase/php-32bit/\" target=\"_blank\">Détails techniques (en anglais).</a>"
 
-#: functions.php:1496
+#: functions.php:1512
 msgid "Unable to seek to offset %d on %s. <a href=\"https://help.servmask.com/knowledgebase/php-32bit/\" target=\"_blank\">Technical details</a>"
 msgstr "Impossible de chercher à décaler %d sur %s. <a href=\"https://help.servmask.com/knowledgebase/php-32bit/\" target=\"_blank\">Détails techniques (en anglais)</a>"
 
-#: functions.php:1474
+#: functions.php:1490
 msgid "Unable to read file: %s. <a href=\"https://help.servmask.com/knowledgebase/invalid-file-permissions/\" target=\"_blank\">Technical details</a>"
 msgstr "Impossible de lire le fichier : %s. <a href=\"https://help.servmask.com/knowledgebase/invalid-file-permissions/\" target=\"_blank\">Détails techniques (en anglais)</a>"
 
-#: functions.php:1454
+#: functions.php:1470
 msgid "Out of disk space. Unable to write to: %s. <a href=\"https://help.servmask.com/knowledgebase/out-of-disk-space/\" target=\"_blank\">Technical details</a>"
 msgstr "Espace disque saturé. Impossible d’écrire sur : %s. <a href=\"https://help.servmask.com/knowledgebase/out-of-disk-space/\" target=\"_blank\">Détails techniques (en anglais)</a>"
 
-#: functions.php:1448 functions.php:1532
+#: functions.php:1464 functions.php:1548
 msgid "Unable to write to: %s. <a href=\"https://help.servmask.com/knowledgebase/invalid-file-permissions/\" target=\"_blank\">Technical details</a>"
 msgstr "Impossible d’écrire sur : %s. <a href=\"https://help.servmask.com/knowledgebase/invalid-file-permissions/\" target=\"_blank\">Détails techniques (en anglais)</a>"
 
-#: functions.php:1429
+#: functions.php:1445
 msgid "Unable to open %s with mode %s. <a href=\"https://help.servmask.com/knowledgebase/invalid-file-permissions/\" target=\"_blank\">Technical details</a>"
 msgstr "Impossible d’ouvrir %s avec le mode %s. <a href=\"https://help.servmask.com/knowledgebase/invalid-file-permissions/\" target=\"_blank\">Détails techniques (en anglais)</a>"
 
-#: functions.php:63 functions.php:94
-msgid "Invalid archive path. <a href=\"https://help.servmask.com/knowledgebase/invalid-archive-path/\" target=\"_blank\">Technical details</a>"
-msgstr "Chemin de l’archive non valide. <a href=\"https://help.servmask.com/knowledgebase/invalid-archive-path/\" target=\"_blank\">Détails techniques (en anglais)</a>"
-
-#: functions.php:58 functions.php:89
+#: functions.php:63 functions.php:105
 msgid "Unable to locate archive path. <a href=\"https://help.servmask.com/knowledgebase/invalid-archive-path/\" target=\"_blank\">Technical details</a>"
 msgstr "Impossible de localiser le chemin de l’archive. <a href=\"https://help.servmask.com/knowledgebase/invalid-archive-path/\" target=\"_blank\">Détails techniques (en anglais)</a>"
 
@@ -699,11 +704,11 @@ msgstr "La restauration de la base de données est terminée..."
 msgid "Preparing to import..."
 msgstr "Préparation de l’import…"
 
-#: lib/controller/class-ai1wm-main-controller.php:1305
+#: lib/controller/class-ai1wm-main-controller.php:1312
 msgid "Monthly"
 msgstr "Mensuellement"
 
-#: lib/controller/class-ai1wm-main-controller.php:1301
+#: lib/controller/class-ai1wm-main-controller.php:1308
 msgid "Weekly"
 msgstr "Hebdomadaire"
 
@@ -827,7 +832,7 @@ msgstr "Pour mettre à jour votre extension/module à la dernière version, veui
 msgid "Enter your Purchase ID"
 msgstr "Saisir votre ID d’achat"
 
-#: lib/controller/class-ai1wm-main-controller.php:1200
+#: lib/controller/class-ai1wm-main-controller.php:1207
 #: lib/view/updater/check.php:31
 msgid "Check for updates"
 msgstr "Rechercher des mises à jour"
@@ -982,6 +987,7 @@ msgid "I have ideas to improve this plugin"
 msgstr "J’ai des idées pour améliorer cette extension"
 
 #: lib/controller/class-ai1wm-main-controller.php:918
+#: lib/controller/class-ai1wm-main-controller.php:1125
 #: lib/view/export/advanced-settings.php:49
 msgid "Enter a password"
 msgstr "Saisissez un mot de passe"
