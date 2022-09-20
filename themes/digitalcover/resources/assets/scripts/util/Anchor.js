@@ -24,7 +24,7 @@ export default class Anchor {
         const element = document.querySelector(id)
         const anchor = document.createElement('div')
 
-        if (anchor.classList.length) anchor.classList = this.$anchors[i].classList
+        anchor.classList = this.$anchors[i].classList
         anchor.innerHTML = this.$anchors[i].innerHTML
 
         this.$anchors[i].parentNode.insertBefore(anchor, this.$anchors[i]);
