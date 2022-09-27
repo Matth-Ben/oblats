@@ -54,6 +54,10 @@ export default class Parallax {
           this.els[i].inView = e
         }
       })
+
+      const { bounds, dom, speed } = this.els[i]
+
+      dom.style.transform = `translate3d(0, ${bounds.top * speed}px, 0)`
     }
   }
 
