@@ -46,6 +46,7 @@ class DirectoryFactory implements HookableInterface {
 	 * {@inheritdoc}
 	 */
 	public function init_hooks() {
+		$this->directories_integration->init_hooks();
 		add_action( 'init', [ $this, 'init_hooks_after_setup' ] );
 	}
 

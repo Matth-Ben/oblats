@@ -107,12 +107,18 @@ class CronInitiator {
 	 * @return void
 	 */
 	public function init_async_conversion() {
+		$headers = [];
+		if ( isset( $_SERVER['PHP_AUTH_USER'] ) && isset( $_SERVER['PHP_AUTH_PW'] ) ) {
+			$headers['Authorization'] = 'Basic ' . base64_encode( $_SERVER['PHP_AUTH_USER'] . ':' . $_SERVER['PHP_AUTH_PW'] ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput
+		}
+
 		wp_remote_post(
 			( new CronConversionEndpoint( $this->plugin_data, $this->token_repository ) )->get_route_url(),
 			[
 				'timeout'   => 0.01,
 				'blocking'  => false,
 				'sslverify' => apply_filters( 'https_local_ssl_verify', false ),
+				'headers'   => $headers,
 			]
 		);
 	}

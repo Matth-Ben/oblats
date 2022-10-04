@@ -2,12 +2,12 @@
 # This file is distributed under the same license as the Plugins - Custom Post Type UI - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-09-08 22:38:54+0000\n"
+"PO-Revision-Date: 2022-09-18 22:00:40+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: GlotPress/4.0.0-alpha.1\n"
+"X-Generator: GlotPress/4.0.0-alpha.2\n"
 "Language: fr\n"
 "Project-Id-Version: Plugins - Custom Post Type UI - Stable (latest release)\n"
 
@@ -30,6 +30,38 @@ msgstr "Prise en charge des images mises en avant par le thème"
 #: inc/post-types.php:1470
 msgid "Featured images and Post Formats need theme support added, to be used."
 msgstr "Les images mises en avant et les formats de publication doivent être pris en charge par le thème pour être utilisés."
+
+#: inc/about.php:103
+msgid "Added notes about some post type features also needing theme support declared for them to work. Fixed a pluralization issue with our UI and forms."
+msgstr "Ajouté des notes relatives à certaines fonctionnalités de type de publication qui nécessitent aussi une prise en charge du thème pour fonctionner. Correctif d’un problème de passage au pluriel avec nos UI et formulaires."
+
+#: inc/about.php:102
+msgid "Miscellaneous."
+msgstr "Divers."
+
+#: inc/about.php:101
+msgid "We updated our branding for the plugin. Both within our UI but also on WordPress.org"
+msgstr "Nous avons mis à jour notre image de marque pour l’extension. Aussi bien au sein de notre interface que sur WordPress.org"
+
+#: inc/about.php:100
+msgid "Branding."
+msgstr "Image de marque."
+
+#: inc/about.php:99
+msgid "Largely under the hood, but we have done some separation of our code and done more to help ensure code quality."
+msgstr "Très largement sous le capot, mais nous avons effectué des séparations de notre code et plus encore pour aider à nous assurer de la qualité du code."
+
+#: inc/about.php:98
+msgid "Miscellaneous code cleanup and separation."
+msgstr "Divers nettoyages et séparations du code."
+
+#: inc/about.php:97
+msgid "We have updated a number of details around the post type description field. First we addressed issues with the Tools area when descriptions included quotes. Second we fixed an issue around stripping HTML from the field from previous security updates."
+msgstr "Nous avons mis à jour un certain nombre de détails autour du champ de description du type de publication.  Premièrement nous avons adressé les problèmes avec la zone « Outils » lorsque les descriptions incluent des guillemets. Deuxièmement nous avons corrigé une erreur autour de la suppression de HTML du champ venant de précédentes mises à jour de sécurité."
+
+#: inc/about.php:96
+msgid "Post type descriptions"
+msgstr "Descriptions de type de publication"
 
 #: inc/post-types.php:1460
 msgid "Provide a callback function that sets up the meta boxes for the edit form. Do `remove_meta_box()` and `add_meta_box()` calls in the callback. Default null."
@@ -55,6 +87,10 @@ msgstr "Trier"
 #: inc/taxonomies.php:835
 msgid "The description is not prominent by default; however, some themes may show it."
 msgstr "La description n’est pas mise en évidence par défaut ; toutefois, certains thèmes peuvent l’afficher."
+
+#: inc/taxonomies.php:832
+msgid "Description for the Description field on Edit Tags screen."
+msgstr "Description pour le champ « Description » sur l’écran de modification des étiquettes"
 
 #: inc/taxonomies.php:831
 msgid "Term Description Field Description"
@@ -238,6 +274,12 @@ msgstr "Terme par défaut"
 #: inc/utility.php:735
 msgid "Nonce failed verification"
 msgstr "Échec de la vérification de nonce"
+
+#. translators: Placeholders are just for HTML markup that doesn't need
+#. translated
+#: inc/support.php:226
+msgid "Please visit the %1$sPost Type Templates in 4.7%2$s post on the Make WordPress Core blog for details about setting templates for multiple post types."
+msgstr "Veuillez visiter l’article %1$sModèles de type de publication sur 4.7%2$s sur le blog Make WordPress Core pour plus de détails sur la configuration des modèles pour plusieurs types de publication."
 
 #: inc/support.php:221
 msgid "How do I add custom post type support for custom templates selection like pages have?"
@@ -607,6 +649,12 @@ msgstr "Information de débogage de Custom Post Type UI pour %s"
 msgid "View our Layouts page"
 msgstr "Voir nos mises en page de page"
 
+#. translators: Placeholders are just for HTML markup that doesn't need
+#. translated
+#: inc/support.php:66
+msgid "Please note that %1$s this plugin will not handle display %2$s of registered post types or taxonomies in your current theme. It simply registers them for you. To display your data, check out %3$s. %4$s to see some examples that are available with Custom Post Type UI Extended. If all else fails, visit us on the %5$s"
+msgstr "Veuillez noter que %1$s cette extension ne gérera pas l’affichage %2$s des types de publication enregistrés ou des taxonomies dans votre thème actuel. Il les enregistre simplement pour vous. Pour afficher vos données, consultez %3$s. %4$s pour voir quelques exemples disponibles avec Custom Post Type UI Extended. Si tout le reste échoue, rendez-nous visite sur le %5$s"
+
 #: inc/tools-sections/tools-get-code.php:19
 msgid "All of the selectable code snippets below are useful if you wish to migrate away from Custom Post Type UI and retain your existing registered post types or taxonomies."
 msgstr "Tous les extraits de code sélectionnables ci-dessous sont utiles si vous souhaitez désactiver Custom Post Type UI et conserver vos types de publication et taxonomies enregistrés."
@@ -828,6 +876,12 @@ msgstr "Adresse e-mail"
 #: inc/utility.php:387
 msgid "Get email updates from pluginize.com about Custom Post Type UI"
 msgstr "Obtenir des mises à jour de pluginize.com pour Custom Post Type UI"
+
+#. translators: Placeholders are just for HTML markup that doesn't need
+#. translated
+#: inc/support.php:197
+msgid "We encourage checking out %1$s for easily displaying post type content wherever you can utilize a shortcode. If you prefer to handle on your own, you will need to utilize the %2$s class to handle display in custom locations. If you have set the post type to have archives, the archive url should be something like \"http://www.mysite.com/post-type-slug\""
+msgstr "Nous encourageons la vérification de %1$s pour facilement afficher le contenu du type de publication dans lequel vous pouvez utiliser un code court. Si vous préférez gérer vous-même, vous aurez besoin d’utiliser la classe %2$s pour gérer l’affichage dans des emplacements personnalisés. Si vous avez défini le type de publication pour avoir des archives, l’URL de l’archive doit être du type « http://www.mysite.com/post-type-slug »"
 
 #: inc/support.php:124
 msgid "No it does not. The Shortcode builder is not multisite dependent and will work with either setup."
@@ -1515,6 +1569,12 @@ msgstr "%s a compilé une belle liste de fonctions utilisées par notre extensio
 #: inc/support.php:287
 msgid "Is there any function reference list?"
 msgstr "Y a-t-il une liste de référence de fonction ?"
+
+#. translators: Placeholders are just for HTML markup that doesn't need
+#. translated
+#: inc/support.php:276
+msgid "%1$s has an excellent %2$spost%3$s introducing users to the %4$sPosts 2 Posts%5$s plugin that should be a good start."
+msgstr "%1$s a un excellent %2$spost%3$s présentant l’extension %4$sPosts 2 Posts%5$s aux utilisateurs et utilisatrices, qui devrait être un bon point de départ."
 
 #: inc/support.php:271
 msgid "Post relationships?"

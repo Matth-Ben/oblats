@@ -2,16 +2,26 @@
 
 namespace WebpConverter\Notice;
 
+use WebpConverter\PluginData;
 use WebpConverter\Service\OptionsAccessManager;
+use WebpConverter\Settings\Option\AccessTokenOption;
 
 /**
- * Supports notice displayed as thank you for using plugin.
+ * Supports notice displayed information about the PRO version.
  */
-class ThanksNotice extends NoticeAbstract implements NoticeInterface {
+class UpgradeNotice extends NoticeAbstract implements NoticeInterface {
 
-	const NOTICE_OPTION     = 'webpc_notice_thanks';
-	const NOTICE_OLD_OPTION = 'webpc_notice_hidden';
-	const NOTICE_VIEW_PATH  = 'components/notices/thanks.php';
+	const NOTICE_OPTION    = 'webpc_notice_upgrade';
+	const NOTICE_VIEW_PATH = 'components/notices/upgrade.php';
+
+	/**
+	 * @var PluginData
+	 */
+	private $plugin_data;
+
+	public function __construct( PluginData $plugin_data ) {
+		$this->plugin_data = $plugin_data;
+	}
 
 	/**
 	 * {@inheritdoc}
@@ -24,7 +34,7 @@ class ThanksNotice extends NoticeAbstract implements NoticeInterface {
 	 * {@inheritdoc}
 	 */
 	public static function get_default_value(): string {
-		return (string) strtotime( '+ 2 weeks' );
+		return (string) strtotime( '+ 1 week' );
 	}
 
 	/**
@@ -38,6 +48,11 @@ class ThanksNotice extends NoticeAbstract implements NoticeInterface {
 	 * {@inheritdoc}
 	 */
 	public function is_active(): bool {
+		$plugin_settings = $this->plugin_data->get_plugin_settings();
+		if ( $plugin_settings[ AccessTokenOption::OPTION_NAME ] ) {
+			return false;
+		}
+
 		$option_value = OptionsAccessManager::get_option( $this->get_option_name() );
 		return ( ( $option_value !== null ) && ( $option_value < time() ) );
 	}

@@ -18,10 +18,9 @@ use WebpConverter\Settings\Option\SupportedDirectoriesOption;
 class PathsFinder {
 
 	const PATHS_PER_REQUEST_LOCAL         = 10;
-	const PATHS_PER_REQUEST_REMOTE_SMALL  = 1;
-	const PATHS_PER_REQUEST_REMOTE_MEDIUM = 2;
-	const PATHS_PER_REQUEST_REMOTE_LARGE  = 3;
-	const PATHS_PER_REQUEST_REMOTE_MAX    = 5;
+	const PATHS_PER_REQUEST_REMOTE_SMALL  = 3;
+	const PATHS_PER_REQUEST_REMOTE_MEDIUM = 5;
+	const PATHS_PER_REQUEST_REMOTE_LARGE  = 10;
 
 	/**
 	 * @var PluginData
@@ -209,12 +208,10 @@ class PathsFinder {
 
 		if ( $images_to_conversion <= 10000 ) {
 			return self::PATHS_PER_REQUEST_REMOTE_SMALL;
-		} elseif ( $images_to_conversion <= 25000 ) {
-			return self::PATHS_PER_REQUEST_REMOTE_MEDIUM;
 		} elseif ( $images_to_conversion <= 120000 ) {
-			return self::PATHS_PER_REQUEST_REMOTE_LARGE;
+			return self::PATHS_PER_REQUEST_REMOTE_MEDIUM;
 		} else {
-			return self::PATHS_PER_REQUEST_REMOTE_MAX;
+			return self::PATHS_PER_REQUEST_REMOTE_LARGE;
 		}
 	}
 }

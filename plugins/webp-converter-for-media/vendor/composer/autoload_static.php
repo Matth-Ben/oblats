@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitc4d2fe736f48792b51897a53ab3e4b54
+class ComposerStaticInitba256ecdc5bb5675566d3dd845f3570f
 {
     public static $prefixLengthsPsr4 = array (
         'W' => 
@@ -139,6 +139,7 @@ class ComposerStaticInitc4d2fe736f48792b51897a53ab3e4b54
         'WebpConverter\\Notice\\NoticeIntegration' => __DIR__ . '/../..' . '/src/Notice/NoticeIntegration.php',
         'WebpConverter\\Notice\\NoticeInterface' => __DIR__ . '/../..' . '/src/Notice/NoticeInterface.php',
         'WebpConverter\\Notice\\ThanksNotice' => __DIR__ . '/../..' . '/src/Notice/ThanksNotice.php',
+        'WebpConverter\\Notice\\UpgradeNotice' => __DIR__ . '/../..' . '/src/Notice/UpgradeNotice.php',
         'WebpConverter\\Notice\\WelcomeNotice' => __DIR__ . '/../..' . '/src/Notice/WelcomeNotice.php',
         'WebpConverter\\PluginData' => __DIR__ . '/../..' . '/src/PluginData.php',
         'WebpConverter\\PluginInfo' => __DIR__ . '/../..' . '/src/PluginInfo.php',
@@ -153,7 +154,6 @@ class ComposerStaticInitc4d2fe736f48792b51897a53ab3e4b54
         'WebpConverter\\Plugin\\Links' => __DIR__ . '/../..' . '/src/Plugin/Links.php',
         'WebpConverter\\Plugin\\Uninstall' => __DIR__ . '/../..' . '/src/Plugin/Uninstall.php',
         'WebpConverter\\Plugin\\Uninstall\\DebugFiles' => __DIR__ . '/../..' . '/src/Plugin/Uninstall/DebugFiles.php',
-        'WebpConverter\\Plugin\\Uninstall\\HtaccessFile' => __DIR__ . '/../..' . '/src/Plugin/Uninstall/HtaccessFile.php',
         'WebpConverter\\Plugin\\Uninstall\\PluginSettings' => __DIR__ . '/../..' . '/src/Plugin/Uninstall/PluginSettings.php',
         'WebpConverter\\Plugin\\Uninstall\\WebpFiles' => __DIR__ . '/../..' . '/src/Plugin/Uninstall/WebpFiles.php',
         'WebpConverter\\Plugin\\Update' => __DIR__ . '/../..' . '/src/Plugin/Update.php',
@@ -202,9 +202,9 @@ class ComposerStaticInitc4d2fe736f48792b51897a53ab3e4b54
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitc4d2fe736f48792b51897a53ab3e4b54::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitc4d2fe736f48792b51897a53ab3e4b54::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInitc4d2fe736f48792b51897a53ab3e4b54::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitba256ecdc5bb5675566d3dd845f3570f::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitba256ecdc5bb5675566d3dd845f3570f::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInitba256ecdc5bb5675566d3dd845f3570f::$classMap;
 
         }, null, ClassLoader::class);
     }
