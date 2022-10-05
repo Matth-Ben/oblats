@@ -1,4 +1,5 @@
 import App from './App'
+import AppTaxi from './AppTaxi'
 import store from './util/store'
 
 if (store.debug) {
@@ -14,6 +15,11 @@ if (store.debug) {
 // }
 
 window.addEventListener('load', () => {
-  // eslint-disable-next-line no-new
-  new App()
+  if (store.ajaxEngine === 'highway') {
+    // eslint-disable-next-line no-new
+    new App()
+  } else {
+    // eslint-disable-next-line no-new
+    new AppTaxi()
+  }
 })

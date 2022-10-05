@@ -1,7 +1,14 @@
 export default {
   debug: window.App.debug,
+
   // Available values : locomotive-scroll, lenis, false
   scrollEngine: 'lenis',
+
+  ajaxNavigation: true,
+  // Available values : taxi, highway, false
+  ajaxEngine: 'taxi',
+  router: false,
+
   smoothScroll: null,
   observer: null,
   panel: null,
