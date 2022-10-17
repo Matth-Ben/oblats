@@ -17,7 +17,7 @@
         @include('partials.grid')
       @endif
 
-      <div class="content" data-router-wrapper data-taxi role="document">
+      <div class="content" data-router-wrapper role="document">
         @yield('content')
       </div>
 
