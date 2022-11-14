@@ -14,6 +14,7 @@ class ExtraFeaturesOption extends OptionAbstract {
 	const OPTION_VALUE_KEEP_METADATA = 'keep_metadata';
 	const OPTION_VALUE_CRON_ENABLED  = 'cron_enabled';
 	const OPTION_VALUE_DEBUG_ENABLED = 'debug_enabled';
+	const OPTION_VALUE_SERVICE_MODE  = 'service_mode';
 
 	/**
 	 * {@inheritdoc}
@@ -73,6 +74,10 @@ class ExtraFeaturesOption extends OptionAbstract {
 				'Log errors while converting to debug.log file (when debugging in WordPress is active)',
 				'webp-converter-for-media'
 			),
+			self::OPTION_VALUE_SERVICE_MODE  => __(
+				'Enable the service mode (only upon request from technical support of plugin)',
+				'webp-converter-for-media'
+			),
 		];
 	}
 
@@ -94,6 +99,10 @@ class ExtraFeaturesOption extends OptionAbstract {
 	 */
 	public function get_valid_value( $current_value, array $available_values = null, array $disabled_values = null ) {
 		$valid_values = [];
+		if ( ! $current_value ) {
+			return $valid_values;
+		}
+
 		foreach ( $current_value as $option_value ) {
 			if ( array_key_exists( $option_value, $available_values ?: [] )
 				&& ! in_array( $option_value, $disabled_values ?: [] ) ) {

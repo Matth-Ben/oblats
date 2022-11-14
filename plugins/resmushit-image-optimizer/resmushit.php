@@ -10,8 +10,8 @@
  * Plugin Name:       reSmush.it Image Optimizer
  * Plugin URI:        https://wordpress.org/plugins/resmushit-image-optimizer/
  * Description:       Image Optimization API. Provides image size optimization
- * Version:           0.4.6
- * Timestamp:         2022.09.13
+ * Version:           0.4.11
+ * Timestamp:         2022.11.08
  * Author:            reSmush.it
  * Author URI:        https://resmush.it
  * Author:            Charles Bourgeaux
@@ -22,8 +22,6 @@
  */
 
 require('resmushit.inc.php'); 
-
-
 /**
 * 
 * Registering language plugin
@@ -71,6 +69,8 @@ function resmushit_activate() {
 			update_option( 'resmushit_remove_unsmushed', 0 );
 		if(get_option('resmushit_has_no_backup_files') === false || get_option('resmushit_has_no_backup_files') == "")
 			update_option( 'resmushit_has_no_backup_files', 0 );
+		if(get_option('resmushit_notice_close') === false || get_option('resmushit_notice_close') == "")
+			update_option( 'resmushit_notice_close', 0 );
 	}
 }
 register_activation_hook( __FILE__, 'resmushit_activate' );
@@ -109,19 +109,35 @@ function resmushit_process_images($attachments, $force_keep_original = TRUE) {
 	}
 
 	$fileInfo = pathinfo(get_attached_file( $attachment_id ));
+	if(!isset($fileInfo['dirname'])) {
+		rlog("Error! Incorrect file provided." . print_r($fileInfo, TRUE), 'WARNING');
+		return $attachments;
+	}
 	$basepath = $fileInfo['dirname'] . '/';
 	$extension = isset($fileInfo['extension']) ? $fileInfo['extension'] : NULL;
-	$basefile = basename($attachments[ 'file' ]);
-
+	
 	// Optimize only pictures/files accepted by the API
 	if( !in_array(strtolower($extension), resmushit::authorizedExtensions()) ) {
 		return $attachments;	
 	}
 
+	if(!isset($attachments[ 'file' ])) {
+		rlog("Error! Incorrect attachment " . print_r($attachments, TRUE), 'WARNING');
+		return $attachments;
+	}
+	$basefile = basename($attachments[ 'file' ]);
+
+	
+
 	$statistics[] = reSmushit::optimize($basepath . $basefile, $force_keep_original );
 
-	foreach($attachments['sizes'] as $image_style)
+	if(!isset($attachments[ 'sizes' ])) {
+		rlog("Error! Unable to find attachments sizes." . print_r($attachments, TRUE), 'WARNING');
+		return $attachments;
+	}
+	foreach($attachments['sizes'] as $image_style) {
 		$statistics[] = reSmushit::optimize($basepath . $image_style['file'], FALSE );
+	}
 	
 	$count = 0;
 	foreach($statistics as $stat){
@@ -129,8 +145,9 @@ function resmushit_process_images($attachments, $force_keep_original = TRUE) {
 			$cumulated_original_sizes += $stat->src_size;
 			$cumulated_optimized_sizes += $stat->dest_size;
 			$count++;
-		} else
+		} else {
 			$error = TRUE;
+		}
 	}
 	if(!$error) {
 		$optimizations_successful_count = get_option('resmushit_total_optimized');
@@ -193,6 +210,10 @@ if(get_option('resmushit_on_upload'))
 * @return json object
 */
 function resmushit_bulk_get_images() {
+	if ( !isset($_REQUEST['csrf']) || ! wp_verify_nonce( $_REQUEST['csrf'], 'bulk_resize' ) ) {
+		wp_send_json(json_encode(array('error' => 'Invalid CSRF token')));
+		die();
+	}
 	if(!is_super_admin() && !current_user_can('administrator')) {
 		wp_send_json(json_encode(array('error' => 'User must be at least administrator to retrieve these data')));
 		die();
@@ -213,6 +234,10 @@ add_action( 'wp_ajax_resmushit_bulk_get_images', 'resmushit_bulk_get_images' );
 * @return json object
 */
 function resmushit_update_disabled_state() {
+	if ( !isset($_REQUEST['data']['csrf']) || ! wp_verify_nonce( $_REQUEST['data']['csrf'], 'single_attachment' ) ) {
+		wp_send_json(json_encode(array('error' => 'Invalid CSRF token')));
+		die();
+	}
 	if(!is_super_admin() && !current_user_can('administrator')) {
 		wp_send_json(json_encode(array('error' => 'User must be at least administrator to retrieve these data')));
 		die();
@@ -236,6 +261,10 @@ add_action( 'wp_ajax_resmushit_update_disabled_state', 'resmushit_update_disable
 * @return json object
 */
 function resmushit_optimize_single_attachment() {
+	if ( !isset($_REQUEST['data']['csrf']) || ! wp_verify_nonce( $_REQUEST['data']['csrf'], 'single_attachment' ) ) {
+		wp_send_json(json_encode(array('error' => 'Invalid CSRF token')));
+		die();
+	}
 	if(!is_super_admin() && !current_user_can('administrator')) {
 		wp_send_json(json_encode(array('error' => 'User must be at least administrator to retrieve these data')));
 		die();
@@ -260,6 +289,10 @@ add_action( 'wp_ajax_resmushit_optimize_single_attachment', 'resmushit_optimize_
 * @return boolean
 */	
 function resmushit_bulk_process_image() {
+	if ( !isset($_REQUEST['csrf']) || ! wp_verify_nonce( $_REQUEST['csrf'], 'bulk_process_image' ) ) {
+		wp_send_json(json_encode(array('error' => 'Invalid CSRF token')));
+		die();
+	}
 	if(!is_super_admin() && !current_user_can('administrator')) {
 		wp_send_json(json_encode(array('error' => 'User must be at least administrator to retrieve these data')));
 		die();
@@ -282,6 +315,10 @@ add_action( 'wp_ajax_resmushit_bulk_process_image', 'resmushit_bulk_process_imag
 * @return json object
 */
 function resmushit_update_statistics() {
+	if ( !isset($_REQUEST['csrf']) || ! wp_verify_nonce( $_REQUEST['csrf'], 'bulk_process_image' ) ) {
+		wp_send_json(json_encode(array('error' => 'Invalid CSRF token')));
+		die();
+	}
 	if(!is_super_admin() && !current_user_can('administrator')) {
 		wp_send_json(json_encode(array('error' => 'User must be at least administrator to retrieve these data')));
 		die();
@@ -452,6 +489,10 @@ add_action('update_option_resmushit_remove_unsmushed', 'resmushit_on_remove_unsm
 */
 function resmushit_remove_backup_files() {
 	$return = array('success' => 0);
+	if ( !isset($_REQUEST['csrf']) || ! wp_verify_nonce( $_REQUEST['csrf'], 'remove_backup' ) ) {
+		wp_send_json(json_encode(array('error' => 'Invalid CSRF token')));
+		die();
+	}
 	if(!is_super_admin() && !current_user_can('administrator')) {
 		wp_send_json(json_encode(array('error' => 'User must be at least administrator to retrieve these data')));
 		die();
@@ -494,6 +535,10 @@ function resmushit_get_image_id($image_url) {
 * @return json object
 */
 function resmushit_restore_backup_files() {
+	if ( !isset($_REQUEST['csrf']) || ! wp_verify_nonce( $_REQUEST['csrf'], 'restore_library' ) ) {
+		wp_send_json(json_encode(array('error' => 'Invalid CSRF token')));
+		die();
+	}
 	if(!is_super_admin() && !current_user_can('administrator')) {
 		wp_send_json(json_encode(array('error' => 'User must be at least administrator to retrieve these data')));
 		die();
@@ -518,6 +563,73 @@ function resmushit_restore_backup_files() {
 }	
 add_action( 'wp_ajax_resmushit_restore_backup_files', 'resmushit_restore_backup_files' );	
 
+
+/**
+* 
+* add Ajax action to close permanently notice
+*
+* @param none
+* @return json object
+*/
+function resmushit_notice_close() {
+	$return = FALSE;
+	if ( !isset($_REQUEST['csrf']) || ! wp_verify_nonce( $_REQUEST['csrf'], 'notice_close' ) ) {
+		wp_send_json(json_encode(array('error' => 'Invalid CSRF token')));
+		die();
+	}
+	if(!is_super_admin() && !current_user_can('administrator')) {
+		wp_send_json(json_encode(array('error' => 'User must be at least administrator to retrieve these data')));
+		die();
+	}
+	if(update_option( 'resmushit_notice_close', 1 )) {
+		$return = TRUE;
+	}
+	wp_send_json(json_encode(array('status' => $return)));
+	die();
+}	
+add_action( 'wp_ajax_resmushit_notice_close', 'resmushit_notice_close' );
+
+
+/**
+* 
+* add Notice information for Shortpixel offer
+*
+* @param none
+* @return json object
+*/
+function resmushit_general_admin_notice(){	
+	// Expired offer
+	if(time() > strtotime("21 November 2022")) {
+		return FALSE;
+	}
+	// Already seen notice
+	if(get_option('resmushit_notice_close') == 1) {
+		return FALSE;
+	}
+	$allowed_pages = array(
+		'media_page_resmushit_options',
+		'upload', 
+		'plugins',
+		'edit-post',
+		'media',
+		'attachment');
+		
+	if ( function_exists( 'get_current_screen' ) ) {
+		$current_page = get_current_screen();
+	}
+
+	if ( isset( $current_page->id ) && in_array( $current_page->id, $allowed_pages ) ) {
+		echo "
+			<div class='notice notice-success is-dismissible rsmt-notice' data-csrf='" . wp_create_nonce( 'notice_close' ) . "' data-dismissible='disable-done-notice-forever' data-notice='resmushit-notice-shortpixel'>
+			<div class='txt-center'><img src='". RESMUSHIT_BASE_URL . "images/shortpixel-resmushit.png' /></div>
+				<div class='extra-padding'><h4 class='no-uppercase'>Limited time, unique offer in partnership with <a target='_blank' href='https://www.shortpixel.com' title='Shortpixel'>ShortPixel</a></h4> <ul><li><em>Unlimited</em> monthly credits</li><li>Optimize All your website's JPEG, PNG, (animated)GIF and PDFs with ShortPixel's SmartCompress algorithms.</li><li>Generate <em>next-gen image</em> <a href='https://shortpixel.com/blog/how-webp-images-can-speed-up-your-site/' title='How WebP can speed up your website' target='_blank'>format WebP</a> for ALL your images.</li><li>No size limit</li><li><em><a href='https://status.shortpixel.com/' target='_blank' title='Status page of Shortpixel'>99.9%</a></em> service availability</li></ul> </div>
+				<div class='txt-center'><a class='button button-primary' target='_blank' href='https://unlimited.shortpixel.com' title='Subscribe to the premium offer'>Subscribe for <span class='txt-through'>$41.66</span> $9.99/mo  until Nov 20th</a></div>
+			
+		</div>";
+	}
+    
+}
+add_action('admin_notices', 'resmushit_general_admin_notice');
 
 
 /**

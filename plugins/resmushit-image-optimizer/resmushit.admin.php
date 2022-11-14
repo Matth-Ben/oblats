@@ -29,6 +29,7 @@ function resmushit_settings_declare() {
 	register_setting( 'resmushit-settings', 'resmushit_cron' );
 	register_setting( 'resmushit-settings', 'resmushit_preserve_exif' );
 	register_setting( 'resmushit-settings', 'resmushit_remove_unsmushed' );
+	register_setting( 'resmushit-settings', 'resmushit_notice_close' );
 }
 add_action( 'admin_init', 'resmushit_settings_declare' );
 
@@ -154,6 +155,9 @@ function resmushit_register_plugin_assets(){
  	$allowed_pages = array(	'media_page_resmushit_options',
  							'upload', 
  							'post',
+							'plugins',
+							'edit-post',
+							'media',
  							'attachment');
  	
  	if ( function_exists( 'get_current_screen' ) ) {

@@ -9,6 +9,24 @@ var file_too_big_count = 0;
 
 
 /**
+ * Notice
+ */
+jQuery(document).delegate(".rsmt-notice button.notice-dismiss","mouseup",function(e){
+	var current = this;
+	var csrf_token = jQuery(current).parent().attr('data-csrf');
+	jQuery.post(
+		ajaxurl, { 
+			action: 'resmushit_notice_close',
+			csrf: csrf_token
+		}, 
+		function(response) {
+			var data = jQuery.parseJSON(response);
+		}
+	);
+});
+
+
+/**
  * Form Validators
  */
 jQuery("#rsmt-options-form").submit(function(){
@@ -43,10 +61,12 @@ restoreBackupFiles();
  */
 function resmushit_bulk_process(bulk, item){
 	var error_occured = false;	
+	var csrf_token = jQuery('.rsmt-bulk').attr('data-csrf');
 	jQuery.post(
 		ajaxurl, { 
 			action: 'resmushit_bulk_process_image', 
-			data: bulk[item]
+			data: bulk[item],
+			csrf: csrf_token
 		}, 
 		function(response) {
 			if(response == 'failed')
@@ -97,7 +117,7 @@ function resmushit_bulk_process(bulk, item){
  * ajax post to return all images that are candidates for resizing
  * @param string the id of the html element into which results will be appended
  */
-function resmushit_bulk_resize(container_id) {
+function resmushit_bulk_resize(container_id, csrf_token) {
 	container = jQuery('#'+container_id);
 	container.html('<div id="bulk_resize_target">');
 	jQuery('#bulk-resize-examine-button').fadeOut(200);
@@ -111,10 +131,12 @@ function resmushit_bulk_resize(container_id) {
 		function() {		
 			jQuery.post(
 				ajaxurl, 
-				{ action: 'resmushit_bulk_get_images' }, 
+				{ action: 'resmushit_bulk_get_images', csrf: csrf_token }, 
 				function(response) {
-					var images = JSON.parse(response);			
-					if (images.nonoptimized.length > 0) {	
+					var images = JSON.parse(response);
+					if (images.hasOwnProperty('error')) {
+						target.html('<div>' + images.error + '.</div>');
+					} else if (images.hasOwnProperty('nonoptimized') && images.nonoptimized.length > 0) {	
 						bulkTotalimages = images.nonoptimized.length;
 						target.html('<div class="loading--bulk"><span class="loader"></span><br />' + bulkTotalimages + ' attachment(s) found, starting optimization...</div>');
 						flag_removed = false;
@@ -133,9 +155,11 @@ function resmushit_bulk_resize(container_id) {
  * ajax post to update statistics
  */
 function updateStatistics() {
+	var csrf_token = jQuery('.rsmt-bulk').attr('data-csrf');
 	jQuery.post(
 		ajaxurl, { 
-			action: 'resmushit_update_statistics'
+			action: 'resmushit_update_statistics',
+			csrf: csrf_token
 		}, 
 		function(response) {
 			statistics = JSON.parse(response);	
@@ -159,11 +183,12 @@ function updateDisabledState() {
 		jQuery(current).prop('disabled', true);
 		var disabledState = jQuery(current).is(':checked');
 		var postID = jQuery(current).attr('data-attachment-id');
+		var csrfToken = jQuery(current).attr('data-csrf');
 
 		jQuery.post(
 			ajaxurl, { 
 				action: 'resmushit_update_disabled_state',
-				data: {id: postID, disabled: disabledState}
+				data: {id: postID, disabled: disabledState, csrf: csrfToken}
 			}, 
 			function(response) {
 				jQuery(current).removeClass('rsmt-disable-loader');
@@ -199,10 +224,12 @@ function optimizeSingleAttachment() {
 		jQuery(current).prop('disabled', true);
 		var disabledState = jQuery(current).is(':checked');
 		var postID = jQuery(current).attr('data-attachment-id');
+		var csrf_token = jQuery(current).attr('data-csrf');
+		
 		jQuery.post(
 			ajaxurl, { 
 				action: 'resmushit_optimize_single_attachment',
-				data: {id: postID}
+				data: {id: postID, csrf: csrf_token}
 			}, 
 			function(response) {
 				var statistics = jQuery.parseJSON(response);
@@ -224,9 +251,11 @@ function removeBackupFiles() {
 			var current = this;
 			jQuery(current).val('Removing backups...');
 			jQuery(current).prop('disabled', true);
+			var csrf_token = jQuery(current).attr('data-csrf');
 			jQuery.post(
 				ajaxurl, { 
-					action: 'resmushit_remove_backup_files'
+					action: 'resmushit_remove_backup_files',
+					csrf: csrf_token
 				}, 
 				function(response) {
 					var data = jQuery.parseJSON(response);
@@ -250,9 +279,11 @@ function restoreBackupFiles() {
 			var current = this;
 			jQuery(current).val('Restoring backups...');
 			jQuery(current).prop('disabled', true);
+			var csrf_token = jQuery(current).attr('data-csrf');
 			jQuery.post(
 				ajaxurl, { 
-					action: 'resmushit_restore_backup_files'
+					action: 'resmushit_restore_backup_files',
+					csrf: csrf_token
 				}, 
 				function(response) {
 					var data = jQuery.parseJSON(response);

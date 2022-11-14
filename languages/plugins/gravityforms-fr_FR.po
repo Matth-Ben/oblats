@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the RocketGenius - Gravity Forms package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-07-15 09:33:42+0000\n"
+"PO-Revision-Date: 2022-10-18 07:35:21+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -10,6 +10,134 @@ msgstr ""
 "X-Generator: GlotPress/3.0.0-rc.4\n"
 "Language: fr\n"
 "Project-Id-Version: RocketGenius - Gravity Forms\n"
+
+#: includes/fields/class-gf-field-address.php:966
+#: includes/fields/class-gf-field-address.php:1040
+msgid "U.S. Virgin Islands"
+msgstr "Îles Vierges américaines"
+
+#: includes/fields/class-gf-field-address.php:859
+msgid "Viet Nam"
+msgstr "Vietnam"
+
+#: includes/fields/class-gf-field-address.php:845
+msgid "Türkiye"
+msgstr "Turquie"
+
+#: includes/fields/class-gf-field-address.php:837
+msgid "Tanzania, the United Republic of"
+msgstr "Tanzanie (République-Unie de)"
+
+#: includes/fields/class-gf-field-address.php:834
+msgid "Syria Arab Republic"
+msgstr "République arabe syrienne"
+
+#: includes/fields/class-gf-field-address.php:831
+msgid "Svalbard and Jan Mayen"
+msgstr "Îles de Svalbard et Jan Mayen"
+
+#: includes/fields/class-gf-field-address.php:825
+msgctxt "Country"
+msgid "South Georgia and the South Sandwich Islands"
+msgstr "Géorgie du Sud et Îles Sandwich du Sud"
+
+#: includes/fields/class-gf-field-address.php:804
+msgid "Saint Helena, Ascension and Tristan da Cunha"
+msgstr "Sainte-Hélène, Ascension et Tristan da Cunha"
+
+#: includes/fields/class-gf-field-address.php:801
+msgid "Russian Federation"
+msgstr "Fédération Russe"
+
+#: includes/fields/class-gf-field-address.php:782
+msgid "North Macedonia"
+msgstr "Macédoine du Nord"
+
+#: includes/fields/class-gf-field-address.php:737
+msgid "Korea, Republic of"
+msgstr "Corée (République de)"
+
+#: includes/fields/class-gf-field-address.php:736
+msgid "Korea, Democratic People's Republic of"
+msgstr "Corée (République populaire démocratique de)"
+
+#: includes/fields/class-gf-field-address.php:715
+msgid "Heard Island and McDonald Islands"
+msgstr "Îles Heard et McDonald"
+
+#: includes/fields/class-gf-field-address.php:688
+msgid "Eswatini"
+msgstr "Eswatini"
+
+#: includes/fields/class-gf-field-address.php:677
+msgid "Czechia"
+msgstr "République Tchèque"
+
+#: includes/fields/class-gf-field-address.php:669
+msgid "Congo"
+msgstr "Congo"
+
+#: form_detail.php:1590
+msgid "Domestic Partnership"
+msgstr "Partenariat domestique"
+
+#: form_detail.php:1590
+msgid "Separated"
+msgstr "Séparé"
+
+#. Translators: This string is a list of genders.  If the language you are
+#. translating into doesn't have equivalents, just provide a list with as many
+#. or few genders as your language has.
+#: form_detail.php:1579
+msgid "Male, Female, Non-binary, Agender, My gender is not listed, Prefer not to answer"
+msgstr "Homme, Femme, Non-binaire, Non genré, Mon genre n’est pas indiqué, Je préfère ne pas répondre"
+
+#. Translators: This string is a list of name prefixes/honorifics.  If the
+#. language you are translating into doesn't have equivalents, just provide a
+#. list with as many or few prefixes as your language has.
+#: common.php:5311
+msgid "Mr., Mrs., Miss, Ms., Mx., Dr., Prof., Rev."
+msgstr "M., Mme, Mlle, Mmes, MM., Dr, Prof, Rev."
+
+#: includes/system-status/class-gf-system-report.php:1039
+msgid "Table has incorrect auto-increment settings."
+msgstr "Les réglages d’auto-incrémentation de la table sont incorrects."
+
+#. Translators: plural post type name (e.g. 'post's).
+#: includes/settings/fields/class-post-select.php:158
+msgid "Search all %s"
+msgstr "Rechercher tous les %s"
+
+#: includes/settings/fields/class-post-select.php:51
+msgid "The requested post type %s does not exist."
+msgstr "Le type de publication %s demandé n‘existe pas."
+
+#: includes/license/class-gf-license-api-response.php:225
+msgid "N/A"
+msgstr "N/D"
+
+#: includes/form-editor/save-form/config/class-gf-form-editor-form-save-config.php:37
+msgid "Request failed due to a network error. Please check your internet connection."
+msgstr "La requête a échoué en raison d’une erreur réseau. Veuillez vérifier votre connexion Internet."
+
+#: includes/api.php:1820
+msgid "Your form doesn't have any fields."
+msgstr "Votre formulaire n’a aucun champ."
+
+#: includes/api.php:1762
+msgid "You must be logged in to use this form."
+msgstr "Vous devez être connecté•e pour utiliser ce formulaire."
+
+#. Translators: 1. Opening <a> tag with link to the form export page, 2.
+#. closing <a> tag, 3. Opening <a> tag for documentation link, 4. Closing <a>
+#. tag.
+#: form_detail.php:3253
+msgid "If you continue to encounter this error, you can %1$sexport your form%2$s to include in your support request. You can also disable AJAX saving for this form. %3$sLearn more%4$s."
+msgstr "Si vous continuez à rencontrer cette erreur, vous pouvez %1$sexporter votre formulaire%2$s pour l’inclure dans votre demande de support. Vous pouvez également désactiver l’enregistrement AJAX pour ce formulaire. %3$sEn savoir plus%4$s."
+
+#: form_detail.php:385
+msgid "Search a form field by name"
+msgstr "Rechercher un champ de formulaire par nom"
 
 #: includes/form-editor/save-form/config/class-gf-form-editor-form-save-config.php:46
 msgid "Save Error."
@@ -377,39 +505,39 @@ msgstr "Ajouter un bloc à la page"
 msgid "Form button settings are now located in the form editor! To edit the button settings, go to the form editor and click on the submit button."
 msgstr "Les réglages des boutons de formulaire se trouvent désormais dans l’éditeur de formulaire ! Pour modifier les réglages des boutons, allez dans l’éditeur de formulaire et cliquez sur le bouton d’envoi."
 
-#: form_detail.php:3289
+#: form_detail.php:3298
 msgid "Learn more about form legacy markup"
 msgstr "En savoir plus sur l‘ancien balisage des formulaires"
 
-#: form_detail.php:3284
+#: form_detail.php:3293
 msgid "This form has legacy markup enabled, which may prevent some new features from functioning."
 msgstr "Ce formulaire utilise l‘ancien balisage, ce qui peut empêcher certaines nouvelles fonctionnalités de fonctionner."
 
-#: form_detail.php:2610
+#: form_detail.php:2619
 msgid "Enable Submit Button Conditional Logic"
 msgstr "Activer la logique conditionnelle du bouton d’envoi"
 
-#: form_detail.php:2208
+#: form_detail.php:2217
 msgid "End of the last row"
 msgstr "Fin de la dernière ligne"
 
-#: form_detail.php:2205
+#: form_detail.php:2214
 msgid "End of the form"
 msgstr "Fin du formulaire"
 
-#: form_detail.php:2201
+#: form_detail.php:2210
 msgid "Submit Button Location"
 msgstr "Emplacement du bouton d’envoi"
 
-#: form_detail.php:2184
+#: form_detail.php:2193
 msgid "Fill Container"
 msgstr "Remplir le conteneur"
 
-#: form_detail.php:2181
+#: form_detail.php:2190
 msgid "Auto"
 msgstr "Automatique"
 
-#: form_detail.php:2177
+#: form_detail.php:2186
 msgid "Submit Button Width"
 msgstr "Largeur du bouton d‘envoi"
 
@@ -439,16 +567,16 @@ msgstr "Envoyer le type d’entrée"
 msgid "Saving"
 msgstr "Enregistrement"
 
-#: common.php:5257
+#: common.php:5275
 #: includes/merge-tags/config/class-gf-merge-tags-config-i18n.php:27
 msgid "Insert Merge Tags"
 msgstr "Insérer des balises de fusion"
 
-#: common.php:5222
+#: common.php:5240
 msgid "Submit Button"
 msgstr "Bouton d’envoi"
 
-#: common.php:5197
+#: common.php:5215
 msgid "The submit button for this form"
 msgstr "Le bouton d’envoi de ce formulaire"
 
@@ -456,7 +584,7 @@ msgstr "Le bouton d’envoi de ce formulaire"
 msgid "Do not close or navigate away from this page until the upgrade is 100% complete."
 msgstr "Ne fermez pas ou ne quittez pas cette page tant que la mise à niveau n’est pas terminée à 100 %."
 
-#: common.php:5209
+#: common.php:5227
 msgid "Configure"
 msgstr "Configurer"
 
@@ -574,8 +702,8 @@ msgstr "par"
 msgid "Enter your reCAPTCHA site and secret keys in the %sreCAPTCHA Settings%s."
 msgstr "Saisissez vos clés secrète et de site reCAPTCHA dans les %sréglages reCAPTCHA%s."
 
-#: form_detail.php:3255 form_detail.php:3256 form_detail.php:3373
-#: form_detail.php:3374
+#: form_detail.php:3264 form_detail.php:3265 form_detail.php:3382
+#: form_detail.php:3383
 msgid "Dismiss notification"
 msgstr "Ignorer la notification"
 
@@ -588,15 +716,15 @@ msgstr "Enregistrer le formulaire"
 msgid "Select date"
 msgstr "Sélectionner une date"
 
-#: common.php:3962
+#: common.php:3980
 msgid "Sorry, this file type is not permitted for security reasons."
 msgstr "Désolé, ce type de fichier n’est pas autorisé pour des raisons de sécurité."
 
-#: common.php:3959
+#: common.php:3977
 msgid "Sorry, this file extension is not permitted for security reasons."
 msgstr "Désolé, cette extension de fichier n’est pas autorisée pour des raisons de sécurité."
 
-#: common.php:3954
+#: common.php:3972
 msgid "There was an problem while verifying your file."
 msgstr "Une erreur s’est produite lors de la vérification de votre fichier."
 
@@ -608,11 +736,11 @@ msgstr "Nom"
 msgid "Full Address"
 msgstr "Adresse complète"
 
-#: gravityforms.php:6178
+#: gravityforms.php:6184
 msgid "If you currently have a support ticket open, please do not disable logging until the Support Team has reviewed your logs. "
 msgstr "Si vous avez actuellement un ticket de support ouvert, veuillez ne pas désactiver la journalisation avant que l’équipe de support n’ait examiné vos journaux."
 
-#: common.php:5216
+#: common.php:5234
 msgid "Adding conditional logic to the form submit button could cause usability problems for some users and negatively impact the accessibility of your form. Learn more about button conditional logic in our %1$sdocumentation%2$s."
 msgstr "L’ajout d‘une logique conditionnelle au bouton d’envoi du formulaire peut entraîner des problèmes d’utilisation pour certaines personnes et avoir un impact négatif sur l’accessibilité de votre formulaire. Pour en savoir plus sur la logique conditionnelle des boutons, consultez notre %1$sdocumentation%2$s."
 
@@ -629,15 +757,15 @@ msgstr "Locale du site"
 msgid "Translations"
 msgstr "Traductions"
 
-#: gravityforms.php:6181
+#: gravityforms.php:6187
 msgid "Once troubleshooting is complete, %1$sclick here to disable logging and permanently delete your log files.%2$s "
 msgstr "Une fois le dépannage terminé, %1$scliquez ici pour désactiver la journalisation et supprimer définitivement vos fichiers journaux.%2$s"
 
-#: gravityforms.php:6179
+#: gravityforms.php:6185
 msgid "Since logs may contain sensitive information, please ensure that you only leave it enabled for as long as it is needed for troubleshooting. "
 msgstr "Les journaux pouvant contenir des informations sensibles, veillez à ne les laisser activés que le temps nécessaire au dépannage."
 
-#: gravityforms.php:6177
+#: gravityforms.php:6183
 msgid "Gravity Forms logging is currently enabled. "
 msgstr "La journalisation de Gravity Forms est actuellement activée."
 
@@ -649,15 +777,15 @@ msgstr "En masquant le libellé, vous risquez d‘empêcher les utilisateurs et 
 msgid "The datepicker is not accessible for users who rely on the keyboard or screen reader. Please select a different input type to improve the accessibility of your form."
 msgstr "Le sélecteur de date n‘est pas accessible aux utilisateurs/utilisatrices qui utilisent le clavier ou un lecteur d’écran. Veuillez sélectionner un autre type de saisie pour améliorer l’accessibilité de votre formulaire."
 
-#: includes/fields/class-gf-field.php:1490
+#: includes/fields/class-gf-field.php:1538
 msgid "jump to this field's settings"
 msgstr "aller aux réglages de ce champ"
 
-#: includes/fields/class-gf-field.php:1466
+#: includes/fields/class-gf-field.php:1514
 msgid "delete this field"
 msgstr "supprimer ce champ"
 
-#: includes/fields/class-gf-field.php:1439
+#: includes/fields/class-gf-field.php:1487
 msgid "duplicate this field"
 msgstr "dupliquer ce champ"
 
@@ -675,11 +803,11 @@ msgstr "Taille max. des fichiers : %s"
 
 #. translators: {field_title} and {field_type} should not be translated , they
 #. are variables
-#: common.php:5274
+#: common.php:5292
 msgid "{field_label} - {field_type}, jump to this field's settings"
 msgstr "{field_label} - {field_type}, aller aux réglages de ce fichier"
 
-#: common.php:5235
+#: common.php:5253
 msgid "This form has legacy markup enabled and doesn’t support field resizing within the editor. Please disable legacy markup in the form settings to enable live resizing."
 msgstr "Ce formulaire utilise d‘anciennes balises et ne prend pas en charge le redimensionnement des champs dans l’éditeur. Veuillez désactiver l’ancien balisage dans les réglages du formulaire pour activer le redimensionnement en temps réel."
 
@@ -687,15 +815,15 @@ msgstr "Ce formulaire utilise d‘anciennes balises et ne prend pas en charge le
 msgid "is no longer necessary."
 msgstr " n’est plus nécessaire."
 
-#: gravityforms.php:4741
+#: gravityforms.php:4747
 msgid "Search for form"
 msgstr "Rechercher un formulaire"
 
-#: gravityforms.php:4737
+#: gravityforms.php:4743
 msgid "Search forms"
 msgstr "Rechercher des formulaires"
 
-#: gravityforms.php:4717
+#: gravityforms.php:4723
 msgid "Select a different form"
 msgstr "Sélectionner un autre formulaire"
 
@@ -703,15 +831,15 @@ msgstr "Sélectionner un autre formulaire"
 msgid "Click the file selection button to upload a Gravity Forms export file from your computer. Please make sure your file has the .json extension, and that it was generated by the Gravity Forms Export tool."
 msgstr "Cliquez sur le bouton de sélection de fichier pour téléverser un fichier d’exportation de Gravity Forms depuis votre ordinateur. Veuillez vous assurer que votre fichier possède l’extension .json et qu’il a été généré par l’outil d’exportation de Gravity Forms."
 
-#: form_detail.php:3291 form_detail.php:3368
+#: form_detail.php:3300 form_detail.php:3377
 msgid "Learn More"
 msgstr "En savoir plus"
 
-#: form_detail.php:3366 js.php:426
+#: form_detail.php:3375 js.php:426
 msgid "Working with Columns in the Form Editor in Gravity Forms 2.5"
 msgstr "Fonctionne avec des colonnes dans l’éditeur de formulaires de Gravity Forms 2.5"
 
-#: form_detail.php:3360
+#: form_detail.php:3369
 msgid "This form uses deprecated Ready Classes. Adding columns is easier than ever with the new Drag and Drop Layout Editor."
 msgstr "Ce formulaire utilise des classes Ready obsolètes. L’ajout de colonnes est plus facile que jamais grâce au nouvel éditeur de mise en page en glisser-déposer."
 
@@ -767,15 +895,15 @@ msgstr "Serveur de base de données"
 msgid "REST API Base URL"
 msgstr "URL de base de l’API REST"
 
-#: forms_model.php:8028
+#: forms_model.php:8049
 msgid "Feed meta should be an associative array or JSON"
 msgstr "Le flux méta doit être un tableau associé ou JSON"
 
-#: forms_model.php:8015
+#: forms_model.php:8036
 msgid "%s is not a valid feed property"
 msgstr "%s n’est pas une propriété de flux valide"
 
-#: forms_model.php:8011
+#: forms_model.php:8032
 msgid "Updating the id property is not supported"
 msgstr "La mise à jour de l’ID de propriété n’est pas prise en charge"
 
@@ -797,7 +925,7 @@ msgid "Feed updated successfully"
 msgstr "Le flux a bien été mis à jour"
 
 #. Translators: link to the "Edit Post" page for this post.
-#: common.php:3663
+#: common.php:3681
 msgid "You can <a href=\"%s\">edit this post</a> from the post page."
 msgstr "Vous pouvez <a href=\"%s\">modifier cet article</a> depuis la page de l’article."
 
@@ -824,13 +952,7 @@ msgid "The email address entered is invalid, please check the formatting (e.g. e
 msgstr "L’adresse e-mail saisie n’est pas valide, veuillez vérifier son formatage (p. ex. email@domaine.com)."
 
 #. Translators: comma-separated list of the labels of missing fields.
-#: includes/fields/class-gf-field-date.php:163
-msgid "This field is required. Please complete the following fields: %s."
-msgstr "Ce champ est nécessaire. Veuillez remplir les champs suivants : %s."
-
-#. Translators: comma-separated list of the labels of missing fields.
-#: includes/fields/class-gf-field-time.php:195
-#: includes/fields/class-gf-field.php:750
+#: includes/fields/class-gf-field.php:802
 msgid "Please complete the following fields: %s."
 msgstr "Veuillez remplir les champs suivants : %s."
 
@@ -866,19 +988,19 @@ msgstr "mar"
 msgid "Mon"
 msgstr "lun"
 
-#: common.php:5324
+#: common.php:5342
 msgid "remove this rule"
 msgstr "supprimer cette règle"
 
-#: common.php:5323
+#: common.php:5341
 msgid "add another rule"
 msgstr "ajouter une autre règle"
 
-#: common.php:5211
+#: common.php:5229
 msgid "Conditional logic allows you to change what the user sees depending on the fields they select."
 msgstr "La logique conditionnelle vous permet de modifier ce que l’utilisateur ou l’utilisatrice voit en fonction des champs sélectionnés."
 
-#: common.php:5189
+#: common.php:5207
 msgid "Column"
 msgstr "Colonne"
 
@@ -918,7 +1040,7 @@ msgstr "Veuillez d’abord consulter la %sdocumentation%s. Si vous ne trouvez to
 msgid "How can we help you?"
 msgstr "Comment pouvons-nous vous aider ?"
 
-#: includes/fields/class-gf-field.php:1513
+#: includes/fields/class-gf-field.php:1561
 msgid "Move"
 msgstr "Déplacer"
 
@@ -934,35 +1056,35 @@ msgstr "Gravity Forms génère des champs de formulaire HTML5 par défaut. Désa
 msgid "%s uninstalled. It can be re-activated from the %splugins page%s."
 msgstr "L’extension %s a bien été désinstallée. Vous pouvez la réactiver depuis la %spage des extensions%s."
 
-#: common.php:5286
+#: common.php:5304
 msgid "ID: "
 msgstr "ID : "
 
-#: common.php:5201
+#: common.php:5219
 msgid "this page if"
 msgstr "cette page si"
 
-#: gravityforms.php:5814
+#: gravityforms.php:5820
 msgid "Error processing request.  Please refresh and try again."
 msgstr "Erreur de traitement de la requête. Veuillez actualiser et réessayer."
 
-#: gravityforms.php:5809
+#: gravityforms.php:5815
 msgid "Permissions error."
 msgstr "Erreur de droits."
 
-#: gravityforms.php:5779
+#: gravityforms.php:5785
 msgid "Please register your copy of Gravity Forms to enable automatic updates."
 msgstr "Veuillez enregistrer votre copie de Gravity Forms pour activer les mises à jour automatiques."
 
-#: gravityforms.php:5722
+#: gravityforms.php:5728
 msgid "Auto-updates unavailable."
 msgstr "Mises à jour auto non disponibles."
 
-#: gravityforms.php:3096 gravityforms.php:5741
+#: gravityforms.php:3102 gravityforms.php:5747
 msgid "Disable auto-updates"
 msgstr "Désactiver les mises à jour auto"
 
-#: gravityforms.php:3095 gravityforms.php:5745
+#: gravityforms.php:3101 gravityforms.php:5751
 msgid "Enable auto-updates"
 msgstr "Activer les mises à jour auto"
 
@@ -1166,11 +1288,11 @@ msgstr "MM"
 msgid "This operation deletes ALL Gravity Forms settings. If you continue, you will NOT be able to retrieve these settings."
 msgstr "Cette opération supprime TOUS les réglages de Gravity Forms. Si vous continuez, vous ne serez PLUS en mesure de les récupérer."
 
-#: common.php:5268
+#: common.php:5286
 msgid "{0} of the following match:"
 msgstr "{0} des critères suivants correspondent :"
 
-#: common.php:5206
+#: common.php:5224
 msgid "Disable"
 msgstr "Désactiver"
 
@@ -1186,7 +1308,7 @@ msgstr "Renvoyer"
 msgid "Print entry"
 msgstr "Imprimer l’entrée"
 
-#: form_display.php:4479
+#: form_display.php:4485
 msgid "Please review the fields below."
 msgstr "Veuillez vérifier les champs ci-dessous."
 
@@ -1266,35 +1388,7 @@ msgstr "Un seul champ de livraison peut être ajouté au formulaire"
 msgid "Only one reCAPTCHA field can be added to the form"
 msgstr "Un seul champ reCAPTCHA peut être ajouté au formulaire."
 
-#: common.php:5296
-msgid "Rev."
-msgstr "Rev."
-
-#: common.php:5295
-msgid "Prof."
-msgstr "Prof."
-
-#: common.php:5294
-msgid "Dr."
-msgstr "Dr"
-
-#: common.php:5293
-msgid "Ms."
-msgstr "Mlle"
-
-#: common.php:5292
-msgid "Miss"
-msgstr "Mlle"
-
-#: common.php:5291
-msgid "Mrs."
-msgstr "Mme"
-
-#: common.php:5290
-msgid "Mr."
-msgstr "M."
-
-#: includes/fields/class-gf-field-time.php:306 js.php:1075
+#: includes/fields/class-gf-field-time.php:284 js.php:1075
 msgid "AM/PM"
 msgstr "AM/PM"
 
@@ -1478,7 +1572,7 @@ msgstr "Sélectionnez une catégorie"
 msgid "Completed"
 msgstr "Terminé"
 
-#: common.php:5320 js.php:66
+#: common.php:5338 js.php:66
 msgid "To use conditional logic, please create a field that supports conditional logic."
 msgstr "Pour utiliser les logiques conditionnelles, veuillez créer un champ qui les supporte."
 
@@ -1658,27 +1752,27 @@ msgstr "Gravity Forms a bien été désinstallé. Vous pouvez le réactiver à p
 msgid "You don't have adequate permission to uninstall Gravity Forms."
 msgstr "Vous n’avez pas les permissions nécessaires pour désinstaller Gravity Forms."
 
-#: common.php:6822
+#: common.php:6840
 msgid "Select the visibility for this field."
 msgstr "Sélectionnez la visibilité de ce champ."
 
-#: common.php:6791
+#: common.php:6809
 msgid "The field is only visible when administering submitted entries. The field is not visible or functional when viewing the form."
 msgstr "Ce champ est visible uniquement pendant l’administration des entrées envoyées. Ce champ n’est pas visible ou fonctionnel lorsque le formulaire est vu."
 
-#: common.php:6789
+#: common.php:6807
 msgid "Administrative"
 msgstr "Administration"
 
-#: common.php:6786
+#: common.php:6804
 msgid "The field is hidden when viewing the form. Useful when you require the functionality of this field but do not want the user to be able to see this field."
 msgstr "Ce champ est masqué quand le formulaire est affiché. Utile si vous avez besoin de la fonctionnalité de ce champ mais que vous ne voulez pas que l’utilisateur ou l’utilisatrice puisse le voir."
 
-#: common.php:6781
+#: common.php:6799
 msgid "Default option. The field is visible when viewing the form."
 msgstr "Option par défaut. Ce champ est visible quand le formulaire est affiché."
 
-#: common.php:6779
+#: common.php:6797
 msgid "Visible"
 msgstr "Visible"
 
@@ -1718,227 +1812,227 @@ msgstr "Supprimer ce fichier"
 msgid "This type of file is not allowed. Must be one of the following: "
 msgstr "Ce type de fichier n’est pas autorisé. Seuls les formats suivants sont autorisés :"
 
-#: common.php:5912
+#: common.php:5930
 msgid "Voided"
 msgstr "Annulé"
 
-#: common.php:5911
+#: common.php:5929
 msgid "Refunded"
 msgstr "Remboursé"
 
-#: common.php:5909 includes/config/items/class-gf-config-multifile.php:36
+#: common.php:5927 includes/config/items/class-gf-config-multifile.php:36
 msgid "Cancelled"
 msgstr "Annulé"
 
-#: common.php:5907
+#: common.php:5925
 msgid "Failed"
 msgstr "Échoué"
 
-#: common.php:5906
+#: common.php:5924
 msgid "Processing"
 msgstr "Traitement"
 
-#: common.php:5905
+#: common.php:5923
 msgid "Paid"
 msgstr "Payé"
 
-#: common.php:5904
+#: common.php:5922
 msgid "Authorized"
 msgstr "Autorisé"
 
-#: common.php:5884
+#: common.php:5902
 msgid "Transaction ID"
 msgstr "ID de la transaction"
 
-#: common.php:5865
+#: common.php:5883
 msgid "Source URL"
 msgstr "URL source"
 
-#: common.php:5847
+#: common.php:5865
 msgid "Starred"
 msgstr "Favoris"
 
-#: common.php:5730
+#: common.php:5748
 msgid "Any form field"
 msgstr "N’importe quel champ"
 
-#: common.php:5271
+#: common.php:5289
 msgid "Predefined Choices"
 msgstr "Choix prédéfinis"
 
-#: common.php:5270
+#: common.php:5288
 msgid "Custom Choices"
 msgstr "Choix personnalisés"
 
-#: common.php:5267
+#: common.php:5285
 msgid "Remove a condition"
 msgstr "Retirer une condition"
 
-#: common.php:5266
+#: common.php:5284
 msgid "Add a condition"
 msgstr "Ajouter une condition"
 
-#: common.php:5255
+#: common.php:5273
 msgid "This form contains conditional logic dependent upon this field. Are you sure you want to mark this field as Admin Only? 'OK' to confirm, 'Cancel' to abort."
 msgstr "Ce formulaire comporte des logiques conditionnelles qui dépendent de ce champ. Voulez-vous malgré tout supprimer ce champ ? « OK » pour supprimer, « Annuler » pour abandonner."
 
-#: common.php:5254
+#: common.php:5272
 msgid "This form contains conditional logic dependent upon this choice. Are you sure you want to modify this choice? 'OK' to delete, 'Cancel' to abort."
 msgstr "Ce formulaire comporte des logiques conditionnelles qui dépendent de ce choix. Voulez-vous malgré tout modifier ce choix ? « OK » pour supprimer, « Annuler » pour abandonner."
 
-#: common.php:5253
+#: common.php:5271
 msgid "This form contains conditional logic dependent upon this choice. Are you sure you want to delete this choice? 'OK' to delete, 'Cancel' to abort."
 msgstr "Ce formulaire comporte des logiques conditionnelles qui dépendent de ce choix. Voulez-vous malgré tout supprimer ce choix ? « OK » pour supprimer, « Annuler » pour abandonner."
 
-#: common.php:5252
+#: common.php:5270
 msgid "Warning! This form contains conditional logic dependent upon this field. Deleting this field will deactivate those conditional logic rules and also delete all entry data associated with the field. 'OK' to delete, 'Cancel' to abort."
 msgstr "Avertissement ! Ce formulaire contient une logique conditionnelle dépendant de ce champ. La suppression de ce champ désactivera ces règles de logique conditionnelle et supprimera aussi toutes les entrées de données associées avec ce champ. « OK » pour supprimer, « Annuler » pour abandonner."
 
-#: common.php:5250
+#: common.php:5268
 msgid "Warning! Deleting this field will also delete all entry data associated with it. 'Cancel' to stop. 'OK' to delete."
 msgstr "Avertissement ! La suppression de ce champ entraînera la suppression de toutes les données qui y sont associées. « OK » pour supprimer, « Annuler » pour arrêter."
 
-#: common.php:5249
+#: common.php:5267
 msgid "Please enter a confirmation name."
 msgstr "Veuillez saisir un nom pour la confirmation."
 
-#: common.php:5248
+#: common.php:5266
 msgid "Please enter a URL."
 msgstr "Veuillez saisir une URL."
 
-#: common.php:5247
+#: common.php:5265
 msgid "Please select a page."
 msgstr "Veuillez sélectionner une page."
 
-#: common.php:5245
+#: common.php:5263
 msgid "Untitled Confirmation"
 msgstr "Confirmation sans titre"
 
-#: common.php:5244
+#: common.php:5262
 msgid "There are unsaved changes to the current confirmation. Would you like to discard these changes?"
 msgstr "Les changements apportés à cette confirmation n’ont pas été enregistrés. Voulez-vous vraiment annuler ces changements ?"
 
-#: common.php:5242
+#: common.php:5260
 msgid "Are you sure you wish to delete this confirmation?"
 msgstr "Voulez-vous vraiment supprimer cette confirmation ?"
 
-#: common.php:5241
+#: common.php:5259
 msgid "There was an issue saving this confirmation."
 msgstr "Une erreur s’est produite lors de l’enregistrement de la confirmation."
 
-#: common.php:5240
+#: common.php:5258
 msgid "Are you sure you wish to cancel these changes?"
 msgstr "Voulez-vous vraiment annuler ces modifications ?"
 
-#: common.php:5239
+#: common.php:5257
 msgid "Saving..."
 msgstr "Enregistrement..."
 
-#: common.php:5237
+#: common.php:5255
 msgid "Send this notification if"
 msgstr "Envoyer cette notification si"
 
-#: common.php:5236
+#: common.php:5254
 msgid "Use this confirmation if"
 msgstr "Utiliser cette confirmation si"
 
-#: common.php:5233
+#: common.php:5251
 msgid "Empty (no choices selected)"
 msgstr "Vide (aucun choix sélectionné)"
 
-#: common.php:5225
+#: common.php:5243
 msgid "of the following match:"
 msgstr "l(d)es critères suivants correspondent :"
 
-#: common.php:5224
+#: common.php:5242
 msgctxt "Conditional Logic"
 msgid "Any"
 msgstr "Certains"
 
-#: common.php:5223
+#: common.php:5241
 msgctxt "Conditional Logic"
 msgid "All"
 msgstr "Tous"
 
-#: common.php:5204
+#: common.php:5222
 msgid "Hide"
 msgstr "Masquer"
 
-#: common.php:5203 js.php:274
+#: common.php:5221 js.php:274
 msgid "Show"
 msgstr "Afficher"
 
-#: common.php:5202
+#: common.php:5220
 msgid "this form button if"
 msgstr "ce bouton de formulaire si"
 
-#: common.php:5200
+#: common.php:5218
 msgid "this section if"
 msgstr "cette section si"
 
-#: common.php:5199
+#: common.php:5217
 msgid "this field if"
 msgstr "ce champ si"
 
-#: common.php:5194
+#: common.php:5212
 msgid "We would love to hear from you! Please fill out this form and we will get in touch with you shortly."
 msgstr "N’hésitez pas à communiquer avec nous ! Veuillez remplir ce formulaire et nous vous répondrons dans les plus brefs délais."
 
-#: common.php:5193
+#: common.php:5211
 msgid "Untitled Form"
 msgstr "Formulaire sans titre"
 
-#: common.php:5192
+#: common.php:5210
 msgid "Enter a value"
 msgstr "Saisir une valeur"
 
-#: common.php:5190
+#: common.php:5208
 msgid "5 of %d items shown. Edit field to view all"
 msgstr "5 éléments sur %d affichés. Modifiez le champ pour tout afficher."
 
-#: common.php:5188
+#: common.php:5206
 msgid "Select a format"
 msgstr "Sélectionnez un format"
 
-#: common.php:5169
+#: common.php:5187
 msgid "The form has been saved.  The content contains the link to return and complete the form."
 msgstr "Le formulaire a été enregistré. Le contenu contient le lien pour retourner et terminer le formulaire."
 
-#: common.php:5168
+#: common.php:5186
 msgid "Row removed"
 msgstr "Rangée supprimée"
 
-#: common.php:5167
+#: common.php:5185
 msgid "New row added."
 msgstr "Nouvelle ligne ajoutée."
 
-#: common.php:3686
+#: common.php:3704
 msgid "Pricing fields are not editable"
 msgstr "Les champs de tarification ne sont pas modifiables"
 
-#: common.php:3132
+#: common.php:3150
 msgid "%1$s at %2$s"
 msgstr "%1$s à %2$s"
 
 #. translators: %s: relative time from now, used for generic date comparisons.
 #. "1 day ago", or "20 seconds ago"
-#: common.php:1381 common.php:3119
+#: common.php:1387 common.php:3137
 msgid "%s ago"
 msgstr "Il y a %s"
 
-#: common.php:2967
+#: common.php:2985
 msgid "Gravity Forms requires WordPress %s or greater. You must upgrade WordPress in order to use Gravity Forms"
 msgstr "Gravity Forms nécessite la version %s ou plus récente de WordPress. Vous devez mettre WordPress à jour pour utiliser cette version de Gravity Forms."
 
-#: common.php:2165
+#: common.php:2171
 msgid "Cannot send email because the FROM address is invalid."
 msgstr "Impossible d’envoyer l’e-mail car l’adresse DE n’est pas valide."
 
-#: common.php:2158
+#: common.php:2164
 msgid "Cannot send email because there is no SUBJECT and no MESSAGE."
 msgstr "Impossible d’envoyer l’e-mail car il n’y a pas de SUJET ni de MESSAGE."
 
-#: common.php:2151
+#: common.php:2157
 msgid "Cannot send email because the TO address is invalid."
 msgstr "Impossible d’envoyer l’e-mail car l’adresse À n’est pas valide."
 
@@ -2039,279 +2133,279 @@ msgid "All Submitted Fields"
 msgstr "Tous les champs envoyés"
 
 #. translators: 1: The table name 2: the URL with further details
-#: gravityforms.php:6595
+#: gravityforms.php:6601
 msgid "An outdated add-on or custom code is attempting to access the %1$s table which is not valid in this version of Gravity Forms. Update your add-ons and custom code to prevent loss of form data. Further details: %2$s"
 msgstr "Un module obsolète ou un code personnalisé essaie d’accéder à la table %1$s qui n’est pas valide avec cette version de Gravity Forms. Mettez à jour vos modules et votre code personnalisé pour empêcher des pertes de données de formulaire. Plus de détails : %2$s"
 
-#: gravityforms.php:6287
+#: gravityforms.php:6293
 msgid "Forms per page"
 msgstr "Formulaires par page"
 
-#: gravityforms.php:6091
+#: gravityforms.php:6097
 msgid "Select an action for this shortcode. Actions are added by some add-ons."
 msgstr "Sélectionnez une action pour ce code court. Des actions sont ajoutées par certains modules."
 
-#: gravityforms.php:6079
+#: gravityforms.php:6085
 msgid "Select an action"
 msgstr "Sélectionnez une action"
 
-#: gravityforms.php:6064
+#: gravityforms.php:6070
 msgid "Specify the starting tab index for the fields of this form."
 msgstr "Indiquer l’onglet de départ pour les champs de ce formulaire."
 
-#: gravityforms.php:6058
+#: gravityforms.php:6064
 msgid "Specify whether or not to use Ajax to submit the form."
 msgstr "Spécifiez si vous voulez utiliser Ajax ou non pour envoyer le formulaire."
 
-#: gravityforms.php:6051
+#: gravityforms.php:6057
 msgid "Whether or not to display the form description."
 msgstr "Afficher ou non la description du formulaire."
 
-#: gravityforms.php:6043
+#: gravityforms.php:6049
 msgid "Whether or not to display the form title."
 msgstr "Afficher ou non le titre du formulaire."
 
-#: gravityforms.php:6034
+#: gravityforms.php:6040
 msgid "Can't find your form? Make sure it is active."
 msgstr "Vous ne trouvez pas votre formulaire ? Assurez-vous qu’il soit actif."
 
-#: gravityforms.php:6030
+#: gravityforms.php:6036
 msgid "Select a form from the list to add it to your post or page."
 msgstr "Sélectionnez un formulaire de la liste pour l’ajouter dans votre page ou article."
 
-#: gravityforms.php:6029
+#: gravityforms.php:6035
 msgid "Select a form below to add it to your post or page."
 msgstr "Sélectionnez un formulaire ci-dessous et intégrez-le dans votre page ou article."
 
-#: gravityforms.php:5591
+#: gravityforms.php:5597
 msgid "All Forms"
 msgstr "Tous les formulaires"
 
-#: gravityforms.php:5515
+#: gravityforms.php:5521
 msgid "Recent"
 msgstr "Récent"
 
-#: common.php:3789 common.php:3847
+#: common.php:3807 common.php:3865
 msgid "Preview this form"
 msgstr "Prévisualiser ce formulaire"
 
-#: gravityforms.php:5297
+#: gravityforms.php:5303
 msgid "View entries generated by this form"
 msgstr "Voir les entrées générées par ce formulaire"
 
-#: gravityforms.php:5281
+#: gravityforms.php:5287
 msgid "Edit settings for this form"
 msgstr "Modifier les réglages de ce formulaire"
 
-#: gravityforms.php:5267 gravityforms.php:5268
+#: gravityforms.php:5273 gravityforms.php:5274
 msgid "Editor"
 msgstr "Éditeur"
 
-#: gravityforms.php:4622 gravityforms.php:4638
+#: gravityforms.php:4628 gravityforms.php:4644
 msgid "Oops! There was an error saving the form title. Please refresh the page and try again."
 msgstr "Aïe ! Une erreur s’est produite lors de l’enregistrement du titre de formulaire. Veuillez rafraîchir la page et essayer à nouveau."
 
-#: gravityforms.php:4025
+#: gravityforms.php:4031
 msgid "The %sSend To%s email address provided is not valid."
 msgstr "L’adresse e-mail du %sdestinataire%s n’est pas valide."
 
-#: gravityforms.php:4021
+#: gravityforms.php:4027
 msgid "No notifications have been selected. Please select a notification to be sent."
 msgstr "Aucune notification n’a été sélectionné. Veuillez sélectionner une notification à envoyer."
 
-#: gravityforms.php:4015
+#: gravityforms.php:4021
 msgid "There was an error while resending the notifications."
 msgstr "Une erreur s’est produite lors du renvoi des notifications."
 
-#: gravityforms.php:3592
+#: gravityforms.php:3598
 msgid "Add-On browser is currently unavailable. Please try again later."
 msgstr "Le navigateur de modules n’est pas disponible actuellement. Veuillez réessayer plus tard."
 
-#: gravityforms.php:3520
+#: gravityforms.php:3526
 msgid "Finished"
 msgstr "Terminé"
 
-#: gravityforms.php:3496
+#: gravityforms.php:3502
 msgid "Unable to disable logging."
 msgstr "Impossible de désactiver la journalisation."
 
-#: gravityforms.php:3494
+#: gravityforms.php:3500
 msgid "Logging disabled."
 msgstr "Journalisation désactivée."
 
-#: gravityforms.php:3116
+#: gravityforms.php:3122
 msgid "Failed to load the preview for this form."
 msgstr "Échec au chargement de la prévisualisation de ce formulaire."
 
-#: gravityforms.php:3115
+#: gravityforms.php:3121
 msgid "Please select a form."
 msgstr "Veuillez sélectionner un formulaire"
 
-#: gravityforms.php:2604
+#: gravityforms.php:2610
 msgid "Dismiss"
 msgstr "Ignorer"
 
-#: gravityforms.php:2601
+#: gravityforms.php:2607
 msgid "There is an update available for Gravity Forms. %sView Details%s"
 msgstr "Une mise à jour est disponible pour Gravity Forms. %sVoir les détails%s"
 
-#: gravityforms.php:2568
+#: gravityforms.php:2574
 msgid "You don't have any forms. Let's go %screate one %s!"
 msgstr "Vous n’avez aucun formulaire. %sCréez-en un%s !"
 
-#: gravityforms.php:2561
+#: gravityforms.php:2567
 msgid "View All Forms"
 msgstr "Voir tous les formulaires"
 
-#: gravityforms.php:2549
+#: gravityforms.php:2555
 msgid "View All Entries"
 msgstr "Voir toutes les entrées"
 
-#: gravityforms.php:2546
+#: gravityforms.php:2552
 msgid "Last Entry: %s"
 msgstr "Dernière entrée : %s"
 
-#: gravityforms.php:2524
+#: gravityforms.php:2530
 msgid "Unread"
 msgstr "Non-lus"
 
-#: gravityforms.php:2475
+#: gravityforms.php:2481
 msgid "Oops!! Something went wrong. %sPlease try again or %scontact us%s."
 msgstr "Aïe ! Une erreur s’est produite.%sVeuillez essayer de nouveau ou %snous contacter%s."
 
 #. translators: %s: version number
-#: gravityforms.php:2417
+#: gravityforms.php:2419
 msgid "The versions of the following add-ons you're running haven't been tested with Gravity Forms %s. Please update them or confirm compatibility before updating Gravity Forms, or you may experience issues:"
 msgstr "Les versions des modules suivants que vous utilisez n’ont pas été testées avec Gravity Forms %s. Veuillez les mettre à jour ou confirmer la compatibilité avant de mettre à jour Gravity Forms ou bien vous pourrez rencontrer des erreurs."
 
-#: gravityforms.php:2397
+#: gravityforms.php:2399
 msgid "IMPORTANT: As this is a major update, we strongly recommend creating a backup of your site before updating."
 msgstr "Important : Ceci est une mise à jour majeure, nous recommandons fortement de créer une sauvegarde de votre site avant de mettre à jour."
 
-#: gravityforms.php:2351
+#: gravityforms.php:2353
 msgid "%sRegister%s your copy of Gravity Forms to receive access to automatic upgrades and support. Need a license key? %sPurchase one now%s."
 msgstr "%sEnregistrez%s votre copie de Gravity Forms afin d’accéder aux mises à jour automatiques et au support. Besoin d’une clé de licence ? %sAchetez-en une dès maintenant%s."
 
 #. translators: 1: upgrade URL, 2: plugin name
-#: gravityforms.php:2341
+#: gravityforms.php:2343
 msgid "<a href=\"%1$s\" class=\"update-link\" aria-label=\"Update %2$s now\">"
 msgstr "<a href=\"%1$s\" class=\"update-link\" aria-label=\"Mettre à jour %2$s maintenant\">"
 
 #. translators: 1: plugin name, 2: open <a> tag, 3: version number, 4: close
 #. </a> tag, 5: open <a> tag 6. close </a> tag
-#: gravityforms.php:2328
+#: gravityforms.php:2330
 msgid "There is a new version of %1$s available. %2$sView version %3$s details%4$s or %5$supdate now%6$s. "
 msgstr "Une nouvelle version de %1$s est disponible. %2$sVoir les détails de la version %3$s%4$s ou %5$smettre à jour maintenant%6$s. "
 
 #. translators: 1: plugin name, 2: version number, 3: changelog URL
-#: gravityforms.php:2315 gravityforms.php:2332
+#: gravityforms.php:2317 gravityforms.php:2334
 msgid "<a class=\"thickbox open-plugin-details-modal\" aria-label=\"View %1$s version %2$s details\" href=\"%3$s\">"
 msgstr "<a class=\"thickbox open-plugin-details-modal\" aria-label=\"Voir les détails de la version %2$s de %1$s\" href=\"%3$s\">"
 
 #. translators: 1: plugin name, 2: open <a> tag, 3: version number, 4: close
 #. </a> tag
-#: gravityforms.php:2311
+#: gravityforms.php:2313
 msgid "There is a new version of %1$s available. %2$sView version %3$s details%4$s. "
 msgstr "Une nouvelle version de %1$s est disponible. %2$sVoir les détails de la version %3$s%4$s. "
 
 #. translators: 1: The name of the add-on, 2: version number.
-#: gravityforms.php:2272
+#: gravityforms.php:2274
 msgid "This version of the %1$s is not compatible with the version of Gravity Forms that is installed. Upgrade this add-on to version %2$s or greater to avoid compatibility issues and potential loss of data."
 msgstr "Cette version de %1$s n’est pas compatible avec la version de Gravity Forms installée. Mettez à jour ce module en version %2$s ou supérieure pour régler des erreurs de compatibilité et des pertes potentielles de données."
 
-#: gravityforms.php:2186
+#: gravityforms.php:2188
 msgid "Please select a form"
 msgstr "Veuillez sélectionner un formulaire"
 
-#: gravityforms.php:2171
+#: gravityforms.php:2173
 msgid "Add Form"
 msgstr "Ajouter un formulaire"
 
-#: gravityforms.php:2171
+#: gravityforms.php:2173
 msgid "Add Gravity Form"
 msgstr "Ajouter un Gravity Forms"
 
-#: gravityforms.php:1926
+#: gravityforms.php:1928
 msgid "%1$s &lsaquo; %2$s &#8212; WordPress"
 msgstr "%1$s &lsaquo; %2$s &#8212; WordPress"
 
-#: gravityforms.php:1762 gravityforms.php:5602
+#: gravityforms.php:1764 gravityforms.php:5608
 msgid "New Form"
 msgstr "Nouveau formulaire"
 
-#: gravityforms.php:1748
+#: gravityforms.php:1750
 msgid "Update Available"
 msgstr "Mise à jour disponible"
 
-#: gravityforms.php:1640
+#: gravityforms.php:1642
 msgid "Upload folder is not writable. Export and file upload features will not be functional."
 msgstr "Le répertoire de téléversement n’est pas accessible en écriture. Les fonctions d’export et de téléversement de fichier ne seront pas fonctionnelles."
 
-#: gravityforms.php:1568
+#: gravityforms.php:1570
 msgid "REST API Settings"
 msgstr "Réglages de l’API REST"
 
-#: gravityforms.php:1567
+#: gravityforms.php:1569
 msgid "Logging Settings"
 msgstr "Réglages de journalisation"
 
-#: gravityforms.php:1566 settings.php:163 settings.php:255 settings.php:269
+#: gravityforms.php:1568 settings.php:163 settings.php:255 settings.php:269
 msgid "Uninstall Gravity Forms"
 msgstr "Désinstaller Gravity Forms"
 
-#: gravityforms.php:1565
+#: gravityforms.php:1567
 msgid "View System Status"
 msgstr "Voir l’état du système"
 
-#: gravityforms.php:1564
+#: gravityforms.php:1566
 msgid "Manage Add-Ons"
 msgstr "Gérer les modules"
 
-#: gravityforms.php:1563
+#: gravityforms.php:1565
 msgid "Manage Updates"
 msgstr "Gérer les mises à jour"
 
-#: gravityforms.php:1562
+#: gravityforms.php:1564
 msgid "Edit Plugin Settings"
 msgstr "Modifier les réglages de l’extension"
 
-#: gravityforms.php:1561
+#: gravityforms.php:1563
 msgid "View Plugin Settings"
 msgstr "Voir les réglages de l’extension"
 
-#: gravityforms.php:1559
+#: gravityforms.php:1561
 msgid "Edit Entry Notes"
 msgstr "Modifier les notes de l’entrée"
 
-#: gravityforms.php:1558
+#: gravityforms.php:1560
 msgid "View Entry Notes"
 msgstr "Voir les notes de l’entrée"
 
-#: gravityforms.php:1557
+#: gravityforms.php:1559
 msgid "Delete Entries"
 msgstr "Supprimer les entrées"
 
-#: gravityforms.php:1556
+#: gravityforms.php:1558
 msgid "Edit Entries"
 msgstr "Modifier les entrées"
 
-#: gravityforms.php:1555
+#: gravityforms.php:1557
 msgid "View Entries"
 msgstr "Voir les entrées"
 
-#: gravityforms.php:1554
+#: gravityforms.php:1556
 msgid "Preview Forms"
 msgstr "Prévisualiser les formulaires"
 
-#: gravityforms.php:1553
+#: gravityforms.php:1555
 msgid "Edit Forms"
 msgstr "Modifier les formulaires"
 
-#: gravityforms.php:1552
+#: gravityforms.php:1554
 msgid "Delete Forms"
 msgstr "Supprimer les formulaires"
 
-#: gravityforms.php:1551
+#: gravityforms.php:1553
 msgid "Create Forms"
 msgstr "Créer les formulaires"
 
@@ -3271,47 +3365,47 @@ msgstr "Adresse e-mail du destinataire"
 msgid "New submission from"
 msgstr "Nouveau message de"
 
-#: common.php:779 form_detail.php:2972
+#: common.php:779 form_detail.php:2981
 msgid "User Login"
 msgstr "Identifiant"
 
-#: common.php:778 form_detail.php:2971
+#: common.php:778 form_detail.php:2980
 msgid "User Email"
 msgstr "E-mail du compte"
 
-#: common.php:776 form_detail.php:2970
+#: common.php:776 form_detail.php:2979
 msgid "User Display Name"
 msgstr "Nom du compte à afficher"
 
-#: common.php:764 form_detail.php:2969
+#: common.php:764 form_detail.php:2978
 msgid "HTTP Referer URL"
 msgstr "URL du référant HTTP"
 
-#: common.php:763 form_detail.php:2968
+#: common.php:763 form_detail.php:2977
 msgid "HTTP User Agent"
 msgstr "Agent utilisateur HTTP"
 
-#: common.php:756 form_detail.php:2966
+#: common.php:756 form_detail.php:2975
 msgid "Embed Post/Page Title"
 msgstr "Insérer le titre de l’article/de la page"
 
-#: common.php:752 form_detail.php:2965
+#: common.php:752 form_detail.php:2974
 msgid "Embed Post/Page Id"
 msgstr "Insérer l’ID de l’article/de la page"
 
-#: common.php:741 form_detail.php:2962 js.php:1477
+#: common.php:741 form_detail.php:2971 js.php:1477
 msgid "User IP Address"
 msgstr "Adresse IP du compte"
 
-#: common.php:597 common.php:933 form_detail.php:2961
+#: common.php:597 common.php:933 form_detail.php:2970
 msgid "Insert Merge Tag"
 msgstr "Insérer la balise de fusion"
 
-#: form_detail.php:2750 tooltips.php:140
+#: form_detail.php:2759 tooltips.php:140
 msgid "Pricing Fields"
 msgstr "Champs de prix"
 
-#: form_detail.php:2737 tooltips.php:139
+#: form_detail.php:2746 tooltips.php:139
 msgid "Post Fields"
 msgstr "Champs d’articles"
 
@@ -3331,607 +3425,607 @@ msgstr "Veuillez %1$scontacter notre équipe de support%2$s."
 msgid "There was an error while saving your form."
 msgstr "Une erreur s’est produite lors de l’enregistrement de votre formulaire."
 
-#: form_detail.php:2618
+#: form_detail.php:2627
 msgid "Enable Next Button Conditional Logic"
 msgstr "Activer les logiques conditionnelles pour le bouton Suivant"
 
-#: form_detail.php:2598
+#: form_detail.php:2607
 msgid "Enable Page Conditional Logic"
 msgstr "Activer les logiques conditionnelles pour les pages"
 
-#: form_detail.php:2586
+#: form_detail.php:2595
 msgid "Enable Conditional Logic"
 msgstr "Activer les logiques conditionnelles"
 
-#: form_detail.php:2532
+#: form_detail.php:2541
 msgid "Allow field to be populated dynamically"
 msgstr "Remplir dynamiquement les champs"
 
-#: form_detail.php:2525
+#: form_detail.php:2534
 msgid "Use the Rich Text Editor"
 msgstr "Utiliser l’éditeur de texte riche"
 
-#: common.php:6822 form_detail.php:2508
+#: common.php:6840 form_detail.php:2517
 msgid "Visibility"
 msgstr "Visibilité"
 
-#: form_detail.php:2502 tooltips.php:63
+#: form_detail.php:2511 tooltips.php:63
 msgid "Force SSL"
 msgstr "Forcer le SSL"
 
-#: form_detail.php:2495
+#: form_detail.php:2504
 msgid "Enable Password Input"
 msgstr "Activer la saisie de mot de passe"
 
-#: form_detail.php:2485 tooltips.php:34
+#: form_detail.php:2494 tooltips.php:34
 msgid "Delete Icon URL"
 msgstr "Supprimer l’URL de l’icône"
 
-#: form_detail.php:2475 tooltips.php:33
+#: form_detail.php:2484 tooltips.php:33
 msgid "Add Icon URL"
 msgstr "Ajouter l’URL de l’icône"
 
-#: form_detail.php:2466
+#: form_detail.php:2475
 msgid "Zulu"
 msgstr "Zulu"
 
-#: form_detail.php:2465
+#: form_detail.php:2474
 msgid "Vietnamese"
 msgstr "Vietnamien"
 
-#: form_detail.php:2464
+#: form_detail.php:2473
 msgid "Urdu"
 msgstr "Urdu"
 
-#: form_detail.php:2463
+#: form_detail.php:2472
 msgid "Ukrainian"
 msgstr "Ukrainien"
 
-#: form_detail.php:2462
+#: form_detail.php:2471
 msgid "Turkish"
 msgstr "Turque"
 
-#: form_detail.php:2461
+#: form_detail.php:2470
 msgid "Thai"
 msgstr "Thaï"
 
-#: form_detail.php:2460
+#: form_detail.php:2469
 msgid "Telugu"
 msgstr "Télugu"
 
-#: form_detail.php:2459
+#: form_detail.php:2468
 msgid "Tamil"
 msgstr "Tamil"
 
-#: form_detail.php:2458
+#: form_detail.php:2467
 msgid "Swedish"
 msgstr "Suédois"
 
-#: form_detail.php:2457
+#: form_detail.php:2466
 msgid "Swahili"
 msgstr "Swahili"
 
-#: form_detail.php:2456
+#: form_detail.php:2465
 msgid "Spanish (Latin America)"
 msgstr "Espagnol (Amérique latine)"
 
-#: form_detail.php:2455
+#: form_detail.php:2464
 msgid "Spanish"
 msgstr "Espagnol"
 
-#: form_detail.php:2454
+#: form_detail.php:2463
 msgid "Slovenian"
 msgstr "Slovène"
 
-#: form_detail.php:2453
+#: form_detail.php:2462
 msgid "Slovak"
 msgstr "Slovaque"
 
-#: form_detail.php:2452
+#: form_detail.php:2461
 msgid "Sinhalese"
 msgstr "Singhalais"
 
-#: form_detail.php:2451
+#: form_detail.php:2460
 msgid "Serbian"
 msgstr "Serbe"
 
-#: form_detail.php:2450
+#: form_detail.php:2459
 msgid "Russian"
 msgstr "Russe"
 
-#: form_detail.php:2449
+#: form_detail.php:2458
 msgid "Romanian"
 msgstr "Roumain"
 
-#: form_detail.php:2448
+#: form_detail.php:2457
 msgid "Portuguese (Portugal)"
 msgstr "Portugais (Portugal)"
 
-#: form_detail.php:2447
+#: form_detail.php:2456
 msgid "Portuguese (Brazil)"
 msgstr "Portugais (Brésil)"
 
-#: form_detail.php:2446
+#: form_detail.php:2455
 msgid "Portuguese"
 msgstr "Portugais"
 
-#: form_detail.php:2445
+#: form_detail.php:2454
 msgid "Polish"
 msgstr "Polonais"
 
-#: form_detail.php:2444
+#: form_detail.php:2453
 msgid "Persian"
 msgstr "Persique"
 
-#: form_detail.php:2443
+#: form_detail.php:2452
 msgid "Norwegian"
 msgstr "Norvégien"
 
-#: form_detail.php:2442
+#: form_detail.php:2451
 msgid "Mongolian"
 msgstr "Mongolien"
 
-#: form_detail.php:2441
+#: form_detail.php:2450
 msgid "Marathi"
 msgstr "Marathe"
 
-#: form_detail.php:2440
+#: form_detail.php:2449
 msgid "Malayalam"
 msgstr "Malayalam"
 
-#: form_detail.php:2439
+#: form_detail.php:2448
 msgid "Malay"
 msgstr "Malais"
 
-#: form_detail.php:2438
+#: form_detail.php:2447
 msgid "Lithuanian"
 msgstr "Lituanien"
 
-#: form_detail.php:2437
+#: form_detail.php:2446
 msgid "Latvian"
 msgstr "Letton"
 
-#: form_detail.php:2436
+#: form_detail.php:2445
 msgid "Laothian"
 msgstr "Laotien"
 
-#: form_detail.php:2435
+#: form_detail.php:2444
 msgid "Korean"
 msgstr "Coréen"
 
-#: form_detail.php:2434
+#: form_detail.php:2443
 msgid "Kannada"
 msgstr "Kannada"
 
-#: form_detail.php:2433
+#: form_detail.php:2442
 msgid "Japanese"
 msgstr "Japonais"
 
-#: form_detail.php:2432
+#: form_detail.php:2441
 msgid "Italian"
 msgstr "Italien"
 
-#: form_detail.php:2431
+#: form_detail.php:2440
 msgid "Indonesian"
 msgstr "Indonésien"
 
-#: form_detail.php:2430
+#: form_detail.php:2439
 msgid "Icelandic"
 msgstr "Islandais"
 
-#: form_detail.php:2429
+#: form_detail.php:2438
 msgid "Hungarian"
 msgstr "Hongrois"
 
-#: form_detail.php:2428
+#: form_detail.php:2437
 msgid "Hindi"
 msgstr "Hindi"
 
-#: form_detail.php:2427
+#: form_detail.php:2436
 msgid "Hebrew"
 msgstr "Hébreu"
 
-#: form_detail.php:2426
+#: form_detail.php:2435
 msgid "Gujarati"
 msgstr "Goudjrati"
 
-#: form_detail.php:2425
+#: form_detail.php:2434
 msgid "Greek"
 msgstr "Grec"
 
-#: form_detail.php:2424
+#: form_detail.php:2433
 msgid "German (Switzerland)"
 msgstr "Allemand (Suisse)"
 
-#: form_detail.php:2423
+#: form_detail.php:2432
 msgid "German (Austria)"
 msgstr "Allemand (Autriche)"
 
-#: form_detail.php:2422
+#: form_detail.php:2431
 msgid "German"
 msgstr "Allemand"
 
-#: form_detail.php:2421
+#: form_detail.php:2430
 msgid "Georgian"
 msgstr "Géorgien"
 
-#: form_detail.php:2420
+#: form_detail.php:2429
 msgid "Galician"
 msgstr "Galicien"
 
-#: form_detail.php:2419
+#: form_detail.php:2428
 msgid "French (Canadian)"
 msgstr "Français (Canadien)"
 
-#: form_detail.php:2418
+#: form_detail.php:2427
 msgid "French"
 msgstr "Français"
 
-#: form_detail.php:2417
+#: form_detail.php:2426
 msgid "Finnish"
 msgstr "Finnois"
 
-#: form_detail.php:2416
+#: form_detail.php:2425
 msgid "Filipino"
 msgstr "Philippin"
 
-#: form_detail.php:2415
+#: form_detail.php:2424
 msgid "Estonian"
 msgstr "Estonien"
 
-#: form_detail.php:2414
+#: form_detail.php:2423
 msgid "English (US)"
 msgstr "Anglais (US)"
 
-#: form_detail.php:2413
+#: form_detail.php:2422
 msgid "English (UK)"
 msgstr "Anglais (UK)"
 
-#: form_detail.php:2412
+#: form_detail.php:2421
 msgid "Dutch"
 msgstr "Néerlandais"
 
-#: form_detail.php:2411
+#: form_detail.php:2420
 msgid "Danish"
 msgstr "Danois"
 
-#: form_detail.php:2410
+#: form_detail.php:2419
 msgid "Czech"
 msgstr "Tchèque"
 
-#: form_detail.php:2409
+#: form_detail.php:2418
 msgid "Croatian"
 msgstr "Croate"
 
-#: form_detail.php:2408
+#: form_detail.php:2417
 msgid "Chinese (Traditional)"
 msgstr "Chinois (Traditionnel)"
 
-#: form_detail.php:2407
+#: form_detail.php:2416
 msgid "Chinese (Simplified)"
 msgstr "Chinois (Simplifié)"
 
-#: form_detail.php:2406
+#: form_detail.php:2415
 msgid "Chinese (Hong Kong)"
 msgstr "Chinois (Hong Kong)"
 
-#: form_detail.php:2405
+#: form_detail.php:2414
 msgid "Catalan"
 msgstr "Catalan"
 
-#: form_detail.php:2404
+#: form_detail.php:2413
 msgid "Bulgarian"
 msgstr "Bulgare"
 
-#: form_detail.php:2403
+#: form_detail.php:2412
 msgid "Bengali"
 msgstr "Bengali"
 
-#: form_detail.php:2402
+#: form_detail.php:2411
 msgid "Basque"
 msgstr "Basque"
 
-#: form_detail.php:2401
+#: form_detail.php:2410
 msgid "Azerbaijani"
 msgstr "Azerbaïdjanais"
 
-#: form_detail.php:2400
+#: form_detail.php:2409
 msgid "Armenian"
 msgstr "Arménien"
 
-#: form_detail.php:2399
+#: form_detail.php:2408
 msgid "Amharic"
 msgstr "Amharic"
 
-#: form_detail.php:2398
+#: form_detail.php:2407
 msgid "Afrikaans"
 msgstr "Afrikaans"
 
-#: form_detail.php:2397
+#: form_detail.php:2406
 msgid "Arabic"
 msgstr "Arabe"
 
-#: form_detail.php:2392
+#: form_detail.php:2401
 msgid "Language"
 msgstr "Langue"
 
-#: form_detail.php:2378
+#: form_detail.php:2387
 msgid "Activated by default"
 msgstr "Activé par défaut"
 
-#: form_detail.php:2368 tooltips.php:94
+#: form_detail.php:2377 tooltips.php:94
 msgid "Source Field"
 msgstr "Champ source"
 
-#: form_detail.php:2363 tooltips.php:93
+#: form_detail.php:2372 tooltips.php:93
 msgid "Option Label"
 msgstr "Libellé de l’option"
 
-#: form_detail.php:2357
+#: form_detail.php:2366
 msgid "To activate this option, please add a field to be used as the source."
 msgstr "Pour activer cette option, merci d’ajouter un champ à utiliser comme source."
 
-#: form_detail.php:2351
+#: form_detail.php:2360
 msgid "Display option to use the values submitted in different field"
 msgstr "Afficher l’option pour utiliser les valeurs saisies dans un champ différent"
 
-#: form_detail.php:2336 tooltips.php:89
+#: form_detail.php:2345 tooltips.php:89
 msgid "Default Values"
 msgstr "Valeurs par défaut"
 
-#: form_detail.php:2326
+#: form_detail.php:2335
 msgid "Enable Autocomplete"
 msgstr "Activer l’autocomplétion"
 
-#: form_detail.php:2310
+#: form_detail.php:2319
 msgid "Prefix Choices"
 msgstr "Choix du préfixe"
 
-#: form_detail.php:2290 form_detail.php:2300 js.php:194 tooltips.php:88
+#: form_detail.php:2299 form_detail.php:2309 js.php:194 tooltips.php:88
 msgid "Default Value"
 msgstr "Valeur par défaut"
 
-#: form_detail.php:2276
+#: form_detail.php:2285
 msgid "Admin Field Label"
 msgstr "Libellé du champ d’administration"
 
-#: form_detail.php:2241 tooltips.php:84
+#: form_detail.php:2250 tooltips.php:84
 msgid "Field Size"
 msgstr "Taille du champ"
 
-#: form_detail.php:2228
+#: form_detail.php:2237
 msgid "Enable enhanced user interface"
 msgstr "Activer l’interface graphique avancée"
 
-#: form_detail.php:2215
+#: form_detail.php:2224
 msgid "Custom CSS Class"
 msgstr "Classe CSS personnalisée"
 
-#: form_detail.php:2165
+#: form_detail.php:2174
 msgid "Custom Validation Message"
 msgstr "Message de validation personnalisé"
 
-#: form_detail.php:2134 form_detail.php:2155
+#: form_detail.php:2143 form_detail.php:2164
 msgid "Use Form Setting (%s)"
 msgstr "Utiliser les réglages du formulaire (%s)"
 
-#: form_detail.php:2123
+#: form_detail.php:2132
 msgid "Visible (%s)"
 msgstr "Visible (%s)"
 
-#: form_detail.php:2119
+#: form_detail.php:2128
 msgid "Field Label Visibility"
 msgstr "Visibilité du libellé du champ"
 
-#: form_detail.php:2089 tooltips.php:91
+#: form_detail.php:2098 tooltips.php:91
 msgid "Placeholders"
 msgstr "Espaces réservés"
 
-#: form_detail.php:2070 form_detail.php:2081
+#: form_detail.php:2079 form_detail.php:2090
 msgid "Placeholder text is not supported when using the Rich Text Editor."
 msgstr "Le texte d’espace réservé n’est pas supporté quand l’éditeur de texte riche est utilisé."
 
-#: form_detail.php:2026 tooltips.php:73
+#: form_detail.php:2035 tooltips.php:73
 msgid "No Duplicates"
 msgstr "Pas de doublons"
 
-#: form_detail.php:2017 includes/settings/class-settings.php:899
+#: form_detail.php:2026 includes/settings/class-settings.php:899
 msgid "Required"
 msgstr "Nécessaire"
 
-#: form_detail.php:2011
+#: form_detail.php:2020
 msgid "Rules"
 msgstr "Règles"
 
-#: form_detail.php:1996
+#: form_detail.php:2005
 msgid "Do not round"
 msgstr "Ne pas arrondir"
 
-#: form_detail.php:1987 tooltips.php:78
+#: form_detail.php:1996 tooltips.php:78
 msgid "Rounding"
 msgstr "Arrondi"
 
-#: form_detail.php:1983
+#: form_detail.php:1992
 msgid "Validate Formula"
 msgstr "Valider la formule"
 
-#: form_detail.php:1983
+#: form_detail.php:1992
 msgid "There appears to be a problem with the formula."
 msgstr "Il semble qu’il y ait un problème avec votre formule."
 
-#: form_detail.php:1983
+#: form_detail.php:1992
 msgid "The formula appears to be valid."
 msgstr "La formule semble correcte."
 
-#: form_detail.php:1969 tooltips.php:77
+#: form_detail.php:1978 tooltips.php:77
 msgid "Formula"
 msgstr "Formule"
 
-#: form_detail.php:1961 tooltips.php:76
+#: form_detail.php:1970 tooltips.php:76
 msgid "Enable Calculation"
 msgstr "Activer les calculs"
 
-#: form_detail.php:1945
+#: form_detail.php:1954
 msgid "Max"
 msgstr "Max"
 
-#: form_detail.php:1939
+#: form_detail.php:1948
 msgid "Min"
 msgstr "Min"
 
-#: form_detail.php:1932
+#: form_detail.php:1941
 msgid "Range"
 msgstr "Plage"
 
-#: form_detail.php:1920 tooltips.php:49
+#: form_detail.php:1929 tooltips.php:49
 msgid "Maximum Characters"
 msgstr "Nombre maximal de caractères"
 
-#: form_detail.php:1901
+#: form_detail.php:1910
 msgid "Select a Mask"
 msgstr "Sélectionnez un masque"
 
-#: form_detail.php:1889
+#: form_detail.php:1898
 msgid "Zip Code w/ Optional Plus Four"
 msgstr "Code postal avec +4 optionnel"
 
-#: form_detail.php:1875
+#: form_detail.php:1884
 msgid "Course Code"
 msgstr "Code de course"
 
-#: form_detail.php:1868
+#: form_detail.php:1877
 msgid "Social Security Number"
 msgstr "Numéro de sécurité sociale"
 
-#: form_detail.php:1864 form_detail.php:1871 form_detail.php:1878
-#: form_detail.php:1885 form_detail.php:1892
+#: form_detail.php:1873 form_detail.php:1880 form_detail.php:1887
+#: form_detail.php:1894 form_detail.php:1901
 msgid "Valid Input"
 msgstr "Saisie valide"
 
-#: form_detail.php:1862 form_detail.php:1869 form_detail.php:1876
-#: form_detail.php:1883 form_detail.php:1890
+#: form_detail.php:1871 form_detail.php:1878 form_detail.php:1885
+#: form_detail.php:1892 form_detail.php:1899
 msgid "Mask"
 msgstr "Masque"
 
-#: form_detail.php:1858
+#: form_detail.php:1867
 msgid "Examples"
 msgstr "Exemples"
 
-#: form_detail.php:1855
+#: form_detail.php:1864
 msgid "All other characters are literal values and will be displayed automatically."
 msgstr "Tous les autres caractères ont des valeurs littérales et seront affichés automatiquement."
 
-#: form_detail.php:1854
+#: form_detail.php:1863
 msgid "Use a question mark '?' to indicate optional characters. Note: All characters after the question mark will be optional."
 msgstr "Utilisez un point d’interrogation '?' pour indiquer un caractère optionnel. Note : Tous les caractères suivant le point d’interrogation seront optionnels."
 
-#: form_detail.php:1853
+#: form_detail.php:1862
 msgid "Use an asterisk '*' to indicate any alphanumeric character."
 msgstr "Utilisez une astérisque  '*' pour indiquer un caractère alpha-numérique."
 
-#: form_detail.php:1852
+#: form_detail.php:1861
 msgid "Use a lower case 'a' to indicate an alphabetical character."
 msgstr "Utilisez un 'a' minuscule pour indiquer un caractère alphabétique."
 
-#: form_detail.php:1851
+#: form_detail.php:1860
 msgid "Use a '9' to indicate a numerical character."
 msgstr "Utilisez le chiffre '9' pour indiquer un caractère numérique."
 
-#: form_detail.php:1849
+#: form_detail.php:1858
 msgid "Usage"
 msgstr "Utilisation"
 
-#: form_detail.php:1843
+#: form_detail.php:1852
 msgid "Custom Mask Instructions"
 msgstr "Instruction du masque de saisie"
 
-#: form_detail.php:1842
+#: form_detail.php:1851
 msgid "Enter a custom mask"
 msgstr "Saisissez un masque de saisie personnalisé"
 
-#: form_detail.php:1822 tooltips.php:136
+#: form_detail.php:1831 tooltips.php:136
 msgid "Input Mask"
 msgstr "Masque de saisie"
 
-#: entry_list.php:261 form_detail.php:1831
+#: entry_list.php:261 form_detail.php:1840
 msgid "Standard"
 msgstr "Standard"
 
-#: form_detail.php:1796
+#: form_detail.php:1805
 msgid "Supported Credit Cards"
 msgstr "Cartes de crédit supportées"
 
-#: form_detail.php:1781 tooltips.php:80
+#: form_detail.php:1790 tooltips.php:80
 msgid "Sub-Labels"
 msgstr "Sous-libellés"
 
-#: form_detail.php:1766 tooltips.php:62
+#: form_detail.php:1775 tooltips.php:62
 msgid "Number Format"
 msgstr "Format du nombre"
 
-#: form_detail.php:1755
+#: form_detail.php:1764
 msgid "Good"
 msgstr "Bon"
 
-#: form_detail.php:1754
+#: form_detail.php:1763
 msgid "Bad"
 msgstr "Faible"
 
-#: form_detail.php:1753
+#: form_detail.php:1762
 msgid "Short"
 msgstr "Court"
 
-#: form_detail.php:1748
+#: form_detail.php:1757
 msgid "Minimum Strength"
 msgstr "Force minimale"
 
-#: form_detail.php:1737
+#: form_detail.php:1746
 msgid "Enable Password Strength"
 msgstr "Activer la force du mot de passe"
 
-#: form_detail.php:1730
+#: form_detail.php:1739
 msgid "Enable Password Visibility Toggle"
 msgstr "Activer le va et vient de visibilité du mot de passe"
 
-#: form_detail.php:1717
+#: form_detail.php:1726
 msgid "Password Fields"
 msgstr "Champs de mot de passe"
 
-#: form_detail.php:1707
+#: form_detail.php:1716
 msgid "Enable Email Confirmation"
 msgstr "Activer la confirmation de l‘e-mail"
 
-#: form_detail.php:1694
+#: form_detail.php:1703
 msgid "Enable \"other\" choice"
 msgstr "Activer l’« autre » choix"
 
-#: form_detail.php:1677
+#: form_detail.php:1686
 msgid "Enable \"Select All\" choice"
 msgstr "Activer le choix « Tout sélectionner »"
 
-#: common.php:5185 common.php:5238 form_detail.php:1646
+#: common.php:5203 common.php:5256 form_detail.php:1655
 #: includes/form-editor/save-form/config/class-gf-form-editor-form-save-config.php:44
 #: select_columns.php:276
 msgid "Save"
 msgstr "Enregistrer"
 
-#: form_detail.php:1644
+#: form_detail.php:1653
 msgid "enter name"
 msgstr "saisir le nom"
 
-#: form_detail.php:1644
+#: form_detail.php:1653
 msgid "Enter name"
 msgstr "Saisir le nom"
 
-#: form_detail.php:1643
+#: form_detail.php:1652
 msgid "Save as"
 msgstr "Enregistrer sous"
 
-#: form_detail.php:1639
+#: form_detail.php:1648
 msgid "Save as new custom choice"
 msgstr "Enregistrer en tant que nouveau choix personnalisé"
 
-#: form_detail.php:1634
+#: form_detail.php:1643
 msgid "Insert Choices"
 msgstr "Insertion des choix"
 
@@ -3939,624 +4033,615 @@ msgstr "Insertion des choix"
 msgid "Select a category and customize the predefined choices or paste your own list to bulk add choices."
 msgstr "Sélectionnez une catégorie et personnalisez les choix prédéfinis ou, collez votre propre liste pour ajouter des choix groupés."
 
-#: form_detail.php:1596
+#: form_detail.php:1604
 msgid "Extra Large"
 msgstr "Très grand"
 
-#: form_detail.php:1596
+#: form_detail.php:1604
 msgid "Extra Small"
 msgstr "Très petit"
 
-#: form_detail.php:1595
+#: form_detail.php:1603
 msgid "Definitely Not"
 msgstr "Certainement pas"
 
-#: form_detail.php:1595
+#: form_detail.php:1603
 msgid "Probably Not"
 msgstr "Probablement pas"
 
-#: form_detail.php:1595
+#: form_detail.php:1603
 msgid "Not Sure"
 msgstr "Pas sûr"
 
-#: form_detail.php:1595
+#: form_detail.php:1603
 msgid "Probably"
 msgstr "Probablement"
 
-#: form_detail.php:1595
+#: form_detail.php:1603
 msgid "Definitely"
 msgstr "Absolument"
 
-#: form_detail.php:1595
+#: form_detail.php:1603
 msgid "Would You"
 msgstr "Feriez-vous"
 
-#: form_detail.php:1594
+#: form_detail.php:1602
 msgid "Much Worse"
 msgstr "Bien pire"
 
-#: form_detail.php:1594
+#: form_detail.php:1602
 msgid "Somewhat Worse"
 msgstr "Plutôt pire"
 
-#: form_detail.php:1594
+#: form_detail.php:1602
 msgid "About the Same"
 msgstr "Neutre"
 
-#: form_detail.php:1594
+#: form_detail.php:1602
 msgid "Somewhat Better"
 msgstr "Mieux"
 
-#: form_detail.php:1594
+#: form_detail.php:1602
 msgid "Much Better"
 msgstr "Beaucoup mieux"
 
-#: form_detail.php:1594
+#: form_detail.php:1602
 msgid "Comparison"
 msgstr "Comparaison"
 
-#: form_detail.php:1593
+#: form_detail.php:1601
 msgid "Strongly Disagree"
 msgstr "Complètement en désaccord"
 
-#: form_detail.php:1593
+#: form_detail.php:1601
 msgid "Disagree"
 msgstr "En désaccord"
 
-#: form_detail.php:1593
+#: form_detail.php:1601
 msgid "Agree"
 msgstr "D’accord"
 
-#: form_detail.php:1593
+#: form_detail.php:1601
 msgid "Strongly Agree"
 msgstr "Entièrement d’accord"
 
-#: form_detail.php:1593
+#: form_detail.php:1601
 msgid "Agreement"
 msgstr "À quel degré êtes-vous d’accord"
 
-#: form_detail.php:1592
+#: form_detail.php:1600
 msgid "Not Important"
 msgstr "Pas important"
 
-#: form_detail.php:1592
+#: form_detail.php:1600
 msgid "Somewhat Important"
 msgstr "Importance moyenne"
 
-#: form_detail.php:1592
+#: form_detail.php:1600
 msgid "Important"
 msgstr "Important"
 
-#: form_detail.php:1592
+#: form_detail.php:1600
 msgid "Very Important"
 msgstr "Très important"
 
-#: form_detail.php:1592
+#: form_detail.php:1600
 msgid "Importance"
 msgstr "Importance"
 
-#: form_detail.php:1591
+#: form_detail.php:1599
 msgid "Very Unsatisfied"
 msgstr "Très insatisfait(e)"
 
-#: form_detail.php:1591
+#: form_detail.php:1599
 msgid "Unsatisfied"
 msgstr "Insatisfait(e)"
 
-#: form_detail.php:1591
+#: form_detail.php:1599
 msgid "Neutral"
 msgstr "Neutre"
 
-#: form_detail.php:1591
+#: form_detail.php:1599
 msgid "Satisfied"
 msgstr "Satisfait(e)"
 
-#: form_detail.php:1591
+#: form_detail.php:1599
 msgid "Very Satisfied"
 msgstr "Très satisfait(e)"
 
-#: form_detail.php:1591
+#: form_detail.php:1599
 msgid "Satisfaction"
 msgstr "Satisfaction"
 
-#: form_detail.php:1590
+#: form_detail.php:1598
 msgid "Never used"
 msgstr "Jamais utilisé"
 
-#: form_detail.php:1590
+#: form_detail.php:1598
 msgid "Over 3 years"
 msgstr "Plus de 3 ans"
 
-#: form_detail.php:1590
+#: form_detail.php:1598
 msgid "1-3 years"
 msgstr "1-3 ans"
 
-#: form_detail.php:1590
+#: form_detail.php:1598
 msgid "1-6 months"
 msgstr "1-6 mois"
 
-#: form_detail.php:1590
+#: form_detail.php:1598
 msgid "Less than a month"
 msgstr "Moins d’un mois"
 
-#: form_detail.php:1590
+#: form_detail.php:1598
 msgid "How Long"
 msgstr "Depuis combien de temps"
 
-#: form_detail.php:1589
+#: form_detail.php:1597
 msgid "Less than once a month"
 msgstr "Moins d’une fois par mois"
 
-#: form_detail.php:1589
+#: form_detail.php:1597
 msgid "2 to 3 times a month"
 msgstr "2 à 3 fois par mois"
 
-#: form_detail.php:1589
+#: form_detail.php:1597
 msgid "Once a month"
 msgstr "Une fois par mois"
 
-#: form_detail.php:1589
+#: form_detail.php:1597
 msgid "2 to 3 times a week"
 msgstr "2 à 3 fois par semaine"
 
-#: form_detail.php:1589
+#: form_detail.php:1597
 msgid "Once a week"
 msgstr "Une fois par semaine"
 
-#: form_detail.php:1589
+#: form_detail.php:1597
 msgid "Every day"
 msgstr "Tous les jours"
 
-#: form_detail.php:1589
+#: form_detail.php:1597
 msgid "How Often"
 msgstr "À quelle fréquence"
 
-#: form_detail.php:1588 includes/config/items/class-gf-config-i18n.php:48
+#: form_detail.php:1596 includes/config/items/class-gf-config-i18n.php:48
 msgid "December"
 msgstr "Décembre"
 
-#: form_detail.php:1588 includes/config/items/class-gf-config-i18n.php:47
+#: form_detail.php:1596 includes/config/items/class-gf-config-i18n.php:47
 msgid "November"
 msgstr "Novembre"
 
-#: form_detail.php:1588 includes/config/items/class-gf-config-i18n.php:46
+#: form_detail.php:1596 includes/config/items/class-gf-config-i18n.php:46
 msgid "October"
 msgstr "Octobre"
 
-#: form_detail.php:1588 includes/config/items/class-gf-config-i18n.php:45
+#: form_detail.php:1596 includes/config/items/class-gf-config-i18n.php:45
 msgid "September"
 msgstr "Septembre"
 
-#: form_detail.php:1588 includes/config/items/class-gf-config-i18n.php:44
+#: form_detail.php:1596 includes/config/items/class-gf-config-i18n.php:44
 msgid "August"
 msgstr "Août"
 
-#: form_detail.php:1588 includes/config/items/class-gf-config-i18n.php:43
+#: form_detail.php:1596 includes/config/items/class-gf-config-i18n.php:43
 msgid "July"
 msgstr "Juillet"
 
-#: form_detail.php:1588 includes/config/items/class-gf-config-i18n.php:42
+#: form_detail.php:1596 includes/config/items/class-gf-config-i18n.php:42
 msgid "June"
 msgstr "Juin"
 
-#: form_detail.php:1588 includes/config/items/class-gf-config-i18n.php:40
+#: form_detail.php:1596 includes/config/items/class-gf-config-i18n.php:40
 msgid "April"
 msgstr "Avril"
 
-#: form_detail.php:1588 includes/config/items/class-gf-config-i18n.php:39
+#: form_detail.php:1596 includes/config/items/class-gf-config-i18n.php:39
 msgid "March"
 msgstr "Mars"
 
-#: form_detail.php:1588 includes/config/items/class-gf-config-i18n.php:38
+#: form_detail.php:1596 includes/config/items/class-gf-config-i18n.php:38
 msgid "February"
 msgstr "Février"
 
-#: form_detail.php:1588 includes/config/items/class-gf-config-i18n.php:37
+#: form_detail.php:1596 includes/config/items/class-gf-config-i18n.php:37
 msgid "January"
 msgstr "Janvier"
 
-#: form_detail.php:1588
+#: form_detail.php:1596
 msgid "Months of the Year"
 msgstr "Mois de l’année"
 
-#: form_detail.php:1587
+#: form_detail.php:1595
 msgid "Saturday"
 msgstr "Samedi"
 
-#: form_detail.php:1587
+#: form_detail.php:1595
 msgid "Friday"
 msgstr "Vendredi"
 
-#: form_detail.php:1587
+#: form_detail.php:1595
 msgid "Thursday"
 msgstr "Jeudi"
 
-#: form_detail.php:1587
+#: form_detail.php:1595
 msgid "Wednesday"
 msgstr "Mercredi"
 
-#: form_detail.php:1587
+#: form_detail.php:1595
 msgid "Tuesday"
 msgstr "Mardi"
 
-#: form_detail.php:1587
+#: form_detail.php:1595
 msgid "Monday"
 msgstr "Lundi"
 
-#: form_detail.php:1587
+#: form_detail.php:1595
 msgid "Sunday"
 msgstr "Dimanche"
 
-#: form_detail.php:1587
+#: form_detail.php:1595
 msgid "Days of the Week"
 msgstr "Jours de la semaine"
 
-#: form_detail.php:1586
+#: form_detail.php:1594
 msgid "Some College"
 msgstr "Collège/CÉGEP"
 
-#: form_detail.php:1586
+#: form_detail.php:1594
 msgid "Graduate or Professional Degree"
 msgstr "Diplôme d'études supérieures ou diplôme professionnel"
 
-#: form_detail.php:1586
+#: form_detail.php:1594
 msgid "Bachelor's Degree"
 msgstr "Bachelier(e)"
 
-#: form_detail.php:1586
+#: form_detail.php:1594
 msgid "Associate Degree"
 msgstr "Diplôme d’études secondaires"
 
-#: form_detail.php:1586
+#: form_detail.php:1594
 msgid "High School"
 msgstr "Lycée"
 
-#: form_detail.php:1586
+#: form_detail.php:1594
 msgid "Education"
 msgstr "Éducation"
 
-#: form_detail.php:1585
+#: form_detail.php:1593
 msgid "Transportation/Logistics"
 msgstr "Transport / Logistique"
 
-#: form_detail.php:1585
+#: form_detail.php:1593
 msgid "Telecommunications"
 msgstr "Télécommunications"
 
-#: form_detail.php:1585
+#: form_detail.php:1593
 msgid "Technology"
 msgstr "Technologie"
 
-#: form_detail.php:1585
+#: form_detail.php:1593
 msgid "Skilled Labor"
 msgstr "Main-d’œuvre qualifiée"
 
-#: form_detail.php:1585
+#: form_detail.php:1593
 msgid "Science/Research"
 msgstr "Science / Recherche"
 
-#: form_detail.php:1585
+#: form_detail.php:1593
 msgid "Sales"
 msgstr "Vente"
 
-#: form_detail.php:1585
+#: form_detail.php:1593
 msgid "Retail"
 msgstr "Détaillant"
 
-#: form_detail.php:1585
+#: form_detail.php:1593
 msgid "Restaurant/Food Service"
 msgstr "Restauration"
 
-#: form_detail.php:1585
+#: form_detail.php:1593
 msgid "Real Estate"
 msgstr "Immobilier"
 
-#: form_detail.php:1585
+#: form_detail.php:1593
 msgid "QA/Quality Control"
 msgstr "AQ / Contrôle de la qualité"
 
-#: form_detail.php:1585
+#: form_detail.php:1593
 msgid "Professional Services"
 msgstr "Services professionnels"
 
-#: form_detail.php:1585
+#: form_detail.php:1593
 msgid "Pharmaceutical/Biotech"
 msgstr "Pharmaceutique / Biotechnologies"
 
-#: form_detail.php:1585
+#: form_detail.php:1593
 msgid "Non-Profit/Volunteer"
 msgstr "Sans but lucratif/Bénévole"
 
-#: form_detail.php:1585
+#: form_detail.php:1593
 msgid "Marketing"
 msgstr "Marketing"
 
-#: form_detail.php:1585
+#: form_detail.php:1593
 msgid "Manufacturing/Operations"
 msgstr "Manufacturier / Opérations"
 
-#: form_detail.php:1585
+#: form_detail.php:1593
 msgid "Management/Executive"
 msgstr "Gestion/Administration"
 
-#: form_detail.php:1585
+#: form_detail.php:1593
 msgid "Legal"
 msgstr "Légal"
 
-#: form_detail.php:1585
+#: form_detail.php:1593
 msgid "Law Enforcement/Security"
 msgstr "Policier/Sécurité"
 
-#: form_detail.php:1585
+#: form_detail.php:1593
 msgid "Job Search Aids"
 msgstr "Aide à la recherche d’emploi"
 
-#: form_detail.php:1585
+#: form_detail.php:1593
 msgid "Internet"
 msgstr "Internet"
 
-#: form_detail.php:1585
+#: form_detail.php:1593
 msgid "Insurance"
 msgstr "Assurance"
 
-#: form_detail.php:1585
+#: form_detail.php:1593
 msgid "Installation/Maintenance"
 msgstr "Installation/Maintenance"
 
-#: form_detail.php:1585
+#: form_detail.php:1593
 msgid "Human Resources"
 msgstr "Ressources humaines"
 
-#: form_detail.php:1585
+#: form_detail.php:1593
 msgid "Hospitality/Travel"
 msgstr "Tourisme/HôtellerieVoyage"
 
-#: form_detail.php:1585
+#: form_detail.php:1593
 msgid "Healthcare"
 msgstr "Soins de santé"
 
-#: form_detail.php:1585
+#: form_detail.php:1593
 msgid "Government/Military"
 msgstr "Gouvernement / militaire"
 
-#: form_detail.php:1585
+#: form_detail.php:1593
 msgid "Engineering"
 msgstr "Ingénierie"
 
-#: form_detail.php:1585
+#: form_detail.php:1593
 msgid "Energy/Utilities"
 msgstr "Énergie/Services publics"
 
-#: form_detail.php:1585
+#: form_detail.php:1593
 msgid "Education/Training"
 msgstr "Éducation / Formation"
 
-#: form_detail.php:1585
+#: form_detail.php:1593
 msgid "Customer Service"
 msgstr "Service à la clientèle"
 
-#: form_detail.php:1585
+#: form_detail.php:1593
 msgid "Consumer Goods"
 msgstr "Biens de consommation/commerce de détail"
 
-#: form_detail.php:1585
+#: form_detail.php:1593
 msgid "Construction/Facilities"
 msgstr "Construction"
 
-#: form_detail.php:1585
+#: form_detail.php:1593
 msgid "Clerical/Administrative"
 msgstr "De bureau/administratif"
 
-#: form_detail.php:1585
+#: form_detail.php:1593
 msgid "Business Opportunity"
 msgstr "Opportunités d’affaires"
 
-#: form_detail.php:1585
+#: form_detail.php:1593
 msgid "Business Development"
 msgstr "Développement des affaires"
 
-#: form_detail.php:1585
+#: form_detail.php:1593
 msgid "Banking/Mortgage"
 msgstr "Banque/Hypothèques"
 
-#: form_detail.php:1585
+#: form_detail.php:1593
 msgid "Automotive"
 msgstr "Automobile"
 
-#: form_detail.php:1585
+#: form_detail.php:1593
 msgid "Arts/Entertainment/Publishing"
 msgstr "Arts/Divertissement/Édition"
 
-#: form_detail.php:1585
+#: form_detail.php:1593
 msgid "Aerospace/Aviation"
 msgstr "Aéronautique / Aviation"
 
-#: form_detail.php:1585
+#: form_detail.php:1593
 msgid "Advertising/Public Relations"
 msgstr "Publicité /Relations publiques"
 
-#: form_detail.php:1585
+#: form_detail.php:1593
 msgid "Accounting/Finance"
 msgstr "Comptabilité/Finance"
 
-#: form_detail.php:1585
+#: form_detail.php:1593
 msgid "Industry"
 msgstr "Secteur"
 
-#: form_detail.php:1584
+#: form_detail.php:1592
 msgid "Seasonal"
 msgstr "Saisonnier(e)"
 
-#: form_detail.php:1584
+#: form_detail.php:1592
 msgid "Intern"
 msgstr "Stagiaire"
 
-#: form_detail.php:1584
+#: form_detail.php:1592
 msgid "Contract"
 msgstr "Contractuel(e)"
 
-#: form_detail.php:1584
+#: form_detail.php:1592
 msgid "Temporary"
 msgstr "Temporaire"
 
-#: form_detail.php:1584
+#: form_detail.php:1592
 msgid "Employee"
 msgstr "Salarié(e)"
 
-#: form_detail.php:1584
+#: form_detail.php:1592
 msgid "Per Diem"
 msgstr "Journalier"
 
-#: form_detail.php:1584
+#: form_detail.php:1592
 msgid "Part-Time"
 msgstr "Temps partiel"
 
-#: form_detail.php:1584
+#: form_detail.php:1592
 msgid "Full-Time"
 msgstr "Temps plein"
 
-#: form_detail.php:1584
+#: form_detail.php:1592
 msgid "Job Type"
 msgstr "Type d’emploi"
 
-#: form_detail.php:1583
+#: form_detail.php:1591
 msgid "Student"
 msgstr "Étudiant(e)"
 
-#: form_detail.php:1583
+#: form_detail.php:1591
 msgid "Retired"
 msgstr "Retraité(e)"
 
-#: form_detail.php:1583
+#: form_detail.php:1591
 msgid "Homemaker"
 msgstr "Au foyer"
 
-#: form_detail.php:1583
+#: form_detail.php:1591
 msgid "Not employed and not looking for work"
 msgstr "Pas d’emploi et n'en cherche pas"
 
-#: form_detail.php:1583
+#: form_detail.php:1591
 msgid "Not employed but looking for work"
 msgstr "Sans emploi mais en recherche"
 
-#: form_detail.php:1583
+#: form_detail.php:1591
 msgid "Self-employed"
 msgstr "Indépendant(e)"
 
-#: form_detail.php:1583
+#: form_detail.php:1591
 msgid "Employed Part-Time"
 msgstr "Employé(e) à temps partiel"
 
-#: form_detail.php:1583
+#: form_detail.php:1591
 msgid "Employed Full-Time"
 msgstr "Employé(e) à temps plein"
 
-#: form_detail.php:1583
+#: form_detail.php:1591
 msgid "Employment"
 msgstr "Emploi"
 
-#: form_detail.php:1582
+#: form_detail.php:1590
 msgid "Widowed"
 msgstr "Veuf/veuve"
 
-#: form_detail.php:1582
+#: form_detail.php:1590
 msgid "Divorced"
 msgstr "Divorcé(e)"
 
-#: form_detail.php:1582
+#: form_detail.php:1590
 msgid "Married"
 msgstr "Marié(e)"
 
-#: form_detail.php:1582
+#: form_detail.php:1590
 msgid "Single"
 msgstr "Célibataire"
 
-#: form_detail.php:1582
+#: form_detail.php:1590
 msgid "Marital Status"
 msgstr "État civil"
 
-#: form_detail.php:1581
+#: form_detail.php:1589
 msgid "65 or Above"
 msgstr "65 ans et plus"
 
-#: form_detail.php:1581
+#: form_detail.php:1589
 msgid "55-64"
 msgstr "55-64"
 
-#: form_detail.php:1581
+#: form_detail.php:1589
 msgid "45-54"
 msgstr "45-54"
 
-#: form_detail.php:1581
+#: form_detail.php:1589
 msgid "35-44"
 msgstr "34-44"
 
-#: form_detail.php:1581
+#: form_detail.php:1589
 msgid "25-34"
 msgstr "25-34"
 
-#: form_detail.php:1581
+#: form_detail.php:1589
 msgid "18-24"
 msgstr "18-24"
 
-#: form_detail.php:1581
+#: form_detail.php:1589
 msgid "Under 18"
 msgstr "Moins de 18 ans"
 
-#: form_detail.php:1581
+#: form_detail.php:1589
 msgid "Age"
 msgstr "Âge"
 
-#: form_detail.php:1580 form_detail.php:1581 form_detail.php:1583
-#: form_detail.php:1586
+#: form_detail.php:1589 form_detail.php:1591 form_detail.php:1594
 msgid "Prefer Not to Answer"
 msgstr "Préfère ne pas répondre"
 
-#: form_detail.php:1580
-msgid "Female"
-msgstr "Féminin"
-
-#: form_detail.php:1580
-msgid "Male"
-msgstr "Masculin"
-
-#: form_detail.php:1580
+#: form_detail.php:1588
 msgid "Gender"
 msgstr "Sexe"
 
-#: form_detail.php:1579
+#: form_detail.php:1587
 msgid "South America"
 msgstr "Amérique du Sud"
 
-#: form_detail.php:1579
+#: form_detail.php:1587
 msgid "North America"
 msgstr "Amérique du Nord"
 
-#: form_detail.php:1579
+#: form_detail.php:1587
 msgid "Europe"
 msgstr "Europe"
 
-#: form_detail.php:1579
+#: form_detail.php:1587
 msgid "Asia"
 msgstr "Asie"
 
-#: form_detail.php:1579
+#: form_detail.php:1587
 msgid "Africa"
 msgstr "Afrique"
 
-#: form_detail.php:1579
+#: form_detail.php:1587
 msgid "Continents"
 msgstr "Continents"
 
-#: form_detail.php:1578
+#: form_detail.php:1586
 msgid "Canadian Province/Territory"
 msgstr "Provinces et territoires Canadiens"
 
-#: form_detail.php:1577
+#: form_detail.php:1585
 msgid "U.S. States"
 msgstr "États américains"
 
-#: form_detail.php:1576
+#: form_detail.php:1584
 msgid "Countries"
 msgstr "Pays"
 
@@ -4564,7 +4649,7 @@ msgstr "Pays"
 msgid "Bulk Add / Predefined Choices"
 msgstr "Ajout groupé / Choix prédéfinis"
 
-#: form_detail.php:1532 form_detail.php:2315
+#: form_detail.php:1532 form_detail.php:2324
 msgid "Label"
 msgstr "Libellé"
 
@@ -4637,7 +4722,7 @@ msgstr "Extensions de fichiers autorisées"
 msgid "Customize Fields"
 msgstr "Personnaliser les champs"
 
-#: form_detail.php:1380 form_detail.php:2066 form_detail.php:2077 js.php:218
+#: form_detail.php:1380 form_detail.php:2075 form_detail.php:2086 js.php:218
 #: tooltips.php:90
 msgid "Placeholder"
 msgstr "Espace réservé"
@@ -4830,17 +4915,17 @@ msgstr "Thème"
 msgid "Font Color"
 msgstr "Couleur du texte"
 
-#: common.php:909 form_detail.php:898 form_detail.php:1596
-#: includes/fields/class-gf-field.php:2460
+#: common.php:909 form_detail.php:898 form_detail.php:1604
+#: includes/fields/class-gf-field.php:2508
 msgid "Large"
 msgstr "Grande"
 
-#: form_detail.php:896 form_detail.php:1596
-#: includes/fields/class-gf-field.php:2458
+#: form_detail.php:896 form_detail.php:1604
+#: includes/fields/class-gf-field.php:2506
 msgid "Small"
 msgstr "Petite"
 
-#: form_detail.php:893 form_detail.php:1596
+#: form_detail.php:893 form_detail.php:1604
 msgid "Size"
 msgstr "Taille"
 
@@ -4852,7 +4937,7 @@ msgstr "Défi mathématique"
 msgid "Really Simple CAPTCHA"
 msgstr "CAPTCHA simple"
 
-#: form_detail.php:843 form_detail.php:2720 tooltips.php:138
+#: form_detail.php:843 form_detail.php:2729 tooltips.php:138
 msgid "Advanced Fields"
 msgstr "Champs avancés"
 
@@ -4860,7 +4945,7 @@ msgstr "Champs avancés"
 msgid "Single line text"
 msgstr "Ligne de texte unique"
 
-#: form_detail.php:833 form_detail.php:2702 tooltips.php:137
+#: form_detail.php:833 form_detail.php:2711 tooltips.php:137
 msgid "Standard Fields"
 msgstr "Champs standards"
 
@@ -4872,7 +4957,7 @@ msgstr "Désactiver les marges par défaut"
 msgid "Text:"
 msgstr "Texte :"
 
-#: common.php:5221 form_detail.php:754
+#: common.php:5239 form_detail.php:754
 msgid "Next Button"
 msgstr "Bouton suivant"
 
@@ -4950,7 +5035,7 @@ msgstr "Couleur d’arrière-plan"
 msgid "Text Color"
 msgstr "Couleur du texte"
 
-#: common.php:808 common.php:966 form_detail.php:491 form_detail.php:1835
+#: common.php:808 common.php:966 form_detail.php:491 form_detail.php:1844
 msgid "Custom"
 msgstr "Personnalisé"
 
@@ -4962,7 +5047,7 @@ msgstr "Rouge"
 msgid "Orange"
 msgstr "Orange"
 
-#: form_detail.php:485 form_detail.php:1585
+#: form_detail.php:485 form_detail.php:1593
 msgid "Green"
 msgstr "Vert"
 
@@ -4978,7 +5063,7 @@ msgstr "Bleu"
 msgid "Progress Bar Style"
 msgstr "Style de la barre de progression"
 
-#: form_detail.php:473 form_detail.php:1752
+#: form_detail.php:473 form_detail.php:1761
 msgid "None"
 msgstr "Aucun"
 
@@ -5062,17 +5147,17 @@ msgstr "Gérer les options de pagination"
 msgid "Pagination Options"
 msgstr "Options de pagination"
 
-#: common.php:3796 gravityforms.php:5576
+#: common.php:3814 gravityforms.php:5582
 #: assets/js/src/legacy/admin/blocks/blocks/form/edit.js:229
 msgid "Preview"
 msgstr "Prévisualiser"
 
-#: form_detail.php:153 form_detail.php:1297 form_detail.php:2260
+#: form_detail.php:153 form_detail.php:1297 form_detail.php:2269
 #: assets/js/src/legacy/admin/blocks/blocks/form/edit.js:222
 msgid "Advanced"
 msgstr "Avancé"
 
-#: form_detail.php:150 form_detail.php:2041
+#: form_detail.php:150 form_detail.php:2050
 msgid "Appearance"
 msgstr "Apparence"
 
@@ -5092,19 +5177,19 @@ msgstr "Début de l’index de tabulation (Tab Index)"
 msgid "Disable script output"
 msgstr "Désactiver la sortie de script"
 
-#: gravityforms.php:6054 widget.php:167
+#: gravityforms.php:6060 widget.php:167
 msgid "Enable Ajax"
 msgstr "Activer Ajax"
 
-#: gravityforms.php:6046 widget.php:160
+#: gravityforms.php:6052 widget.php:160
 msgid "Display form description"
 msgstr "Afficher la description du formulaire"
 
-#: gravityforms.php:6038 widget.php:158
+#: gravityforms.php:6044 widget.php:158
 msgid "Display form title"
 msgstr "Afficher le titre du formulaire"
 
-#: export.php:644 gravityforms.php:6013 widget.php:142
+#: export.php:644 gravityforms.php:6019 widget.php:142
 #: assets/js/src/legacy/admin/blocks/blocks/form/edit.js:96
 msgid "Select a Form"
 msgstr "Sélectionnez un formulaire"
@@ -5113,7 +5198,7 @@ msgstr "Sélectionnez un formulaire"
 msgid "Contact Us"
 msgstr "Contactez-nous"
 
-#: gravityforms.php:5477 widget.php:38
+#: gravityforms.php:5483 widget.php:38
 #: assets/js/src/legacy/admin/blocks/blocks/form/edit.js:200
 msgid "Form"
 msgstr "Formulaire"
@@ -5232,7 +5317,7 @@ msgstr "Les formulaires n’ont pu être importés. Votre fichier d'export n'est
 msgid "Please select the forms to be exported"
 msgstr "Veuillez sélectionner les formulaires à exporter"
 
-#: common.php:5195 common.php:5246 forms_model.php:6849
+#: common.php:5213 common.php:5264 forms_model.php:6849
 msgid "Thanks for contacting us! We will get in touch with you shortly."
 msgstr "Merci de nous avoir contactés ! Nous vous répondrons dans les plus brefs délais."
 
@@ -5248,11 +5333,11 @@ msgstr "Confirmation Enregistrer et continuer"
 msgid "Default Confirmation"
 msgstr "Confirmation par défaut"
 
-#: common.php:5874 export.php:1115 forms_model.php:6477 select_columns.php:203
+#: common.php:5892 export.php:1115 forms_model.php:6477 select_columns.php:203
 msgid "Payment Date"
 msgstr "Date du paiement"
 
-#: common.php:5869 export.php:1116 forms_model.php:6471 select_columns.php:200
+#: common.php:5887 export.php:1116 forms_model.php:6471 select_columns.php:200
 msgid "Payment Status"
 msgstr "État du paiement"
 
@@ -5392,8 +5477,8 @@ msgstr "Conversion"
 msgid "Views"
 msgstr "Vues"
 
-#: form_list.php:538 gravityforms.php:1767 gravityforms.php:5296
-#: gravityforms.php:5549
+#: form_list.php:538 gravityforms.php:1769 gravityforms.php:5302
+#: gravityforms.php:5555
 msgid "Entries"
 msgstr "Entrées"
 
@@ -5513,7 +5598,7 @@ msgstr "Merci d’avoir enregistré votre progression dans le formulaire {form_t
 msgid "Save and Continue Email"
 msgstr "Enregistrer et continuer l’e-mail"
 
-#: common.php:5243 form_settings.php:1056
+#: common.php:5261 form_settings.php:1056
 msgid "There was an issue deleting this confirmation."
 msgstr "Une erreur s’est produite lors de la suppression de la confirmation."
 
@@ -5630,7 +5715,7 @@ msgstr "Image"
 msgid "Form Button"
 msgstr "Bouton du formulaire"
 
-#: form_detail.php:2047 form_settings.php:273 tooltips.php:99
+#: form_detail.php:2056 form_settings.php:273 tooltips.php:99
 msgid "CSS Class Name"
 msgstr "Nom de la classe CSS"
 
@@ -5659,35 +5744,35 @@ msgstr "Texte : (Nécessaire)"
 msgid "Required Field Indicator"
 msgstr "Indicateur de champ nécessaire"
 
-#: form_detail.php:2149 form_settings.php:213 tooltips.php:28 tooltips.php:83
+#: form_detail.php:2158 form_settings.php:213 tooltips.php:28 tooltips.php:83
 msgid "Sub-Label Placement"
 msgstr "Emplacement du sous-libellé"
 
-#: form_detail.php:1378 form_detail.php:2115 form_detail.php:2136
-#: form_detail.php:2145 form_detail.php:2157 form_settings.php:205
+#: form_detail.php:1378 form_detail.php:2124 form_detail.php:2145
+#: form_detail.php:2154 form_detail.php:2166 form_settings.php:205
 #: form_settings.php:221
 msgid "Above inputs"
 msgstr "Au-dessus des champs"
 
-#: form_detail.php:1377 form_detail.php:2115 form_detail.php:2135
-#: form_detail.php:2145 form_detail.php:2156 form_settings.php:201
+#: form_detail.php:1377 form_detail.php:2124 form_detail.php:2144
+#: form_detail.php:2154 form_detail.php:2165 form_settings.php:201
 #: form_settings.php:217
 msgid "Below inputs"
 msgstr "Au-dessous des champs"
 
-#: form_detail.php:2128 form_settings.php:187 tooltips.php:27 tooltips.php:82
+#: form_detail.php:2137 form_settings.php:187 tooltips.php:27 tooltips.php:82
 msgid "Description Placement"
 msgstr "Emplacement de la description"
 
-#: form_detail.php:2107 form_settings.php:179
+#: form_detail.php:2116 form_settings.php:179
 msgid "Right aligned"
 msgstr "Aligné à droite"
 
-#: form_detail.php:2104 form_settings.php:175
+#: form_detail.php:2113 form_settings.php:175
 msgid "Left aligned"
 msgstr "Aligné à gauche"
 
-#: form_detail.php:2111 form_settings.php:171
+#: form_detail.php:2120 form_settings.php:171
 msgid "Top aligned"
 msgstr "Aligné en haut"
 
@@ -6562,142 +6647,142 @@ msgstr "L’ID du formulaire et l’ID de l’entrée sont des paramètres néce
 msgid "You don't have adequate permission to view entries."
 msgstr "Vous n’avez pas les permissions nécessaires pour voir les entrées."
 
-#: form_display.php:4446
+#: form_display.php:4452
 msgid "Oops! We could not locate your form."
 msgstr "Aïe ! Nous n’avons pas retrouvé votre formulaire."
 
-#: form_display.php:4140
+#: form_display.php:4146
 msgid "Email Address"
 msgstr "Adresse e-mail"
 
-#: form_display.php:4138
+#: form_display.php:4144
 msgid "Send Link"
 msgstr "Envoyer le lien"
 
-#: form_display.php:3988
+#: form_display.php:3994
 msgid "Sorry. This form is no longer available."
 msgstr "Désolé. Ce formulaire n’est plus disponible."
 
-#: form_display.php:3983
+#: form_display.php:3989
 msgid "This form is not yet available."
 msgstr "Ce formulaire n’est pas encore disponible."
 
-#: form_display.php:3963
+#: form_display.php:3969
 msgid "Sorry. This form is no longer accepting new submissions."
 msgstr "Désolé. Ce formulaire n’accepte plus de nouvelles soumissions."
 
-#: form_display.php:3873
+#: form_display.php:3879
 msgid "Step"
 msgstr "Étape"
 
-#: form_display.php:3640
+#: form_display.php:3644
 msgid "Next Page"
 msgstr "Page suivante"
 
-#: form_detail.php:1756 form_display.php:3237
+#: form_detail.php:1765 form_display.php:3241
 msgid "Strong"
 msgstr "Fort"
 
-#: common.php:904 form_detail.php:897 form_detail.php:1596
-#: form_display.php:3237 includes/fields/class-gf-field.php:2459
+#: common.php:904 form_detail.php:897 form_detail.php:1604
+#: form_display.php:3241 includes/fields/class-gf-field.php:2507
 msgid "Medium"
 msgstr "Moyenne"
 
-#: form_display.php:3237
+#: form_display.php:3241
 msgid "Very weak"
 msgstr "Très faible"
 
-#: form_display.php:3237
+#: form_display.php:3241
 msgid "Weak"
 msgstr "Faible"
 
-#: form_display.php:3237
+#: form_display.php:3241
 msgid "Password strength unknown"
 msgstr "Force du mot de passe inconnue"
 
-#: form_display.php:3237
+#: form_display.php:3241
 msgid "Mismatch"
 msgstr "Les mots de passe ne correspondent pas"
 
-#: form_display.php:3220
+#: form_display.php:3224
 msgid "max characters"
 msgstr "caractères maximum"
 
-#: form_display.php:3220 form_display.php:3873
+#: form_display.php:3224 form_display.php:3879
 msgid "of"
 msgstr "sur"
 
-#: form_display.php:3167
+#: form_display.php:3171
 msgid "No results matched"
 msgstr "Aucun résultat correspondant"
 
-#: form_display.php:2514
+#: form_display.php:2518
 msgid "All choices are unselected."
 msgstr "Tous les choix sont non sélectionnés."
 
-#: form_display.php:2513
+#: form_display.php:2517
 msgid "All choices are selected."
 msgstr "Tous les choix sont sélectionnés."
 
-#: form_display.php:2092
+#: form_display.php:2096
 msgid "At least one field must be filled out"
 msgstr "Au moins un des champs doit être rempli"
 
-#: form_display.php:2049
+#: form_display.php:2053
 msgid "Invalid selection. Please select one of the available choices."
 msgstr "Sélection non valide. Veuillez sélectionner un des choix disponibles."
 
-#: form_display.php:2049
+#: form_display.php:2053
 msgid "Please enter a valid value."
 msgstr "Veuillez saisir une valeur valide."
 
-#: form_display.php:2040
+#: form_display.php:2044
 msgid "This field requires a unique entry and '%s' has already been used"
 msgstr "Ce champ nécessite une entrée unique et '%s' a déjà été utilisé."
 
-#: form_display.php:2039
+#: form_display.php:2043
 msgid "This field requires a unique entry and the values you entered have already been used."
 msgstr "Ce champ nécessite une entrée unique et les valeurs que vous avez saisi ont déjà été utilisées."
 
-#: form_display.php:2035
+#: form_display.php:2039
 msgid "This date has already been taken. Please select a new date."
 msgstr "Cette date est déjà prise. Veuillez sélectionner une autre date."
 
-#: form_display.php:1551
+#: form_display.php:1556
 msgid "This field is for validation purposes and should be left unchanged."
 msgstr "Ce champ n’est utilisé qu’à des fins de validation et devrait rester inchangé."
 
-#: form_display.php:1188
+#: form_display.php:1193
 msgid "This iframe contains the logic required to handle Ajax powered Gravity Forms."
 msgstr "Cette iframe contient la logique nécessaire pour manipuler Gravity Forms avec Ajax."
 
-#: form_display.php:1144 form_display.php:3634
+#: form_display.php:1149 form_display.php:3638
 msgid "Previous Page"
 msgstr "Page précédente"
 
-#: form_display.php:4479
+#: form_display.php:4485
 msgid "There was a problem with your submission."
 msgstr "Une erreur s’est produite lors de votre envoi."
 
-#: form_display.php:4477
+#: form_display.php:4483
 msgid "Your form was not submitted. Please try again in a few minutes."
 msgstr "Votre formulaire n’a pas été envoyé. Veuillez essayer à nouveau dans quelques minutes."
 
-#: form_display.php:1069
+#: form_display.php:1074
 msgid "Save and Continue link used is expired or invalid."
 msgstr "Le lien utilisé pour Enregistrer et continuer est expiré ou non valide."
 
 #. Translators: the text or symbol that indicates a field is required
-#: form_display.php:1039
+#: form_display.php:1044
 msgid "\"%s\" indicates required fields"
 msgstr "« %s » indique les champs nécessaires"
 
-#: form_display.php:920
+#: form_display.php:923
 msgid "Sorry. You must be logged in to view this form."
 msgstr "Désolé. Vous devez être connecté pour accéder à ce formulaire."
 
-#: common.php:5187 form_display.php:299 form_display.php:1145
-#: form_display.php:3635 js.php:645
+#: common.php:5205 form_display.php:299 form_display.php:1150
+#: form_display.php:3639 js.php:645
 msgid "Previous"
 msgstr "Précédent"
 
@@ -6845,11 +6930,11 @@ msgstr "Brouillons de formulaires (Enregistrer et continuer plus tard)"
 msgid "Browser details"
 msgstr "Détails du navigateur"
 
-#: common.php:758 form_detail.php:2967 includes/class-personal-data.php:685
+#: common.php:758 form_detail.php:2976 includes/class-personal-data.php:685
 msgid "Embed URL"
 msgstr "Insérer l’URL"
 
-#: common.php:5861 includes/class-personal-data.php:684 tooltips.php:165
+#: common.php:5879 includes/class-personal-data.php:684 tooltips.php:165
 msgid "IP Address"
 msgstr "Adresse IP"
 
@@ -7082,7 +7167,7 @@ msgstr "L’API de Gravity Forms permet aux développeurs d’interagir avec cet
 msgid "Gravity Forms API Settings"
 msgstr "Réglages de l’API Gravity Forms"
 
-#: common.php:5186 entry_detail.php:1400 gravityforms.php:4585
+#: common.php:5204 entry_detail.php:1400 gravityforms.php:4591
 #: includes/webapi/webapi.php:446 includes/webapi/webapi.php:539
 #: includes/webapi/webapi.php:618
 msgid "Update"
@@ -7363,7 +7448,7 @@ msgstr "Dernier accès"
 msgid "Permissions"
 msgstr "Droits"
 
-#: common.php:5888 entry_detail.php:1324 forms_model.php:6483
+#: common.php:5906 entry_detail.php:1324 forms_model.php:6483
 #: includes/webapi/includes/class-gf-api-keys-table.php:28
 #: includes/webapi/webapi.php:401 select_columns.php:204
 msgid "User"
@@ -7427,7 +7512,7 @@ msgstr "Sélectionnez une devise"
 msgid "Back"
 msgstr "Retour"
 
-#: form_display.php:3641
+#: form_display.php:3645
 #: includes/wizard/steps/class-gf-installation-wizard-step.php:102 js.php:643
 msgid "Next"
 msgstr "Suivant"
@@ -7444,7 +7529,7 @@ msgstr "Clé non valide ou expirée : veuillez vérifier que vous avez correctem
 msgid "Please enter a valid license key."
 msgstr "Veuillez saisir une clé de licence valide."
 
-#: form_detail.php:1882
+#: form_detail.php:1891
 #: includes/wizard/steps/class-gf-installation-wizard-step-license-key.php:53
 msgid "License Key"
 msgstr "Clé de licence"
@@ -7461,7 +7546,7 @@ msgstr "Si vous ne saisissez pas de clé de licence valide, vous ne pourrez pas 
 msgid "Enter your Gravity Forms License Key below.  Your key unlocks access to automatic updates, the add-on installer, and support.  You can find your key on the My Account page on the %sGravity Forms%s site."
 msgstr "Saisissez votre licence Gravity Forms ci-dessous. Votre clé déverrouille l’accès aux mises à jour automatiques, à l’installateur de modules et au support. Vous pouvez trouver votre clé sur la page « My Account » sur le site de %sGravity Forms%s."
 
-#: common.php:5208
+#: common.php:5226
 #: includes/wizard/steps/class-gf-installation-wizard-step-background-updates.php:110
 msgid "Disabled"
 msgstr "Désactivé"
@@ -7530,7 +7615,7 @@ msgstr "Vous n’avez pas les permissions nécessaires pour modifier des entrée
 msgid "Every %d Minutes"
 msgstr "Toutes les %d minutes"
 
-#: common.php:5184 form_list.php:147 form_list.php:611
+#: common.php:5202 form_list.php:147 form_list.php:611
 #: includes/addon/class-gf-feed-addon.php:2468
 #: includes/class-confirmation.php:152 includes/class-confirmation.php:1067
 #: includes/config/items/class-gf-config-admin-i18n.php:39 js.php:286
@@ -7538,7 +7623,7 @@ msgstr "Toutes les %d minutes"
 msgid "Inactive"
 msgstr "Inactif"
 
-#: common.php:5183 common.php:5908 form_list.php:151 form_list.php:608
+#: common.php:5201 common.php:5926 form_list.php:151 form_list.php:608
 #: includes/addon/class-gf-feed-addon.php:2465
 #: includes/class-confirmation.php:156 includes/class-confirmation.php:1064
 #: includes/config/items/class-gf-config-admin-i18n.php:40
@@ -7594,12 +7679,12 @@ msgid "WARNING: You are about to delete this item."
 msgstr "AVERTISSEMENT : Vous êtes sur le point de supprimer cet élément."
 
 #: form_list.php:694 includes/addon/class-gf-feed-addon.php:1683
-#: includes/class-confirmation.php:1092 includes/fields/class-gf-field.php:1455
+#: includes/class-confirmation.php:1092 includes/fields/class-gf-field.php:1503
 #: notification.php:1517
 msgid "Duplicate"
 msgstr "Dupliquer"
 
-#: entry_detail.php:1400 gravityforms.php:5266 gravityforms.php:5538
+#: entry_detail.php:1400 gravityforms.php:5272 gravityforms.php:5544
 #: includes/addon/class-gf-feed-addon.php:1682
 #: includes/class-confirmation.php:1091
 #: includes/webapi/includes/class-gf-api-keys-table.php:68
@@ -7607,10 +7692,10 @@ msgstr "Dupliquer"
 msgid "Edit"
 msgstr "Modifier"
 
-#: entry_detail.php:823 form_detail.php:1648
+#: entry_detail.php:823 form_detail.php:1657
 #: includes/addon/class-gf-feed-addon.php:1637
 #: includes/addon/class-gf-feed-addon.php:1684
-#: includes/class-confirmation.php:1093 includes/fields/class-gf-field.php:1476
+#: includes/class-confirmation.php:1093 includes/fields/class-gf-field.php:1524
 #: notification.php:1518
 #: assets/js/src/legacy/admin/settings/field-map/mapping.js:354
 msgid "Delete"
@@ -8068,7 +8153,7 @@ msgstr "juil"
 msgid "Jun"
 msgstr "Juin"
 
-#: form_detail.php:1588 includes/addon/class-gf-payment-addon.php:3161
+#: form_detail.php:1596 includes/addon/class-gf-payment-addon.php:3161
 #: includes/config/items/class-gf-config-i18n.php:41
 msgid "May"
 msgstr "Mai"
@@ -8177,7 +8262,7 @@ msgstr "Option de test"
 msgid "Enter an amount"
 msgstr "Saisissez un montant"
 
-#: common.php:5207 includes/addon/class-gf-payment-addon.php:2597
+#: common.php:5225 includes/addon/class-gf-payment-addon.php:2597
 #: includes/addon/class-gf-payment-addon.php:2642
 #: includes/webapi/webapi.php:559
 #: includes/wizard/steps/class-gf-installation-wizard-step-background-updates.php:110
@@ -8188,7 +8273,7 @@ msgstr "Activé"
 msgid "When conditions are enabled, form submissions will only be sent to the payment gateway when the conditions are met. When disabled, all form submissions will be sent to the payment gateway."
 msgstr "Lorsque les conditions sont activées, les envois de formulaire seront envoyés à la passerelle de paiement uniquement si les conditions sont remplies. Lorsque désactivé, tous les envois de formulaire seront envoyés à la passerelle de paiement."
 
-#: common.php:5210 export.php:683
+#: common.php:5228 export.php:683
 #: includes/addon/class-gf-payment-addon.php:2535
 #: includes/addon/class-gf-payment-addon.php:2537 tooltips.php:103
 #: tooltips.php:120 tooltips.php:143
@@ -8216,7 +8301,7 @@ msgstr "Autres réglages"
 msgid "Select which field determines the payment amount, or select 'Form Total' to use the total of all pricing fields as the payment amount."
 msgstr "Sélectionnez le champ qui détermine le montant du paiement, ou sélectionnez « Total du formulaire » pour utiliser le total de tous les champs prix comme montant du paiement."
 
-#: common.php:5880 export.php:1114 forms_model.php:6480
+#: common.php:5898 export.php:1114 forms_model.php:6480
 #: includes/addon/class-gf-payment-addon.php:2491
 #: includes/addon/class-gf-payment-addon.php:2496 select_columns.php:202
 msgid "Payment Amount"
@@ -8438,8 +8523,8 @@ msgstr "Gravity Forms %s est nécessaire. Activez-le maintenant ou %sachetez-le 
 msgid "Form Settings"
 msgstr "Réglages du formulaire"
 
-#: form_list.php:183 gravityforms.php:1752 gravityforms.php:1757
-#: gravityforms.php:5500 includes/class-gf-osdxp.php:236
+#: form_list.php:183 gravityforms.php:1754 gravityforms.php:1759
+#: gravityforms.php:5506 includes/class-gf-osdxp.php:236
 #: includes/class-gf-osdxp.php:237 includes/class-personal-data.php:893
 msgid "Forms"
 msgstr "Formulaires"
@@ -8472,75 +8557,75 @@ msgstr "Valide"
 msgid "There was an error while validating your license key. Gravity Forms will continue to work, but automatic upgrades will not be available. Please contact support to resolve this issue."
 msgstr "Une erreur s’est produite lors de la validation de votre clé de licence. Gravity Forms continuera de fonctionner, mais les mises à niveau automatiques ne seront plus disponibles. Veuillez contacter le support pour résoudre ce problème."
 
-#: form_detail.php:1843 gravityforms.php:1803 includes/class-gf-osdxp.php:30
+#: form_detail.php:1852 gravityforms.php:1805 includes/class-gf-osdxp.php:30
 #: includes/class-gf-osdxp.php:283 includes/class-gf-osdxp.php:284
 msgid "Help"
 msgstr "Aide"
 
-#: gravityforms.php:1560 gravityforms.php:1786 includes/class-gf-osdxp.php:28
+#: gravityforms.php:1562 gravityforms.php:1788 includes/class-gf-osdxp.php:28
 #: includes/class-gf-osdxp.php:254 includes/class-gf-osdxp.php:255
 msgid "Import/Export"
 msgstr "Importer/Exporter"
 
 #. translators: %d: the number of outdated add-ons
-#: includes/class-gf-upgrade.php:2056
+#: includes/class-gf-upgrade.php:2139
 msgid "There are %d add-ons installed that are not compatible with this version of Gravity Forms. See the plugins list for further details."
 msgstr "Il y a %d modules installés qui ne sont pas compatibles avec cette version de Gravity Forms. Consultez la liste des extensions pour plus de détails."
 
 #. translators: %s: the add-on name
-#: includes/class-gf-upgrade.php:2053
+#: includes/class-gf-upgrade.php:2136
 msgid "The %s is not compatible with this version of Gravity Forms. See the plugins list for further details."
 msgstr "%s n’est pas compatible avec cette version de Gravity Forms. Consultez la liste des extensions pour plus de détails."
 
-#: includes/class-gf-upgrade.php:1687
+#: includes/class-gf-upgrade.php:1770
 msgid "There appears to be an issue with the data in the Gravity Forms database tables. Please get in touch with support."
 msgstr "Il semble y avoir eu une erreur avec des données de la base de données de Gravity Forms. Veuillez contacter le support."
 
-#: includes/class-gf-upgrade.php:1646
+#: includes/class-gf-upgrade.php:1729
 msgid "There appears to be an issue with one of the Gravity Forms database tables. Please get in touch with support."
 msgstr "Il semble y avoir eu une erreur avec des tableaux de la base de données de Gravity Forms. Veuillez contacter le support."
 
-#: includes/class-gf-upgrade.php:1143
+#: includes/class-gf-upgrade.php:1225
 msgid "Migrating entry notes."
 msgstr "Migration des notes d’entrée."
 
 #. translators: %s: the database error
-#: includes/class-gf-upgrade.php:1128
+#: includes/class-gf-upgrade.php:1210
 msgid "Error Migrating incomplete submissions: %s"
 msgstr "Erreur de migration des envois non terminée : %s"
 
-#: includes/class-gf-upgrade.php:1101
+#: includes/class-gf-upgrade.php:1183
 msgid "Migrating incomplete submissions."
 msgstr "Migration des envois non terminée."
 
-#: includes/class-gf-upgrade.php:1089
+#: includes/class-gf-upgrade.php:907
 msgid "Entry details migrated."
 msgstr "Détails d’entrée migrés."
 
-#: includes/class-gf-upgrade.php:1082
+#: includes/class-gf-upgrade.php:1164
 msgid "Migrating leads. Step 3/3 Migrating entry meta. %d rows remaining."
 msgstr "Migration des données. L’étape 3/3 migre les métas des entrées. %d lignes restantes."
 
 #. translators: %s: the database error
-#: includes/class-gf-upgrade.php:1042 includes/class-gf-upgrade.php:1066
+#: includes/class-gf-upgrade.php:1124 includes/class-gf-upgrade.php:1148
 msgid "Error Migrating Entry Meta: %s"
 msgstr "Erreur de migration des méta d’entrée : %s"
 
-#: includes/class-gf-upgrade.php:1012
+#: includes/class-gf-upgrade.php:1078
 msgid "Migrating leads. Step 2/3 Migrating entry details. %d rows remaining."
 msgstr "Migration des données. L’étape 2/3 migre les détails des entrées. %d lignes restantes."
 
 #. translators: %s: the database error
-#: includes/class-gf-upgrade.php:973 includes/class-gf-upgrade.php:998
+#: includes/class-gf-upgrade.php:1039 includes/class-gf-upgrade.php:1064
 msgid "Error Migrating Entry Details: %s"
 msgstr "Erreur de migration des détails d’entrée : %s"
 
-#: includes/class-gf-upgrade.php:948
+#: includes/class-gf-upgrade.php:996
 msgid "Migrating leads. Step 1/3 Migrating entry headers. %d rows remaining."
 msgstr "Migration des données. L’étape 1/3 migre les en-têtes des entrées. %d lignes restantes."
 
 #. translators: %s: the database error
-#: includes/class-gf-upgrade.php:909 includes/class-gf-upgrade.php:935
+#: includes/class-gf-upgrade.php:957 includes/class-gf-upgrade.php:983
 msgid "Error Migrating Entry Headers: %s"
 msgstr "Erreur de migration des en-têtes d’entrée : %s"
 
@@ -8569,7 +8654,7 @@ msgstr "Corps"
 msgid "PAGE BREAK"
 msgstr "SAUT DE PAGE"
 
-#: common.php:5220 includes/class-confirmation.php:235
+#: common.php:5238 includes/class-confirmation.php:235
 #: includes/class-confirmation.php:285 includes/class-confirmation.php:1184
 #: includes/embed-form/config/class-gf-embed-config.php:179
 #: includes/fields/class-gf-field-page.php:12 js.php:82
@@ -8593,7 +8678,7 @@ msgstr "Saisissez un e-mail"
 msgid "Your emails do not match."
 msgstr "Les e-mails ne correspondent pas."
 
-#: form_display.php:4139 notification.php:293
+#: form_display.php:4145 notification.php:293
 msgid "Please enter a valid email address."
 msgstr "Veuillez saisir une adresse e-mail valide."
 
@@ -8618,7 +8703,7 @@ msgstr "Contenu HTML"
 msgid "HTML"
 msgstr "HTML"
 
-#: common.php:804 common.php:4500 form_detail.php:1585 form_detail.php:1586
+#: common.php:804 common.php:4518 form_detail.php:1593 form_detail.php:1594
 #: includes/fields/class-gf-field-radio.php:371
 msgid "Other"
 msgstr "Autre"
@@ -8796,12 +8881,12 @@ msgstr "Ligne de texte"
 msgid "Section"
 msgstr "Section"
 
-#: includes/fields/class-gf-field-consent.php:455
+#: includes/fields/class-gf-field-consent.php:481
 msgid "Not Checked"
 msgstr "Non coché"
 
-#: includes/fields/class-gf-field-consent.php:455
-#: includes/fields/class-gf-field-consent.php:526 js.php:976
+#: includes/fields/class-gf-field-consent.php:481
+#: includes/fields/class-gf-field-consent.php:552 js.php:976
 msgid "Checked"
 msgstr "Coché"
 
@@ -8813,1383 +8898,1330 @@ msgstr "Offre une case à cocher de consentement « oui/non » et une descript
 msgid "Consent"
 msgstr "RGPD"
 
-#: includes/fields/class-gf-field-address.php:1034
+#: includes/fields/class-gf-field-address.php:1072
 msgid "Yukon"
 msgstr "Yukon"
 
-#: includes/fields/class-gf-field-address.php:1033
+#: includes/fields/class-gf-field-address.php:1071
 msgid "Saskatchewan"
 msgstr "Saskatchewan"
 
-#: includes/fields/class-gf-field-address.php:1032
+#: includes/fields/class-gf-field-address.php:1070
 msgid "Quebec"
 msgstr "Québec"
 
-#: includes/fields/class-gf-field-address.php:1031
+#: includes/fields/class-gf-field-address.php:1069
 msgid "Prince Edward Island"
 msgstr "Île du Prince-Édouard"
 
-#: includes/fields/class-gf-field-address.php:1030
+#: includes/fields/class-gf-field-address.php:1068
 msgid "Ontario"
 msgstr "Ontario"
 
-#: includes/fields/class-gf-field-address.php:1029
+#: includes/fields/class-gf-field-address.php:1067
 msgid "Nunavut"
 msgstr "Nunavut"
 
-#: includes/fields/class-gf-field-address.php:1028
+#: includes/fields/class-gf-field-address.php:1066
 msgid "Nova Scotia"
 msgstr "Nouvelle-Écosse"
 
-#: includes/fields/class-gf-field-address.php:1027
+#: includes/fields/class-gf-field-address.php:1065
 msgid "Northwest Territories"
 msgstr "Territoires du Nord-Ouest"
 
-#: includes/fields/class-gf-field-address.php:1026
+#: includes/fields/class-gf-field-address.php:1064
 msgid "Newfoundland and Labrador"
 msgstr "Terre-Neuve-et-Labrador"
 
-#: includes/fields/class-gf-field-address.php:1025
+#: includes/fields/class-gf-field-address.php:1063
 msgid "New Brunswick"
 msgstr "Nouveau-Brunswick"
 
-#: includes/fields/class-gf-field-address.php:1024
+#: includes/fields/class-gf-field-address.php:1062
 msgid "Manitoba"
 msgstr "Manitoba"
 
-#: includes/fields/class-gf-field-address.php:1023
+#: includes/fields/class-gf-field-address.php:1061
 msgid "British Columbia"
 msgstr "Colombie-Britannique"
 
-#: includes/fields/class-gf-field-address.php:1022
+#: includes/fields/class-gf-field-address.php:1060
 msgid "Alberta"
 msgstr "Alberta"
 
-#: includes/fields/class-gf-field-address.php:951
-#: includes/fields/class-gf-field-address.php:1011
+#: includes/fields/class-gf-field-address.php:975
+#: includes/fields/class-gf-field-address.php:1049
 msgid "Armed Forces Pacific"
 msgstr "Forces armées du Pacifique"
 
-#: includes/fields/class-gf-field-address.php:950
-#: includes/fields/class-gf-field-address.php:1010
+#: includes/fields/class-gf-field-address.php:974
+#: includes/fields/class-gf-field-address.php:1048
 msgid "Armed Forces Europe"
 msgstr "Forces armées en Europe"
 
-#: includes/fields/class-gf-field-address.php:949
-#: includes/fields/class-gf-field-address.php:1009
+#: includes/fields/class-gf-field-address.php:973
+#: includes/fields/class-gf-field-address.php:1047
 msgid "Armed Forces Americas"
 msgstr "Forces armées des Amériques"
 
-#: includes/fields/class-gf-field-address.php:948
-#: includes/fields/class-gf-field-address.php:1008
+#: includes/fields/class-gf-field-address.php:972
+#: includes/fields/class-gf-field-address.php:1046
 msgid "Wyoming"
 msgstr "Wyoming"
 
-#: includes/fields/class-gf-field-address.php:947
-#: includes/fields/class-gf-field-address.php:1007
+#: includes/fields/class-gf-field-address.php:971
+#: includes/fields/class-gf-field-address.php:1045
 msgid "Wisconsin"
 msgstr "Wisconsin"
 
-#: includes/fields/class-gf-field-address.php:946
-#: includes/fields/class-gf-field-address.php:1006
+#: includes/fields/class-gf-field-address.php:970
+#: includes/fields/class-gf-field-address.php:1044
 msgid "West Virginia"
 msgstr "Virginie-Occidentale"
 
-#: includes/fields/class-gf-field-address.php:945
-#: includes/fields/class-gf-field-address.php:1005
+#: includes/fields/class-gf-field-address.php:969
+#: includes/fields/class-gf-field-address.php:1043
 msgid "Washington"
 msgstr "Washington"
 
-#: includes/fields/class-gf-field-address.php:944
-#: includes/fields/class-gf-field-address.php:1004
+#: includes/fields/class-gf-field-address.php:968
+#: includes/fields/class-gf-field-address.php:1042
 msgid "Virginia"
 msgstr "Virginie"
 
-#: includes/fields/class-gf-field-address.php:943
-#: includes/fields/class-gf-field-address.php:1003
+#: includes/fields/class-gf-field-address.php:967
+#: includes/fields/class-gf-field-address.php:1041
 msgid "Vermont"
 msgstr "Vermont"
 
-#: includes/fields/class-gf-field-address.php:942
-#: includes/fields/class-gf-field-address.php:1002
+#: includes/fields/class-gf-field-address.php:965
+#: includes/fields/class-gf-field-address.php:1039
 msgid "Utah"
 msgstr "Utah"
 
-#: includes/fields/class-gf-field-address.php:941
-#: includes/fields/class-gf-field-address.php:1001
+#: includes/fields/class-gf-field-address.php:964
+#: includes/fields/class-gf-field-address.php:1038
 msgid "Texas"
 msgstr "Texas"
 
-#: includes/fields/class-gf-field-address.php:940
-#: includes/fields/class-gf-field-address.php:1000
+#: includes/fields/class-gf-field-address.php:963
+#: includes/fields/class-gf-field-address.php:1037
 msgid "Tennessee"
 msgstr "Tennessee"
 
-#: includes/fields/class-gf-field-address.php:939
-#: includes/fields/class-gf-field-address.php:999
+#: includes/fields/class-gf-field-address.php:962
+#: includes/fields/class-gf-field-address.php:1036
 msgid "South Dakota"
 msgstr "Dakota du Sud"
 
-#: includes/fields/class-gf-field-address.php:938
-#: includes/fields/class-gf-field-address.php:998
+#: includes/fields/class-gf-field-address.php:961
+#: includes/fields/class-gf-field-address.php:1035
 msgid "South Carolina"
 msgstr "Caroline du Sud"
 
-#: includes/fields/class-gf-field-address.php:937
-#: includes/fields/class-gf-field-address.php:997
+#: includes/fields/class-gf-field-address.php:960
+#: includes/fields/class-gf-field-address.php:1034
 msgid "Rhode Island"
 msgstr "Rhode Island"
 
-#: includes/fields/class-gf-field-address.php:936
-#: includes/fields/class-gf-field-address.php:996
+#: includes/fields/class-gf-field-address.php:958
+#: includes/fields/class-gf-field-address.php:1032
 msgid "Pennsylvania"
 msgstr "Pennsylvanie"
 
-#: includes/fields/class-gf-field-address.php:935
-#: includes/fields/class-gf-field-address.php:995
+#: includes/fields/class-gf-field-address.php:957
+#: includes/fields/class-gf-field-address.php:1031
 msgid "Oregon"
 msgstr "Oregon"
 
-#: includes/fields/class-gf-field-address.php:934
-#: includes/fields/class-gf-field-address.php:994
+#: includes/fields/class-gf-field-address.php:956
+#: includes/fields/class-gf-field-address.php:1030
 msgid "Oklahoma"
 msgstr "Oklahoma"
 
-#: includes/fields/class-gf-field-address.php:933
-#: includes/fields/class-gf-field-address.php:993
+#: includes/fields/class-gf-field-address.php:955
+#: includes/fields/class-gf-field-address.php:1029
 msgid "Ohio"
 msgstr "Ohio"
 
-#: includes/fields/class-gf-field-address.php:932
-#: includes/fields/class-gf-field-address.php:992
+#: includes/fields/class-gf-field-address.php:953
+#: includes/fields/class-gf-field-address.php:1027
 msgid "North Dakota"
 msgstr "Dakota du Nord"
 
-#: includes/fields/class-gf-field-address.php:931
-#: includes/fields/class-gf-field-address.php:991
+#: includes/fields/class-gf-field-address.php:952
+#: includes/fields/class-gf-field-address.php:1026
 msgid "North Carolina"
 msgstr "Caroline du Nord"
 
-#: includes/fields/class-gf-field-address.php:930
-#: includes/fields/class-gf-field-address.php:990
+#: includes/fields/class-gf-field-address.php:951
+#: includes/fields/class-gf-field-address.php:1025
 msgid "New York"
 msgstr "New York"
 
-#: includes/fields/class-gf-field-address.php:929
-#: includes/fields/class-gf-field-address.php:989
+#: includes/fields/class-gf-field-address.php:950
+#: includes/fields/class-gf-field-address.php:1024
 msgid "New Mexico"
 msgstr "Nouveau-Mexique"
 
-#: includes/fields/class-gf-field-address.php:928
-#: includes/fields/class-gf-field-address.php:988
+#: includes/fields/class-gf-field-address.php:949
+#: includes/fields/class-gf-field-address.php:1023
 msgid "New Jersey"
 msgstr "New Jersey"
 
-#: includes/fields/class-gf-field-address.php:927
-#: includes/fields/class-gf-field-address.php:987
+#: includes/fields/class-gf-field-address.php:948
+#: includes/fields/class-gf-field-address.php:1022
 msgid "New Hampshire"
 msgstr "New Hampshire"
 
-#: includes/fields/class-gf-field-address.php:926
-#: includes/fields/class-gf-field-address.php:986
+#: includes/fields/class-gf-field-address.php:947
+#: includes/fields/class-gf-field-address.php:1021
 msgid "Nevada"
 msgstr "Nevada"
 
-#: includes/fields/class-gf-field-address.php:925
-#: includes/fields/class-gf-field-address.php:985
+#: includes/fields/class-gf-field-address.php:946
+#: includes/fields/class-gf-field-address.php:1020
 msgid "Nebraska"
 msgstr "Nebraska"
 
-#: includes/fields/class-gf-field-address.php:924
-#: includes/fields/class-gf-field-address.php:984
+#: includes/fields/class-gf-field-address.php:945
+#: includes/fields/class-gf-field-address.php:1019
 msgid "Montana"
 msgstr "Montana"
 
-#: includes/fields/class-gf-field-address.php:923
-#: includes/fields/class-gf-field-address.php:983
+#: includes/fields/class-gf-field-address.php:944
+#: includes/fields/class-gf-field-address.php:1018
 msgid "Missouri"
 msgstr "Missouri"
 
-#: includes/fields/class-gf-field-address.php:922
-#: includes/fields/class-gf-field-address.php:982
+#: includes/fields/class-gf-field-address.php:943
+#: includes/fields/class-gf-field-address.php:1017
 msgid "Mississippi"
 msgstr "Mississippi"
 
-#: includes/fields/class-gf-field-address.php:921
-#: includes/fields/class-gf-field-address.php:981
+#: includes/fields/class-gf-field-address.php:942
+#: includes/fields/class-gf-field-address.php:1016
 msgid "Minnesota"
 msgstr "Minnesota"
 
-#: includes/fields/class-gf-field-address.php:920
-#: includes/fields/class-gf-field-address.php:980
+#: includes/fields/class-gf-field-address.php:941
+#: includes/fields/class-gf-field-address.php:1015
 msgid "Michigan"
 msgstr "Michigan"
 
-#: includes/fields/class-gf-field-address.php:919
-#: includes/fields/class-gf-field-address.php:979
+#: includes/fields/class-gf-field-address.php:940
+#: includes/fields/class-gf-field-address.php:1014
 msgid "Massachusetts"
 msgstr "Massachusetts"
 
-#: includes/fields/class-gf-field-address.php:918
-#: includes/fields/class-gf-field-address.php:978
+#: includes/fields/class-gf-field-address.php:939
+#: includes/fields/class-gf-field-address.php:1013
 msgid "Maryland"
 msgstr "Maryland"
 
-#: includes/fields/class-gf-field-address.php:917
-#: includes/fields/class-gf-field-address.php:977
+#: includes/fields/class-gf-field-address.php:938
+#: includes/fields/class-gf-field-address.php:1012
 msgid "Maine"
 msgstr "Maine"
 
-#: includes/fields/class-gf-field-address.php:916
-#: includes/fields/class-gf-field-address.php:976
+#: includes/fields/class-gf-field-address.php:937
+#: includes/fields/class-gf-field-address.php:1011
 msgid "Louisiana"
 msgstr "Louisiane"
 
-#: includes/fields/class-gf-field-address.php:915
-#: includes/fields/class-gf-field-address.php:975
+#: includes/fields/class-gf-field-address.php:936
+#: includes/fields/class-gf-field-address.php:1010
 msgid "Kentucky"
 msgstr "Kentucky"
 
-#: includes/fields/class-gf-field-address.php:914
-#: includes/fields/class-gf-field-address.php:974
+#: includes/fields/class-gf-field-address.php:935
+#: includes/fields/class-gf-field-address.php:1009
 msgid "Kansas"
 msgstr "Kansas"
 
-#: includes/fields/class-gf-field-address.php:913
-#: includes/fields/class-gf-field-address.php:973
+#: includes/fields/class-gf-field-address.php:934
+#: includes/fields/class-gf-field-address.php:1008
 msgid "Iowa"
 msgstr "Iowa"
 
-#: includes/fields/class-gf-field-address.php:912
-#: includes/fields/class-gf-field-address.php:972
+#: includes/fields/class-gf-field-address.php:933
+#: includes/fields/class-gf-field-address.php:1007
 msgid "Indiana"
 msgstr "Indiana"
 
-#: includes/fields/class-gf-field-address.php:911
-#: includes/fields/class-gf-field-address.php:971
+#: includes/fields/class-gf-field-address.php:932
+#: includes/fields/class-gf-field-address.php:1006
 msgid "Illinois"
 msgstr "Illinois"
 
-#: includes/fields/class-gf-field-address.php:910
-#: includes/fields/class-gf-field-address.php:970
+#: includes/fields/class-gf-field-address.php:931
+#: includes/fields/class-gf-field-address.php:1005
 msgid "Idaho"
 msgstr "Idaho"
 
-#: includes/fields/class-gf-field-address.php:909
-#: includes/fields/class-gf-field-address.php:969
+#: includes/fields/class-gf-field-address.php:930
+#: includes/fields/class-gf-field-address.php:1004
 msgid "Hawaii"
 msgstr "Hawaï"
 
-#: includes/fields/class-gf-field-address.php:908
-#: includes/fields/class-gf-field-address.php:968
+#: includes/fields/class-gf-field-address.php:928
+#: includes/fields/class-gf-field-address.php:1002
 msgctxt "US State"
 msgid "Georgia"
 msgstr "Géorgie"
 
-#: includes/fields/class-gf-field-address.php:907
-#: includes/fields/class-gf-field-address.php:967
+#: includes/fields/class-gf-field-address.php:927
+#: includes/fields/class-gf-field-address.php:1001
 msgid "Florida"
 msgstr "Floride"
 
-#: includes/fields/class-gf-field-address.php:906
-#: includes/fields/class-gf-field-address.php:966
+#: includes/fields/class-gf-field-address.php:926
+#: includes/fields/class-gf-field-address.php:1000
 msgid "District of Columbia"
 msgstr "District de Columbia"
 
-#: includes/fields/class-gf-field-address.php:905
-#: includes/fields/class-gf-field-address.php:965
+#: includes/fields/class-gf-field-address.php:925
+#: includes/fields/class-gf-field-address.php:999
 msgid "Delaware"
 msgstr "Delaware"
 
-#: includes/fields/class-gf-field-address.php:904
-#: includes/fields/class-gf-field-address.php:964
+#: includes/fields/class-gf-field-address.php:924
+#: includes/fields/class-gf-field-address.php:998
 msgid "Connecticut"
 msgstr "Connecticut"
 
-#: includes/fields/class-gf-field-address.php:903
-#: includes/fields/class-gf-field-address.php:963
+#: includes/fields/class-gf-field-address.php:923
+#: includes/fields/class-gf-field-address.php:997
 msgid "Colorado"
 msgstr "Colorado"
 
-#: includes/fields/class-gf-field-address.php:902
-#: includes/fields/class-gf-field-address.php:962
+#: includes/fields/class-gf-field-address.php:922
+#: includes/fields/class-gf-field-address.php:996
 msgid "California"
 msgstr "Californie"
 
-#: includes/fields/class-gf-field-address.php:901
-#: includes/fields/class-gf-field-address.php:961
+#: includes/fields/class-gf-field-address.php:921
+#: includes/fields/class-gf-field-address.php:995
 msgid "Arkansas"
 msgstr "Arkansas"
 
-#: includes/fields/class-gf-field-address.php:900
-#: includes/fields/class-gf-field-address.php:960
+#: includes/fields/class-gf-field-address.php:920
+#: includes/fields/class-gf-field-address.php:994
 msgid "Arizona"
 msgstr "Arizona"
 
-#: includes/fields/class-gf-field-address.php:899
-#: includes/fields/class-gf-field-address.php:959
+#: includes/fields/class-gf-field-address.php:918
+#: includes/fields/class-gf-field-address.php:992
 msgid "Alaska"
 msgstr "Alaska"
 
-#: includes/fields/class-gf-field-address.php:898
-#: includes/fields/class-gf-field-address.php:958
+#: includes/fields/class-gf-field-address.php:917
+#: includes/fields/class-gf-field-address.php:991
 msgid "Alabama"
 msgstr "Alabama"
 
-#: includes/fields/class-gf-field-address.php:861
+#: includes/fields/class-gf-field-address.php:866
 msgid "Zimbabwe"
 msgstr "Zimbabwe"
 
-#: includes/fields/class-gf-field-address.php:860
+#: includes/fields/class-gf-field-address.php:865
 msgid "Zambia"
 msgstr "Zambie"
 
-#: includes/fields/class-gf-field-address.php:859
+#: includes/fields/class-gf-field-address.php:864
 msgid "Yemen"
 msgstr "Yémen"
 
-#: includes/fields/class-gf-field-address.php:858
+#: includes/fields/class-gf-field-address.php:863
 msgid "Western Sahara"
 msgstr "Sahara occidental"
 
-#: includes/fields/class-gf-field-address.php:857
+#: includes/fields/class-gf-field-address.php:862
 msgid "Wallis and Futuna"
 msgstr "Wallis et Futuna"
 
-#: includes/fields/class-gf-field-address.php:856
+#: includes/fields/class-gf-field-address.php:861
 msgid "Virgin Islands, U.S."
 msgstr "Îles Vierges américaines"
 
-#: includes/fields/class-gf-field-address.php:855
+#: includes/fields/class-gf-field-address.php:860
 msgid "Virgin Islands, British"
 msgstr "Îles Vierges britanniques"
 
-#: includes/fields/class-gf-field-address.php:854
-msgid "Vietnam"
-msgstr "Vietnam"
-
-#: includes/fields/class-gf-field-address.php:853
+#: includes/fields/class-gf-field-address.php:858
 msgid "Venezuela"
 msgstr "Venezuela"
 
-#: includes/fields/class-gf-field-address.php:852
+#: includes/fields/class-gf-field-address.php:857
 msgid "Vanuatu"
 msgstr "Vanuatu"
 
-#: includes/fields/class-gf-field-address.php:851
+#: includes/fields/class-gf-field-address.php:856
 msgid "Uzbekistan"
 msgstr "Ouzbékistan"
 
-#: includes/fields/class-gf-field-address.php:850
+#: includes/fields/class-gf-field-address.php:855
 msgid "US Minor Outlying Islands"
 msgstr "Îles mineures américaines"
 
-#: includes/fields/class-gf-field-address.php:849
+#: includes/fields/class-gf-field-address.php:854
 msgid "Uruguay"
 msgstr "Uruguay"
 
-#: includes/fields/class-gf-field-address.php:847
+#: includes/fields/class-gf-field-address.php:852
 msgid "United Kingdom"
 msgstr "Royaume-Uni"
 
-#: includes/fields/class-gf-field-address.php:846
+#: includes/fields/class-gf-field-address.php:851
 msgid "United Arab Emirates"
 msgstr "Émirats arabes unis"
 
-#: includes/fields/class-gf-field-address.php:845
+#: includes/fields/class-gf-field-address.php:850
 msgid "Ukraine"
 msgstr "Ukraine"
 
-#: includes/fields/class-gf-field-address.php:844
+#: includes/fields/class-gf-field-address.php:849
 msgid "Uganda"
 msgstr "Ouganda"
 
-#: includes/fields/class-gf-field-address.php:843
+#: includes/fields/class-gf-field-address.php:848
 msgid "Tuvalu"
 msgstr "Tuvalu"
 
-#: includes/fields/class-gf-field-address.php:842
+#: includes/fields/class-gf-field-address.php:847
 msgid "Turks and Caicos Islands"
 msgstr "Îles Turques et Caïques"
 
-#: includes/fields/class-gf-field-address.php:841
+#: includes/fields/class-gf-field-address.php:846
 msgid "Turkmenistan"
 msgstr "Turkménistan"
 
-#: includes/fields/class-gf-field-address.php:840
-msgid "Turkey"
-msgstr "Turquie"
-
-#: includes/fields/class-gf-field-address.php:839
+#: includes/fields/class-gf-field-address.php:844
 msgid "Tunisia"
 msgstr "Tunisie"
 
-#: includes/fields/class-gf-field-address.php:838
+#: includes/fields/class-gf-field-address.php:843
 msgid "Trinidad and Tobago"
 msgstr "Trinité et Tobago"
 
-#: includes/fields/class-gf-field-address.php:837
+#: includes/fields/class-gf-field-address.php:842
 msgid "Tonga"
 msgstr "Tonga"
 
-#: includes/fields/class-gf-field-address.php:836
+#: includes/fields/class-gf-field-address.php:841
 msgid "Tokelau"
 msgstr "Tokelau"
 
-#: includes/fields/class-gf-field-address.php:835
+#: includes/fields/class-gf-field-address.php:840
 msgid "Togo"
 msgstr "Togo"
 
-#: includes/fields/class-gf-field-address.php:834
+#: includes/fields/class-gf-field-address.php:839
 msgid "Timor-Leste"
 msgstr "Timor oriental"
 
-#: includes/fields/class-gf-field-address.php:833
+#: includes/fields/class-gf-field-address.php:838
 msgid "Thailand"
 msgstr "Thaïlande"
 
-#: includes/fields/class-gf-field-address.php:832
-msgid "Tanzania"
-msgstr "Tanzanie"
-
-#: includes/fields/class-gf-field-address.php:831
+#: includes/fields/class-gf-field-address.php:836
 msgid "Tajikistan"
 msgstr "Tadjikistan"
 
-#: includes/fields/class-gf-field-address.php:830
+#: includes/fields/class-gf-field-address.php:835
 msgid "Taiwan"
 msgstr "Taïwan"
 
-#: includes/fields/class-gf-field-address.php:829
-msgid "Syria"
-msgstr "Syrie"
-
-#: includes/fields/class-gf-field-address.php:828
+#: includes/fields/class-gf-field-address.php:833
 msgid "Switzerland"
 msgstr "Suisse"
 
-#: includes/fields/class-gf-field-address.php:827
+#: includes/fields/class-gf-field-address.php:832
 msgid "Sweden"
 msgstr "Suède"
 
-#: includes/fields/class-gf-field-address.php:826
-msgid "Svalbard and Jan Mayen Islands"
-msgstr "Îles de Svalbard et Jan Mayen"
-
-#: includes/fields/class-gf-field-address.php:825
+#: includes/fields/class-gf-field-address.php:830
 msgid "Suriname"
 msgstr "Suriname"
 
-#: includes/fields/class-gf-field-address.php:824
+#: includes/fields/class-gf-field-address.php:829
 msgid "Sudan"
 msgstr "Soudan"
 
-#: includes/fields/class-gf-field-address.php:823
+#: includes/fields/class-gf-field-address.php:828
 msgid "Sri Lanka"
 msgstr "Sri Lanka"
 
-#: includes/fields/class-gf-field-address.php:822
+#: includes/fields/class-gf-field-address.php:827
 msgid "Spain"
 msgstr "Espagne"
 
-#: includes/fields/class-gf-field-address.php:821
+#: includes/fields/class-gf-field-address.php:826
 msgid "South Sudan"
 msgstr "Soudan du Sud"
 
-#: includes/fields/class-gf-field-address.php:820
-msgid "South Korea"
-msgstr "Corée du Sud"
-
-#: includes/fields/class-gf-field-address.php:819
-msgctxt "Country"
-msgid "South Georgia"
-msgstr "Île de Géorgie du Sud"
-
-#: includes/fields/class-gf-field-address.php:818
+#: includes/fields/class-gf-field-address.php:824
 msgid "South Africa"
 msgstr "Afrique du Sud"
 
-#: includes/fields/class-gf-field-address.php:817
+#: includes/fields/class-gf-field-address.php:823
 msgid "Somalia"
 msgstr "Somalie"
 
-#: includes/fields/class-gf-field-address.php:816
+#: includes/fields/class-gf-field-address.php:822
 msgid "Solomon Islands"
 msgstr "Îles Salomon"
 
-#: includes/fields/class-gf-field-address.php:815
+#: includes/fields/class-gf-field-address.php:821
 msgid "Slovenia"
 msgstr "Slovénie"
 
-#: includes/fields/class-gf-field-address.php:814
+#: includes/fields/class-gf-field-address.php:820
 msgid "Slovakia"
 msgstr "Slovaquie"
 
-#: includes/fields/class-gf-field-address.php:813
+#: includes/fields/class-gf-field-address.php:819
 msgid "Sint Maarten"
 msgstr "Sint Maarten"
 
-#: includes/fields/class-gf-field-address.php:812
+#: includes/fields/class-gf-field-address.php:818
 msgid "Singapore"
 msgstr "Singapour"
 
-#: includes/fields/class-gf-field-address.php:811
+#: includes/fields/class-gf-field-address.php:817
 msgid "Sierra Leone"
 msgstr "Sierra Leone"
 
-#: includes/fields/class-gf-field-address.php:810
+#: includes/fields/class-gf-field-address.php:816
 msgid "Seychelles"
 msgstr "Seychelles"
 
-#: includes/fields/class-gf-field-address.php:809
+#: includes/fields/class-gf-field-address.php:815
 msgid "Serbia"
 msgstr "Serbie"
 
-#: includes/fields/class-gf-field-address.php:808
+#: includes/fields/class-gf-field-address.php:814
 msgid "Senegal"
 msgstr "Sénégal"
 
-#: includes/fields/class-gf-field-address.php:807
+#: includes/fields/class-gf-field-address.php:813
 msgid "Saudi Arabia"
 msgstr "Arabie Saoudite"
 
-#: includes/fields/class-gf-field-address.php:806
+#: includes/fields/class-gf-field-address.php:812
 msgid "Sao Tome and Principe"
 msgstr "Sao Tomé et Principe"
 
-#: includes/fields/class-gf-field-address.php:805
+#: includes/fields/class-gf-field-address.php:811
 msgid "San Marino"
 msgstr "Saint-Marin"
 
-#: includes/fields/class-gf-field-address.php:804
+#: includes/fields/class-gf-field-address.php:810
 msgid "Samoa"
 msgstr "Samoa"
 
-#: includes/fields/class-gf-field-address.php:803
+#: includes/fields/class-gf-field-address.php:809
 msgid "Saint Vincent and the Grenadines"
 msgstr "Saint-Vincent-et-les Grenadines"
 
-#: includes/fields/class-gf-field-address.php:802
+#: includes/fields/class-gf-field-address.php:808
 msgid "Saint Pierre and Miquelon"
 msgstr "Saint Pierre et Miquelon"
 
-#: includes/fields/class-gf-field-address.php:801
+#: includes/fields/class-gf-field-address.php:807
 msgid "Saint Martin"
 msgstr "Saint Martin"
 
-#: includes/fields/class-gf-field-address.php:800
+#: includes/fields/class-gf-field-address.php:806
 msgid "Saint Lucia"
 msgstr "Sainte-Lucie"
 
-#: includes/fields/class-gf-field-address.php:799
+#: includes/fields/class-gf-field-address.php:805
 msgid "Saint Kitts and Nevis"
 msgstr "Saint-Christophe-et-Nevis"
 
-#: includes/fields/class-gf-field-address.php:798
-msgid "Saint Helena"
-msgstr "Sainte Hélène"
-
-#: includes/fields/class-gf-field-address.php:797
+#: includes/fields/class-gf-field-address.php:803
 msgid "Saint Barthélemy"
 msgstr "Saint Barthélemy"
 
-#: includes/fields/class-gf-field-address.php:796
+#: includes/fields/class-gf-field-address.php:802
 msgid "Rwanda"
 msgstr "Rwanda"
 
-#: includes/fields/class-gf-field-address.php:795
-msgid "Russia"
-msgstr "Russie"
-
-#: includes/fields/class-gf-field-address.php:794
+#: includes/fields/class-gf-field-address.php:800
 msgid "Romania"
 msgstr "Roumanie"
 
-#: includes/fields/class-gf-field-address.php:793
+#: includes/fields/class-gf-field-address.php:799
 msgid "Réunion"
 msgstr "La Réunion"
 
-#: includes/fields/class-gf-field-address.php:792
+#: includes/fields/class-gf-field-address.php:798
 msgid "Qatar"
 msgstr "Qatar"
 
-#: includes/fields/class-gf-field-address.php:791
+#: includes/fields/class-gf-field-address.php:797
+#: includes/fields/class-gf-field-address.php:959
+#: includes/fields/class-gf-field-address.php:1033
 msgid "Puerto Rico"
 msgstr "Porto Rico"
 
-#: includes/fields/class-gf-field-address.php:790
+#: includes/fields/class-gf-field-address.php:796
 msgid "Portugal"
 msgstr "Portugal"
 
-#: includes/fields/class-gf-field-address.php:789
+#: includes/fields/class-gf-field-address.php:795
 msgid "Poland"
 msgstr "Pologne"
 
-#: includes/fields/class-gf-field-address.php:788
+#: includes/fields/class-gf-field-address.php:794
 msgid "Pitcairn"
 msgstr "Îles Pitcairn"
 
-#: includes/fields/class-gf-field-address.php:787
+#: includes/fields/class-gf-field-address.php:793
 msgid "Philippines"
 msgstr "Philippines"
 
-#: includes/fields/class-gf-field-address.php:786
+#: includes/fields/class-gf-field-address.php:792
 msgid "Peru"
 msgstr "Pérou"
 
-#: includes/fields/class-gf-field-address.php:785
+#: includes/fields/class-gf-field-address.php:791
 msgid "Paraguay"
 msgstr "Paraguay"
 
-#: includes/fields/class-gf-field-address.php:784
+#: includes/fields/class-gf-field-address.php:790
 msgid "Papua New Guinea"
 msgstr "Papouasie-Nouvelle-Guinée"
 
-#: includes/fields/class-gf-field-address.php:783
+#: includes/fields/class-gf-field-address.php:789
 msgid "Panama"
 msgstr "Panama"
 
-#: includes/fields/class-gf-field-address.php:782
+#: includes/fields/class-gf-field-address.php:788
 msgid "Palestine, State of"
 msgstr "État palestinien"
 
-#: includes/fields/class-gf-field-address.php:781
+#: includes/fields/class-gf-field-address.php:787
 msgid "Palau"
 msgstr "Palau"
 
-#: includes/fields/class-gf-field-address.php:780
+#: includes/fields/class-gf-field-address.php:786
 msgid "Pakistan"
 msgstr "Pakistan"
 
-#: includes/fields/class-gf-field-address.php:779
+#: includes/fields/class-gf-field-address.php:785
 msgid "Oman"
 msgstr "Oman"
 
-#: includes/fields/class-gf-field-address.php:778
+#: includes/fields/class-gf-field-address.php:784
 msgid "Norway"
 msgstr "Norvège"
 
-#: includes/fields/class-gf-field-address.php:777
+#: includes/fields/class-gf-field-address.php:783
+#: includes/fields/class-gf-field-address.php:954
+#: includes/fields/class-gf-field-address.php:1028
 msgid "Northern Mariana Islands"
 msgstr "Îles Mariannes du Nord"
 
-#: includes/fields/class-gf-field-address.php:776
-msgid "North Korea"
-msgstr "Corée du Nord"
-
-#: includes/fields/class-gf-field-address.php:775
+#: includes/fields/class-gf-field-address.php:781
 msgid "Norfolk Island"
 msgstr "Île Norfolk"
 
-#: includes/fields/class-gf-field-address.php:774
+#: includes/fields/class-gf-field-address.php:780
 msgid "Niue"
 msgstr "Niué"
 
-#: includes/fields/class-gf-field-address.php:773
+#: includes/fields/class-gf-field-address.php:779
 msgid "Nigeria"
 msgstr "Nigéria"
 
-#: includes/fields/class-gf-field-address.php:772
+#: includes/fields/class-gf-field-address.php:778
 msgid "Niger"
 msgstr "Niger"
 
-#: includes/fields/class-gf-field-address.php:771
+#: includes/fields/class-gf-field-address.php:777
 msgid "Nicaragua"
 msgstr "Nicaragua"
 
-#: includes/fields/class-gf-field-address.php:770
+#: includes/fields/class-gf-field-address.php:776
 msgid "New Zealand"
 msgstr "Nouvelle-Zélande"
 
-#: includes/fields/class-gf-field-address.php:769
+#: includes/fields/class-gf-field-address.php:775
 msgid "New Caledonia"
 msgstr "Nouvelle-Calédonie"
 
-#: includes/fields/class-gf-field-address.php:768
+#: includes/fields/class-gf-field-address.php:774
 msgid "Netherlands"
 msgstr "Pays-Bas"
 
-#: includes/fields/class-gf-field-address.php:767
+#: includes/fields/class-gf-field-address.php:773
 msgid "Nepal"
 msgstr "Népal"
 
-#: includes/fields/class-gf-field-address.php:766
+#: includes/fields/class-gf-field-address.php:772
 msgid "Nauru"
 msgstr "Nauru"
 
-#: includes/fields/class-gf-field-address.php:765
+#: includes/fields/class-gf-field-address.php:771
 msgid "Namibia"
 msgstr "Namibie"
 
-#: includes/fields/class-gf-field-address.php:764
+#: includes/fields/class-gf-field-address.php:770
 msgid "Myanmar"
 msgstr "Myanmar"
 
-#: includes/fields/class-gf-field-address.php:763
+#: includes/fields/class-gf-field-address.php:769
 msgid "Mozambique"
 msgstr "Mozambique"
 
-#: includes/fields/class-gf-field-address.php:762
+#: includes/fields/class-gf-field-address.php:768
 msgid "Morocco"
 msgstr "Maroc"
 
-#: includes/fields/class-gf-field-address.php:761
+#: includes/fields/class-gf-field-address.php:767
 msgid "Montserrat"
 msgstr "Montserrat"
 
-#: includes/fields/class-gf-field-address.php:760
+#: includes/fields/class-gf-field-address.php:766
 msgid "Montenegro"
 msgstr "Monténégro"
 
-#: includes/fields/class-gf-field-address.php:759
+#: includes/fields/class-gf-field-address.php:765
 msgid "Mongolia"
 msgstr "Mongolie"
 
-#: includes/fields/class-gf-field-address.php:758
+#: includes/fields/class-gf-field-address.php:764
 msgid "Monaco"
 msgstr "Monaco"
 
-#: includes/fields/class-gf-field-address.php:757
+#: includes/fields/class-gf-field-address.php:763
 msgid "Moldova"
 msgstr "Moldavie"
 
-#: includes/fields/class-gf-field-address.php:756
+#: includes/fields/class-gf-field-address.php:762
 msgid "Micronesia"
 msgstr "Micronésie"
 
-#: includes/fields/class-gf-field-address.php:755
+#: includes/fields/class-gf-field-address.php:761
 msgid "Mexico"
 msgstr "Mexique"
 
-#: includes/fields/class-gf-field-address.php:754
+#: includes/fields/class-gf-field-address.php:760
 msgid "Mayotte"
 msgstr "Mayotte"
 
-#: includes/fields/class-gf-field-address.php:753
+#: includes/fields/class-gf-field-address.php:759
 msgid "Mauritius"
 msgstr "Île Maurice"
 
-#: includes/fields/class-gf-field-address.php:752
+#: includes/fields/class-gf-field-address.php:758
 msgid "Mauritania"
 msgstr "Mauritanie"
 
-#: includes/fields/class-gf-field-address.php:751
+#: includes/fields/class-gf-field-address.php:757
 msgid "Martinique"
 msgstr "Martinique"
 
-#: includes/fields/class-gf-field-address.php:750
+#: includes/fields/class-gf-field-address.php:756
 msgid "Marshall Islands"
 msgstr "Îles Marshall"
 
-#: includes/fields/class-gf-field-address.php:749
+#: includes/fields/class-gf-field-address.php:755
 msgid "Malta"
 msgstr "Malte"
 
-#: includes/fields/class-gf-field-address.php:748
+#: includes/fields/class-gf-field-address.php:754
 msgid "Mali"
 msgstr "Mali"
 
-#: includes/fields/class-gf-field-address.php:747
+#: includes/fields/class-gf-field-address.php:753
 msgid "Maldives"
 msgstr "Maldives"
 
-#: includes/fields/class-gf-field-address.php:746
+#: includes/fields/class-gf-field-address.php:752
 msgid "Malaysia"
 msgstr "Malaisie"
 
-#: includes/fields/class-gf-field-address.php:745
+#: includes/fields/class-gf-field-address.php:751
 msgid "Malawi"
 msgstr "Malawi"
 
-#: includes/fields/class-gf-field-address.php:744
+#: includes/fields/class-gf-field-address.php:750
 msgid "Madagascar"
 msgstr "Madagascar"
 
-#: includes/fields/class-gf-field-address.php:743
-msgid "Macedonia"
-msgstr "Macédoine"
-
-#: includes/fields/class-gf-field-address.php:742
-msgid "Macau"
+#: includes/fields/class-gf-field-address.php:749
+msgid "Macao"
 msgstr "Macao"
 
-#: includes/fields/class-gf-field-address.php:741
+#: includes/fields/class-gf-field-address.php:748
 msgid "Luxembourg"
 msgstr "Luxembourg"
 
-#: includes/fields/class-gf-field-address.php:740
+#: includes/fields/class-gf-field-address.php:747
 msgid "Lithuania"
 msgstr "Lituanie"
 
-#: includes/fields/class-gf-field-address.php:739
+#: includes/fields/class-gf-field-address.php:746
 msgid "Liechtenstein"
 msgstr "Liechtenstein"
 
-#: includes/fields/class-gf-field-address.php:738
+#: includes/fields/class-gf-field-address.php:745
 msgid "Libya"
 msgstr "Libye"
 
-#: includes/fields/class-gf-field-address.php:737
+#: includes/fields/class-gf-field-address.php:744
 msgid "Liberia"
 msgstr "Liberia"
 
-#: includes/fields/class-gf-field-address.php:736
+#: includes/fields/class-gf-field-address.php:743
 msgid "Lesotho"
 msgstr "Lesotho"
 
-#: includes/fields/class-gf-field-address.php:735
+#: includes/fields/class-gf-field-address.php:742
 msgid "Lebanon"
 msgstr "Liban"
 
-#: includes/fields/class-gf-field-address.php:734
+#: includes/fields/class-gf-field-address.php:741
 msgid "Latvia"
 msgstr "Lettonie"
 
-#: includes/fields/class-gf-field-address.php:733
+#: includes/fields/class-gf-field-address.php:740
 msgid "Lao People's Democratic Republic"
 msgstr "République démocratique populaire du Laos"
 
-#: includes/fields/class-gf-field-address.php:732
+#: includes/fields/class-gf-field-address.php:739
 msgid "Kyrgyzstan"
 msgstr "Kirghizistan"
 
-#: includes/fields/class-gf-field-address.php:731
+#: includes/fields/class-gf-field-address.php:738
 msgid "Kuwait"
 msgstr "Koweït"
 
-#: includes/fields/class-gf-field-address.php:730
+#: includes/fields/class-gf-field-address.php:735
 msgid "Kiribati"
 msgstr "Kiribati"
 
-#: includes/fields/class-gf-field-address.php:729
+#: includes/fields/class-gf-field-address.php:734
 msgid "Kenya"
 msgstr "Kenya"
 
-#: includes/fields/class-gf-field-address.php:728
+#: includes/fields/class-gf-field-address.php:733
 msgid "Kazakhstan"
 msgstr "Kazakhstan"
 
-#: includes/fields/class-gf-field-address.php:727
+#: includes/fields/class-gf-field-address.php:732
 msgid "Jordan"
 msgstr "Jordanie"
 
-#: includes/fields/class-gf-field-address.php:726
+#: includes/fields/class-gf-field-address.php:731
 msgid "Jersey"
 msgstr "Jersey"
 
-#: includes/fields/class-gf-field-address.php:725
+#: includes/fields/class-gf-field-address.php:730
 msgid "Japan"
 msgstr "Japon"
 
-#: includes/fields/class-gf-field-address.php:724
+#: includes/fields/class-gf-field-address.php:729
 msgid "Jamaica"
 msgstr "Jamaïque"
 
-#: includes/fields/class-gf-field-address.php:723
+#: includes/fields/class-gf-field-address.php:728
 msgid "Italy"
 msgstr "Italie"
 
-#: includes/fields/class-gf-field-address.php:722
+#: includes/fields/class-gf-field-address.php:727
 msgid "Israel"
 msgstr "Israël"
 
-#: includes/fields/class-gf-field-address.php:721
+#: includes/fields/class-gf-field-address.php:726
 msgid "Isle of Man"
 msgstr "Île de Man"
 
-#: includes/fields/class-gf-field-address.php:720
+#: includes/fields/class-gf-field-address.php:725
 msgid "Ireland"
 msgstr "Irlande"
 
-#: includes/fields/class-gf-field-address.php:719
+#: includes/fields/class-gf-field-address.php:724
 msgid "Iraq"
 msgstr "Irak"
 
-#: includes/fields/class-gf-field-address.php:718
+#: includes/fields/class-gf-field-address.php:723
 msgid "Iran"
 msgstr "Iran"
 
-#: includes/fields/class-gf-field-address.php:717
+#: includes/fields/class-gf-field-address.php:722
 msgid "Indonesia"
 msgstr "Indonésie"
 
-#: includes/fields/class-gf-field-address.php:716
+#: includes/fields/class-gf-field-address.php:721
 msgid "India"
 msgstr "Inde"
 
-#: includes/fields/class-gf-field-address.php:715
+#: includes/fields/class-gf-field-address.php:720
 msgid "Iceland"
 msgstr "Islande"
 
-#: includes/fields/class-gf-field-address.php:714
+#: includes/fields/class-gf-field-address.php:719
 msgid "Hungary"
 msgstr "Hongrie"
 
-#: includes/fields/class-gf-field-address.php:713
+#: includes/fields/class-gf-field-address.php:718
 msgid "Hong Kong"
 msgstr "Hong Kong"
 
-#: includes/fields/class-gf-field-address.php:712
+#: includes/fields/class-gf-field-address.php:717
 msgid "Honduras"
 msgstr "Honduras"
 
-#: includes/fields/class-gf-field-address.php:711
+#: includes/fields/class-gf-field-address.php:716
 msgid "Holy See"
 msgstr "Saint-Siège"
 
-#: includes/fields/class-gf-field-address.php:710
-msgid "Heard and McDonald Islands"
-msgstr "Îles Heard et McDonald"
-
-#: includes/fields/class-gf-field-address.php:709
+#: includes/fields/class-gf-field-address.php:714
 msgid "Haiti"
 msgstr "Haïti"
 
-#: includes/fields/class-gf-field-address.php:708
+#: includes/fields/class-gf-field-address.php:713
 msgid "Guyana"
 msgstr "Guyane"
 
-#: includes/fields/class-gf-field-address.php:707
+#: includes/fields/class-gf-field-address.php:712
 msgid "Guinea-Bissau"
 msgstr "Guinée-Bissau"
 
-#: includes/fields/class-gf-field-address.php:706
+#: includes/fields/class-gf-field-address.php:711
 msgid "Guinea"
 msgstr "Guinée"
 
-#: includes/fields/class-gf-field-address.php:705
+#: includes/fields/class-gf-field-address.php:710
 msgid "Guernsey"
 msgstr "Guernsey"
 
-#: includes/fields/class-gf-field-address.php:704
+#: includes/fields/class-gf-field-address.php:709
 msgid "Guatemala"
 msgstr "Guatemala"
 
-#: includes/fields/class-gf-field-address.php:703
+#: includes/fields/class-gf-field-address.php:708
+#: includes/fields/class-gf-field-address.php:929
+#: includes/fields/class-gf-field-address.php:1003
 msgid "Guam"
 msgstr "Guam"
 
-#: includes/fields/class-gf-field-address.php:702
+#: includes/fields/class-gf-field-address.php:707
 msgid "Guadeloupe"
 msgstr "Guadeloupe"
 
-#: includes/fields/class-gf-field-address.php:701
+#: includes/fields/class-gf-field-address.php:706
 msgid "Grenada"
 msgstr "Grenade"
 
-#: includes/fields/class-gf-field-address.php:700
+#: includes/fields/class-gf-field-address.php:705
 msgid "Greenland"
 msgstr "Groenland"
 
-#: includes/fields/class-gf-field-address.php:699
+#: includes/fields/class-gf-field-address.php:704
 msgid "Greece"
 msgstr "Grèce"
 
-#: includes/fields/class-gf-field-address.php:698
+#: includes/fields/class-gf-field-address.php:703
 msgid "Gibraltar"
 msgstr "Gibraltar"
 
-#: includes/fields/class-gf-field-address.php:697
+#: includes/fields/class-gf-field-address.php:702
 msgid "Ghana"
 msgstr "Ghana"
 
-#: includes/fields/class-gf-field-address.php:696
+#: includes/fields/class-gf-field-address.php:701
 msgid "Germany"
 msgstr "Allemagne"
 
-#: includes/fields/class-gf-field-address.php:695
+#: includes/fields/class-gf-field-address.php:700
 msgctxt "Country"
 msgid "Georgia"
 msgstr "Géorgie"
 
-#: includes/fields/class-gf-field-address.php:694
+#: includes/fields/class-gf-field-address.php:699
 msgid "Gambia"
 msgstr "Gambie"
 
-#: includes/fields/class-gf-field-address.php:693
+#: includes/fields/class-gf-field-address.php:698
 msgid "Gabon"
 msgstr "Gabon"
 
-#: includes/fields/class-gf-field-address.php:692
+#: includes/fields/class-gf-field-address.php:697
 msgid "French Southern Territories"
 msgstr "Terres Australes Françaises"
 
-#: includes/fields/class-gf-field-address.php:691
+#: includes/fields/class-gf-field-address.php:696
 msgid "French Polynesia"
 msgstr "Polynésie française"
 
-#: includes/fields/class-gf-field-address.php:690
+#: includes/fields/class-gf-field-address.php:695
 msgid "French Guiana"
 msgstr "Guyane"
 
-#: includes/fields/class-gf-field-address.php:689
+#: includes/fields/class-gf-field-address.php:694
 msgid "France"
 msgstr "France"
 
-#: includes/fields/class-gf-field-address.php:688
+#: includes/fields/class-gf-field-address.php:693
 msgid "Finland"
 msgstr "Finlande"
 
-#: includes/fields/class-gf-field-address.php:687
+#: includes/fields/class-gf-field-address.php:692
 msgid "Fiji"
 msgstr "Fidji"
 
-#: includes/fields/class-gf-field-address.php:686
+#: includes/fields/class-gf-field-address.php:691
 msgid "Faroe Islands"
 msgstr "Îles Féroé"
 
-#: includes/fields/class-gf-field-address.php:685
+#: includes/fields/class-gf-field-address.php:690
 msgid "Falkland Islands"
 msgstr "Îles Falkland"
 
-#: includes/fields/class-gf-field-address.php:684
+#: includes/fields/class-gf-field-address.php:689
 msgid "Ethiopia"
 msgstr "Éthiopie"
 
-#: includes/fields/class-gf-field-address.php:683
-msgid "Eswatini (Swaziland)"
-msgstr "Eswatini (Swaziland)"
-
-#: includes/fields/class-gf-field-address.php:682
+#: includes/fields/class-gf-field-address.php:687
 msgid "Estonia"
 msgstr "Estonie"
 
-#: includes/fields/class-gf-field-address.php:681
+#: includes/fields/class-gf-field-address.php:686
 msgid "Eritrea"
 msgstr "Érythrée"
 
-#: includes/fields/class-gf-field-address.php:680
+#: includes/fields/class-gf-field-address.php:685
 msgid "Equatorial Guinea"
 msgstr "Guinée équatoriale"
 
-#: includes/fields/class-gf-field-address.php:679
+#: includes/fields/class-gf-field-address.php:684
 msgid "El Salvador"
 msgstr "Salvador"
 
-#: includes/fields/class-gf-field-address.php:678
+#: includes/fields/class-gf-field-address.php:683
 msgid "Egypt"
 msgstr "Égypte"
 
-#: includes/fields/class-gf-field-address.php:677
+#: includes/fields/class-gf-field-address.php:682
 msgid "Ecuador"
 msgstr "Équateur"
 
-#: includes/fields/class-gf-field-address.php:676
+#: includes/fields/class-gf-field-address.php:681
 msgid "Dominican Republic"
 msgstr "République Dominicaine"
 
-#: includes/fields/class-gf-field-address.php:675
+#: includes/fields/class-gf-field-address.php:680
 msgid "Dominica"
 msgstr "Dominique"
 
-#: includes/fields/class-gf-field-address.php:674
+#: includes/fields/class-gf-field-address.php:679
 msgid "Djibouti"
 msgstr "Djibouti"
 
-#: includes/fields/class-gf-field-address.php:673
+#: includes/fields/class-gf-field-address.php:678
 msgid "Denmark"
 msgstr "Danemark"
 
-#: includes/fields/class-gf-field-address.php:672
-msgid "Czech Republic"
-msgstr "République tchèque"
-
-#: includes/fields/class-gf-field-address.php:671
+#: includes/fields/class-gf-field-address.php:676
 msgid "Cyprus"
 msgstr "Chypre"
 
-#: includes/fields/class-gf-field-address.php:670
+#: includes/fields/class-gf-field-address.php:675
 msgid "Curaçao"
 msgstr "Curaçao"
 
-#: includes/fields/class-gf-field-address.php:669
+#: includes/fields/class-gf-field-address.php:674
 msgid "Cuba"
 msgstr "Cuba"
 
-#: includes/fields/class-gf-field-address.php:668
+#: includes/fields/class-gf-field-address.php:673
 msgid "Croatia"
 msgstr "Croatie"
 
-#: includes/fields/class-gf-field-address.php:667
+#: includes/fields/class-gf-field-address.php:672
 msgid "Côte d'Ivoire"
 msgstr "Côte d’Ivoire"
 
-#: includes/fields/class-gf-field-address.php:666
+#: includes/fields/class-gf-field-address.php:671
 msgid "Costa Rica"
 msgstr "Costa Rica"
 
-#: includes/fields/class-gf-field-address.php:665
+#: includes/fields/class-gf-field-address.php:670
 msgid "Cook Islands"
 msgstr "Îles Cook"
 
-#: includes/fields/class-gf-field-address.php:664
-msgid "Congo, Republic of the"
-msgstr "République du Congo"
-
-#: includes/fields/class-gf-field-address.php:663
+#: includes/fields/class-gf-field-address.php:668
 msgid "Congo, Democratic Republic of the"
 msgstr "République démocratique du Congo"
 
-#: includes/fields/class-gf-field-address.php:662
+#: includes/fields/class-gf-field-address.php:667
 msgid "Comoros"
 msgstr "Comores"
 
-#: includes/fields/class-gf-field-address.php:661
+#: includes/fields/class-gf-field-address.php:666
 msgid "Colombia"
 msgstr "Colombie"
 
-#: includes/fields/class-gf-field-address.php:660
+#: includes/fields/class-gf-field-address.php:665
 msgid "Cocos Islands"
 msgstr "Îles Cocos"
 
-#: includes/fields/class-gf-field-address.php:659
+#: includes/fields/class-gf-field-address.php:664
 msgid "Christmas Island"
 msgstr "Île Christmas"
 
-#: includes/fields/class-gf-field-address.php:658
+#: includes/fields/class-gf-field-address.php:663
 msgid "China"
 msgstr "Chine"
 
-#: includes/fields/class-gf-field-address.php:657
+#: includes/fields/class-gf-field-address.php:662
 msgid "Chile"
 msgstr "Chili"
 
-#: includes/fields/class-gf-field-address.php:656
+#: includes/fields/class-gf-field-address.php:661
 msgid "Chad"
 msgstr "Tchad"
 
-#: includes/fields/class-gf-field-address.php:655
+#: includes/fields/class-gf-field-address.php:660
 msgid "Central African Republic"
 msgstr "République centrafricaine"
 
-#: includes/fields/class-gf-field-address.php:654
+#: includes/fields/class-gf-field-address.php:659
 msgid "Cayman Islands"
 msgstr "Îles Cayman"
 
-#: includes/fields/class-gf-field-address.php:653
-msgid "Cape Verde"
+#: includes/fields/class-gf-field-address.php:655
+msgid "Cabo Verde"
 msgstr "Cap-Vert"
 
-#: includes/fields/class-gf-field-address.php:652
+#: includes/fields/class-gf-field-address.php:658
 msgid "Canada"
 msgstr "Canada"
 
-#: includes/fields/class-gf-field-address.php:651
+#: includes/fields/class-gf-field-address.php:657
 msgid "Cameroon"
 msgstr "Cameroun"
 
-#: includes/fields/class-gf-field-address.php:650
+#: includes/fields/class-gf-field-address.php:656
 msgid "Cambodia"
 msgstr "Cambodge"
 
-#: includes/fields/class-gf-field-address.php:649
+#: includes/fields/class-gf-field-address.php:654
 msgid "Burundi"
 msgstr "Burundi"
 
-#: includes/fields/class-gf-field-address.php:648
+#: includes/fields/class-gf-field-address.php:653
 msgid "Burkina Faso"
 msgstr "Burkina Faso"
 
-#: includes/fields/class-gf-field-address.php:647
+#: includes/fields/class-gf-field-address.php:652
 msgid "Bulgaria"
 msgstr "Bulgarie"
 
-#: includes/fields/class-gf-field-address.php:646
+#: includes/fields/class-gf-field-address.php:651
 msgid "Brunei Darussalam"
 msgstr "Brunei Darussalam"
 
-#: includes/fields/class-gf-field-address.php:645
+#: includes/fields/class-gf-field-address.php:650
 msgid "British Indian Ocean Territory"
 msgstr "Territoire britannique de l’océan Indien"
 
-#: includes/fields/class-gf-field-address.php:644
+#: includes/fields/class-gf-field-address.php:649
 msgid "Brazil"
 msgstr "Brésil"
 
-#: includes/fields/class-gf-field-address.php:643
+#: includes/fields/class-gf-field-address.php:648
 msgid "Bouvet Island"
 msgstr "Île Bouvet"
 
-#: includes/fields/class-gf-field-address.php:642
+#: includes/fields/class-gf-field-address.php:647
 msgid "Botswana"
 msgstr "Botswana"
 
-#: includes/fields/class-gf-field-address.php:641
+#: includes/fields/class-gf-field-address.php:646
 msgid "Bosnia and Herzegovina"
 msgstr "Bosnie-Herzégovine"
 
-#: includes/fields/class-gf-field-address.php:640
+#: includes/fields/class-gf-field-address.php:645
 msgid "Bonaire, Sint Eustatius and Saba"
 msgstr "Bonaire, Saint-Eustache et Saba "
 
-#: includes/fields/class-gf-field-address.php:639
+#: includes/fields/class-gf-field-address.php:644
 msgid "Bolivia"
 msgstr "Bolivie"
 
-#: includes/fields/class-gf-field-address.php:638
+#: includes/fields/class-gf-field-address.php:643
 msgid "Bhutan"
 msgstr "Bhoutan"
 
-#: includes/fields/class-gf-field-address.php:637
+#: includes/fields/class-gf-field-address.php:642
 msgid "Bermuda"
 msgstr "Bermudes"
 
-#: includes/fields/class-gf-field-address.php:636
+#: includes/fields/class-gf-field-address.php:641
 msgid "Benin"
 msgstr "Bénin"
 
-#: includes/fields/class-gf-field-address.php:635
+#: includes/fields/class-gf-field-address.php:640
 msgid "Belize"
 msgstr "Belize"
 
-#: includes/fields/class-gf-field-address.php:634
+#: includes/fields/class-gf-field-address.php:639
 msgid "Belgium"
 msgstr "Belgique"
 
-#: includes/fields/class-gf-field-address.php:633
+#: includes/fields/class-gf-field-address.php:638
 msgid "Belarus"
 msgstr "Belarus"
 
-#: includes/fields/class-gf-field-address.php:632
+#: includes/fields/class-gf-field-address.php:637
 msgid "Barbados"
 msgstr "La Barbade"
 
-#: includes/fields/class-gf-field-address.php:631
+#: includes/fields/class-gf-field-address.php:636
 msgid "Bangladesh"
 msgstr "Bangladesh"
 
-#: includes/fields/class-gf-field-address.php:630
+#: includes/fields/class-gf-field-address.php:635
 msgid "Bahrain"
 msgstr "Bahreïn"
 
-#: includes/fields/class-gf-field-address.php:629
+#: includes/fields/class-gf-field-address.php:634
 msgid "Bahamas"
 msgstr "Bahamas"
 
-#: includes/fields/class-gf-field-address.php:628
+#: includes/fields/class-gf-field-address.php:633
 msgid "Azerbaijan"
 msgstr "Azerbaïdjan"
 
-#: includes/fields/class-gf-field-address.php:627
+#: includes/fields/class-gf-field-address.php:632
 msgid "Austria"
 msgstr "Autriche"
 
-#: form_detail.php:1579 includes/fields/class-gf-field-address.php:626
+#: form_detail.php:1587 includes/fields/class-gf-field-address.php:631
 msgid "Australia"
 msgstr "Australie"
 
-#: includes/fields/class-gf-field-address.php:625
+#: includes/fields/class-gf-field-address.php:630
 msgid "Aruba"
 msgstr "Aruba"
 
-#: includes/fields/class-gf-field-address.php:624
+#: includes/fields/class-gf-field-address.php:629
 msgid "Armenia"
 msgstr "Arménie"
 
-#: includes/fields/class-gf-field-address.php:623
+#: includes/fields/class-gf-field-address.php:628
 msgid "Argentina"
 msgstr "Argentine"
 
-#: includes/fields/class-gf-field-address.php:622
+#: includes/fields/class-gf-field-address.php:627
 msgid "Antigua and Barbuda"
 msgstr "Antigua-et-Barbuda"
 
-#: form_detail.php:1579 includes/fields/class-gf-field-address.php:621
+#: form_detail.php:1587 includes/fields/class-gf-field-address.php:626
 msgid "Antarctica"
 msgstr "Antarctique"
 
-#: includes/fields/class-gf-field-address.php:620
+#: includes/fields/class-gf-field-address.php:625
 msgid "Anguilla"
 msgstr "Anguilla"
 
-#: includes/fields/class-gf-field-address.php:619
+#: includes/fields/class-gf-field-address.php:624
 msgid "Angola"
 msgstr "Angola"
 
-#: includes/fields/class-gf-field-address.php:618
+#: includes/fields/class-gf-field-address.php:623
 msgid "Andorra"
 msgstr "Andorre"
 
-#: includes/fields/class-gf-field-address.php:617
+#: includes/fields/class-gf-field-address.php:622
+#: includes/fields/class-gf-field-address.php:919
+#: includes/fields/class-gf-field-address.php:993
 msgid "American Samoa"
 msgstr "Samoa américaines"
 
-#: includes/fields/class-gf-field-address.php:616
+#: includes/fields/class-gf-field-address.php:621
 msgid "Algeria"
 msgstr "Algérie"
 
-#: includes/fields/class-gf-field-address.php:615
+#: includes/fields/class-gf-field-address.php:620
 msgid "Albania"
 msgstr "Albanie"
 
-#: includes/fields/class-gf-field-address.php:614
+#: includes/fields/class-gf-field-address.php:619
 msgid "Åland Islands"
 msgstr "Îles Åland"
 
-#: includes/fields/class-gf-field-address.php:613
+#: includes/fields/class-gf-field-address.php:618
 msgid "Afghanistan"
 msgstr "Afghanistan"
 
-#: includes/fields/class-gf-field-address.php:475
+#: includes/fields/class-gf-field-address.php:480
 msgid "Province"
 msgstr "Province"
 
-#: form_detail.php:1253 includes/fields/class-gf-field-address.php:474
+#: form_detail.php:1253 includes/fields/class-gf-field-address.php:479
 msgid "Postal Code"
 msgstr "Code postal"
 
-#: includes/fields/class-gf-field-address.php:473
+#: includes/fields/class-gf-field-address.php:478
 msgid "Canadian"
 msgstr "Canadien"
 
-#: includes/fields/class-gf-field-address.php:467
+#: includes/fields/class-gf-field-address.php:472
 msgid "ZIP Code"
 msgstr "Code postal"
 
-#: includes/fields/class-gf-field-address.php:466
-#: includes/fields/class-gf-field-address.php:848
+#: includes/fields/class-gf-field-address.php:471
+#: includes/fields/class-gf-field-address.php:853
 msgid "United States"
 msgstr "États-Unis"
 
-#: includes/fields/class-gf-field-address.php:463
+#: includes/fields/class-gf-field-address.php:468
 msgid "State / Province / Region"
 msgstr "État / Province / Région"
 
-#: includes/fields/class-gf-field-address.php:462 js.php:742
+#: includes/fields/class-gf-field-address.php:467 js.php:742
 msgid "ZIP / Postal Code"
 msgstr "ZIP / Code postal"
 
-#: includes/fields/class-gf-field-address.php:202 js.php:727
+#: includes/fields/class-gf-field-address.php:207 js.php:727
 msgid "Address Line 2"
 msgstr "Adresse ligne 2"
 
-#: includes/fields/class-gf-field-address.php:200 js.php:722
+#: includes/fields/class-gf-field-address.php:205 js.php:722
 msgid "Street Address"
 msgstr "Adresse postale"
 
-#: includes/fields/class-gf-field-address.php:178
+#: includes/fields/class-gf-field-address.php:183
 msgid "Zip Code"
 msgstr "Code Postal"
 
-#: includes/fields/class-gf-field-name.php:284 js.php:1032
+#: includes/fields/class-gf-field-name.php:278 js.php:1032
 msgid "Suffix"
 msgstr "Suffixe"
 
-#: includes/fields/class-gf-field-name.php:283
-#: includes/fields/class-gf-field-name.php:403 js.php:1027
+#: includes/fields/class-gf-field-name.php:277
+#: includes/fields/class-gf-field-name.php:397 js.php:1027
 msgid "Last"
 msgstr "Nom"
 
-#: includes/fields/class-gf-field-name.php:282 js.php:1020
+#: includes/fields/class-gf-field-name.php:276 js.php:1020
 msgid "Middle"
 msgstr "2ème prénom"
 
-#: includes/fields/class-gf-field-name.php:281
-#: includes/fields/class-gf-field-name.php:402 js.php:1008
+#: includes/fields/class-gf-field-name.php:275
+#: includes/fields/class-gf-field-name.php:396 js.php:1008
 msgid "First"
 msgstr "Prénom"
 
-#: includes/fields/class-gf-field-name.php:280 js.php:1000
+#: includes/fields/class-gf-field-name.php:274 js.php:1000
 msgid "Prefix"
 msgstr "Préfixe"
 
@@ -10204,22 +10236,22 @@ msgstr "Nom"
 
 #: includes/fields/class-gf-field-calculation.php:152
 #: includes/fields/class-gf-field-hiddenproduct.php:107
-#: includes/fields/class-gf-field-singleproduct.php:210
+#: includes/fields/class-gf-field-singleproduct.php:212
 msgid "Price: "
 msgstr "Prix :"
 
 #: includes/fields/class-gf-field-calculation.php:152
 #: includes/fields/class-gf-field-hiddenproduct.php:103
-#: includes/fields/class-gf-field-singleproduct.php:206
+#: includes/fields/class-gf-field-singleproduct.php:208
 msgid "Qty: "
 msgstr "Qté :"
 
 #: form_detail.php:675 form_detail.php:1534
 #: includes/fields/class-gf-field-calculation.php:110
-#: includes/fields/class-gf-field-singleproduct.php:143
-#: includes/fields/class-gf-field-singleproduct.php:152
-#: includes/fields/class-gf-field-singleproduct.php:153
-#: includes/fields/class-gf-field-singleproduct.php:161
+#: includes/fields/class-gf-field-singleproduct.php:144
+#: includes/fields/class-gf-field-singleproduct.php:154
+#: includes/fields/class-gf-field-singleproduct.php:155
+#: includes/fields/class-gf-field-singleproduct.php:163
 #: includes/orders/summaries/class-gf-order-summary.php:65 js.php:880
 #: js.php:939
 msgid "Price"
@@ -10263,130 +10295,130 @@ msgstr "Cliquez pour sélectionner..."
 msgid "Multi Select"
 msgstr "Choix multiple"
 
-#: includes/fields/class-gf-field-date.php:926
+#: includes/fields/class-gf-field-date.php:912
 msgctxt "Abbreviation: Year"
 msgid "YYYY"
 msgstr "AAAA"
 
-#: includes/fields/class-gf-field-date.php:923
+#: includes/fields/class-gf-field-date.php:909
 msgctxt "Abbreviation: Day"
 msgid "DD"
 msgstr "JJ"
 
-#: includes/fields/class-gf-field-date.php:920
+#: includes/fields/class-gf-field-date.php:906
 msgctxt "Abbreviation: Month"
 msgid "MM"
 msgstr "MM"
 
-#: includes/fields/class-gf-field-date.php:893
+#: includes/fields/class-gf-field-date.php:879
 msgid "YYYY dot MM dot DD"
 msgstr "AAAA . MM . JJ"
 
-#: includes/fields/class-gf-field-date.php:891
+#: includes/fields/class-gf-field-date.php:877
 msgid "yyyy.mm.dd"
 msgstr "aaaa.mm.jj"
 
-#: includes/fields/class-gf-field-date.php:886
+#: includes/fields/class-gf-field-date.php:872
 msgid "YYYY dash MM dash DD"
 msgstr "AAAA - MM - JJ"
 
-#: common.php:5843 common.php:5876 includes/fields/class-gf-field-date.php:884
-#: includes/fields/class-gf-field-date.php:1078
+#: common.php:5861 common.php:5894 includes/fields/class-gf-field-date.php:870
+#: includes/fields/class-gf-field-date.php:1064
 msgid "yyyy-mm-dd"
 msgstr "aaaa-mm-jj"
 
-#: includes/fields/class-gf-field-date.php:879
+#: includes/fields/class-gf-field-date.php:865
 msgid "YYYY slash MM slash DD"
 msgstr "AAAA slash MM slash JJ"
 
-#: includes/fields/class-gf-field-date.php:877
+#: includes/fields/class-gf-field-date.php:863
 msgid "yyyy/mm/dd"
 msgstr "jj/mm/aaaa"
 
-#: includes/fields/class-gf-field-date.php:872
+#: includes/fields/class-gf-field-date.php:858
 msgid "DD dot MM dot YYYY"
 msgstr "JJ . MM . AAAA"
 
-#: includes/fields/class-gf-field-date.php:870
+#: includes/fields/class-gf-field-date.php:856
 msgid "dd.mm.yyyy"
 msgstr "jj.mm.aaaa"
 
-#: includes/fields/class-gf-field-date.php:865
+#: includes/fields/class-gf-field-date.php:851
 msgid "DD dash MM dash YYYY"
 msgstr "JJ - MM - AAAA"
 
-#: includes/fields/class-gf-field-date.php:863
+#: includes/fields/class-gf-field-date.php:849
 msgid "dd-mm-yyyy"
 msgstr "jj-mm-aaaa"
 
-#: includes/fields/class-gf-field-date.php:858
+#: includes/fields/class-gf-field-date.php:844
 msgid "DD slash MM slash YYYY"
 msgstr "JJ slash MM slash AAAA"
 
-#: includes/fields/class-gf-field-date.php:856
+#: includes/fields/class-gf-field-date.php:842
 msgid "dd/mm/yyyy"
 msgstr "jj/mm/aaaa"
 
-#: includes/fields/class-gf-field-date.php:851
+#: includes/fields/class-gf-field-date.php:837
 msgid "MM slash DD slash YYYY"
 msgstr "MM slash JJ slash AAAA"
 
-#: includes/fields/class-gf-field-date.php:849
+#: includes/fields/class-gf-field-date.php:835
 msgid "mm/dd/yyyy"
 msgstr "mm/jj/aaaa"
 
 #: includes/addon/class-gf-payment-addon.php:3015
 #: includes/addon/class-gf-payment-addon.php:3018
-#: includes/fields/class-gf-field-date.php:762
-#: includes/fields/class-gf-field-date.php:972
-#: includes/fields/class-gf-field-date.php:1128 js.php:315 js.php:1051
+#: includes/fields/class-gf-field-date.php:748
+#: includes/fields/class-gf-field-date.php:958
+#: includes/fields/class-gf-field-date.php:1114 js.php:315 js.php:1051
 #: js.php:1057 js.php:1058
 msgid "Day"
 msgstr "Jour"
 
-#: includes/fields/class-gf-field-date.php:130
+#: includes/fields/class-gf-field-date.php:133
 msgid "Please enter a valid date."
 msgstr "Veuillez saisir une date valide."
 
-#: includes/fields/class-gf-field-date.php:130
+#: includes/fields/class-gf-field-date.php:133
 msgid "Please enter a valid date in the format (%s)."
 msgstr "Veuillez saisir une date valide au format (%s)."
 
 #: common.php:744 common.php:748 entry_detail.php:1168 form_detail.php:844
-#: form_detail.php:1861 form_detail.php:2963 form_detail.php:2964
+#: form_detail.php:1870 form_detail.php:2972 form_detail.php:2973
 #: includes/addon/class-gf-payment-addon.php:3017
 #: includes/fields/class-gf-field-date.php:13 js.php:799 js.php:1477
 msgid "Date"
 msgstr "Date"
 
-#: includes/fields/class-gf-field-time.php:328
+#: includes/fields/class-gf-field-time.php:306
 msgid "Minutes"
 msgstr "Minutes"
 
-#: includes/fields/class-gf-field-time.php:319
+#: includes/fields/class-gf-field-time.php:297
 msgid "Hours"
 msgstr "Heures"
 
-#: includes/fields/class-gf-field-time.php:299
+#: includes/fields/class-gf-field-time.php:277
 msgid "PM"
 msgstr "PM"
 
-#: includes/fields/class-gf-field-time.php:298
+#: includes/fields/class-gf-field-time.php:276
 msgid "AM"
 msgstr "AM"
 
-#: includes/fields/class-gf-field-time.php:278
-#: includes/fields/class-gf-field-time.php:326
+#: includes/fields/class-gf-field-time.php:256
+#: includes/fields/class-gf-field-time.php:304
 msgctxt "Abbreviation: Minutes"
 msgid "MM"
 msgstr "MM"
 
-#: includes/fields/class-gf-field-time.php:277
-#: includes/fields/class-gf-field-time.php:317 js.php:321 js.php:324
+#: includes/fields/class-gf-field-time.php:255
+#: includes/fields/class-gf-field-time.php:295 js.php:321 js.php:324
 msgid "HH"
 msgstr "HH"
 
-#: includes/fields/class-gf-field-time.php:165
+#: includes/fields/class-gf-field-time.php:158
 msgid "Please enter a valid time."
 msgstr "Veuillez saisir une heure valide."
 
@@ -10416,7 +10448,7 @@ msgstr "Confirmer le mot de passe"
 msgid "Enter Password"
 msgstr "Saisir le mot de passe"
 
-#: form_display.php:3237 includes/fields/class-gf-field-password.php:193
+#: form_display.php:3241 includes/fields/class-gf-field-password.php:193
 msgid "Strength indicator"
 msgstr "Indicateur de degré de sûreté"
 
@@ -10432,11 +10464,11 @@ msgstr "Vos mots de passe ne correspondent pas."
 msgid "Password"
 msgstr "Mot de passe"
 
-#: includes/fields/class-gf-field.php:2583
+#: includes/fields/class-gf-field.php:2631
 msgid "Quantity:"
 msgstr "Quantité :"
 
-#: form_detail.php:2850 includes/fields/class-gf-field.php:327
+#: form_detail.php:2859 includes/fields/class-gf-field.php:327
 msgid "Add a %s field to your form."
 msgstr "Ajoutez un champ %s à votre formulaire."
 
@@ -10476,7 +10508,7 @@ msgstr "Veuillez saisir une quantité valide. Les quantités ne peuvent contenir
 msgid "Number"
 msgstr "Nombre"
 
-#: form_detail.php:1190 form_list.php:536 gravityforms.php:2522
+#: form_detail.php:1190 form_list.php:536 gravityforms.php:2528
 #: includes/fields/class-gf-field-post-image.php:153
 #: includes/fields/class-gf-field-post-image.php:155
 #: includes/fields/class-gf-field-post-image.php:224
@@ -10485,7 +10517,7 @@ msgstr "Nombre"
 msgid "Title"
 msgstr "Titre"
 
-#: gravityforms.php:2526 includes/addon/class-gf-payment-addon.php:2804
+#: gravityforms.php:2532 includes/addon/class-gf-payment-addon.php:2804
 #: includes/fields/class-gf-field-total.php:24
 #: includes/orders/summaries/views/view-order-summary.php:60
 #: includes/orders/summaries/views/view-pricing-fields-html.php:61
@@ -10520,9 +10552,9 @@ msgstr "Code de sécurité (CVC)"
 
 #: includes/fields/class-gf-field-creditcard.php:345
 #: includes/fields/class-gf-field-creditcard.php:484
-#: includes/fields/class-gf-field-date.php:793
-#: includes/fields/class-gf-field-date.php:975
-#: includes/fields/class-gf-field-date.php:1133 js.php:317 js.php:1052
+#: includes/fields/class-gf-field-date.php:779
+#: includes/fields/class-gf-field-date.php:961
+#: includes/fields/class-gf-field-date.php:1119 js.php:317 js.php:1052
 #: js.php:1059 js.php:1060
 msgid "Year"
 msgstr "Année"
@@ -10531,9 +10563,9 @@ msgstr "Année"
 #: includes/addon/class-gf-payment-addon.php:2998
 #: includes/fields/class-gf-field-creditcard.php:332
 #: includes/fields/class-gf-field-creditcard.php:453
-#: includes/fields/class-gf-field-date.php:738
-#: includes/fields/class-gf-field-date.php:969
-#: includes/fields/class-gf-field-date.php:1123 js.php:313 js.php:1050
+#: includes/fields/class-gf-field-date.php:724
+#: includes/fields/class-gf-field-date.php:955
+#: includes/fields/class-gf-field-date.php:1109 js.php:313 js.php:1050
 #: js.php:1055 js.php:1056
 msgid "Month"
 msgstr "Mois"
@@ -10592,7 +10624,7 @@ msgstr "Site Web"
 msgid "Please enter a valid amount."
 msgstr "Veuillez saisir un montant valide."
 
-#: includes/fields/class-gf-field-address.php:461
+#: includes/fields/class-gf-field-address.php:466
 #: includes/fields/class-gf-field-phone.php:340
 msgid "International"
 msgstr "International"
@@ -10605,8 +10637,8 @@ msgstr "Format du numéro de téléphone :"
 msgid "Phone"
 msgstr "Téléphone"
 
-#: common.php:6784 form_detail.php:651 form_detail.php:733 form_detail.php:841
-#: form_detail.php:1379 form_detail.php:2124 form_detail.php:2158
+#: common.php:6802 form_detail.php:651 form_detail.php:733 form_detail.php:841
+#: form_detail.php:1379 form_detail.php:2133 form_detail.php:2167
 #: includes/fields/class-gf-field-hidden.php:13
 msgid "Hidden"
 msgstr "Masqué"
@@ -10627,7 +10659,7 @@ msgstr "%d éléments sur %d affichés. Modifier le champ pour tout voir"
 msgid "Deselect All"
 msgstr "Tout désélectionner"
 
-#: common.php:5191 export.php:433 export.php:556
+#: common.php:5209 export.php:433 export.php:556
 #: includes/fields/class-gf-field-checkbox.php:169
 #: includes/fields/class-gf-field-checkbox.php:705
 msgid "Select All"
@@ -10679,7 +10711,7 @@ msgstr "Ajout personnalisé"
 msgid "Entry Meta"
 msgstr "Méta d’entrée"
 
-#: common.php:762 form_list.php:47 form_settings.php:114 gravityforms.php:4577
+#: common.php:762 form_list.php:47 form_settings.php:114 gravityforms.php:4583
 #: includes/addon/class-gf-addon.php:2801
 #: includes/settings/fields/class-generic-map.php:580 js.php:1477
 #: tooltips.php:24 assets/js/src/legacy/admin/blocks/blocks/form/edit.js:207
@@ -10697,13 +10729,13 @@ msgstr "URL source"
 msgid "User IP"
 msgstr "IP du compte"
 
-#: common.php:5841 export.php:1111 forms_model.php:6465
+#: common.php:5859 export.php:1111 forms_model.php:6465
 #: includes/addon/class-gf-addon.php:2798
 #: includes/settings/fields/class-generic-map.php:568 select_columns.php:197
 msgid "Entry Date"
 msgstr "Date de l’entrée"
 
-#: common.php:5837 includes/addon/class-gf-addon.php:2797
+#: common.php:5855 includes/addon/class-gf-addon.php:2797
 #: includes/settings/fields/class-generic-map.php:564
 msgid "Entry ID"
 msgstr "ID de l’entrée"
@@ -10749,7 +10781,7 @@ msgid "Address (Country)"
 msgstr "Adresse (pays)"
 
 #: includes/addon/class-gf-payment-addon.php:2728
-#: includes/fields/class-gf-field-address.php:210
+#: includes/fields/class-gf-field-address.php:215
 #: includes/settings/fields/class-field-select.php:150
 #: includes/settings/fields/class-generic-map.php:342 js.php:747
 msgid "Country"
@@ -10772,8 +10804,8 @@ msgid "Address (State / Province)"
 msgstr "Adresse (état/province)"
 
 #: form_detail.php:1249 includes/addon/class-gf-payment-addon.php:2726
-#: includes/fields/class-gf-field-address.php:177
-#: includes/fields/class-gf-field-address.php:468
+#: includes/fields/class-gf-field-address.php:182
+#: includes/fields/class-gf-field-address.php:473
 #: includes/settings/fields/class-field-select.php:148
 #: includes/settings/fields/class-generic-map.php:340
 msgid "State"
@@ -10785,7 +10817,7 @@ msgid "Address (City)"
 msgstr "Adresse (ville)"
 
 #: includes/addon/class-gf-payment-addon.php:2725
-#: includes/fields/class-gf-field-address.php:206
+#: includes/fields/class-gf-field-address.php:211
 #: includes/settings/fields/class-field-select.php:147
 #: includes/settings/fields/class-generic-map.php:339 js.php:732
 msgid "City"
@@ -10842,7 +10874,7 @@ msgstr "Aucun champ de mappage n’est disponible."
 msgid "Custom Value"
 msgstr "Valeur personnalisée"
 
-#: form_detail.php:1533 form_detail.php:2315
+#: form_detail.php:1533 form_detail.php:2324
 #: includes/settings/fields/class-generic-map.php:178
 msgid "Value"
 msgstr "Valeur"
@@ -10885,12 +10917,12 @@ msgstr "Activer la condition"
 msgid "Process this feed if"
 msgstr "Traiter ce flux si"
 
-#: includes/settings/fields/class-notification-routing.php:378
-#: includes/settings/fields/class-notification-routing.php:583
+#: includes/settings/fields/class-notification-routing.php:379
+#: includes/settings/fields/class-notification-routing.php:586
 msgid "Enter value"
 msgstr "Saisir la valeur"
 
-#: common.php:5198 includes/settings/fields/class-notification-routing.php:349
+#: common.php:5216 includes/settings/fields/class-notification-routing.php:350
 msgid "Loading..."
 msgstr "Chargement..."
 
@@ -10919,43 +10951,43 @@ msgstr "Supprimer cette règle"
 msgid "Add Another Rule"
 msgstr "Ajouter une autre règle"
 
-#: common.php:5232 includes/addon/class-gf-addon.php:3864
+#: common.php:5250 includes/addon/class-gf-addon.php:3864
 #: includes/settings/fields/class-notification-routing.php:82
 #: includes/settings/fields/class-notification-routing.php:233
 msgid "ends with"
 msgstr "finit avec"
 
-#: common.php:5231 includes/addon/class-gf-addon.php:3860
+#: common.php:5249 includes/addon/class-gf-addon.php:3860
 #: includes/settings/fields/class-notification-routing.php:81
 #: includes/settings/fields/class-notification-routing.php:232
 msgid "starts with"
 msgstr "commence avec"
 
-#: common.php:5230 includes/addon/class-gf-addon.php:3856
+#: common.php:5248 includes/addon/class-gf-addon.php:3856
 #: includes/settings/fields/class-notification-routing.php:80
 #: includes/settings/fields/class-notification-routing.php:231
 msgid "contains"
 msgstr "contient"
 
-#: common.php:5229 includes/addon/class-gf-addon.php:3852
+#: common.php:5247 includes/addon/class-gf-addon.php:3852
 #: includes/settings/fields/class-notification-routing.php:79
 #: includes/settings/fields/class-notification-routing.php:230
 msgid "less than"
 msgstr "plus petit que"
 
-#: common.php:5228 includes/addon/class-gf-addon.php:3848
+#: common.php:5246 includes/addon/class-gf-addon.php:3848
 #: includes/settings/fields/class-notification-routing.php:78
 #: includes/settings/fields/class-notification-routing.php:229
 msgid "greater than"
 msgstr "plus grand que"
 
-#: common.php:5227 includes/addon/class-gf-addon.php:3844
+#: common.php:5245 includes/addon/class-gf-addon.php:3844
 #: includes/settings/fields/class-notification-routing.php:77
 #: includes/settings/fields/class-notification-routing.php:228
 msgid "is not"
 msgstr "n’est pas"
 
-#: common.php:5226 includes/addon/class-gf-addon.php:3840
+#: common.php:5244 includes/addon/class-gf-addon.php:3840
 #: includes/settings/fields/class-notification-routing.php:76
 #: includes/settings/fields/class-notification-routing.php:227
 msgid "is"
@@ -10965,24 +10997,21 @@ msgstr "est"
 msgid "To use notification routing, your form must have a field supported by conditional logic."
 msgstr "Pour utiliser le routage de notification, votre formulaire doit contenir un champ qui supporte les logiques conditionnelles."
 
-#: form_display.php:2026 includes/addon/class-gf-addon.php:3537
-#: includes/fields/class-gf-field-address.php:108
+#: includes/addon/class-gf-addon.php:3537
 #: includes/fields/class-gf-field-calculation.php:32
-#: includes/fields/class-gf-field-consent.php:295
-#: includes/fields/class-gf-field-date.php:95
+#: includes/fields/class-gf-field-consent.php:321
 #: includes/fields/class-gf-field-hiddenproduct.php:37
-#: includes/fields/class-gf-field-name.php:137
 #: includes/fields/class-gf-field-radio.php:90
 #: includes/fields/class-gf-field-repeater.php:598
 #: includes/fields/class-gf-field-singleproduct.php:44
-#: includes/fields/class-gf-field-time.php:145
 #: includes/fields/class-gf-field-website.php:68
+#: includes/fields/class-gf-field.php:746
 #: includes/settings/fields/class-base.php:637
 msgid "This field is required."
 msgstr "Ce champ est nécessaire"
 
-#: common.php:5196 form_display.php:1447 form_list.php:327
-#: gravityforms.php:3125 includes/fields/class-gf-field-submit.php:158
+#: common.php:5214 form_display.php:1452 form_list.php:327
+#: gravityforms.php:3131 includes/fields/class-gf-field-submit.php:158
 #: includes/settings/fields/class-button.php:50
 msgid "Submit"
 msgstr "Envoyer"
@@ -11058,7 +11087,7 @@ msgstr "supprimer le journal"
 msgid "view log"
 msgstr "voir le journal"
 
-#: common.php:5205 includes/logging/logging.php:365
+#: common.php:5223 includes/logging/logging.php:365
 #: includes/settings/fields/class-checkbox-and-select.php:50
 msgid "Enable"
 msgstr "Activer"
@@ -11087,11 +11116,11 @@ msgstr "Le fichier journal ne peut pas être supprimé."
 msgid "There was an error while inserting a feed"
 msgstr "Une erreur s’est produite lors de l’insertion du flux"
 
-#: forms_model.php:8037 includes/api.php:2068
+#: forms_model.php:8058 includes/api.php:2068
 msgid "There was an error while updating feed id %s"
 msgstr "Une erreur s’est produite lors de la mise à jour du flux avec l’ID %s"
 
-#: forms_model.php:8041 includes/api.php:2029
+#: forms_model.php:8062 includes/api.php:2029
 msgid "Feed id %s not found"
 msgstr "Flux avec l’ID %s introuvable"
 
@@ -11240,7 +11269,7 @@ msgid "Form with id: %s not found"
 msgstr "Formulaire avec ID : %s introuvable"
 
 #: forms_model.php:1695 forms_model.php:1722 forms_model.php:1778
-#: forms_model.php:1812 forms_model.php:1850 forms_model.php:8019
+#: forms_model.php:1812 forms_model.php:1850 forms_model.php:8040
 #: includes/api.php:129 includes/api.php:156 includes/api.php:178
 #: includes/api.php:210 includes/api.php:323 includes/api.php:382
 #: includes/api.php:403 includes/api.php:436 includes/api.php:719
@@ -11271,7 +11300,7 @@ msgstr "Votre requête a été envoyée à %s."
 msgid "Your request was rejected"
 msgstr "Votre requête a été rejetée"
 
-#: gravityforms.php:5876 includes/locking/class-gf-locking.php:209
+#: gravityforms.php:5882 includes/locking/class-gf-locking.php:209
 msgid "Error"
 msgstr "Erreur"
 
@@ -11283,7 +11312,7 @@ msgstr "Demander à nouveau"
 msgid "No response"
 msgstr "Aucune réponse"
 
-#: common.php:5910 includes/locking/class-gf-locking.php:206
+#: common.php:5928 includes/locking/class-gf-locking.php:206
 msgid "Pending"
 msgstr "En attente"
 
@@ -11304,7 +11333,7 @@ msgstr "%s a pris la main et modifie actuellement ce contenu."
 msgid "%s is currently editing"
 msgstr "%s modifie actuellement ce formulaire"
 
-#: entry_detail.php:1414 form_detail.php:1635 form_detail.php:1647
+#: entry_detail.php:1414 form_detail.php:1644 form_detail.php:1656
 #: includes/addon/class-gf-results.php:305
 #: includes/config/items/class-gf-config-multifile.php:34
 #: includes/embed-form/config/class-gf-embed-config-i18n.php:54
@@ -11455,7 +11484,7 @@ msgstr "Version de la base de données"
 msgid "Background updates"
 msgstr "Mises à jour en tâche de fond"
 
-#: form_detail.php:1772 includes/system-status/class-gf-system-report.php:931
+#: form_detail.php:1781 includes/system-status/class-gf-system-report.php:931
 #: includes/wizard/steps/class-gf-installation-wizard-step-settings.php:20
 #: tooltips.php:154
 msgid "Currency"
@@ -11756,7 +11785,7 @@ msgstr "Fichiers de journalisation"
 msgid "Database"
 msgstr "Base de données"
 
-#: gravityforms.php:1792 includes/class-gf-osdxp.php:29
+#: gravityforms.php:1794 includes/class-gf-osdxp.php:29
 #: includes/class-gf-osdxp.php:264 includes/class-gf-osdxp.php:265
 #: includes/system-status/class-gf-system-report.php:421
 msgid "Add-Ons"
@@ -11850,12 +11879,12 @@ msgstr "Une nouvelle version de %s est disponible."
 msgid "Visit plugin page"
 msgstr "Se rendre sur la page de l’extension"
 
-#: gravityforms.php:1781 gravityforms.php:2237 gravityforms.php:5280
-#: gravityforms.php:5560 includes/addon/class-gf-addon.php:4263
+#: gravityforms.php:1783 gravityforms.php:2239 gravityforms.php:5286
+#: gravityforms.php:5566 includes/addon/class-gf-addon.php:4263
 #: includes/addon/class-gf-addon.php:4541
 #: includes/addon/class-gf-addon.php:4714
 #: includes/addon/class-gf-addon.php:5147 includes/class-gf-osdxp.php:27
-#: includes/fields/class-gf-field.php:1500
+#: includes/fields/class-gf-field.php:1548
 #: includes/system-status/class-gf-update.php:75 settings.php:1167
 msgid "Settings"
 msgstr "Réglages"
@@ -11879,7 +11908,7 @@ msgstr "Extension"
 msgid "You don't have permissions to view this page"
 msgstr "Vous n’avez pas les permissions nécessaires pour voir cette page"
 
-#: gravityforms.php:1798 includes/class-gf-osdxp.php:31
+#: gravityforms.php:1800 includes/class-gf-osdxp.php:31
 #: includes/class-gf-osdxp.php:274 includes/class-gf-osdxp.php:275
 msgid "System Status"
 msgstr "État du système"
@@ -11904,7 +11933,7 @@ msgstr "https://gravityforms.com"
 
 #. Plugin Name of the plugin
 #. Author of the plugin
-#: gravityforms.php:1534 gravityforms.php:1595 gravityforms.php:2503
+#: gravityforms.php:1536 gravityforms.php:1597 gravityforms.php:2509
 #: includes/system-status/class-gf-system-report.php:416
 #: includes/system-status/class-gf-update.php:207
 #: assets/js/src/legacy/admin/blocks/blocks/form/index.js:16
