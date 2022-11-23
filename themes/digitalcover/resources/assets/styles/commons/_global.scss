@@ -1,7 +1,8 @@
-
 @use "../config" as *;
 
 html {
+  font-size: calc(10 * (100vw / var(--size)));
+
   &.lenis { scroll-behavior: initial; }
 }
 

@@ -1,3 +1,5 @@
+@use "breakpoints" as *;
+
 /* COLORS */
 $white: #fff;
 $black: #000;
@@ -23,3 +25,13 @@ $z-header: 15;
 /* BROWSERS TEST */
 $is-safari: "(background: -webkit-named-image(i))";
 $is-firefox: "(-moz-appearance:none)";
+
+:root {
+  --size: 375;
+
+  @include media-breakpoint-up(md) { --size: 768; }
+
+  @include media-breakpoint-up(lg) { --size: 1024; }
+
+  @include media-breakpoint-up(xl) { --size: 1440; }
+}
