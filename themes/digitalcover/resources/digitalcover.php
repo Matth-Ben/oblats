@@ -218,3 +218,38 @@ function dc_enable_gutenberg_post_ids($can_edit, $post) {
 }
 
 add_filter('use_block_editor_for_post', 'dc_enable_gutenberg_post_ids', 10, 2);
+
+add_action( 'init', 'create_topics_nonhierarchical_taxonomy', 0 );
+function create_topics_nonhierarchical_taxonomy() {
+
+  $labels = array(
+    'name' => _x( 'Zones', 'taxonomy general name' ),
+    'singular_name' => _x( 'Zone', 'taxonomy singular name' ),
+    'search_items' =>  __( 'Search Zones' ),
+    'popular_items' => __( 'Popular Zones' ),
+    'all_items' => __( 'All Zones' ),
+    'parent_item' => null,
+    'parent_item_colon' => null,
+    'edit_item' => __( 'Edit Zone' ),
+    'update_item' => __( 'Update Zone' ),
+    'add_new_item' => __( 'Add New Zone' ),
+    'new_item_name' => __( 'New Zone Name' ),
+    'separate_items_with_commas' => __( 'Separate zones with commas' ),
+    'add_or_remove_items' => __( 'Add or remove zones' ),
+    'choose_from_most_used' => __( 'Choose from the most used zones' ),
+    'menu_name' => __( 'Zones' ),
+  );
+
+// Now register the non-hierarchical taxonomy like tag
+
+  register_taxonomy('zones','post',array(
+    'hierarchical' => false,
+    'labels' => $labels,
+    'show_ui' => true,
+    'show_in_rest' => true,
+    'show_admin_column' => true,
+    'update_count_callback' => '_update_post_term_count',
+    'query_var' => true,
+    'rewrite' => array( 'slug' => 'zones' ),
+  ));
+}

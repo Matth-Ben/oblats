@@ -68,7 +68,7 @@ class FilesTreeFinder {
 	 * @type int[]     $files_converted   .
 	 * @type int[]     $files_unconverted .
 	 * @type mixed[]   $files_tree        .
-	 * }
+	 *                                    }
 	 * @internal
 	 */
 	public function get_tree( array $output_formats ): array {
@@ -81,7 +81,7 @@ class FilesTreeFinder {
 		}
 
 		$plugin_settings       = $this->plugin_data->get_plugin_settings();
-		$force_convert_all     = ( ! in_array( ExtraFeaturesOption::OPTION_VALUE_ONLY_SMALLER, $plugin_settings[ ExtraFeaturesOption::OPTION_NAME ] ) );
+		$force_convert_deleted = ( ! in_array( ExtraFeaturesOption::OPTION_VALUE_ONLY_SMALLER, $plugin_settings[ ExtraFeaturesOption::OPTION_NAME ] ) );
 		$force_convert_crashed = ( in_array( ExtraFeaturesOption::OPTION_VALUE_SERVICE_MODE, $plugin_settings[ ExtraFeaturesOption::OPTION_NAME ] ) );
 
 		$values = [];
@@ -91,7 +91,7 @@ class FilesTreeFinder {
 				$source_dir,
 				$plugin_settings[ SupportedExtensionsOption::OPTION_NAME ],
 				$output_formats,
-				$force_convert_all,
+				$force_convert_deleted,
 				$force_convert_crashed
 			);
 		}
@@ -114,7 +114,7 @@ class FilesTreeFinder {
 	 * @param string   $dir_path              Server path of source directory.
 	 * @param string[] $source_formats        Allowed extensions.
 	 * @param string[] $output_formats        Allowed extensions.
-	 * @param bool     $force_convert_failed  Skip .deleted and .crashed files.
+	 * @param bool     $force_convert_deleted Skip .deleted files.
 	 * @param bool     $force_convert_crashed Skip .crashed files.
 	 * @param int      $nesting_level         .
 	 *
@@ -124,7 +124,7 @@ class FilesTreeFinder {
 		string $dir_path,
 		array $source_formats,
 		array $output_formats,
-		bool $force_convert_failed,
+		bool $force_convert_deleted,
 		bool $force_convert_crashed,
 		int $nesting_level = 0
 	): array {
@@ -149,14 +149,14 @@ class FilesTreeFinder {
 
 			if ( is_dir( $current_path ) ) {
 				if ( apply_filters( 'webpc_supported_source_directory', true, basename( $current_path ), $current_path ) ) {
-					$children = $this->find_tree_in_directory( $current_path, $source_formats, $output_formats, $force_convert_failed, $force_convert_crashed, ( $nesting_level + 1 ) );
+					$children = $this->find_tree_in_directory( $current_path, $source_formats, $output_formats, $force_convert_deleted, $force_convert_crashed, ( $nesting_level + 1 ) );
 					if ( $children['items'] || $children['files'] ) {
 						$list['items'][] = $children;
 					}
 				}
 			} elseif ( in_array( strtolower( pathinfo( $current_path, PATHINFO_EXTENSION ) ), $source_formats ) ) {
 				if ( apply_filters( 'webpc_supported_source_file', true, basename( $current_path ), $current_path )
-					&& ! $this->is_converted_file( $current_path, $output_formats, $force_convert_failed, $force_convert_crashed ) ) {
+					&& ! $this->is_converted_file( $current_path, $output_formats, $force_convert_deleted, $force_convert_crashed ) ) {
 					$list['files'][] = $path;
 				}
 			}
@@ -169,12 +169,12 @@ class FilesTreeFinder {
 	/**
 	 * @param string   $source_path           .
 	 * @param string[] $output_formats        .
-	 * @param bool     $force_convert_failed  Skip .deleted and .crashed files.
+	 * @param bool     $force_convert_deleted Skip .deleted files.
 	 * @param bool     $force_convert_crashed Skip .crashed files.
 	 *
 	 * @return bool
 	 */
-	private function is_converted_file( string $source_path, array $output_formats, bool $force_convert_failed, bool $force_convert_crashed ): bool {
+	private function is_converted_file( string $source_path, array $output_formats, bool $force_convert_deleted, bool $force_convert_crashed ): bool {
 		$is_not_converted = false;
 
 		foreach ( $output_formats as $output_format ) {
@@ -185,11 +185,9 @@ class FilesTreeFinder {
 
 			if ( file_exists( $output_path ) ) {
 				$this->files_converted[ $output_format ]++;
-			} elseif ( ! $force_convert_failed &&
-				( file_exists( $output_path . '.' . SkipLarger::DELETED_FILE_EXTENSION )
-					|| ( ! $force_convert_crashed && file_exists( $output_path . '.' . SkipCrashed::CRASHED_FILE_EXTENSION ) )
-				)
-			) {
+			} elseif ( ! $force_convert_deleted && file_exists( $output_path . '.' . SkipLarger::DELETED_FILE_EXTENSION ) ) {
+				$this->files_converted[ $output_format ]++;
+			} elseif ( ! $force_convert_crashed && file_exists( $output_path . '.' . SkipCrashed::CRASHED_FILE_EXTENSION ) ) {
 				$this->files_converted[ $output_format ]++;
 			} else {
 				$this->files_unconverted[ $output_format ]++;

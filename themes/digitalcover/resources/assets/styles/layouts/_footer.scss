@@ -1,23 +1,58 @@
+@use "../config" as *;
+@use "../mixins" as *;
+
 .footer {
-  &__links {
-    &-credit {
-      position: relative;
-      display: inline-block;
-      padding-right: 30px;
+  padding: 4rem 0 2rem;
+  color: $white;
+  background: $primary;
 
-      .link {
-        display: inline-block;
-        padding: 0 20px;
-      }
+  @include media-breakpoint-up(lg) { padding: 4rem 0; }
 
-      img {
-        display: inline-block;
-        width: 30px;
-        height: 30px;
-        position: absolute;
-        bottom: 50%;
-        transform: translateY(50%);
+  &-logo {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    &__img {
+      @include media-breakpoint-up(lg) {
+        width: subcol(12, 5);
+        margin-left: 0;
       }
+    }
+  }
+
+  &-description {
+    margin-top: 1.5rem;
+
+    @include f16;
+
+    @include media-breakpoint-up(lg) {
+      width: subcol(12, 6);
+      margin-top: 0;
+    }
+  }
+
+  &-copyright {
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+
+    @include f16;
+
+    @include media-breakpoint-up(lg) {
+      width: subcol(12, 12);
+      margin-top: 2rem;
+      margin-left: 0;
+    }
+  }
+
+  &-list {
+    margin-bottom: 2rem;
+
+    &__item {
+      margin-bottom: 0.5rem;
+
+      &-link { text-decoration: none; }
     }
   }
 }

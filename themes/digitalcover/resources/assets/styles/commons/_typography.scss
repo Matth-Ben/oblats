@@ -1,6 +1,24 @@
-// body {}
-// h1 {}
-// h2 {}
-// h3 {}
+@use "../config" as *;
+
+body {
+  @include f18;
+}
+
+h1 {
+  text-transform: uppercase;
+
+  @include f48;
+}
+
+h2 {
+  @include f36;
+}
+
+h3 {
+  color: $primary;
+
+  @include f32;
+}
+
 // h4 {}
 // h5 {}

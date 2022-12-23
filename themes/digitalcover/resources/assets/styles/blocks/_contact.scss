@@ -1,0 +1,36 @@
+@use "../config" as *;
+
+.b-contact {
+  &__item {
+    margin-bottom: 4rem;
+
+    &:last-child { margin-bottom: auto; }
+  }
+
+  &__body {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 2rem;
+  }
+
+  &__title { margin-bottom: 1.5rem; }
+
+  &__mail,
+  &__address {
+    width: 100%;
+
+    @include media-breakpoint-up(lg) { width: auto; }
+  }
+
+  &__phone { width: 100%; }
+
+  &__mail,
+  &__phone,
+  &__address {
+    span,
+    a {
+      font-weight: 700;
+      text-decoration: underline;
+    }
+  }
+}

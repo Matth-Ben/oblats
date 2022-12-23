@@ -127,8 +127,8 @@ class RemoteMethod extends MethodAbstract {
 		$this->server_configurator->set_memory_limit();
 		$this->server_configurator->set_execution_time();
 
-		$output_formats       = $plugin_settings[ OutputFormatsOption::OPTION_NAME ];
-		$force_convert_failed = ( ! in_array( ExtraFeaturesOption::OPTION_VALUE_ONLY_SMALLER, $plugin_settings[ ExtraFeaturesOption::OPTION_NAME ] ) );
+		$output_formats        = $plugin_settings[ OutputFormatsOption::OPTION_NAME ];
+		$force_convert_deleted = ( ! in_array( ExtraFeaturesOption::OPTION_VALUE_ONLY_SMALLER, $plugin_settings[ ExtraFeaturesOption::OPTION_NAME ] ) );
 
 		$source_paths = [];
 		$output_paths = [];
@@ -154,7 +154,7 @@ class RemoteMethod extends MethodAbstract {
 			foreach ( $source_paths as $output_format => $extensions_paths ) {
 				foreach ( $extensions_paths as $path_index => $extensions_path ) {
 					if ( file_exists( $output_paths[ $output_format ][ $path_index ] )
-						|| ( ! $force_convert_failed && file_exists( $output_paths[ $output_format ][ $path_index ] . '.' . SkipLarger::DELETED_FILE_EXTENSION ) ) ) {
+						|| ( ! $force_convert_deleted && file_exists( $output_paths[ $output_format ][ $path_index ] . '.' . SkipLarger::DELETED_FILE_EXTENSION ) ) ) {
 						unset( $source_paths[ $output_format ][ $path_index ] );
 						unset( $output_paths[ $output_format ][ $path_index ] );
 

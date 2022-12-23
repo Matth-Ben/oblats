@@ -11,7 +11,7 @@
         <section class="b-gutenberg">
           <div class="container-fluid">
             <div class="row">
-              <div class="offset-md-2 col-md-20">
+              <div class="col-lg-22 offset-lg-1">
                 {!! the_content() !!}
               </div>
             </div>

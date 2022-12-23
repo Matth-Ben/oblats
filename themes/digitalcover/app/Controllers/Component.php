@@ -34,4 +34,10 @@ class Component extends Controller {
       ]
     ];
   }
+
+  public static function cardPost($id) {
+    return [
+        'image' => get_post_thumbnail_id($id) ? Element::image(get_post_thumbnail_id($id), '50vw', NULL, true) : NULL,
+    ];
+  }
 }

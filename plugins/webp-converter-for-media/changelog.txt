@@ -1,7 +1,21 @@
 == Changelog ==
 
+= 5.5.1 (2022-11-29) =
+* `[Fixed]` Cache for REST API responses using LiteSpeed Cache plugin
+* `[Changed]` Authorization method for REST API endpoints
+
+= 5.5.0 (2022-11-22) =
+* `[Removed]` Error logging to debug.log file
+* `[Changed]` Content of welcome notice after plugin installation
+* `[Added]` Exclusion of directories from converting images in plugin settings
+* `[Added]` Instruction in "Conversion strategy" field in plugin settings
+* `[Added]` Possibility to disable rewrite inheritance in .htaccess files in plugin settings
+
+= 5.4.2 (2022-11-14) =
+* `[Added]` Possibility to re-convert files that have not been successfully converted (service mode must be active)
+
 = 5.4.1 (2022-11-13) =
-* `[Added]` Possibility to manually delete original files after converting to WebP/AVIF, after disabling "Automatic removal of files in output formats larger than original" option in plugin settings
+* `[Fixed]` Forcing images larger than original to be re-converted
 
 = 5.4.0 (2022-11-12) =
 * `[Fixed]` Converting using a Remote server when response is empty

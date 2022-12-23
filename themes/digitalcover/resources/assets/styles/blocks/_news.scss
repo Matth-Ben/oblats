@@ -1,0 +1,37 @@
+@use "../config" as *;
+
+.b-news {
+  &__head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+
+    &-button {
+      margin-top: 1rem;
+
+      @include media-breakpoint-up(lg) { margin-top: 0; }
+    }
+  }
+
+  &__body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem 0;
+
+    .card-post {
+      &__thumbnail {
+        /* stylelint-disable-next-line */
+        aspect-ratio: 270/150;
+
+        .image {
+          /* stylelint-disable-next-line */
+          aspect-ratio: 270/150;
+        }
+      }
+    }
+  }
+}

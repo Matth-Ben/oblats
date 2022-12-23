@@ -1,0 +1,53 @@
+@use "../config" as *;
+@use "../mixins" as *;
+
+.b-list-card {
+  &__cards {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem 0;
+    margin: 2rem auto 3rem;
+  }
+
+  &__item {
+    position: relative;
+    width: subcol(24, 24);
+
+    @include media-breakpoint-up(lg) { width: subcol(18, 6); }
+
+    &-image {
+      position: relative;
+      width: 100%;
+      height: 15rem;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: $black;
+        opacity: 0.3;
+      }
+    }
+
+    &-title {
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      color: $white;
+      font-weight: 600;
+      text-align: center;
+      transform: translateY(-50%);
+
+      @include f32;
+    }
+  }
+
+  &__button { text-align: center; }
+}

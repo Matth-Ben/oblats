@@ -1,6 +1,199 @@
 @use "../config" as *;
+@use "../mixins" as *;
 
 .header {
-  position: relative;
+  position: fixed;
+  top: 0;
   z-index: $z-header;
+  width: 100vw;
+  background: $white;
+
+  &-top {
+    position: relative;
+    z-index: 3;
+
+    &__wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    &__nav {
+      display: none;
+
+      @include media-breakpoint-up(lg) {
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    &__button {
+      padding: 1rem 2rem;
+      color: $black;
+      background: $white;
+      border: 1px solid $white;
+      text-decoration: none;
+
+      &.login {
+        color: $white;
+        background: $primary;
+        border: 1px solid $primary;
+      }
+    }
+  }
+
+  &-nav {
+    position: fixed;
+    z-index: 2;
+    height: 100%;
+    background: $white;
+
+    @include media-breakpoint-up(lg) {
+      position: relative;
+      padding: 1rem 0 1.063rem;
+      border-bottom: 0.063rem solid $primary;
+    }
+
+    &__logo {
+      width: subcol(24, 4);
+
+      .image {
+        width: 100%;
+        height: auto;
+        margin: auto;
+      }
+    }
+
+    &__toggler {
+      display: flex;
+      position: relative;
+      flex-direction: column;
+      cursor: pointer;
+      z-index: 1;
+
+      @include media-breakpoint-up(xl) { display: none; }
+
+      span,
+      div {
+        width: 1.563rem;
+        height: 0.063rem;
+        background-color: $primary;
+      }
+
+      span {
+        display: block;
+        transform: scaleX(1);
+        transform-origin: right;
+        transition: transform 0.5s $ease-out calc(var(--transition-order) * 100ms + 500ms);
+
+        &:not(:first-child) { margin-top: 0.313rem; }
+
+        &:nth-child(2) {
+          width: 1.875rem;
+        }
+      }
+
+      div {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 1.875rem;
+        transform: translate(-50%, -50%) rotate(45deg) scaleX(0);
+        transition: transform 0.5s $ease-out calc(var(--transition-order) * 100ms);
+
+        &:last-child { transform: translate(-50%, -50%) rotate(-45deg) scaleX(0); }
+      }
+
+      &.open {
+        span {
+          transform: scaleX(0);
+          transform-origin: left;
+          transition: transform 0.5s $ease-out calc(var(--transition-order) * 100ms);
+        }
+
+        div {
+          transform: translate(-50%, -50%) rotate(45deg) scaleX(1);
+          transition: transform 0.5s $ease-out calc(var(--transition-order) * 100ms + 500ms);
+
+          &:last-child { transform: translate(-50%, -50%) rotate(-45deg) scaleX(1); }
+        }
+      }
+
+      @include media-breakpoint-up(lg) {
+        display: none;
+      }
+    }
+
+    &__list {
+      columns: 2;
+      -webkit-columns: 2;
+      -moz-columns: 2;
+      width: subcol(24, 19);
+      margin-left: submargin(24, 1);
+
+      @include media-breakpoint-up(lg) {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 20px;
+        columns: auto;
+      }
+    }
+
+    &__item {
+      position: relative;
+      display: flex;
+      align-items: center;
+
+      &-link {
+        font-family: $font-default;
+        font-weight: 400;
+        font-size: 1rem;
+        line-height: 1.4;
+        text-decoration: none;
+        opacity: 0.8;
+        transition: opacity 1s $ease-out;
+
+        @media (hover: hover) {
+          &:hover {
+            opacity: 1;
+          }
+        }
+
+        @include media-breakpoint-up(lg) {
+          position: relative;
+          padding: 0.5rem 0;
+          font-family: $font-heading;
+          font-weight: 500;
+          line-height: 1.2;
+          letter-spacing: 0.06em;
+          text-align: center;
+          overflow: hidden;
+          opacity: 1;
+          transition: color 1s $ease-out;
+
+          @media (hover: hover) {
+            &:hover {
+              color: $primary;
+            }
+          }
+        }
+
+        &.active {
+          color: $primary;
+        }
+      }
+    }
+
+    &__nav {
+      display: flex;
+      align-items: center;
+      padding-top: 3.125rem;
+      padding-bottom: 3.125rem;
+      border-bottom: 0.063rem solid rgba(27, 25, 25, 0.1);
+
+      .search { margin-left: 1.563rem; }
+      .login { margin-left: 3.125rem; }
+    }
+  }
 }

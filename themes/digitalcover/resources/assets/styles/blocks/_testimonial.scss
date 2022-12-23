@@ -1,0 +1,67 @@
+@use "../config" as *;
+@use "../mixins" as *;
+
+.b-testimonial {
+  &__position {
+    &-left {
+      .b-testimonial {
+        &__card {
+          @include media-breakpoint-up(lg) { order: 2; }
+        }
+
+        &__thumbnail {
+          @include media-breakpoint-up(lg) {
+            margin-right: submargin(18, -3);
+            margin-left: submargin(18, 1, true);
+            order: 1;
+          }
+        }
+      }
+    }
+  }
+
+  &__body {
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+  }
+
+  &__card {
+    position: relative;
+    z-index: 1;
+    width: subcol(24, 24);
+    padding: 3rem 2rem;
+    background: $white;
+    border: 1px solid $black;
+
+    @include media-breakpoint-up(lg) {
+      width: subcol(18, 10);
+      margin-left: submargin(18, 1, true);
+      padding: 6rem 4rem;
+    }
+
+    &-content {
+      font-style: italic;
+    }
+
+    &-name {
+      margin-top: 2rem;
+      font-weight: 500;
+      text-align: right;
+    }
+  }
+
+  &__thumbnail {
+    position: relative;
+    z-index: -1;
+    width: subcol(24, 24);
+    height: 450px;
+
+    @include media-breakpoint-up(lg) {
+      width: subcol(18, 8);
+      height: 35rem;
+      margin-left: submargin(18, -2);
+      margin-bottom: 3rem;
+    }
+  }
+}

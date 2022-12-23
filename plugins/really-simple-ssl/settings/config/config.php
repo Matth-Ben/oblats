@@ -111,7 +111,6 @@ function rsssl_menu() {
 				[
 					'id'      => 'hsts',
 					'title'   => __( 'HTTP Strict Transport Security', 'really-simple-ssl' ),
-					'intro'   => __( "Intro HSTS", "really-simple-ssl" ),
 					'premium' => true,
 					'groups'  => [
 						[
@@ -534,6 +533,13 @@ function rsssl_fields( $load_values = true ) {
 					'rename_admin_user' => 1,
 				]
 			],
+			'server_conditions' => [
+				'relation' => 'AND',
+				[
+					'rsssl_has_admin_user()' => true,
+				]
+			],
+
 		],
 		[
 			'id'       => 'disable_xmlrpc',

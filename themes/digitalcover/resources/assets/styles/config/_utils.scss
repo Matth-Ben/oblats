@@ -16,11 +16,9 @@
 .u-h100 { height: 100%; }
 
 .u-margin {
-  margin: 50px 0;
+  margin: 3rem 0;
 
-  @include media-breakpoint-up(md) { margin: 75px 0; }
-
-  @include media-breakpoint-up(xl) { margin: 100px 0; }
+  @include media-breakpoint-up(lg) { margin: 6rem 0; }
 }
 
 .u-padding {
@@ -31,8 +29,18 @@
   @include media-breakpoint-up(xl) { padding: 100px 0; }
 }
 
+.u-gap { gap: 0.6rem; }
+
+.u-p0 { padding: 0; }
+
 .u-o1 {
   order: 1;
+
+  @include media-breakpoint-up(xl) { order: initial; }
+}
+
+.u-o2 {
+  order: 2;
 
   @include media-breakpoint-up(xl) { order: initial; }
 }

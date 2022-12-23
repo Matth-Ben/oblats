@@ -68,7 +68,7 @@ class PathsFinder {
 	 * @return mixed[] {
 	 * @type string         $path                   Directory path.
 	 * @type string[]       $files                  Files paths.
-	 * }
+	 *                                              }
 	 */
 	public function get_paths_by_chunks( bool $skip_converted = false, array $allowed_output_formats = null ): array {
 		$allowed_output_formats = $allowed_output_formats
@@ -133,14 +133,14 @@ class PathsFinder {
 	): array {
 		$plugin_settings        = $this->plugin_data->get_plugin_settings();
 		$allowed_output_formats = $allowed_output_formats ?: $plugin_settings[ OutputFormatsOption::OPTION_NAME ];
-		$force_convert_failed   = ( ! in_array( ExtraFeaturesOption::OPTION_VALUE_ONLY_SMALLER, $plugin_settings[ ExtraFeaturesOption::OPTION_NAME ] ) );
+		$force_convert_deleted  = ( ! in_array( ExtraFeaturesOption::OPTION_VALUE_ONLY_SMALLER, $plugin_settings[ ExtraFeaturesOption::OPTION_NAME ] ) );
 
 		foreach ( $source_paths as $path_index => $source_path ) {
 			$is_converted = true;
 			foreach ( $allowed_output_formats as $output_format ) {
 				$output_path = $this->output_path->get_path( $source_path, false, $output_format );
 
-				if ( $output_path && ! $this->is_converted_file( $source_path, $output_path, $force_convert_failed, false, $force_convert_modified ) ) {
+				if ( $output_path && ! $this->is_converted_file( $source_path, $output_path, $force_convert_deleted, false, $force_convert_modified ) ) {
 					$is_converted = false;
 					break;
 				}
@@ -165,7 +165,7 @@ class PathsFinder {
 	): array {
 		$plugin_settings        = $this->plugin_data->get_plugin_settings();
 		$allowed_output_formats = $allowed_output_formats ?: $plugin_settings[ OutputFormatsOption::OPTION_NAME ];
-		$force_convert_failed   = ( ! in_array( ExtraFeaturesOption::OPTION_VALUE_ONLY_SMALLER, $plugin_settings[ ExtraFeaturesOption::OPTION_NAME ] ) );
+		$force_convert_deleted  = ( ! in_array( ExtraFeaturesOption::OPTION_VALUE_ONLY_SMALLER, $plugin_settings[ ExtraFeaturesOption::OPTION_NAME ] ) );
 		$force_convert_crashed  = ( in_array( ExtraFeaturesOption::OPTION_VALUE_SERVICE_MODE, $plugin_settings[ ExtraFeaturesOption::OPTION_NAME ] ) );
 
 		foreach ( $source_dirs as $dir_name => $dir_data ) {
@@ -175,7 +175,7 @@ class PathsFinder {
 				foreach ( $allowed_output_formats as $output_format ) {
 					$output_path = $this->output_path->get_path( $source_path, false, $output_format );
 
-					if ( $output_path && ! $this->is_converted_file( $source_path, $output_path, $force_convert_failed, $force_convert_crashed ) ) {
+					if ( $output_path && ! $this->is_converted_file( $source_path, $output_path, $force_convert_deleted, $force_convert_crashed ) ) {
 						$is_converted = false;
 						break;
 					}
@@ -195,7 +195,7 @@ class PathsFinder {
 	 * @return mixed[] {
 	 * @type string   $path  Directory path.
 	 * @type string[] $files Files paths.
-	 * }
+	 *                       }
 	 */
 	private function find_source_paths(): array {
 		$settings = $this->plugin_data->get_plugin_settings();
@@ -219,7 +219,7 @@ class PathsFinder {
 	/**
 	 * @param string $source_path            .
 	 * @param string $output_path            .
-	 * @param bool   $force_convert_failed   Skip .deleted and .crashed files.
+	 * @param bool   $force_convert_deleted  Skip .deleted files.
 	 * @param bool   $force_convert_crashed  Skip .crashed files.
 	 * @param bool   $force_convert_modified .
 	 *
@@ -228,18 +228,19 @@ class PathsFinder {
 	private function is_converted_file(
 		string $source_path,
 		string $output_path,
-		bool $force_convert_failed,
+		bool $force_convert_deleted,
 		bool $force_convert_crashed,
 		bool $force_convert_modified = false
 	): bool {
 		if ( file_exists( $output_path ) ) {
 			return ( $force_convert_modified ) ? ( filemtime( $source_path ) <= filemtime( $output_path ) ) : true;
-		} elseif ( $force_convert_failed ) {
-			return false;
+		} elseif ( ! $force_convert_deleted && file_exists( $output_path . '.' . SkipLarger::DELETED_FILE_EXTENSION ) ) {
+			return true;
+		} elseif ( ! $force_convert_crashed && file_exists( $output_path . '.' . SkipCrashed::CRASHED_FILE_EXTENSION ) ) {
+			return true;
 		}
 
-		return ( file_exists( $output_path . '.' . SkipLarger::DELETED_FILE_EXTENSION )
-			|| ( ! $force_convert_crashed && file_exists( $output_path . '.' . SkipCrashed::CRASHED_FILE_EXTENSION ) ) );
+		return false;
 	}
 
 	/**
