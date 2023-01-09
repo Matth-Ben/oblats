@@ -5,6 +5,16 @@
   padding: 14px 32px;
   color: $white;
   background: $primary;
+  border: 1px solid $primary;
   border-radius: 50px;
   text-align: center;
+  text-decoration: none;
+  font-weight: 400;
+  transition: background 0.6s $ease-out;
+
+  @media (hover: hover) {
+    &:hover {
+      background: $white;
+    }
+  }
 }
