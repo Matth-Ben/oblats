@@ -76,6 +76,7 @@ if (function_exists('acf_add_local_field_group')) {
 
 require_once dirname(__DIR__) . '/resources/blocs-setup.php';
 require_once dirname(__DIR__) . '/resources/sync-acf.php';
+require_once dirname(__DIR__) . '/resources/admin/widgets/index.php';
 
 function remove_gutenberg_styles() {
   wp_dequeue_style( 'wp-block-library' );
@@ -133,16 +134,19 @@ add_filter( 'acf/load_field/name=id-form', 'acf_populate_gf_forms_ids' );
  * Hide unwanted Gutenberg Blocks
  */
 function dc_allowed_block_types ($allowed_block_types, $editor_context) {
+  global $pagenow;
     $acf_blocks = array_column(acf_get_block_types(), 'name');
-    $allowed_core_blocks = [
+    if ( 'widgets.php' !== $pagenow ) {
+      $allowed_core_blocks = [
         'core/paragraph',
         'core/heading',
         'core/list',
         'core/image',
         'core/columns'
-    ];
+      ];
 
-    return array_merge($allowed_core_blocks, $acf_blocks);
+      return array_merge($allowed_core_blocks, $acf_blocks);
+    }
 }
 add_filter( 'allowed_block_types_all', 'dc_allowed_block_types', 10, 2 );
 
@@ -239,8 +243,6 @@ function create_topics_nonhierarchical_taxonomy() {
     'choose_from_most_used' => __( 'Choose from the most used zones' ),
     'menu_name' => __( 'Zones' ),
   );
-
-// Now register the non-hierarchical taxonomy like tag
 
   register_taxonomy('zones','post',array(
     'hierarchical' => false,
