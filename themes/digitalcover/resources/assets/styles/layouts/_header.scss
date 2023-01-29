@@ -6,11 +6,11 @@
   top: 0;
   z-index: $z-header;
   width: 100vw;
-  background: $white;
 
   &-top {
     position: relative;
     z-index: 3;
+    background: $white;
 
     &__wrapper {
       display: flex;

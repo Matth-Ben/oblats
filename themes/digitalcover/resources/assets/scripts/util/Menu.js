@@ -24,6 +24,7 @@ export default class Menu {
     this.$nav = document.querySelector('.header-nav')
     this.$items = this.$nav.querySelectorAll('.header-nav__item-link')
     this.$login = this.$nav.querySelector('.login-label')
+    this.$logo = document.querySelector('.header-nav__logo')
   }
 
   addEvents() {
@@ -116,13 +117,25 @@ export default class Menu {
 
     if (last < this.currentScroll && this.currentScroll > store.w.h) {
       gsap.to([this.$top, this.$nav], {
-        y: -126,
+        y: '-4rem',
         duration: 0.8,
         ease: 'power3.out'
       })
-    } else if (last >= this.currentScroll) {
+
+      gsap.to(this.$logo, {
+        scale: 0.7,
+        duration: 0.8,
+        ease: 'power3.out'
+      })
+    } else if (last > this.currentScroll) {
       gsap.to([this.$top, this.$nav], {
         y: 0,
+        duration: 0.8,
+        ease: 'power3.out'
+      })
+
+      gsap.to(this.$logo, {
+        scale: 1,
         duration: 0.8,
         ease: 'power3.out'
       })
