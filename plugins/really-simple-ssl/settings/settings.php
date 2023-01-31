@@ -62,6 +62,7 @@ function rsssl_plugin_admin_scripts() {
             'site_url' => get_rest_url(),
             'dashboard_url' => add_query_arg(['page' => 'really-simple-security'], rsssl_admin_url() ),
             'letsencrypt_url' => rsssl_letsencrypt_wizard_url(),
+            'le_generated_by_rsssl' => rsssl_generated_by_rsssl(),
             'upgrade_link' => is_multisite() ? 'https://really-simple-ssl.com/pro-multisite' : 'https://really-simple-ssl.com/pro',
             'plugin_url' => rsssl_url,
             'network_link' => network_site_url('plugins.php'),
@@ -296,7 +297,7 @@ function rsssl_run_test($request){
 
 	$test = sanitize_title($request->get_param('test'));
     $state = $request->get_param('state');
-    $state =  $state !== 'undefined' ? $state : false;
+	$state =  $state !== 'undefined' && $state !== 'false' ? $state : false;
 	switch($test){
         case 'ssl_status_data':
             $data = rsssl_ssl_status_data();
@@ -532,7 +533,6 @@ function rsssl_update_option( $name, $value ) {
 	if ( !rsssl_user_can_manage() ) {
 		return;
 	}
-
 	$config_fields = rsssl_fields(false);
 	$config_ids = array_column($config_fields, 'id');
 	$config_field_index = array_search($name, $config_ids);

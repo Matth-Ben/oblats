@@ -116,6 +116,9 @@ if ( defined( 'WP_CLI' ) && ! class_exists( 'Ai1wm_Backup_WP_CLI_Command' ) ) {
 		 * [--exclude-database]
 		 * : Do not export database (sql)
 		 *
+		 * [--exclude-tables]
+		 * : Do not export selected database tables (sql)
+		 *
 		 * [--exclude-email-replace]
 		 * : Do not replace email domain (sql)
 		 *
@@ -187,6 +190,62 @@ if ( defined( 'WP_CLI' ) && ! class_exists( 'Ai1wm_Backup_WP_CLI_Command' ) ) {
 
 			if ( isset( $assoc_args['exclude-database'] ) ) {
 				$params['options']['no_database'] = true;
+			} elseif ( isset( $assoc_args['exclude-tables'] ) ) {
+				global $wpdb;
+
+				if ( empty( $wpdb->use_mysqli ) ) {
+					$mysql = new Ai1wm_Database_Mysql( $wpdb );
+				} else {
+					$mysql = new Ai1wm_Database_Mysqli( $wpdb );
+				}
+
+				// Include table prefixes
+				if ( ai1wm_table_prefix() ) {
+					$mysql->add_table_prefix_filter( ai1wm_table_prefix() );
+
+					// Include table prefixes (Webba Booking)
+					foreach ( array( 'wbk_services', 'wbk_days_on_off', 'wbk_locked_time_slots', 'wbk_appointments', 'wbk_cancelled_appointments', 'wbk_email_templates', 'wbk_service_categories', 'wbk_gg_calendars', 'wbk_coupons' ) as $table_name ) {
+						$mysql->add_table_prefix_filter( $table_name );
+					}
+				}
+
+				$tables = new cli\Table;
+
+				$tables->setHeaders(
+					array(
+						'name' => sprintf( 'Tables (%s)', DB_NAME ),
+					)
+				);
+
+				foreach ( $all_tables = $mysql->get_tables() as $table_name ) {
+					$tables->addRow(
+						array(
+							'name' => $table_name,
+						)
+					);
+				}
+
+				$tables->display();
+				$excluded_tables = array();
+
+				while ( $table = trim( readline( 'Enter table name to exclude from backup (q=quit, empty=continue): ' ) ) ) {
+					switch ( $table ) {
+						case 'q':
+							exit;
+
+						default:
+							if ( ! in_array( $table, $all_tables ) ) {
+								WP_CLI::warning( __( 'Unknown table: ', AI1WM_PLUGIN_NAME ) . $table );
+								break;
+							}
+							$excluded_tables[] = $table;
+					}
+				}
+
+				if ( ! empty( $excluded_tables ) ) {
+					$params['options']['exclude_db_tables'] = true;
+					$params['excluded_db_tables']           = implode( ',', $excluded_tables );
+				}
 			}
 
 			if ( isset( $assoc_args['exclude-email-replace'] ) ) {

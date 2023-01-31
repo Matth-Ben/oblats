@@ -339,9 +339,13 @@ class rsssl_admin
         $error = false;
 	    $is_rest_request =  $request instanceof WP_REST_Request;
 	    $site_url_changed = false;
+	    $wpcli = defined( 'WP_CLI' ) && WP_CLI;
+	    if ( $wpcli ) {
+            rsssl_update_option('site_has_ssl', true);
+	    }
 
 	    if ( rsssl_get_option('site_has_ssl') || get_option('rsssl_ssl_detection_overridden') ){
-	        //in a configuration reverse proxy without a set server variable https, add code to wpconfig
+		    //in a configuration reverse proxy without a set server variable https, add code to wpconfig
 	        if ( $this->do_wpconfig_loadbalancer_fix || $this->no_server_variable ) {
 		        $this->wpconfig_loadbalancer_fix();
 	        }
@@ -351,7 +355,6 @@ class rsssl_admin
 	        }
 
             $this->insert_secure_cookie_settings();
-
 	        if ( !$safe_mode ) {
 		        rsssl_update_option('redirect', 'wp_redirect');
 		        rsssl_update_option('mixed_content_fixer', true);
@@ -364,6 +367,7 @@ class rsssl_admin
 		        }
 		        update_option('rsssl_flush_caches', time(), false );
 	        }
+
 	        rsssl_update_option('ssl_enabled', true);
 	        $site_url_changed = $this->set_siteurl_to_ssl();
 		    delete_option('rsssl_admin_notices');
@@ -1782,7 +1786,7 @@ class rsssl_admin
             'admin_notices' => false,
             'premium_only' => false,
             'dismiss_on_upgrade' => false,
-            'status' => 'open', //status can be "all" (all tasks, regardless of dismissed or open), "open" (not success/completed) or "completed"
+            'status' => ['open', 'warning'], //status can be "all" (all tasks, regardless of dismissed or open), "open" (not success/completed) or "completed"
         );
         $args = wp_parse_args($args, $defaults);
 	    $cache_admin_notices = !$this->is_settings_page();
@@ -1895,22 +1899,6 @@ class rsssl_admin
                 ),
             ),
 
-            'mixed_content_scan' => array(
-                'dismiss_on_upgrade' => true,
-	            'condition' => array('rsssl_ssl_enabled'),
-	            'callback' => '_true_',
-	            'score' => 5,
-	            'output' => array(
-		            'true' => array(
-                        'url' => 'https://really-simple-ssl.com/knowledge-base/how-to-track-down-mixed-content-or-insecure-content/',
-			            'msg' => __("SSL is now activated. Check if your website is secure by following this article.", "really-simple-ssl"),
-			            'icon' => 'open',
-			            'dismissible' => true,
-			            'plusone' => true,
-		            ),
-	            ),
-            ),
-
             'compatiblity_check' => array(
 	            'condition' => array('rsssl_incompatible_premium_version'),
 	            'callback' => '_true_',
@@ -1926,21 +1914,21 @@ class rsssl_admin
 	            ),
             ),
 
-            'google_analytics' => array(
-	            'dismiss_on_upgrade' => true,
-	            'callback' => '_true_',
-                'condition' => array('rsssl_ssl_enabled', 'rsssl_ssl_activation_time_no_longer_then_3_days_ago'),
-                'score' => 5,
-                'output' => array(
-                    'true' => array(
-                        'msg' => __("Remember to change your URLs in external services like Google Analytics, Search Console and others. This should prevent any data loss resulting from the switch to https.", "really-simple-ssl"),
-                        'url' => 'https://really-simple-ssl.com/knowledge-base/how-to-setup-google-analytics-and-google-search-consolewebmaster-tools/',
-                        'icon' => 'open',
-                        'dismissible' => true,
-                        'plusone' => true,
-                    ),
-                ),
-            ),
+	        'mixed_content_scan' => array(
+		        'dismiss_on_upgrade' => true,
+		        'condition' => array('rsssl_ssl_enabled'),
+		        'callback' => '_true_',
+		        'score' => 5,
+		        'output' => array(
+			        'true' => array(
+				        'url' => 'https://really-simple-ssl.com/steps-after-activating-ssl',
+				        'msg' => __("SSL is now activated. Follow the three steps in this article to check if your website is secure.", "really-simple-ssl"),
+				        'icon' => 'open',
+				        'dismissible' => true,
+				        'plusone' => true,
+			        ),
+		        ),
+	        ),
 
             'ssl_enabled' => array(
                 'callback' => 'rsssl_ssl_enabled',
@@ -2294,7 +2282,7 @@ class rsssl_admin
 	    /**
 	     * Filter out notice that do not apply, or are dismissed
 	     */
-
+	    $statuses = $args['status'];
 	    foreach ( $notices as $id => $notice ) {
 		    $func   = $notice['callback'];
 		    $output = $this->validate_function($func);
@@ -2311,12 +2299,12 @@ class rsssl_admin
             if ( !isset($notice['output'][ $output ]) ) {
 	            unset($notices[$id]);
 	            continue;
-            } else {
-                $notices[$id]['output'] = $notice['output'][ $output ];
             }
 
-		    $notices[$id]['output']['status'] = ( $notices[$id]['output']['icon'] !== 'success') ? 'open' : 'completed';
-		    if ( $args['status'] === 'open' && ($notices[$id]['output']['status'] === 'completed' ) ){
+		    $notices[$id]['output'] = $notice['output'][ $output ];
+
+		    $notices[$id]['output']['status'] = ( $notices[$id]['output']['icon'] === 'success') ? 'completed' : $notices[$id]['output']['icon'];
+		    if ( !in_array( $notices[$id]['output']['status'], $statuses ) ){
 			    unset($notices[$id]);
 			    continue;
             }
