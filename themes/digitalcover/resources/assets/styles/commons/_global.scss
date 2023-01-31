@@ -12,7 +12,11 @@ html {
 // .b-gutenberg {}
 
 .page-head,
-.home-head {
+.home-head,
+.news-head,
+.single-head,
+.necrologie-head,
+.single-necrologie {
   margin-top: 0;
   padding-top: 12rem;
 }
@@ -29,5 +33,21 @@ a {
 
   @media (hover: hover) {
     &:hover { color: $primary; }
+  }
+}
+
+.sidebar {
+  display: none;
+  margin: 3rem auto;
+
+  @include media-breakpoint-up(lg) { display: block; }
+
+  .widget {
+    margin-bottom: 2.5rem;
+
+    h3 {
+      color: $black;
+      margin-bottom: 1.5rem;
+    }
   }
 }

@@ -1,0 +1,99 @@
+@use "../config" as *;
+
+.c-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 5rem;
+  margin-top: 3rem;
+  background: $primary;
+
+  .navigation {
+    width: 100%;
+  }
+
+  .nav-links {
+    position: relative;
+    text-align: center;
+
+    .page-numbers {
+      margin: auto 0.5rem;
+      color: $white;
+      text-decoration: none;
+
+      @include f16;
+
+      &.current {
+        color: $white;
+        opacity: 0.7;
+        text-decoration: underline;
+      }
+    }
+
+    .next,
+    .prev {
+      position: absolute;
+      color: $white;
+    }
+
+    .next {
+      right: 0;
+
+      &::after {
+        top: 0.5rem;
+        right: 1rem;
+      }
+
+      &::before {
+        top: -1.6rem;
+        right: -0.6rem;
+        transition: width 0.6s $ease-out;
+      }
+
+      .c-pagination__button {
+        position: relative;
+        padding-right: 5.5rem;
+        z-index: 1;
+        transition: color 1s $ease-out;
+      }
+    }
+
+    .prev {
+      left: 0;
+
+      &::after {
+        top: 3px;
+        left: 12px;
+        transform: rotate(180deg);
+      }
+
+      &::before {
+        top: -16px;
+        left: -6px;
+        transition: width 0.6s $ease-out;
+      }
+
+      .c-pagination__button {
+        position: relative;
+        padding-left: 55px;
+        z-index: 1;
+        transition: color 1s $ease-out;
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          &::before { width: 200px; }
+
+          .c-pagination__button { color: $white; }
+        }
+      }
+    }
+  }
+
+  &__button {
+    display: none;
+
+    @include media-breakpoint-up(md) { display: block; }
+  }
+}

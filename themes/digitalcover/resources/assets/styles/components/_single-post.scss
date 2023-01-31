@@ -7,40 +7,6 @@ $postContentColor: $black;
 
 .single-post {
   .post-content {
-    h2 {
-      font-family: $postTitleFont;
-      font-size: 25px;
-      margin: 30px 0;
-      color: $postTitleColor;
-    }
-
-    h3 {
-      font-family: $postTitleFont;
-      font-size: 22px;
-      margin: 20px 0;
-      color: $postTitleColor;
-    }
-
-    h4 {
-      font-family: $postTitleFont;
-      font-size: 20px;
-      margin: 15px 0;
-      color: $postTitleColor;
-    }
-
-    p {
-      font-family: $postContentFont;
-      font-size: 16px;
-      line-height: 26px;
-      color: $postContentColor;
-    }
-
-    a {
-      font-family: $postContentFont;
-      color: $postContentColor;
-      text-decoration: underline;
-    }
-
     .wp-block-columns {
       display: flex;
       flex-direction: column;
@@ -118,5 +84,17 @@ $postContentColor: $black;
         }
       }
     }
+  }
+}
+
+.single {
+  &-back {
+    margin: 3rem auto 1rem;
+  }
+
+  &-body {
+    margin-bottom: 6rem;
+
+    @include media-breakpoint-up(lg) { margin-bottom: 6rem; }
   }
 }

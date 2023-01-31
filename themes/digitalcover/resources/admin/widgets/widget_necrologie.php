@@ -32,14 +32,14 @@ class necrologie_widget extends WP_Widget {
         $date = get_field('date_du_deces', get_the_ID());
         $img = get_the_post_thumbnail_url();
         $html = <<<EOF
-        <a href="$url" class="widget card__necrologie">
-          <div class="card__necrologie-thumbnail">
+        <a href="$url" class="widget widget__necrologie">
+          <div class="widget__necrologie-thumbnail">
             <img src="$img" width="150" height="200">
           </div>
-          <div class="card__necrologie-body">
-            <div class="card__necrologie-title">$title</div>
-            <div class="card__necrologie-date">Date du décès : <span>$date</span></div>
-            <div class="card__necrologie-link">Voir le mémorial</div>
+          <div class="widget__necrologie-body">
+            <div class="widget__necrologie-title">$title</div>
+            <div class="widget__necrologie-date">Date du décès : <span>$date</span></div>
+            <div class="widget__necrologie-link">Voir le mémorial</div>
           </div>
         </a>
         EOF;

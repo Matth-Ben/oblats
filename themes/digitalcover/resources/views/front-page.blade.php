@@ -17,7 +17,7 @@
             {!! the_content() !!}
           </div>
           <div class="col-24 col-lg-7 offset-1">
-            <div class="home-sidebar u-margin">
+            <div class="home-sidebar sidebar">
               {!! dynamic_sidebar('primary') !!}
             </div>
           </div>

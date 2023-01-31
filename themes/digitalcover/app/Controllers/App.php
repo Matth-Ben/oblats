@@ -85,6 +85,11 @@ class App extends Controller {
       'footer' => [
         'logo' => Element::image($options['f_logo'], '250px'),
         'description' => $options['f_description']
+      ],
+      'necrologie' => [
+        'display-breadcrumb' => false,
+        'image' => $options['necro_image'],
+        'title' => $options['necro_title']
       ]
     ];
   }

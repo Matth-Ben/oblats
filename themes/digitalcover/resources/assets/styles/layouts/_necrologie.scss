@@ -1,0 +1,19 @@
+@use "../config" as *;
+
+.single-necrologie {
+  &__back {
+    padding-top: 2rem;
+  }
+
+  &__body { margin: 2rem auto; }
+
+  &__thumbnail {
+    margin-bottom: 2rem;
+
+    @include media-breakpoint-up(lg) { margin-bottom: auto; }
+
+    img { width: 100%; }
+  }
+
+  &__title { margin-bottom: 1.5rem; }
+}

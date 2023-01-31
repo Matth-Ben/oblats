@@ -15,7 +15,7 @@
     ]
   },
   "publicPath": "/wp-content/themes/digitalcover",
-  "devUrl": "http://oblatsfrance.localhost",
+  "devUrl": "http://oblats.localhost",
   "proxyUrl": "http://localhost:3000",
   "cacheBusting": "[name]",
   "watch": [
