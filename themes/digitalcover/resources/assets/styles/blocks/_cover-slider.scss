@@ -3,10 +3,10 @@
 
 .b-cover-slider {
   &__content {
-    height: 600px;
+    height: 45rem;
     position: relative;
 
-    @include media-breakpoint-up(md) { height: 500px; }
+    @include media-breakpoint-up(lg) { height: 35rem; }
   }
 
   &__imgs {
@@ -60,13 +60,13 @@
     display: block;
     width: subcol(24, 22);
     height: fit-content;
-    padding: 0 submargin(24, 1, true) 50px;
+    padding: 5rem submargin(24, 1, true);
     overflow: hidden;
     transform: translateY(-50%);
 
     @include media-breakpoint-up(md) {
       width: subcol(24, 16);
-      padding: 40px submargin(24, 1, true) 35px;
+      padding: 4rem submargin(24, 1, true) 3.5rem;
     }
 
     @include media-breakpoint-up(xl) {
@@ -102,17 +102,17 @@
         }
       }
 
-      &-content { margin-top: 15px; }
-      &-button { margin-top: 30px; }
+      &-content { margin-top: 1.5rem; }
+      &-button { margin-top: 3rem; }
     }
   }
 
   &__nav {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 1rem;
     position: absolute;
-    bottom: 40px;
+    bottom: 4rem;
     right: $column-width;
     z-index: 1;
 
@@ -122,10 +122,10 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 50px;
-      height: 50px;
+      width: 5rem;
+      height: 5rem;
       background: $primary;
-      border-radius: 50px;
+      border-radius: 5rem;
       cursor: pointer;
       overflow: hidden;
 
@@ -134,10 +134,10 @@
         position: absolute;
         top: 0;
         left: 0;
-        width: 50px;
-        height: 50px;
+        width: 5rem;
+        height: 5rem;
         background: $white;
-        border-radius: 50px;
+        border-radius: 5rem;
         transform: translateX(-100%);
         transition: transform 1s $ease-out;
       }

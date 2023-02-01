@@ -55,11 +55,13 @@ class Block extends Controller {
   }
 
   public static function cover($data) {
-    return [
-      'display' => $data['display-breadcrumb'],
-      'image' => Element::image($data['image'], '1920px', null, true),
-      'title' => $data['title'],
-    ];
+    if ($data) {
+      return [
+        'display' => $data['display-breadcrumb'] ? $data['display-breadcrumb'] : false,
+        'image' => $data['image'] ? Element::image($data['image'], '1920px', null, true) : '',
+        'title' => $data['title'] ? $data['title'] : '',
+      ];
+    }
   }
 
   public static function news($data) {

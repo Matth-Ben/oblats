@@ -1,7 +1,7 @@
 @php
   $thumbnail_id = get_post_thumbnail_id(get_the_ID());
   $data = Block::cover($block['data'] = [
-    'display' => true,
+    'display-breadcrumb' => true,
     'image' => $thumbnail_id,
     'title' => get_the_title(),
   ]);

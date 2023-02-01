@@ -19,28 +19,31 @@ export default class Menu {
   }
 
   getElems() {
+    this.$body = document.querySelector('body')
     this.$toggler = document.querySelector('.header-nav__toggler')
     this.$top = document.querySelector('.header-top')
     this.$nav = document.querySelector('.header-nav')
+    this.$list = document.querySelector('.header-nav__list')
     this.$items = this.$nav.querySelectorAll('.header-nav__item-link')
     this.$login = this.$nav.querySelector('.login-label')
     this.$logo = document.querySelector('.header-nav__logo')
+    this.$submenu = document.querySelectorAll('.header-nav__item.dropdown')
+    this.$dropdowns = document.querySelectorAll('.header-nav__item-dropdown')
+    this.$contents = document.querySelectorAll('.header-nav__item-dropdown__list')
   }
 
   addEvents() {
     this.$toggler && this.$toggler.addEventListener('click', this.toggle)
+
+    for (let i = 0; i < this.$submenu.length; i++) {
+      this.$submenu[i].addEventListener('click', () => this.submenu(i))
+    }
   }
 
   init() {
-    const tl = gsap.timeline({
-      onStart: () => {
-        resolve()
-      }
-    })
+    const tl = gsap.timeline()
 
-    tl
-      .set(this.$nav, { xPercent: window.innerWidth < 1025 ? 100 : 0 })
-      .set(this.$items, { yPercent: window.innerWidth < 1025 ? 100 : 0 })
+    tl.set(this.$list, { xPercent: window.innerWidth < 1025 ? 100 : 0 })
   }
 
   toggle() {
@@ -54,6 +57,7 @@ export default class Menu {
     return new Promise((resolve) => {
       this.menuOpen = true
       this.$toggler.classList.add('open')
+      this.$body.classList.add('open')
 
       const tl = gsap.timeline({
         defaults: {
@@ -65,14 +69,7 @@ export default class Menu {
         }
       })
 
-      tl
-        .fromTo(this.$nav, { xPercent: 100 }, { xPercent: 0 }, 0)
-        .fromTo(this.$items, {
-          yPercent: 100
-        }, {
-          yPercent: 0,
-          stagger: 0.06
-        }, 0.04)
+      tl.fromTo(this.$list, { xPercent: 100 }, { xPercent: 0 }, 0)
 
       resolve()
     })
@@ -82,6 +79,7 @@ export default class Menu {
     return new Promise((resolve) => {
       this.menuOpen = false
       this.$toggler.classList.remove('open')
+      this.$body.classList.remove('open')
 
       const tl = gsap.timeline({
         onStart: () => {
@@ -89,7 +87,7 @@ export default class Menu {
         }
       })
 
-      tl.fromTo(this.$nav, {
+      tl.fromTo(this.$list, {
         xPercent: 0
       }, {
         xPercent: 100,
@@ -97,8 +95,52 @@ export default class Menu {
         ease: 'power3.out'
       }, 0)
 
+      for (let i = 0; i < this.$submenu.length; i++) {
+        if (this.$submenu[i].classList.contains('active')) {
+          this.closeSubmenu(i)
+        }
+      }
+
       resolve()
     })
+  }
+
+  submenu(i) {
+    if (this.$submenu[i].classList.contains('active')) {
+      this.closeSubmenu(i)
+    } else {
+      this.openSubmenu(i)
+    }
+  }
+
+  openSubmenu(i) {
+    const tl = gsap.timeline({
+      ease: 'power3.out'
+    })
+
+    for (let index = 0; index < this.$submenu.length; index++) {
+      if (this.$submenu[index].classList.contains('active')) {
+        this.closeSubmenu(index)
+      }
+    }
+
+    tl
+      .to(this.$dropdowns[i], { transform: 'scale(1)' })
+      .to(this.$contents[i], { opacity: '1' })
+
+    this.$submenu[i].classList.add('active')
+  }
+
+  closeSubmenu(i) {
+    const tl = gsap.timeline({
+      ease: 'power3.out'
+    })
+
+    tl
+      .to(this.$contents[i], { opacity: '0' })
+      .to(this.$dropdowns[i], { transform: 'scale(0)' })
+
+    this.$submenu[i].classList.remove('active')
   }
 
   resize() {
@@ -114,6 +156,12 @@ export default class Menu {
     const scroll = store.smoothScroll.scroll
 
     this.currentScroll = scroll
+
+    for (let i = 0; i < this.$submenu.length; i++) {
+      if (this.$submenu[i].classList.contains('active')) {
+        this.closeSubmenu(i)
+      }
+    }
 
     if (last < this.currentScroll && this.currentScroll > store.w.h) {
       gsap.to([this.$top, this.$nav], {

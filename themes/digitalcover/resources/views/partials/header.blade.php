@@ -11,7 +11,7 @@
   </div>
   <div class="header-nav">
     <div class="container-fluid">
-      <div class="row">
+      <div class="row align-items-center">
         <a href="{{ home_url() }}" aria-label="Accueil" class="header-nav__logo">
           @include('elements/image', ['data' => $GLOBALS['options']['header']['logo']])
         </a>
@@ -24,10 +24,24 @@
         </div>
         <div class="header-nav__list">
           @foreach ($GLOBALS['navigation']['primary_navigation'] as $item)
-            <div class="header-nav__item">
-              <a href="{{ $item['url'] }}" class="header-nav__item-link">
-                {!! $item['title'] !!}
-              </a>
+            <div class="header-nav__item @if($item['children']){{'dropdown'}}@endif">
+              @if ($item['children'])
+                <div href="{{ $item['url'] }}" class="header-nav__item-link">
+                  {!! $item['title'] !!}
+                  <span>{{ display_svg('arrow') }}</span>
+                </div>
+                <div class="header-nav__item-dropdown">
+                  <ul class="header-nav__item-dropdown__list">
+                    @foreach ($item['children'] as $it)
+                      <li class="header-nav__item-dropdown__item"><a href="{{ $it['url'] }}">{{ $it['title'] }}</a></li>
+                    @endforeach
+                  </ul>
+                </div>
+              @else
+                <a href="{{ $item['url'] }}" class="header-nav__item-link">
+                  {!! $item['title'] !!}
+                </a>
+              @endif
             </div>
           @endforeach
         </div>

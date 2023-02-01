@@ -9,7 +9,9 @@ html {
 
 [data-router-view] { min-height: 100vh; }
 
-// .b-gutenberg {}
+body {
+  &.open { overflow: hidden; }
+}
 
 .page-head,
 .home-head,
@@ -18,7 +20,9 @@ html {
 .necrologie-head,
 .single-necrologie {
   margin-top: 0;
-  padding-top: 12rem;
+  padding-top: 4rem;
+
+  @include media-breakpoint-up(lg) { padding-top: 12rem; }
 }
 
 .e-link {
