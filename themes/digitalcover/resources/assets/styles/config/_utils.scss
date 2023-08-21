@@ -16,9 +16,7 @@
 .u-h100 { height: 100%; }
 
 .u-margin {
-  margin: 3rem 0;
-
-  @include media-breakpoint-up(lg) { margin: 3rem 0 6rem; }
+  margin: 2rem 0 3rem;
 }
 
 .u-padding {

@@ -1,5 +1,6 @@
 @php
   $data = Single::necrologie();
+  $dataSidebar = get_field('custom_sidebar');
 @endphp
 
 <div data-router-view="page">
@@ -12,12 +13,12 @@
               <a class="button" href={{ get_post_type_archive_link('necrologies') }}>Retour</a>
             </div>
             <div class="single-necrologie__body">
+              <h1 class="single-necrologie__title">{{ $data['name'] }}</h1>
               <div class="row">
                 <div class="single-necrologie__thumbnail subcol-lg-6">
                   @include('elements/image', ['data' => $data['image']])
                 </div>
                 <div class="single-necrologie__content subcol-lg-8 offset-1">
-                  <h1 class="single-necrologie__title">{{ $data['name'] }}</h1>
                   <ul>
                     <li>Age : <span><strong>{{ $data['age'] }}</strong></span></li>
                     <li>Date du décès : <span><strong>{{ $data['date_du_deces'] }}</strong></span></li>
@@ -29,11 +30,18 @@
                   </ul>
                 </div>
               </div>
+
+              {!! the_content() !!}
+
             </div>
           </div>
           <div class="col-22 col-lg-7 offset-1">
             <div class="single-necrologie-sidebar sidebar">
-              {!! dynamic_sidebar('sidebar-blog') !!}
+              @if ($dataSidebar)
+                @include('blocks/sidebar', ['data' => $dataSidebar])
+              @else                
+                {!! dynamic_sidebar('sidebar-blog') !!}
+              @endif
             </div>
           </div>
         </div>

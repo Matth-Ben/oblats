@@ -5,6 +5,7 @@
   $data = Block::cover($block['data'] = $field);
   $categories = get_categories();
   $zones = get_terms(['taxonomy' => 'zones']);
+  $dataSidebar = get_field('custom_sidebar');
 @endphp
 
 @section('content')
@@ -29,7 +30,11 @@
           </div>
           <div class="col-22 col-lg-7 offset-1">
             <div class="news-body sidebar">
-              {!! dynamic_sidebar('sidebar-primary') !!}
+              @if ($dataSidebar)
+                @include('blocks/sidebar', ['data' => $dataSidebar])
+              @else                
+                {!! dynamic_sidebar('sidebar-primary') !!}
+              @endif
             </div>
           </div>
         </div>

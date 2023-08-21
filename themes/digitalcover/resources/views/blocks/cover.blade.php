@@ -11,13 +11,15 @@
   $data = Block::cover($block['data']);
 @endphp
 
-<section class="b-cover">
+<section class="b-cover @if(!$data['image']) b-cover-whitout-image @endif">
   <div class="b-cover__content">
     <div class="b-cover__body">
       <div class="b-cover__item">
-        <div class="b-cover__item-background">
-          @include('elements/image', ['data' => $data['image']])
-        </div>
+        @if ($data['image'])
+          <div class="b-cover__item-background">
+            @include('elements/image', ['data' => $data['image']])
+          </div>
+        @endif
         <div class="b-cover__item-content">
           @if ($data['display'])
             <div class="b-cover__item-breadcrumb">

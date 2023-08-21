@@ -4,6 +4,10 @@
 html {
   font-size: calc(16 * (100vw / var(--size)));
 
+  @include media-breakpoint-up(xl) {
+    font-size: calc(12 * (100vw / 1440));
+  }
+
   &.lenis { scroll-behavior: initial; }
 }
 
@@ -11,6 +15,13 @@ html {
 
 body {
   &.open { overflow: hidden; }
+}
+
+section {
+  display: inline-block;
+
+  &.b-cover,
+  &.b-cover-slider { display: block; }
 }
 
 .page-head,
@@ -54,4 +65,14 @@ a {
       margin-bottom: 1.5rem;
     }
   }
+}
+
+.image-left {
+  margin-right: 2%;
+  float: left;
+}
+
+.image-right {
+  margin-left: 2%;
+  float: right;
 }

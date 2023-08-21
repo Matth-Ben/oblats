@@ -28,7 +28,21 @@ class Block extends Controller {
     }
 
     return [
+      'size' => $data['image_size'],
       'components' => $components,
+    ];
+  }
+
+  public static function title($data) {
+    return [
+      'title' => $data['title'],
+      'hn' => $data['hn']
+    ];
+  }
+
+  public static function content($data) {
+    return [
+      'content' => $data['content']
     ];
   }
 
@@ -154,6 +168,22 @@ class Block extends Controller {
     }
 
     return [ 'lists' => $blocks ];
+  }
+
+  public static function customSidebar($data) {
+    $index = 0;
+
+    foreach ($data as $block) {
+      $component_function = toCamelCase($block['acf_fc_layout']);
+      $components[
+        $block['acf_fc_layout'] . '_' . $index
+      ] = Component::$component_function($block);
+      $components[$block['acf_fc_layout'] . '_' . $index]['name'] =
+        $block['acf_fc_layout'];
+      $index++;
+    }
+
+    return [ 'components' => $components ];
   }
 
   // generated function here

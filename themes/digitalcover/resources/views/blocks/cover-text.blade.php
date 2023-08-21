@@ -3,7 +3,7 @@
   Description: A new template block.
   Category: template-blocks
   Icon: slides
-  Post-Type: post page
+  Post-Type: post page necrologies
   Keywords: cover text image contenu
 --}}
 

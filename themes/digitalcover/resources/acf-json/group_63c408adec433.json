@@ -3,6 +3,25 @@
     "title": "[CPT] - NECROLOGIE",
     "fields": [
         {
+            "key": "field_64df4722ad1c9",
+            "label": "Décès ?",
+            "name": "deces",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_63c408b7d0693",
             "label": "Age",
             "name": "age",
@@ -154,5 +173,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1673791819
+    "modified": 1692354382
 }

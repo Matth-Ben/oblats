@@ -5,6 +5,7 @@
     'image' => $thumbnail_id,
     'title' => get_the_title(),
   ]);
+  $dataSidebar = get_field('custom_sidebar');
 @endphp
 
 <div data-router-view="page">
@@ -20,12 +21,16 @@
               <a class="button" href={{ get_post_type_archive_link('post') }}>Retour</a>
             </div>
             <div class="single-body">
-              {!! get_the_content() !!}
+              {!! the_content() !!}
             </div>
           </div>
           <div class="col-22 col-lg-7 offset-1">
             <div class="single-sidebar sidebar">
-              {!! dynamic_sidebar('sidebar-blog') !!}
+              @if ($dataSidebar)
+                @include('blocks/sidebar', ['data' => $dataSidebar])
+              @else                
+                {!! dynamic_sidebar('sidebar-blog') !!}
+              @endif
             </div>
           </div>
         </div>

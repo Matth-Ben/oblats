@@ -1,5 +1,5 @@
 import gsap from 'gsap'
-import BaseTransition from './baseTransition'
+import BaseTransition from './BaseTransition'
 import store from '../util/store'
 
 export default class Fade extends BaseTransition {

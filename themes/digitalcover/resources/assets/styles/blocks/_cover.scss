@@ -59,4 +59,17 @@
       @include media-breakpoint-up(md) { top: 100px; }
     }
   }
+
+  &-whitout-image {
+    .b-cover__item-content {
+      height: 10rem;
+    }
+
+    .b-cover__item-title {
+      color: $black;
+      left: 1rem;
+
+      @include media-breakpoint-up(lg) { left: 5rem; }
+    }
+  }
 }

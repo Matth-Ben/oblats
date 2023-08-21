@@ -3,6 +3,41 @@
     "title": "[BLOCK] – FLEXIBLE-CONTENT",
     "fields": [
         {
+            "key": "field_64720d04c570c",
+            "label": "Taille de l'image",
+            "name": "image_size",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_619221df2c03d",
+                        "operator": "==",
+                        "value": "image"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_619221df2c03d",
+                        "operator": "==",
+                        "value": "video"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "aria-label": "",
+            "message": "Définir la taille de l'image (grande\/petite)",
+            "default_value": 1,
+            "ui_on_text": "Petite",
+            "ui_off_text": "Grande",
+            "ui": 1
+        },
+        {
             "key": "field_61716af126e65",
             "label": "Contenu flexible",
             "name": "blocks",
@@ -156,5 +191,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1646044398
+    "modified": 1690122341
 }

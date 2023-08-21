@@ -3,7 +3,7 @@
   Description: A new template block.
   Category: template-blocks
   Icon: testimonial
-  Post-Type: post page
+  Post-Type: post page necrologies
   Keywords: testimonial témoignage
 --}}
 

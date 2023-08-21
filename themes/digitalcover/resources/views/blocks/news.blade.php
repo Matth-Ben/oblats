@@ -3,7 +3,7 @@
   Description: A new template block.
   Category: template-blocks
   Icon: editor-alignleft
-  Post-Type: post page
+  Post-Type: post page necrologies
   Keywords: news actualités
 --}}
 
