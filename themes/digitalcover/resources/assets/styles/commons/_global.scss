@@ -18,7 +18,7 @@ body {
 }
 
 section {
-  display: inline-block;
+  display: flow-root;
 
   &.b-cover,
   &.b-cover-slider { display: block; }
