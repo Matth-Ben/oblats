@@ -12,6 +12,9 @@
 @endphp
 
 <section class="b-cover-text u-margin">
+  @if ($data['button']['url'])
+    <a href="{{ $data['button']['url'] }}">
+  @endif
   <div class="b-cover-text__body">
     <div class="b-cover-text__thumbnail">
       @include('elements/image', ['data' => $data['image']])
@@ -23,11 +26,8 @@
         @include('elements/title', ['data' => $data['title']])
       </div>
     @endif
-
-    @if ($data['button'])
-      <div class="b-cover-text__button">
-        @include('elements/button', ['data' => $data['button']])
-      </div>
-    @endif
   </div>
+  @if ($data['button']['url'])
+    </a>
+  @endif
 </section>

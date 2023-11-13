@@ -1,17 +1,17 @@
 {
-    "key": "group_63839a181bafc",
-    "title": "[BLOCK] - NEWS",
+    "key": "group_63ecad444b82a",
+    "title": "[BLOCK] - TITLE",
     "fields": [
         {
-            "key": "field_63839a39aa8d2",
+            "key": "field_63ecad649d8d0",
             "label": "Titre",
-            "name": "titles",
+            "name": "title",
             "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "70",
                 "class": "",
                 "id": ""
             },
@@ -22,19 +22,30 @@
             "maxlength": ""
         },
         {
-            "key": "field_63839b19aa8d4",
-            "label": "Bouton",
-            "name": "button",
-            "type": "link",
+            "key": "field_63ecad739d8d1",
+            "label": "HN",
+            "name": "hn",
+            "type": "select",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "30",
                 "class": "",
                 "id": ""
             },
-            "return_format": "array"
+            "choices": {
+                "h2": "h2",
+                "h3": "h3",
+                "h4": "h4"
+            },
+            "default_value": "h2",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
         }
     ],
     "location": [
@@ -42,7 +53,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/news"
+                "value": "acf\/title"
             }
         ]
     ],
@@ -55,5 +66,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1699712027
+    "modified": 1676455324
 }

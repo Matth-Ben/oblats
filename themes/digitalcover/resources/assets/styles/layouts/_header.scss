@@ -63,7 +63,7 @@
       margin-top: 0.5rem;
 
       @include media-breakpoint-up(lg) {
-        width: subcol(24, 4);
+        width: 14rem;
         margin-top: auto;
       }
 
@@ -168,7 +168,7 @@
       &-link {
         font-family: $font-default;
         font-weight: 400;
-        font-size: 1rem;
+        font-size: 1.3rem;
         line-height: 1.4;
         text-decoration: none;
         opacity: 0.8;

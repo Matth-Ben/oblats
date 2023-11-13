@@ -9,17 +9,9 @@
 
 @php
   $data = Block::news($block['data']);
-  $tax = get_term_by('id', $data['zone'], 'zones');
   $args = [
     'post_type' => 'post',
-    'posts_per_page'=>'3',
-    'tax_query' => [
-      [
-        'taxonomy' => 'zones',
-        'field' => 'slug',
-        'terms' => $tax->slug,
-      ]
-    ]
+    'posts_per_page'=>'3'
   ];
 @endphp
 

@@ -26,10 +26,10 @@
           @foreach ($GLOBALS['navigation']['primary_navigation'] as $item)
             <div class="header-nav__item @if($item['children']){{'dropdown'}}@endif">
               @if ($item['children'])
-                <div href="{{ $item['url'] }}" class="header-nav__item-link">
+                <a href="{{ $item['url'] }}" class="header-nav__item-link">
                   {!! $item['title'] !!}
                   <span>{{ display_svg('arrow') }}</span>
-                </div>
+                </a>
                 <div class="header-nav__item-dropdown">
                   <ul class="header-nav__item-dropdown__list">
                     @foreach ($item['children'] as $it)

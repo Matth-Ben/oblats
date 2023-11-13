@@ -30,14 +30,50 @@ export default class Menu {
     this.$submenu = document.querySelectorAll('.header-nav__item.dropdown')
     this.$dropdowns = document.querySelectorAll('.header-nav__item-dropdown')
     this.$contents = document.querySelectorAll('.header-nav__item-dropdown__list')
+  
+    this.stop = false
   }
 
   addEvents() {
     this.$toggler && this.$toggler.addEventListener('click', this.toggle)
 
-    for (let i = 0; i < this.$submenu.length; i++) {
-      this.$submenu[i].addEventListener('click', () => this.submenu(i))
-    }
+    // for (let i = 0; i < this.$submenu.length; i++) {
+    //   this.$submenu[i].addEventListener('mouseover', (e) => {
+    //     console.log(this.$submenu[i]);
+    //     console.log(e);
+    //     this.submenu(i)
+    //   })
+    //   // this.$submenu[i].addEventListener('mouseleave', () => this.submenu(i))
+    // }
+
+    this.$submenu.forEach((element, i) => {
+      const itemDropdown = element.querySelector('.header-nav__item-dropdown')
+
+      element.addEventListener('mouseenter', () => {
+        if (this.isAnimating) return
+
+        if (!this.$submenu[i].classList.contains('active')) {
+          this.openSubmenu(i)
+        }
+      })
+
+      itemDropdown.addEventListener('mouseleave', () => {
+        this.closeSubmenu(i)
+        this.stop = false
+      })
+
+      element.addEventListener('mouseleave', (e) => {
+        itemDropdown.addEventListener('mouseenter', () => {
+          this.stop = true
+        })
+        
+        setTimeout(() => {
+          if (!this.stop) {
+            this.closeSubmenu(i)
+          }
+        }, 600)
+      })
+    });
   }
 
   init() {
@@ -106,6 +142,8 @@ export default class Menu {
   }
 
   submenu(i) {
+    if (this.isAnimating) return
+
     if (this.$submenu[i].classList.contains('active')) {
       this.closeSubmenu(i)
     } else {
@@ -163,9 +201,10 @@ export default class Menu {
       }
     }
 
-    if (last < this.currentScroll && this.currentScroll > store.w.h) {
+    if (last < this.currentScroll && this.currentScroll > 200) {
       gsap.to([this.$top, this.$nav], {
         y: '-4rem',
+        padding: '0 1rem',
         duration: 0.8,
         ease: 'power3.out'
       })
@@ -178,6 +217,7 @@ export default class Menu {
     } else if (last > this.currentScroll) {
       gsap.to([this.$top, this.$nav], {
         y: 0,
+        padding: '1rem',
         duration: 0.8,
         ease: 'power3.out'
       })

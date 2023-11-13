@@ -7,7 +7,7 @@
   text-decoration: none;
 
   @include media-breakpoint-up(xl) {
-    align-items: center;
+    align-items: start;
     flex-direction: row;
   }
 

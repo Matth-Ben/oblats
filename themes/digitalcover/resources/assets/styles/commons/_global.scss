@@ -30,10 +30,11 @@ section {
 .single-head,
 .necrologie-head,
 .single-necrologie {
-  margin-top: 0;
-  padding-top: 4rem;
+  .b-cover {
+    margin-top: 4rem;
 
-  @include media-breakpoint-up(lg) { padding-top: 12rem; }
+    @include media-breakpoint-up(lg) { margin-top: 12rem; }
+  }
 }
 
 .e-link {

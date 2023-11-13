@@ -37,15 +37,15 @@ class necrologie_widget extends WP_Widget {
             <img src="$img" width="150" height="200">
           </div>
           <div class="widget__necrologie-body">
-            <div class="widget__necrologie-title">$title</div>
-            <div class="widget__necrologie-date">Date du décès : <span>$date</span></div>
-            <div class="widget__necrologie-link">Voir le mémorial</div>
+            <div class="widget__necrologie-title"><strong>$title</strong> décédé le <strong>$date</strong></div>
           </div>
         </a>
         EOF;
         echo $html;
       endwhile;
     endif;
+
+    echo '<a class="button" href="'. get_post_type_archive_link('necrologies') .'">En voir plus</a>';
 
     echo '</section>';
   }

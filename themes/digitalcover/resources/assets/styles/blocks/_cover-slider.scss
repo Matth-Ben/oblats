@@ -65,12 +65,7 @@
     transform: translateY(-50%);
 
     @include media-breakpoint-up(md) {
-      width: subcol(24, 16);
       padding: 4rem submargin(24, 1, true) 3.5rem;
-    }
-
-    @include media-breakpoint-up(xl) {
-      width: subcol(24, 14);
     }
   }
 

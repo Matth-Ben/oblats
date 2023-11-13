@@ -6,11 +6,11 @@
   <div class="card-post__thumbnail">
     @include('elements/image', ['data' => $data['image']])
     <div class="card-post__title">
-      {{ get_the_title($id) }}
+      {!! get_the_title($id) !!}
     </div>
   </div>
   <div class="card-post__body">
-    <div class="card-post__excerpt">{{ get_the_excerpt($id) }}</div>
+    <div class="card-post__excerpt">{!! get_the_excerpt($id) !!}</div>
     <div class="card-post__button">En savoir plus</div>
   </div>
 </a>
