@@ -10,9 +10,7 @@
 			<div class="wpallimport-title">
 				<h2><?php _e('Confirm & Run', 'wp_all_import_plugin'); ?></h2>
 			</div>
-			<div class="wpallimport-links">
-				<a href="http://www.wpallimport.com/support/?utm_source=import-plugin-free&utm_medium=help&utm_campaign=premium-support" target="_blank"><?php _e('Support', 'wp_all_import_plugin'); ?></a> | <a href="http://www.wpallimport.com/documentation/?utm_source=import-plugin-free&utm_medium=help&utm_campaign=docs" target="_blank"><?php _e('Documentation', 'wp_all_import_plugin'); ?></a>
-			</div>
+			<?php echo apply_filters('wpallimport_links_block', '');?>
 		</div>
 		<div class="clear"></div>
 	</div>
@@ -296,7 +294,7 @@
 												printf(__('only these custom fields : %s', 'wp_all_import_plugin'), esc_attr($post['custom_fields_only_list']));
 												break;
 											case 'all_except':
-												printf(__('all cusom fields except these: %s', 'wp_all_import_plugin'), esc_attr($post['custom_fields_except_list']));
+												printf(__('all custom fields except these: %s', 'wp_all_import_plugin'), esc_attr($post['custom_fields_except_list']));
 												break;
 										} ?>
 										</li>
@@ -317,7 +315,10 @@
 											case 'all_except':
 												printf(__('leave these taxonomies: %s alone, update all others', 'wp_all_import_plugin'), esc_attr($post['taxonomies_except_list']));
 												break;
-										} ?>
+										}
+										if(!empty($post['do_not_create_terms']))
+											_e(' - no new terms will be created', 'wp_all_import_plugin');
+										?>
 										</li>
 									<?php endif; ?>
 								</ul>
@@ -369,6 +370,8 @@
 	</form>
 	<?php endif; ?>
 
-	<a href="http://soflyy.com/" target="_blank" class="wpallimport-created-by"><?php _e('Created by', 'wp_all_import_plugin'); ?> <span></span></a>
+    <div class="wpallimport-display-columns wpallimport-margin-top-forty">
+		<?php echo apply_filters('wpallimport_footer', ''); ?>
+    </div>
 
 </div>

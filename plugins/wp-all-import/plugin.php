@@ -1,9 +1,9 @@
 <?php
 /*
 Plugin Name: WP All Import
-Plugin URI: http://www.wpallimport.com/wordpress-xml-csv-import/?utm_source=import-plugin-free&utm_medium=wp-plugins-page&utm_campaign=upgrade-to-pro
+Plugin URI: https://www.wpallimport.com/wordpress-xml-csv-import/?utm_source=import-plugin-free&utm_medium=wp-plugins-page&utm_campaign=upgrade-to-pro
 Description: The most powerful solution for importing XML and CSV files to WordPress. Create Posts and Pages with content from any XML or CSV file. A paid upgrade to WP All Import Pro is available for support and additional features.
-Version: 3.7.1
+Version: 3.7.3
 Author: Soflyy
 */
 
@@ -25,7 +25,7 @@ define('WP_ALL_IMPORT_ROOT_URL', rtrim(plugin_dir_url(__FILE__), '/'));
  */
 define('WP_ALL_IMPORT_PREFIX', 'pmxi_');
 
-define('PMXI_VERSION', '3.7.1');
+define('PMXI_VERSION', '3.7.3');
 
 define('PMXI_EDITION', 'free');
 
@@ -116,7 +116,7 @@ final class PMXI_Plugin {
      */
     public static $is_php_allowed = true;
 
-	public static $capabilities = 'manage_options';
+	public static $capabilities = 'install_plugins';
 
 	/**
 	 * WP All Import logs folder
@@ -239,6 +239,10 @@ final class PMXI_Plugin {
 	 * @param string $pluginFilePath Plugin main file
 	 */
 	protected function __construct() {
+
+        if(!is_multisite() || defined('WPAI_WPAE_ALLOW_INSECURE_MULTISITE') && 1 === WPAI_WPAE_ALLOW_INSECURE_MULTISITE){
+            self::$capabilities = 'manage_options';
+        }
 
 		// register autoloading method
 		spl_autoload_register(array($this, 'autoload'));
@@ -1000,6 +1004,7 @@ final class PMXI_Plugin {
 			'parent_import_id',
 			'iteration',
 			'deleted',
+			'changed_missing',
 			'executing',
 			'canceled',
 			'canceled_on',
@@ -1030,6 +1035,9 @@ final class PMXI_Plugin {
 						break;
 					case 'deleted':
 						$wpdb->query("ALTER TABLE {$table} ADD `deleted` BIGINT(20) NOT NULL DEFAULT 0;");
+						break;
+					case 'changed_missing':
+						$wpdb->query("ALTER TABLE {$table} ADD `changed_missing` BIGINT(20) NOT NULL DEFAULT 0;");
 						break;
 					case 'executing':
 						$wpdb->query("ALTER TABLE {$table} ADD `executing` BOOL NOT NULL DEFAULT 0;");
@@ -1207,6 +1215,7 @@ final class PMXI_Plugin {
 				'taxonomies_list' => array(),
 				'taxonomies_only_list' => array(),
 				'taxonomies_except_list' => array(),
+				'do_not_create_terms' => 0,
 				'is_update_attachments' => 1,
 				'is_update_images' => 1,
 				'update_images_logic' => 'full_update',

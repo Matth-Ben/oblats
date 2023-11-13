@@ -77,7 +77,7 @@ class ImageResizeOption extends OptionAbstract {
 		$notice = [
 			sprintf(
 			/* translators: %1$s: width value, %2$s: height value */
-				__( 'Reduce the weight of converted images that are larger than their largest image size (thumbnail size) used in your theme even more. The recommended value for you is %1$s x %2$s pixels.', 'webp-converter-for-media' ),
+				__( 'You can further decrease the size of converted images (and thus their weight) that exceed the maximum image size (thumbnail size) used in your theme. The recommended value for you is %1$s x %2$s pixels.', 'webp-converter-for-media' ),
 				$size['width'],
 				$size['height']
 			),
@@ -88,7 +88,7 @@ class ImageResizeOption extends OptionAbstract {
 			/* translators: %1$s: open anchor tag, %2$s: close anchor tag */
 				__( '%1$sUpgrade to PRO%2$s', 'webp-converter-for-media' ),
 				'<a href="https://url.mattplugins.com/converter-field-image-resize-info" target="_blank">',
-				' <span class="dashicons dashicons-arrow-right-alt"></span></a>'
+				' <span class="dashicons dashicons-external"></span></a>'
 			);
 		}
 		return $notice;
@@ -117,8 +117,17 @@ class ImageResizeOption extends OptionAbstract {
 
 	/**
 	 * {@inheritdoc}
+	 *
+	 * @return mixed[]
 	 */
-	public function get_valid_value( $current_value, array $available_values = null, array $disabled_values = null ) {
+	public function get_default_value( array $settings = null ): array {
+		return [ '', '', '' ];
+	}
+
+	/**
+	 * {@inheritdoc}
+	 */
+	public function validate_value( $current_value, array $available_values = null, array $disabled_values = null ) {
 		if ( ! is_array( $current_value ) ) {
 			return [ '', '', '' ];
 		}
@@ -135,11 +144,9 @@ class ImageResizeOption extends OptionAbstract {
 
 	/**
 	 * {@inheritdoc}
-	 *
-	 * @return mixed[]
 	 */
-	public function get_default_value( array $settings = null ): array {
-		return [ '', '', '' ];
+	public function sanitize_value( $current_value ) {
+		return $this->validate_value( $current_value );
 	}
 
 	/**

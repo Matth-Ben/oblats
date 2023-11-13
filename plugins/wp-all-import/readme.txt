@@ -1,8 +1,8 @@
 === Import any XML or CSV File to WordPress ===
 Contributors: soflyy, wpallimport
 Requires at least: 4.1
-Tested up to: 6.0
-Stable tag: 3.7.1
+Tested up to: 6.4
+Stable tag: 3.7.3
 Tags: wordpress csv import, wordpress xml import, xml, csv, datafeed, import, migrate, import csv to wordpress, import xml to wordpress, advanced xml import, advanced csv import, bulk csv import, bulk xml import, bulk data import, xml to custom post type, csv to custom post type, woocommerce csv import, woocommerce xml import, csv import, import csv, xml import, import xml, csv importer
 
 WP All Import is an extremely powerful importer that makes it easy to import any XML or CSV file to WordPress.
@@ -93,16 +93,85 @@ Need to [import XML and CSV to WooCommerce?](http://wordpress.org/plugins/woocom
 
 == Frequently Asked Questions ==
 
-**What Size Files Can WP All Import Handle?**
-It depends on your hosting provider’s settings. We’ve imported files of 200Mb and up, even on shared hosts. WP All Import splits your file into manageable chunks.
+= How do I import WordPress data? =
 
-[Various settings are available](http://www.wpallimport.com/documentation/advanced/import-processing/?utm_source=import-plugin-free&utm_medium=readme&utm_campaign=upgrade-to-pro) to make it possible to import larger files or speed up your import.
+1. Go to All Import › New Import.
+2. Upload the import file.
+3. Choose the import post type.
+4. Map the incoming data elements to the WordPress fields.
+5. Complete the import and verify the imported data.
 
-*The answer to all of the following questions is yes:*
+= Can I import any WordPress post type? =
 
-Does this really work with ANY XML or CSV file?
-Can WP All Import get ALL of the data out of the file? Even attributes?
-Does it work with special character encoding like Hebrew, Arabic, Chinese, etc?
+Yes. You can import any standard WordPress post type, including posts, pages, categories, tags, users, comments, and images. You can also import custom data from third-party themes and plugins.
+
+= How does WordPress import work? =
+
+The default WordPress import tool uses a brute-force approach that often imports all or nothing. WP All Import is a lot more flexible and lets you filter, modify, and map incoming data elements so that you can import your data exactly as you want it.
+
+= Does my data have to be specially organized for WordPress imports? =
+
+Not when you use our plugins. Our Drag & Drop interface lets you map incoming data elements to any WordPress fields. You can even modify the incoming data as part of the import process, so we can handle a wide variety of import layouts.
+
+= How do I import a CSV file into WordPress? =
+
+To import a CSV file into WordPress, just specify the CSV file as your import source. WP All Import will automatically recognize the file type and adjust accordingly. You don't need to do anything special to handle the CSV format.
+
+= How do I import XML data into WordPress? =
+
+To import XML data into WordPress, just specify the XML file as your import source. WP All Import will automatically recognize the file type and adjust accordingly. You don't need to do anything special to handle an XML file.
+
+= How do I import large files into WordPress? =
+
+To import large files into WordPress, you can use our advanced settings to split the import into manageable chunks, modify the batch processing size, and take several other steps to either speed up the import or reduce its impact on the server.
+
+= How do I import data into a WordPress custom plugin? =
+
+Our plugin automatically recognizes many WordPress custom plugins and themes, so just select the custom post type and away you go. If a custom plugin stores its data in an unconventional manner, just contact our support staff for further guidance.
+
+= Can I use WP All Import on all of my WordPress sites? =
+
+Yes. Our plugins come with unlimited licenses, so you can install them on all of your own websites.
+
+= Can I import WooCommerce customers, products, and orders? =
+
+We have special add-ons for all types of WooCommerce data, so you can import WooCommerce customers, orders, products, reviews, and anything else WooCommerce has to offer.
+
+= How do I import WordPress posts as a draft? =
+
+In Step 3 of the import process, under Other Post Options, change the Post Status to Draft. This ensures that all imported posts will be created as drafts.
+
+= How do I import images into WordPress? =
+
+In the Drag & Drop screen, map the incoming image elements to the appropriate fields in the Images section. The tricky part about images is that they can have many different sources, including URLs, images that are on your computer, images that are already on your server, and even images that are already in your media library. To understand how to handle each of these scenarios, see our documentation.
+
+= How do I import a featured image into WordPress? =
+
+1. Create a standard WordPress import.
+2. In Step 3, add the images element in the Images section.
+3. Check the Set the first image to the Featured Image (_thumbnail_id) option.
+4. Complete the import.
+5. Verify that the featured image(s) were correctly imported.
+
+= How do I migrate WordPress data to another website? =
+
+1. Export the WordPress data that you wish to migrate.
+2. Download the Bundle option, which includes import instructions.
+3. Import the bundle file on the target site.
+4. WP All Import will use the bundle file to automatically configure itself.
+5. Run the import and review your migrated data.
+
+= How do I bulk edit WordPress data? =
+
+1. Export the WordPress data that you wish to edit.
+2. Edit the export file in your favorite spreadsheet app.
+3. Use the Import with WP All Import option to configure your import.
+4. Run the import.
+5. Review the affected data to make sure the changes were applied.
+
+= How do I get support? =
+
+If you are using the free version of the plugin, you can obtain support through the WordPress.org community forums. If you have purchased the premium version, you can email us directly and we will respond as quickly as we can, typically in less than one business day.
 
 == Screenshots ==
 
@@ -112,6 +181,16 @@ Does it work with special character encoding like Hebrew, Arabic, Chinese, etc?
 4. Manage imports.
 
 == Changelog ==
+
+= 3.7.3 =
+* security improvement
+* improvement: add 'Do not create new terms' setting on Edit Template page
+* improvement: better PHP 8.2 support
+* improvement: remove deprecated 'get_page_by_title' function calls
+
+= 3.7.2 =
+* improvement: refine various UI elements
+* bug fix: PHP 8.1 warning on Step 3
 
 = 3.7.1 =
 * bug fix: unable to install on Windows environments

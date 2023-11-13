@@ -9,6 +9,10 @@
  * @package Converter for Media
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 ?>
 <div class="notice notice-error is-dismissible"
 	data-notice="webp-converter-for-media"
@@ -17,12 +21,20 @@
 >
 	<div class="webpcContent webpcContent--notice">
 		<h4>
-			<?php echo esc_html( __( 'Check the status of the Converter for Media plugin!', 'webp-converter-for-media' ) ); ?>
+			<?php
+			echo esc_html(
+				sprintf(
+				/* translators: %s: plugin name */
+					__( 'Check the status of the %s plugin!', 'webp-converter-for-media' ),
+					'Converter for Media'
+				)
+			);
+			?>
 		</h4>
 		<p>
 			<?php
 			echo wp_kses_post(
-				__( 'It appears that your subscription has expired or you have reached the maximum number of image conversions for your current billing period. To continue using the service, please check your subscription status.', 'webp-converter-for-media' )
+				__( 'It appears that your subscription has expired or you have reached the maximum number of image conversions for your current billing period. To continue using the service, please, check your subscription status.', 'webp-converter-for-media' )
 			);
 			?>
 		</p>

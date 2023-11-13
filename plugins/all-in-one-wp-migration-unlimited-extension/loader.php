@@ -35,8 +35,16 @@ if ( defined( 'WP_CLI' ) ) {
 				DIRECTORY_SEPARATOR .
 				'command' .
 				DIRECTORY_SEPARATOR .
-				'class-ai1wm-backup-wp-cli-command.php';
+				'ai1wm-wp-cli.php';
 }
+
+require_once AI1WMUE_VENDOR_PATH .
+			DIRECTORY_SEPARATOR .
+			'servmask' .
+			DIRECTORY_SEPARATOR .
+			'pro' .
+			DIRECTORY_SEPARATOR .
+			'ai1wmve.php';
 
 require_once AI1WMUE_CONTROLLER_PATH .
 			DIRECTORY_SEPARATOR .
@@ -44,19 +52,7 @@ require_once AI1WMUE_CONTROLLER_PATH .
 
 require_once AI1WMUE_CONTROLLER_PATH .
 			DIRECTORY_SEPARATOR .
-			'class-ai1wmue-export-controller.php';
-
-require_once AI1WMUE_CONTROLLER_PATH .
-			DIRECTORY_SEPARATOR .
-			'class-ai1wmue-import-controller.php';
-
-require_once AI1WMUE_CONTROLLER_PATH .
-			DIRECTORY_SEPARATOR .
 			'class-ai1wmue-settings-controller.php';
-
-require_once AI1WMUE_CONTROLLER_PATH .
-			DIRECTORY_SEPARATOR .
-			'class-ai1wmue-stats-controller.php';
 
 require_once AI1WMUE_MODEL_PATH .
 			DIRECTORY_SEPARATOR .

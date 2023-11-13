@@ -2,8 +2,7 @@
 
 namespace WebpConverter\Service;
 
-use WebpConverter\Conversion\Endpoint\CronConversionEndpoint;
-use WebpConverter\Conversion\Endpoint\EndpointIntegration;
+use WebpConverter\Conversion\Endpoint\EndpointIntegrator;
 use WebpConverter\HookableInterface;
 
 /**
@@ -12,83 +11,63 @@ use WebpConverter\HookableInterface;
 class RestApiUnlocker implements HookableInterface {
 
 	/**
-	 * @var string[]
-	 */
-	private $allowed_routes = [];
-
-	public function __construct() {
-		$this->allowed_routes[] = sprintf(
-			'/%1$s/%2$s',
-			EndpointIntegration::ROUTE_NAMESPACE,
-			CronConversionEndpoint::get_route_name()
-		);
-	}
-
-	/**
 	 * {@inheritdoc}
 	 */
 	public function init_hooks() {
-		add_filter(
-			'dra_allow_rest_api',
-			[ $this, 'handle_disable_json_api' ]
-		);
-		add_filter(
-			'disable_wp_rest_api_post_var',
-			[ $this, 'handle_disable_wp_rest_api' ]
-		);
+		add_filter( 'rest_authentication_errors', [ $this, 'clear_authentication_error' ], 9999 );
 		add_filter(
 			'option_mo_api_authentication_protectedrestapi_route_whitelist',
-			[ $this, 'handle_wp_rest_api_authentication' ]
+			[ $this, 'handle_wp_rest_api_authentication_plugin' ]
 		);
+		add_filter( 'jwt_auth_whitelist', [ $this, 'handle_jwt_auth_plugin' ] );
 	}
 
 	/**
-	 * @param bool|mixed $status .
+	 * @param \WP_Error|null|true $result .
 	 *
-	 * @return bool|mixed
+	 * @return \WP_Error|null|true
+	 * @internal
 	 */
-	public function handle_disable_json_api( $status ) {
-		if ( ! $this->is_allowed_rest_route() ) {
-			return $status;
+	public function clear_authentication_error( $result ) {
+		$current_route = untrailingslashit( $GLOBALS['wp']->query_vars['rest_route'] ?? '' );
+		if ( strpos( $current_route, '/' . EndpointIntegrator::ROUTE_NAMESPACE . '/' ) === 0 ) {
+			return true;
 		}
 
-		return true;
-	}
-
-	/**
-	 * @param string|mixed $get_param .
-	 *
-	 * @return string|mixed
-	 */
-	public function handle_disable_wp_rest_api( $get_param ) {
-		if ( ! $this->is_allowed_rest_route() ) {
-			return $get_param;
-		}
-
-		$_POST[ CronConversionEndpoint::ROUTE_NONCE_HEADER ] = true;
-		return CronConversionEndpoint::ROUTE_NONCE_HEADER;
+		return $result;
 	}
 
 	/**
 	 * @param array|mixed $all_routes .
 	 *
 	 * @return array|mixed
+	 * @internal
 	 */
-	public function handle_wp_rest_api_authentication( $all_routes ) {
+	public function handle_wp_rest_api_authentication_plugin( $all_routes ) {
 		if ( ! is_array( $all_routes ) ) {
 			return $all_routes;
 		}
 
 		foreach ( $all_routes as $route_key => $route_path ) {
-			if ( in_array( $route_path, $this->allowed_routes ) ) {
+			if ( strpos( $route_path, '/' . EndpointIntegrator::ROUTE_NAMESPACE . '/' ) === 0 ) {
 				unset( $all_routes[ $route_key ] );
 			}
 		}
 		return $all_routes;
 	}
 
-	private function is_allowed_rest_route(): bool {
-		$current_route = untrailingslashit( $GLOBALS['wp']->query_vars['rest_route'] ?? '' );
-		return ( in_array( $current_route, $this->allowed_routes ) );
+	/**
+	 * @param array|mixed $white_routes .
+	 *
+	 * @return array|mixed
+	 * @internal
+	 */
+	public function handle_jwt_auth_plugin( $white_routes ) {
+		if ( ! is_array( $white_routes ) ) {
+			return $white_routes;
+		}
+
+		$all_routes[] = '/wp-json/' . EndpointIntegrator::ROUTE_NAMESPACE . '/*';
+		return $all_routes;
 	}
 }

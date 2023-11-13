@@ -120,22 +120,20 @@ if ( ! class_exists('PMXI_Upload')){
 					}
 
 					if (empty($filePath)) {
-						$zip = zip_open(trim($this->file));
-						if (is_resource($zip)) {
-							while ($zip_entry = zip_read($zip)) {
-								$filePath = zip_entry_name($zip_entry);
-                                if (preg_match('%\W(xml|csv|txt|dat|psv|json|xls|xlsx|gz)$%i', trim($filePath))) {
-                                    $fp = fopen($this->uploadsPath."/".$filePath, "w");
-                                    if (zip_entry_open($zip, $zip_entry, "r")) {
-                                        $buf = zip_entry_read($zip_entry, zip_entry_filesize($zip_entry));
-                                        fwrite($fp,"$buf");
-                                        zip_entry_close($zip_entry);
-                                        fclose($fp);
-                                    }
+                        $zip = new \ZipArchive();
+                        $result = $zip->open(trim($this->file));
+						if ($result) {
+                            for ($i = 0; $i < $zip->numFiles; $i++) {
+                                $fileName = $zip->getNameIndex($i);
+                                if (preg_match('%\W(xml|csv|txt|dat|psv|json|xls|xlsx|gz)$%i', trim($fileName))) {
+                                    $filePath = $this->uploadsPath . "/" . $fileName;
+                                    $fp = fopen($filePath, "w");
+                                    fwrite($fp, $zip->getFromIndex($i));
+                                    fclose($fp);
                                     break;
                                 }
-							}
-							zip_close($zip);
+                            }
+                            $zip->close();
 						} else {
 					        $this->errors->add('form-validation', __('WP All Import couldn\'t find a file to import inside your ZIP.<br/><br/>Either the .ZIP file is broken, or doesn\'t contain a file with an extension of  XML, CSV, PSV, DAT, or TXT. <br/>Please attempt to unzip your .ZIP file on your computer to ensure it is a valid .ZIP file which can actually be unzipped, and that it contains a file which WP All Import can import.', 'wp_all_import_plugin'));
 					    }
@@ -366,25 +364,23 @@ if ( ! class_exists('PMXI_Upload')){
 						}
 
 						if(empty($filePath)){
-							$zip = zip_open(trim($tmpname));
-							if (is_resource($zip)) {
-								while ($zip_entry = zip_read($zip)) {
-									$filePath = zip_entry_name($zip_entry);
-                                    if (preg_match('%\W(xml|csv|txt|dat|psv|json|xls|xlsx|gz)$%i', trim($filePath))) {
-                                        $fp = fopen($this->uploadsPath . "/" . $filePath, "w");
-                                        if (zip_entry_open($zip, $zip_entry, "r")) {
-                                            $buf = zip_entry_read($zip_entry, zip_entry_filesize($zip_entry));
-                                            fwrite($fp, "$buf");
-                                            zip_entry_close($zip_entry);
-                                            fclose($fp);
-                                        }
+                            $zip = new \ZipArchive();
+                            $result = $zip->open(trim($tmpname));
+                            if ($result) {
+                                for ($i = 0; $i < $zip->numFiles; $i++) {
+                                    $fileName = $zip->getNameIndex($i);
+                                    if (preg_match('%\W(xml|csv|txt|dat|psv|json|xls|xlsx|gz)$%i', trim($fileName))) {
+                                        $filePath = $this->uploadsPath . "/" . $fileName;
+                                        $fp = fopen($filePath, "w");
+                                        fwrite($fp, $zip->getFromIndex($i));
+                                        fclose($fp);
                                         break;
                                     }
-								}
-								zip_close($zip);
-							} else {
-						        $this->errors->add('form-validation', __('WP All Import couldn\'t find a file to import inside your ZIP.<br/><br/>Either the .ZIP file is broken, or doesn\'t contain a file with an extension of  XML, CSV, PSV, DAT, or TXT. <br/>Please attempt to unzip your .ZIP file on your computer to ensure it is a valid .ZIP file which can actually be unzipped, and that it contains a file which WP All Import can import.', 'wp_all_import_plugin'));
-						    }
+                                }
+                                $zip->close();
+                            } else {
+                                $this->errors->add('form-validation', __('WP All Import couldn\'t find a file to import inside your ZIP.<br/><br/>Either the .ZIP file is broken, or doesn\'t contain a file with an extension of  XML, CSV, PSV, DAT, or TXT. <br/>Please attempt to unzip your .ZIP file on your computer to ensure it is a valid .ZIP file which can actually be unzipped, and that it contains a file which WP All Import can import.', 'wp_all_import_plugin'));
+                            }
 						}
 						// Detect if file is very large
 						$source = array(

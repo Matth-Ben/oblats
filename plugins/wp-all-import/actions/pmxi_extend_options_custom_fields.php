@@ -10,7 +10,7 @@ function pmxi_pmxi_extend_options_custom_fields($post_type, $post) {
 		
 		$savedGroups = array();
 
-		if ( !is_null($acf) && version_compare($acf->settings['version'], '5.0.0') >= 0 ) {
+		if ( !is_null($acf) && isset($acf->settings['version']) && version_compare($acf->settings['version'], '5.0.0') >= 0 ) {
 			$savedGroups = get_posts(array(
 				'posts_per_page' => -1,
 				'post_type' => 'acf-field-group',

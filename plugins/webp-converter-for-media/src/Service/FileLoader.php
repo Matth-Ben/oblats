@@ -2,51 +2,75 @@
 
 namespace WebpConverter\Service;
 
-use WebpConverter\Loader\PassthruLoader;
-use WebpConverter\PluginData;
-use WebpConverter\PluginInfo;
-
 /**
  * Returns size of image downloaded based on server path or URL.
  */
 class FileLoader {
 
-	/**
-	 * @var PluginInfo
-	 */
-	private $plugin_info;
-
-	/**
-	 * @var PluginData
-	 */
-	private $plugin_data;
-
-	public function __construct( PluginInfo $plugin_info, PluginData $plugin_data ) {
-		$this->plugin_info = $plugin_info;
-		$this->plugin_data = $plugin_data;
-	}
+	const GLOBAL_LOGS_VARIABLE = 'webpc_logs';
 
 	/**
 	 * Checks size of file by sending request using active image loader.
 	 *
-	 * @param string      $url         URL of image.
-	 * @param bool        $set_headers Whether to send headers to confirm that browser supports WebP?
-	 * @param string|null $ver_param   Additional GET param.
+	 * @param string      $url           URL of image.
+	 * @param bool        $set_headers   Whether to send headers to confirm that browser supports WebP?
+	 * @param string|null $ver_param     Additional GET param.
+	 * @param string|null $debug_context .
 	 *
-	 * @return int Size of retrieved file.
+	 * @return int
 	 */
-	public function get_file_size_by_url( string $url, bool $set_headers = true, string $ver_param = null ): int {
-		$headers = ( $set_headers )
-			? [ 'Accept: image/webp,image/*' ]
-			: [ 'Accept: image/*' ];
-
-		$image_url = ( new PassthruLoader( $this->plugin_info, $this->plugin_data ) )->update_image_urls( $url, true );
-		if ( $ver_param !== null ) {
-			$image_url = add_query_arg( 'ver', $ver_param, $image_url );
+	public function get_file_size_by_url( string $url, bool $set_headers = true, string $ver_param = null, string $debug_context = null ): int {
+		$request_url     = $this->get_curl_url( $url, $ver_param );
+		$request_headers = $this->get_curl_headers( $set_headers );
+		$connect         = $this->get_curl_connection( $request_url, $request_headers );
+		if ( $connect === null ) {
+			return 0;
 		}
-		$image_url = apply_filters( 'webpc_debug_image_url', $image_url );
 
-		return self::get_file_size_for_loaded_file( $image_url, $headers );
+		$response = curl_exec( $connect );
+		if ( ! is_string( $response ) ) {
+			$response = '';
+		}
+
+		$http_code  = curl_getinfo( $connect, CURLINFO_HTTP_CODE );
+		$curl_error = curl_error( $connect );
+		curl_close( $connect );
+
+		if ( $debug_context !== null ) {
+			$this->log_request( $debug_context, $request_url, $set_headers, $http_code, $curl_error, strlen( $response ) );
+		}
+
+		return ( $http_code === 200 ) ? strlen( $response ) : 0;
+	}
+
+	/**
+	 * Checks HTTP status of file by sending request using active image loader.
+	 *
+	 * @param string      $url           URL of image.
+	 * @param bool        $set_headers   Whether to send headers to confirm that browser supports WebP?
+	 * @param string|null $ver_param     Additional GET param.
+	 * @param string|null $debug_context .
+	 *
+	 * @return int
+	 */
+	public function get_file_status_by_url( string $url, bool $set_headers = true, string $ver_param = null, string $debug_context = null ): int {
+		$request_url     = $this->get_curl_url( $url, $ver_param );
+		$request_headers = $this->get_curl_headers( $set_headers );
+		$connect         = $this->get_curl_connection( $request_url, $request_headers );
+		if ( $connect === null ) {
+			return 0;
+		}
+
+		curl_exec( $connect );
+		$http_code  = curl_getinfo( $connect, CURLINFO_HTTP_CODE );
+		$curl_error = curl_error( $connect );
+		curl_close( $connect );
+
+		if ( $debug_context !== null ) {
+			$this->log_request( $debug_context, $request_url, $set_headers, $http_code, $curl_error, null );
+		}
+
+		return $http_code;
 	}
 
 	/**
@@ -61,21 +85,49 @@ class FileLoader {
 	}
 
 	/**
-	 * Checks size of file by sending cURL request.
+	 * @param string      $url       URL of image.
+	 * @param string|null $ver_param Additional GET param.
 	 *
-	 * @param string   $url     URL of image.
-	 * @param string[] $headers Headers for cURL connection.
-	 *
-	 * @return int Size of retrieved file.
+	 * @return string
 	 */
-	private function get_file_size_for_loaded_file( string $url, array $headers ): int {
+	private function get_curl_url( string $url, string $ver_param = null ): string {
+		$image_url = $url;
+		if ( $ver_param !== null ) {
+			$image_url = add_query_arg( 'ver', $ver_param, $image_url );
+		}
+		return apply_filters( 'webpc_debug_image_url', $image_url );
+	}
+
+	/**
+	 * @param bool $set_headers Whether to send headers to confirm that browser supports WebP?
+	 *
+	 * @return string[]
+	 */
+	private function get_curl_headers( bool $set_headers ): array {
+		$headers = ( $set_headers )
+			? [ 'Accept: image/webp,image/*' ]
+			: [ 'Accept: image/*' ];
+
 		foreach ( wp_get_nocache_headers() as $header_key => $header_value ) {
 			$headers[] = sprintf( '%s: %s', $header_key, $header_value );
+		}
+		return $headers;
+	}
+
+	/**
+	 * @param string   $url     .
+	 * @param string[] $headers .
+	 *
+	 * @return resource|null
+	 */
+	private function get_curl_connection( string $url, array $headers ) {
+		if ( ! function_exists( 'curl_init' ) ) {
+			return null;
 		}
 
 		$ch = curl_init( $url );
 		if ( $ch === false ) {
-			return 0;
+			return null;
 		}
 
 		if ( isset( $_SERVER['PHP_AUTH_USER'] ) && isset( $_SERVER['PHP_AUTH_PW'] ) ) {
@@ -89,13 +141,41 @@ class FileLoader {
 		curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, true );
 		curl_setopt( $ch, CURLOPT_FRESH_CONNECT, true );
 		curl_setopt( $ch, CURLOPT_TIMEOUT, 10 );
+		curl_setopt( $ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)' );
 		curl_setopt( $ch, CURLOPT_HTTPHEADER, $headers );
-		$response = curl_exec( $ch );
-		$code     = curl_getinfo( $ch, CURLINFO_HTTP_CODE );
-		curl_close( $ch );
 
-		return ( $code === 200 )
-			? strlen( is_string( $response ) ? $response : '' )
-			: 0;
+		return $ch;
+	}
+
+	/**
+	 * @param string      $debug_context   .
+	 * @param string      $url             .
+	 * @param bool        $is_webp_request .
+	 * @param int         $response_code   .
+	 * @param string|null $curl_error      .
+	 * @param int|null    $response_length .
+	 *
+	 * @return void
+	 */
+	private function log_request(
+		string $debug_context,
+		string $url,
+		bool $is_webp_request,
+		int $response_code,
+		string $curl_error = null,
+		int $response_length = null
+	) {
+		if ( ! isset( $GLOBALS[ self::GLOBAL_LOGS_VARIABLE ] ) ) {
+			$GLOBALS[ self::GLOBAL_LOGS_VARIABLE ] = [];
+		}
+
+		$GLOBALS[ self::GLOBAL_LOGS_VARIABLE ][] = [
+			'context'    => $debug_context,
+			'url'        => $url,
+			'is_webp'    => $is_webp_request,
+			'http_code'  => $response_code,
+			'response'   => $response_length,
+			'curl_error' => ( $curl_error === '' ) ? null : $curl_error,
+		];
 	}
 }

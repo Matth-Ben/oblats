@@ -2,7 +2,10 @@
 
 namespace WebpConverter\Settings\Option;
 
+use WebpConverter\Conversion\Method\GdMethod;
+use WebpConverter\Conversion\Method\ImagickMethod;
 use WebpConverter\Conversion\Method\MethodFactory;
+use WebpConverter\Conversion\Method\RemoteMethod;
 use WebpConverter\Repository\TokenRepository;
 
 /**
@@ -18,15 +21,13 @@ class ConversionMethodOption extends OptionAbstract {
 	private $token_repository;
 
 	/**
-	 * Object of integration class supports all output formats.
-	 *
 	 * @var MethodFactory
 	 */
-	private $methods_integration;
+	private $method_factory;
 
-	public function __construct( TokenRepository $token_repository ) {
-		$this->token_repository    = $token_repository;
-		$this->methods_integration = new MethodFactory();
+	public function __construct( TokenRepository $token_repository, MethodFactory $method_factory ) {
+		$this->token_repository = $token_repository;
+		$this->method_factory   = $method_factory;
 	}
 
 	/**
@@ -62,7 +63,7 @@ class ConversionMethodOption extends OptionAbstract {
 	 */
 	public function get_notice_lines() {
 		$notice = [
-			__( 'The Remote server allows you to reduce the server load, because your images are converted by our server. This option is also useful when the server does not meet all of the plugin\'s technical requirements.', 'webp-converter-for-media' ),
+			__( 'The remote server allows you to reduce the server load, because your images are converted by our server. This option is also useful when the server does not meet all the technical requirements of the plugin.', 'webp-converter-for-media' ),
 		];
 
 		if ( $this->token_repository->get_token()->get_token_value() === null ) {
@@ -70,7 +71,7 @@ class ConversionMethodOption extends OptionAbstract {
 			/* translators: %1$s: open anchor tag, %2$s: close anchor tag */
 				__( '%1$sUpgrade to PRO%2$s', 'webp-converter-for-media' ),
 				'<a href="https://url.mattplugins.com/converter-field-conversion-method-info" target="_blank">',
-				' <span class="dashicons dashicons-arrow-right-alt"></span></a>'
+				' <span class="dashicons dashicons-external"></span></a>'
 			);
 		}
 		return $notice;
@@ -82,7 +83,7 @@ class ConversionMethodOption extends OptionAbstract {
 	 * @return string[]
 	 */
 	public function get_available_values( array $settings ): array {
-		return $this->methods_integration->get_methods();
+		return $this->method_factory->get_methods();
 	}
 
 	/**
@@ -91,15 +92,23 @@ class ConversionMethodOption extends OptionAbstract {
 	 * @return string[]
 	 */
 	public function get_disabled_values( array $settings ): array {
-		$methods           = $this->methods_integration->get_methods();
-		$methods_available = $this->methods_integration->get_available_methods();
+		$methods           = $this->method_factory->get_methods();
+		$methods_available = $this->method_factory->get_available_methods();
 		return array_keys( array_diff( $methods, $methods_available ) );
 	}
 
 	/**
 	 * {@inheritdoc}
 	 */
-	public function get_valid_value( $current_value, array $available_values = null, array $disabled_values = null ) {
+	public function get_default_value( array $settings = null ): string {
+		$methods_available = $this->method_factory->get_available_methods();
+		return array_keys( $methods_available )[0] ?? '';
+	}
+
+	/**
+	 * {@inheritdoc}
+	 */
+	public function validate_value( $current_value, array $available_values = null, array $disabled_values = null ) {
 		if ( ! array_key_exists( $current_value, $available_values ?: [] ) ) {
 			return null;
 		}
@@ -110,8 +119,12 @@ class ConversionMethodOption extends OptionAbstract {
 	/**
 	 * {@inheritdoc}
 	 */
-	public function get_default_value( array $settings = null ): string {
-		$methods_available = $this->methods_integration->get_available_methods();
-		return array_keys( $methods_available )[0] ?? '';
+	public function sanitize_value( $current_value ) {
+		$values = [ ImagickMethod::METHOD_NAME, GdMethod::METHOD_NAME, RemoteMethod::METHOD_NAME ];
+
+		return $this->validate_value(
+			$current_value,
+			array_combine( $values, $values )
+		);
 	}
 }

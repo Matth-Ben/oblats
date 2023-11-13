@@ -1,21 +1,51 @@
 <?php
 
+namespace Simple_History;
+
 /**
- * Undocumented class
- *
- * @package SimpleHistory
+ * @var array{
+ *      instantiated_loggers:array,
+ *      instantiated_dropins:array,
+ *      instantiated_services:array,
+ *      events_table_name:string,
+ *      simple_history_instance:Simple_History,
+ *      wpdb:\wpdb
+ * } $args
  **/
 
 defined( 'ABSPATH' ) || die();
 
-global $wpdb;
+/**
+ * Check that required tables exists.
+ * Some users have had issues with tables not being created after
+ * moving site from one server to another. Probably because the history tables
+ * are not moved with the rest of the database, but the options table are and that
+ * confuses Simple History.
+ */
+$tables_info = Helpers::required_tables_exist();
 
-$table_name = $wpdb->prefix . SimpleHistory::DBTABLE;
-$table_name_contexts = $wpdb->prefix . SimpleHistory::DBTABLE_CONTEXTS;
+foreach ( $tables_info as $table_info ) {
+	if ( ! $table_info['table_exists'] ) {
+		echo '<div class="notice notice-error">';
+		echo '<p>';
+		printf(
+			/* translators: %s table name. */
+			esc_html_x( 'Required table "%s" does not exist.', 'debug dropin', 'simple-history' ),
+			esc_html( $table_info['table_name'] )
+		);
+		echo '</p>';
+		echo '</div>';
+	}
+}
 
-$period_days = (int) 14;
-$period_start_date = DateTime::createFromFormat( 'U', strtotime( "-$period_days days" ) );
-$period_end_date = DateTime::createFromFormat( 'U', time() );
+echo wp_kses(
+	Helpers::get_settings_section_title_output( __('Debug', 'simple-history'), 'build' ),
+	[
+		'span' => [
+			'class' => [],
+		],
+	]
+);
 
 /**
  * Size of database in both number or rows and table size
@@ -23,31 +53,9 @@ $period_end_date = DateTime::createFromFormat( 'U', time() );
 
 echo '<h3>' . esc_html_x( 'Database size', 'debug dropin', 'simple-history' ) . '</h3>';
 
-// Get table sizes in mb.
-$table_size_result = $wpdb->get_results(
-	$wpdb->prepare(
-		'
-	SELECT table_name AS "table_name",
-	round(((data_length + index_length) / 1024 / 1024), 2) "size_in_mb"
-	FROM information_schema.TABLES
-	WHERE table_schema = "%1$s"
-	AND table_name IN ("%2$s", "%3$s");
-	',
-		DB_NAME, // 1
-		$table_name, // 2
-		$table_name_contexts // 3
-	)
-);
+$table_size_result = Helpers::get_db_table_stats();
 
-
-// Get num of rows for each table
-$total_num_rows_table = (int) $wpdb->get_var( "select count(*) FROM $table_name" ); // phpcs:ignore 
-$total_num_rows_table_contexts = (int) $wpdb->get_var( "select count(*) FROM $table_name_contexts" ); // phpcs:ignore 
-
-$table_size_result[0]->num_rows = $total_num_rows_table;
-$table_size_result[1]->num_rows = $total_num_rows_table_contexts;
-
-echo "<table class='widefat'>";
+echo "<table class='widefat striped'>";
 printf(
 	'<thead>
 		<tr>
@@ -62,30 +70,34 @@ printf(
 	esc_html_x( 'Rows', 'debug dropin', 'simple-history' )
 );
 
-$loopnum = 0;
-foreach ( $table_size_result as $one_table ) {
-	$size = sprintf( _x( '%s MB', 'debug dropin', 'simple-history' ), $one_table->size_in_mb );
+if ( sizeof( $table_size_result ) === 0 ) {
+	echo '<tr><td colspan="3">';
+	echo esc_html_x( 'No tables found.', 'debug dropin', 'simple-history' );
+	echo '</td></tr>';
+} else {
+	foreach ( $table_size_result as $one_table ) {
+		/* translators: %s size in mb. */
+		$size = sprintf( _x( '%s MB', 'debug dropin', 'simple-history' ), $one_table->size_in_mb );
 
-	$rows = sprintf( _x( '%s rows', 'debug dropin', 'simple-history' ), number_format_i18n( $one_table->num_rows, 0 ) );
+		/* translators: %s number of rows. */
+		$rows = sprintf( _x( '%s rows', 'debug dropin', 'simple-history' ), number_format_i18n( $one_table->num_rows, 0 ) );
 
-	printf(
-		'<tr class="%4$s">
-			<td>%1$s</td>
-			<td>%2$s</td>
-			<td>%3$s</td>
-		</tr>',
-		$one_table->table_name,
-		$size,
-		$rows,
-		$loopnum % 2 ? ' alt ' : ''
-	);
-
-	$loopnum++;
+		printf(
+			'<tr>
+				<td>%1$s</td>
+				<td>%2$s</td>
+				<td>%3$s</td>
+			</tr>',
+			esc_html( $one_table->table_name ),
+			esc_html( $size ),
+			esc_html( $rows ),
+		);
+	}
 }
 
 echo '</table>';
 
-$logQuery = new SimpleHistoryLogQuery();
+$logQuery = new Log_Query();
 $rows = $logQuery->query(
 	array(
 		'posts_per_page' => 1,
@@ -97,40 +109,132 @@ $total_accassions_rows_count = $rows['total_row_count'];
 
 echo '<p>';
 printf(
+	/* translators: %d number of rows. */
 	esc_html_x( 'Total %s rows, when grouped by occasion id.', 'debug dropin', 'simple-history' ),
 	esc_html( $total_accassions_rows_count )
 );
 echo '</p>';
 
+// List services.
+echo '<h3>' . esc_html_x( 'Services', 'debug dropin', 'simple-history' ) . '</h3>';
+
+echo '<p>';
+printf(
+	/* translators: %d number of dropins loaded. */
+	esc_html_x( '%1$d services loaded.', 'debug dropin', 'simple-history' ),
+	esc_html( count( $args['instantiated_services'] ) ) // 1
+);
+echo '</p>';
+
+echo "<table class='widefat striped' cellpadding=2>";
+printf(
+	'
+	<thead>
+		<tr>
+			<th>%1$s</th>
+			<th>%2$s</th>
+		</tr>
+	</thead>
+	',
+	esc_html_x( 'Short name', 'debug dropin', 'simple-history' ),
+	esc_html_x( 'Namespaced name', 'debug dropin', 'simple-history' ),
+);
+
+foreach ( $args['instantiated_services'] as $one_service ) {
+	printf(
+		'
+		<tr>
+            <td>
+                <code>%1$s</code>
+            </td>
+            <td>
+                <code>%2$s</code>
+            </td>
+		</tr>
+		',
+		esc_html( $one_service->get_slug() ), // 1 slug
+		esc_html( get_class( $one_service ) ), // 2 full namespace and class name
+	);
+}
+
+echo '</table>';
+
+// List dropins.
+echo '<h3>' . esc_html_x( 'Dropins', 'debug dropin', 'simple-history' ) . '</h3>';
+
+echo '<p>';
+printf(
+	/* translators: %d number of dropins loaded. */
+	esc_html_x( '%1$d dropins loaded.', 'debug dropin', 'simple-history' ),
+	esc_html( count( $args['instantiated_dropins'] ) ) // 1
+);
+echo '</p>';
+
+echo "<table class='widefat striped' cellpadding=2>";
+printf(
+	'
+	<thead>
+		<tr>
+			<th>%1$s</th>
+			<th>%2$s</th>
+		</tr>
+	</thead>
+	',
+	esc_html_x( 'Short name', 'debug dropin', 'simple-history' ),
+	esc_html_x( 'Namespaced name', 'debug dropin', 'simple-history' ),
+);
+
+foreach ( $args['instantiated_dropins'] as $oneDropin ) {
+	// Older Dropins does not have a get_slug method.
+	$dropin_slug = method_exists( $oneDropin['instance'], 'get_slug' )
+		? $oneDropin['instance']->get_slug()
+		: Helpers::get_class_short_name( $oneDropin['instance'] );
+
+	printf(
+		'
+		<tr>
+            <td>
+                <code>%1$s</code>
+            </td>
+            <td>
+                <code>%2$s</code>
+            </td>
+		</tr>
+		',
+		esc_html( $dropin_slug ),
+		esc_html( get_class( $oneDropin['instance'] ) ),
+	);
+}
+
+echo '</table>';
+
 // echo "<h4>Clear history interval</h4>";
-// echo "<p>" . $this->sh->get_clear_history_interval() . "</p>";
+// echo "<p>" . $this->simple_history->get_clear_history_interval() . "</p>";
 /**
  * Output a list of all active loggers, including name, slug, comment, message, capability and number of rows
  * Retrieve them in order by the number of rows they have in the db
  * Loggers with 0 rows in the db will not be included in the array, so we need to find those
  * and add them manually last
  */
-
 $arr_logger_slugs = array();
-
-foreach ( $this->sh->getInstantiatedLoggers() as $oneLogger ) {
-	$arr_logger_slugs[] = $oneLogger['instance']->slug;
+foreach ( $args['instantiated_loggers'] as $oneLogger ) {
+	$arr_logger_slugs[] = esc_sql( $oneLogger['instance']->get_slug() );
 }
 
-$logger_rows_count = $wpdb->get_results(
-	$wpdb->prepare(
-		'
-    SELECT logger, count(id) as count
-    FROM %1$s
-    WHERE logger IN ("%2$s")
-    GROUP BY logger
-    ORDER BY count DESC
+$sql_logger_counts = sprintf(
+	'
+	SELECT logger, count(id) as count
+	FROM %1$s
+	WHERE logger IN ("%2$s")
+	GROUP BY logger
+	ORDER BY count DESC
 ',
-		$table_name,
-		join( '","', $arr_logger_slugs )
-	),
-	OBJECT_K
+	$args['events_table_name'],
+	join( '","', $arr_logger_slugs )
 );
+
+// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
+$logger_rows_count = $args['wpdb']->get_results( $sql_logger_counts, OBJECT_K );
 
 // Find loggers with no rows in db and append to array.
 $missing_logger_slugs = array_diff( $arr_logger_slugs, array_keys( $logger_rows_count ) );
@@ -148,12 +252,13 @@ echo '</h3>';
 
 echo '<p>';
 printf(
+	/* translators: %d number of loggers. */
 	esc_html_x( 'Listing %1$d loggers, ordered by rows count in database.', 'debug dropin', 'simple-history' ),
 	esc_html( count( $arr_logger_slugs ) ) // 1
 );
 echo '</p>';
 
-echo "<table class='widefat fixed' cellpadding=2>";
+echo "<table class='widefat fixed striped' cellpadding=2>";
 printf(
 	'
 	<thead>
@@ -164,6 +269,7 @@ printf(
 			<th>%4$s</th>
 			<th>%5$s</th>
 			<th>%6$s</th>
+			<th>%7$s</th>
 		</tr>
 	</thead>
 	',
@@ -172,13 +278,15 @@ printf(
 	esc_html_x( 'Description', 'debug dropin', 'simple-history' ),
 	esc_html_x( 'Messages', 'debug dropin', 'simple-history' ),
 	esc_html_x( 'Capability', 'debug dropin', 'simple-history' ),
-	esc_html_x( 'Rows count', 'debug dropin', 'simple-history' )
+	esc_html_x( 'Rows count', 'debug dropin', 'simple-history' ),
+	esc_html_x( 'Status', 'debug dropin', 'simple-history' )
 );
 
 $loopnum = 0;
 
 foreach ( $logger_rows_count as $one_logger_slug => $one_logger_val ) {
-	$logger = $this->sh->getInstantiatedLoggerBySlug( $one_logger_slug );
+	/** @var Loggers\Logger $logger */
+	$logger = $args['simple_history_instance']->get_instantiated_logger_by_slug( $one_logger_slug );
 
 	if ( ! $logger ) {
 		continue;
@@ -188,20 +296,21 @@ foreach ( $logger_rows_count as $one_logger_slug => $one_logger_val ) {
 		$one_logger_count = $logger_rows_count[ $one_logger_slug ];
 	} else {
 		// logger was not is sql result, so fake result
-		$one_logger_count = new stdclass();
+		$one_logger_count = new \stdClass();
 		$one_logger_count->count = 0;
 	}
 
-	$logger_info = $logger->getInfo();
+	$logger_info = $logger->get_info();
 	$logger_messages = isset( $logger_info['messages'] ) ? (array) $logger_info['messages'] : array();
 
 	$html_logger_messages = '';
 
-	foreach ( $logger_messages as $message_key => $message ) {
+	foreach ( $logger_messages as $message ) {
 		$html_logger_messages .= sprintf( '<li>%1$s</li>', esc_html( $message ) );
 	}
 	if ( $html_logger_messages ) {
 		$str_num_message_strings = sprintf(
+			/* translators: %d number of message strings. */
 			esc_html_x( '%1$s message strings', 'debug dropin', 'simple-history' ),
 			esc_html( count( $logger_messages ) )
 		);
@@ -221,6 +330,8 @@ foreach ( $logger_rows_count as $one_logger_slug => $one_logger_val ) {
 	} else {
 		$html_logger_messages = '<p>' . esc_html_x( 'No message strings', 'debug dropin', 'simple-history' ) . '</p>';
 	}
+
+	$logger_enabled_text = $logger->is_enabled() ? _x( 'Enabled', 'debug dropin', 'simple-history' ) : _x( 'Disabled', 'debug dropin', 'simple-history' );
 
 	printf(
 		'
@@ -243,15 +354,19 @@ foreach ( $logger_rows_count as $one_logger_slug => $one_logger_val ) {
 			<td>
                 <p>%1$s</p>
             </td>
+			<td>
+                <p>%8$s</p>
+            </td>
 		</tr>
 		',
 		number_format_i18n( $one_logger_count->count ),
 		esc_html( $one_logger_slug ), // 2
 		esc_html( $logger_info['name'] ),
 		esc_html( $logger_info['description'] ), // 4
-		esc_html( $logger->getCapability() ), // 5
+		esc_html( $logger->get_capability() ), // 5
 		$loopnum % 2 ? ' alt ' : '', // 6
-		$html_logger_messages // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		$html_logger_messages, // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		esc_html( $logger_enabled_text )
 	);
 
 	$loopnum++;
@@ -262,11 +377,11 @@ echo '</table>';
 // List installed plugins
 echo '<h2>' . esc_html_x( 'Plugins', 'debug dropin', 'simple-history' ) . '</h2>';
 
-echo '<p>' . esc_html_x( 'As returned from <code>get_plugins()</code>', 'debug dropin', 'simple-history' ) . '</p>';
+echo '<p>' . esc_html_x( 'As returned from get_plugins().', 'debug dropin', 'simple-history' ) . '</p>';
 
 $all_plugins = get_plugins();
 
-echo "<table class='widefat'>";
+echo "<table class='widefat striped'>";
 printf(
 	'<thead>
         <tr>
@@ -282,7 +397,8 @@ printf(
 );
 
 foreach ( $all_plugins as $pluginFilePath => $onePlugin ) {
-	$isPluginActive = is_plugin_active( $pluginFilePath );
+	$isPluginActive = Helpers::is_plugin_active( $pluginFilePath );
+
 	printf(
 		'
         <tr>

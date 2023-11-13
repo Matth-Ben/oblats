@@ -5,7 +5,7 @@ namespace WebpConverter\Error\Notice;
 /**
  * {@inheritdoc}
  */
-class AccessTokenInvalidNotice implements ErrorNotice {
+class AccessTokenInvalidNotice implements NoticeInterface {
 
 	const ERROR_KEY = 'token_invalid';
 
@@ -23,7 +23,7 @@ class AccessTokenInvalidNotice implements ErrorNotice {
 		return [
 			sprintf(
 			/* translators: %1$s: field label, %2$s: button label */
-				__( 'It appears that the value of the %1$s field is invalid or your subscription has expired. To use the service, please check your subscription and click the %2$s button again.', 'webp-converter-for-media' ),
+				__( 'It appears that the value of the %1$s field is invalid or your subscription has expired. To use the service, please, check your subscription and click the %2$s button again.', 'webp-converter-for-media' ),
 				__( 'Access Token', 'webp-converter-for-media' ),
 				__( 'Activate Token', 'webp-converter-for-media' )
 			),

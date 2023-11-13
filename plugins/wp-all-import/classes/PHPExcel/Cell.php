@@ -259,8 +259,6 @@ class PHPExcel_Cell
     /**
      *    Get calculated cell value
      *
-     *    @deprecated        Since version 1.7.8 for planned changes to cell for array formula handling
-     *
      *    @param    boolean $resetLog  Whether the calculation engine logger should be reset or not
      *    @return    mixed
      *    @throws    PHPExcel_Exception
@@ -1009,7 +1007,6 @@ class PHPExcel_Cell
     }
 
     /**
-     *    @deprecated        Since version 1.7.8 for planned changes to cell for array formula handling
      */
     public function setFormulaAttributes($pAttributes)
     {

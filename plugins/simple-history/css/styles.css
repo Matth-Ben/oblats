@@ -1,3 +1,5 @@
+@import url(icons.css);
+
 /* clearfix */
 .SimpleHistory__cf:before,
 .SimpleHistory__cf:after {
@@ -100,7 +102,7 @@
 
 /**
  * Log items
- * There is always a 4px left border, just with differents colors
+ * There is always a 4px left border, just with different colors.
  */
 .SimpleHistoryLogitem {
 	position: relative;
@@ -306,7 +308,8 @@ Style different log levels.
 	text-align: right;
 	padding-right: 1em;
 	color: #757575;
-	white-space: nowrap;
+	min-width: 8em;
+	/* white-space: nowrap; */
 }
 
 .SimpleHistoryLogitem__keyValueTable p {
@@ -455,9 +458,40 @@ Images/thumbs can be styles nicely
 }
 
 /*
-customizations for the dashboard
-i.e. the log is inside a .postbox element
+Customizations for the dashboard,
+i.e. the log is inside a .postbox element.
 */
+#simple_history_dashboard_widget .postbox-header {
+	background-image: url(./simple-history-logo-icon.svg);
+	background-repeat: no-repeat;
+	background-size: 20px;
+	background-position: 12px center;
+	/* -webkit-mask-image: url(./simple-history-logo-icon.svg); */
+}
+
+.postbox.closed .sh-Dashboard-settingsLink {
+	display: none;
+}
+
+.sh-Dashboard-settingsLink {
+	background-color: #787c82;
+	mask-image: url(./icons/settings_FILL0_wght400_GRAD0_opsz48.svg);
+	-webkit-mask-image: url(./icons/settings_FILL0_wght400_GRAD0_opsz48.svg);
+	mask-size: 100%;
+	-webkit-mask-size: 100%;
+}
+
+.sh-Dashboard-settingsLink:focus {
+	box-shadow: 0 0 0 1px #4f94d4, 0 0 2px 1px rgba(79, 148, 212, 0.8);
+	mask-image: none;
+	background-color: transparent;
+	background-image: url(./icons/settings_FILL0_wght400_GRAD0_opsz48.svg);
+}
+
+#simple_history_dashboard_widget .postbox-header h2 {
+	margin-left: 25px;
+}
+
 #simple_history_dashboard_widget .inside {
 	padding: 0;
 	margin-top: 0;
@@ -617,7 +651,7 @@ Modal window with detailss
 	border: 1px solid rgba(0, 0, 0, 0.2);
 	bottom: 60px;
 	box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
-	left: 280px; /* admin meny width is 160 px*/
+	left: 280px; /* admin menu width is 160 px*/
 	position: fixed;
 	overflow: auto;
 	right: 120px;
@@ -659,14 +693,14 @@ Modal window with detailss
 	cursor: pointer;
 }
 
-/* if wp left meny is collapsed .folded is added and meny width is 36 px */
+/* if wp left menu is collapsed .folded is added and menu width is 36 px */
 .folded .SimpleHistory-modal__content {
-	left: 156px; /* admin meny width is 160 px */
+	left: 156px; /* admin menu width is 160 px */
 }
 
 @media only screen and (max-width: 850px) {
 	.SimpleHistory-modal__content {
-		left: 10px; /* admin meny width is 160 px */
+		left: 10px; /* admin menu width is 160 px */
 	}
 }
 
@@ -787,8 +821,8 @@ Modal window with detailss
 	margin-left: 0;
 }
 
-/** wordpress as initiator = add wordpress icon */
-/** anonymous user as initiator = plain user image */
+/* wordpress as initiator = add wordpress icon */
+/* anonymous user as initiator = plain user image */
 .SimpleHistoryLogitem--initiator-wp .SimpleHistoryLogitem__senderImage:before,
 .SimpleHistoryLogitem--initiator-wp_cli
 	.SimpleHistoryLogitem__senderImage:before,
@@ -841,19 +875,6 @@ Modal window with detailss
 
 .SimpleHistoryQuickStats a {
 	text-decoration: none;
-}
-
-/* icon on log page*/
-.SimpleHistoryPageHeadline__icon {
-	font-size: 24px;
-	line-height: 30px;
-	width: 24px;
-	color: rgb(63, 147, 73);
-}
-
-/* For WP < 4.3 */
-.branch-4-2 .SimpleHistoryPageHeadline__icon {
-	line-height: 18px;
 }
 
 /* if not hits when using filter function + if ajax error */
@@ -942,4 +963,268 @@ Modal window with detailss
 
 .SimpleHistory__diff.SimpleHistory__diff tbody tr td:nth-child(2) {
 	width: auto;
+}
+
+/**
+ * SuitCSS based classnames.
+ */
+.sh-ExternalLink::after {
+	/* External icon on link */
+	content: "\f504";
+	font-family: dashicons;
+	line-height: 1;
+}
+
+:root {
+	--sh-color-gray: #c3c4c7;
+	--sh-color-green: #3f9349;
+}
+
+/**
+ * White page header. Used for plugin title, tab navigation, maybe settings to the right.
+ * Based on style uses by core for Site Health and Privacy Policy, to keep things consistent.
+ */
+.sh-PageHeader {
+	margin: 0 0 2rem -20px;
+	padding: 1.5rem;
+	background: #fff;
+	border-bottom: 1px solid var(--sh-color-gray);
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	column-gap: 1rem;
+}
+
+.sh-PageHeader-title {
+	flex: 1;
+	font-size: 23px;
+	font-weight: 400;
+	margin: 0;
+	line-height: 1;
+}
+
+.sh-PageHeader-logo {
+	width: 200px;
+	height: auto;
+}
+
+.sh-PageHeader-titleLink {
+	display: block;
+	color: inherit;
+	text-decoration: none;
+}
+
+.sh-PageHeader-rightLink {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 0.25rem;
+}
+
+.sh-PageHeader-settingsLinkIcon {
+	--icon-size: 25px;
+}
+
+.sh-PageHeader-settingsLinkIcon-new {
+	font-style: normal;
+	display: inline-block;
+	text-transform: uppercase;
+	font-size: 0.8em;
+	background: green;
+	text-decoration: underline;
+	text-decoration-color: green;
+	padding: 3px 4px;
+	line-height: 1;
+	border-radius: 3px;
+	color: #eee;
+	margin-left: 0.1em;
+}
+
+.sh-Page-content {
+	margin: 0 1rem;
+}
+
+.sh-PageNav {
+	width: 100%;
+	display: flex;
+	margin-top: 1rem;
+	margin-left: -1rem;
+	margin-bottom: -1.5rem;
+	gap: 2rem;
+}
+
+.sh-PageNav-tab {
+	display: block;
+	position: relative;
+	text-decoration: none;
+	color: inherit;
+	padding: 0.5rem 1rem 1rem;
+}
+
+.sh-PageNav-tab::after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 0.5rem;
+	right: 0.5rem;
+	height: 3px;
+	font-weight: 600;
+	transition: background-color 0.25s ease-in-out, height 0.15s ease-in-out;
+}
+
+.sh-PageNav-tab:hover::after {
+	background-color: #dcdcde;
+}
+
+.sh-PageNav-tab.is-active::after {
+	background: var(--sh-color-green);
+}
+
+.sh-SettingsPage-settingsField {
+	/* font-size: 1rem; */
+	color: #3c434a;
+}
+
+.sh-SettingsPage-settingsSection-wrap {
+	padding: 1rem 0;
+	margin: 1rem 0;
+}
+
+.sh-SettingsPage-settingsSection-wrap h2 {
+	margin: 0;
+}
+
+.sh-SettingsPage-settingsSection-title {
+	display: block;
+	font-size: 23px;
+	font-weight: 400;
+	margin: 0;
+	padding: 9px 0 4px;
+	line-height: 1.3;
+}
+
+.sh-SettingsPage-settingsSection-icon {
+	--icon-size: 24px;
+	width: var(--icon-size);
+	height: var(--icon-size);
+	/* background-image: url(./icons/info_FILL0_wght400_GRAD0_opsz48.svg); */
+	display: inline-block;
+	background-size: 100%;
+	vertical-align: middle;
+	margin-right: 0.5em;
+	position: relative;
+	top: -2px;
+}
+
+.sh-SettingsPage-settingsField-icon {
+	--icon-size: 20px;
+	width: var(--icon-size);
+	height: var(--icon-size);
+	/* background-image: url(./icons/info_FILL0_wght400_GRAD0_opsz48.svg); */
+	display: inline-block;
+	background-size: 100%;
+	vertical-align: middle;
+	margin-right: 0.5em;
+	position: relative;
+	top: -1px;
+	left: 2px;
+}
+
+.sh-PageNav-icon {
+	--icon-size: 20px;
+	width: var(--icon-size);
+	height: var(--icon-size);
+	/* background-image: url(./icons/info_FILL0_wght400_GRAD0_opsz48.svg); */
+	display: inline-block;
+	background-size: 100%;
+	vertical-align: middle;
+	margin-right: 0.5em;
+	position: relative;
+	top: -2px;
+}
+
+/** Subtabs on settings page */
+.sh-SettingsTabs {
+	/* --color-link-hover: #3f9349; */
+	/* background-color: #f8f8f8; */
+	border-bottom: 1px solid rgb(206, 206, 206);
+	margin-bottom: 0;
+	margin-top: -1.5rem;
+	margin-left: -2.5em;
+	padding-left: 2.5em;
+}
+
+.sh-SettingsTabs-tabs {
+	display: flex;
+	margin: 0;
+	/* border-bottom: 1px solid #dcdcde; */
+}
+
+.sh-SettingsTabs-tab {
+	margin-bottom: 0;
+}
+
+.sh-SettingsTabs-link {
+	text-decoration: none;
+	display: block;
+	padding: 1rem 1.5rem;
+	color: inherit;
+}
+
+.sh-SettingsTabs-link.is-active {
+	font-weight: bold;
+	box-shadow: inset 0 -2px #979797;
+}
+
+a.sh-SettingsTabs-link:hover {
+	color: var(--sh-color-green);
+}
+
+.sh-SettingsSection {
+	font-size: 1.5rem;
+}
+
+.sh-SettingsSectionIntroduction {
+	margin-bottom: 1.5em;
+}
+
+.sh-SettingsSectionIntroduction p {
+	font-size: 1rem;
+}
+
+.sh-mr-0 {
+	margin-right: 0px;
+}
+
+.sh-mr-1 {
+	margin-right: 0.25rem; /* 4px */
+}
+.sh-mr-2 {
+	margin-right: 0.5rem; /* 8px */
+}
+.sh-mr-3 {
+	margin-right: 0.75rem; /* 12px */
+}
+
+.sh-LicencesPage-plugin {
+	background: #fff;
+	border-radius: 0.5rem;
+	margin-bottom: 2rem;
+	padding: 1.5rem;
+}
+
+.form-table .sh-LicencesPage-plugin-name {
+	margin: 0;
+	font-weight: bold;
+	font-size: 1.25em;
+	font-weight: 400;
+}
+
+.form-table .sh-LicencesPage-plugin-version {
+	color: #888;
+	margin-bottom: 1rem;
+}
+
+.form-table .sh-LicencesPage-plugin-active {
+	margin-bottom: 1rem;
 }

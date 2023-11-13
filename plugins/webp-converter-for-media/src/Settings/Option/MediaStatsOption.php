@@ -43,7 +43,7 @@ class MediaStatsOption extends OptionAbstract {
 	public function get_info(): string {
 		return sprintf(
 		/* translators: %1$s: open anchor tag, %2$s: close anchor tag */
-			__( 'Show statistics in %1$sMedia Library%2$s', 'webp-converter-for-media' ),
+			__( 'Show the statistics in %1$sMedia Library%2$s', 'webp-converter-for-media' ),
 			'<a href="' . admin_url( 'upload.php?mode=list' ) . '">',
 			'</a>'
 		);
@@ -59,14 +59,21 @@ class MediaStatsOption extends OptionAbstract {
 	/**
 	 * {@inheritdoc}
 	 */
-	public function get_valid_value( $current_value, array $available_values = null, array $disabled_values = null ) {
+	public function get_default_value( array $settings = null ): string {
+		return 'yes';
+	}
+
+	/**
+	 * {@inheritdoc}
+	 */
+	public function validate_value( $current_value, array $available_values = null, array $disabled_values = null ): string {
 		return ( $current_value === 'yes' ) ? 'yes' : '';
 	}
 
 	/**
 	 * {@inheritdoc}
 	 */
-	public function get_default_value( array $settings = null ): string {
-		return 'yes';
+	public function sanitize_value( $current_value ): string {
+		return $this->validate_value( $current_value );
 	}
 }

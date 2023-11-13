@@ -5,7 +5,7 @@ namespace WebpConverter\Error\Notice;
 /**
  * {@inheritdoc}
  */
-class CloudflareSettingsIncorrectNotice implements ErrorNotice {
+class CloudflareSettingsIncorrectNotice implements NoticeInterface {
 
 	const ERROR_KEY = 'settings_cloudflare';
 
@@ -28,7 +28,7 @@ class CloudflareSettingsIncorrectNotice implements ErrorNotice {
 			),
 			sprintf(
 			/* translators: %1$s: open anchor tag, %2$s: close anchor tag */
-				__( 'Please read %1$sour manual%2$s and follow the steps there.', 'webp-converter-for-media' ),
+				__( 'Please, read %1$sour manual%2$s and follow the steps there.', 'webp-converter-for-media' ),
 				'<a href="https://url.mattplugins.com/converter-error-cloudflare-settings-docs" target="_blank">',
 				'</a>'
 			),

@@ -994,7 +994,7 @@
 
 		// Taxonnomies
 		$form.find('#show_hidden_ctx').on('click', function(){
-			$(this).parents('table:first').find('tr.private_ctx').toggle();
+			$form.find('tr.private_ctx').toggle();
 		});
 
 		// Test & Preview images

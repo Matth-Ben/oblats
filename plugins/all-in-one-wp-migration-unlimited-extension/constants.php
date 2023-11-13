@@ -30,7 +30,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 // ==================
 // = Plugin Version =
 // ==================
-define( 'AI1WMUE_VERSION', '2.48' );
+define( 'AI1WMUE_VERSION', '2.54' );
 
 // ===============
 // = Plugin Name =
@@ -77,20 +77,10 @@ define( 'AI1WMUE_VENDOR_PATH', AI1WMUE_LIB_PATH . DIRECTORY_SEPARATOR . 'vendor'
 // ==================
 define( 'AI1WMUE_RETENTION_NAME', 'retention.json' );
 
-// ===========================
-// = ServMask Activation URL =
-// ===========================
-define( 'AI1WMUE_ACTIVATION_URL', 'https://servmask.com/purchase/activations' );
-
-// ======================
-// = ServMask Stats URL =
-// ======================
-define( 'AI1WMUE_STATS_URL', 'https://servmask.com/api/stats' );
-
-// =================
-// = Max File Size =
-// =================
-define( 'AI1WMUE_MAX_FILE_SIZE', 0 );
+// ===============================
+// = Minimal Base Plugin Version =
+// ===============================
+define( 'AI1WMUE_MIN_AI1WM_VERSION', '7.79' );
 
 // ===============
 // = Purchase ID =

@@ -5,17 +5,17 @@ namespace WebpConverter\Notice;
 use WebpConverter\PluginData;
 use WebpConverter\Service\OptionsAccessManager;
 use WebpConverter\Settings\Option\AccessTokenOption;
-use WebpConverter\Settings\Page\PageIntegration;
+use WebpConverter\Settings\Page\PageIntegrator;
 
 /**
  * Supports notice displayed information about the PRO version.
  */
 class BlackFridayNotice extends NoticeAbstract implements NoticeInterface {
 
-	const NOTICE_OPTION     = 'webpc_notice_bf2022';
+	const NOTICE_OPTION     = 'webpc_notice_bf2023';
 	const NOTICE_VIEW_PATH  = 'components/notices/discount-coupon.php';
-	const NOTICE_DATE_START = '2022-11-24';
-	const NOTICE_DATE_END   = '2022-11-28';
+	const NOTICE_DATE_START = '2023-11-20';
+	const NOTICE_DATE_END   = '2023-11-27';
 
 	/**
 	 * @var PluginData
@@ -38,7 +38,7 @@ class BlackFridayNotice extends NoticeAbstract implements NoticeInterface {
 	 */
 	public function is_available(): bool {
 		return ( ( basename( $_SERVER['PHP_SELF'] ) === 'index.php' ) // phpcs:ignore WordPress.Security
-			|| ( ( $_GET['page'] ?? '' ) === PageIntegration::SETTINGS_MENU_PAGE ) ); // phpcs:ignore WordPress.Security
+			|| ( ( $_GET['page'] ?? '' ) === PageIntegrator::SETTINGS_MENU_PAGE ) ); // phpcs:ignore WordPress.Security
 	}
 
 	/**
@@ -83,9 +83,9 @@ class BlackFridayNotice extends NoticeAbstract implements NoticeInterface {
 		return [
 			'ajax_url'       => admin_url( 'admin-ajax.php' ),
 			'close_action'   => self::NOTICE_OPTION,
-			'coupon_code'    => 'BF2022',
+			'coupon_code'    => 'BF2023',
 			'discount_value' => '50%',
-			'button_url'     => 'https://url.mattplugins.com/converter-notice-bf2022-button-read',
+			'button_url'     => 'https://url.mattplugins.com/converter-notice-bf2023-button-read',
 			'promotion_date' => self::NOTICE_DATE_END,
 		];
 	}

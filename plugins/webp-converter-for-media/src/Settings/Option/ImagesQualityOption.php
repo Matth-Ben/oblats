@@ -41,10 +41,26 @@ class ImagesQualityOption extends OptionAbstract {
 	 * {@inheritdoc}
 	 */
 	public function get_info(): string {
-		return sprintf(
-		/* translators: %s: level name */
-			__( 'The "%s" value is the best choice for most websites.', 'webp-converter-for-media' ),
-			__( 'Optimal', 'webp-converter-for-media' )
+		return implode(
+			'',
+			[
+				sprintf(
+				/* translators: %s: level name */
+					__( 'The "%s" value is the most optimal choice for most websites.', 'webp-converter-for-media' ),
+					__( 'Optimal', 'webp-converter-for-media' )
+				),
+				sprintf(
+					' <span class="dashicons dashicons-info-outline" title="%s"></span>',
+					esc_attr(
+						sprintf(
+						/* translators: %1$s: button label, %2$s: option label */
+							__( 'After saving the change to this setting, remember to click the "%1$s" button with the "%2$s" option checked if you want to apply the change to already converted images.', 'webp-converter-for-media' ),
+							__( 'Start Bulk Optimization', 'webp-converter-for-media' ),
+							__( 'Force the conversion of all images again', 'webp-converter-for-media' )
+						)
+					)
+				),
+			]
 		);
 	}
 
@@ -54,10 +70,7 @@ class ImagesQualityOption extends OptionAbstract {
 	 * @return string[]
 	 */
 	public function get_available_values( array $settings ): array {
-		$levels = apply_filters(
-			'webpc_option_quality_levels',
-			[ '75', '80', '85', '90', '95' ]
-		);
+		$levels = apply_filters( 'webpc_option_quality_levels', [ '75', '80', '85', '90', '95' ] );
 
 		$values = [];
 		foreach ( $levels as $level ) {
@@ -70,7 +83,14 @@ class ImagesQualityOption extends OptionAbstract {
 		return $values;
 	}
 
-	public function get_valid_value( $current_value, array $available_values = null, array $disabled_values = null ) {
+	/**
+	 * {@inheritdoc}
+	 */
+	public function get_default_value( array $settings = null ): string {
+		return '85';
+	}
+
+	public function validate_value( $current_value, array $available_values = null, array $disabled_values = null ) {
 		if ( $current_value === '100' ) {
 			return '95';
 		} elseif ( ! array_key_exists( $current_value, $available_values ?: [] )
@@ -84,7 +104,12 @@ class ImagesQualityOption extends OptionAbstract {
 	/**
 	 * {@inheritdoc}
 	 */
-	public function get_default_value( array $settings = null ): string {
-		return '85';
+	public function sanitize_value( $current_value ): string {
+		$values = apply_filters( 'webpc_option_quality_levels', [ '75', '80', '85', '90', '95' ] );
+
+		return $this->validate_value(
+			$current_value,
+			array_combine( $values, $values )
+		);
 	}
 }

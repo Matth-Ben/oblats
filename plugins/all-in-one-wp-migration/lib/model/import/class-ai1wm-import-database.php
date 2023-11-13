@@ -945,11 +945,7 @@ class Ai1wm_Import_Database {
 
 		// Get database client
 		if ( is_null( $mysql ) ) {
-			if ( empty( $wpdb->use_mysqli ) ) {
-				$mysql = new Ai1wm_Database_Mysql( $wpdb );
-			} else {
-				$mysql = new Ai1wm_Database_Mysqli( $wpdb );
-			}
+			$mysql = Ai1wm_Database_Utility::create_client();
 		}
 
 		// Set database options
@@ -1050,10 +1046,8 @@ class Ai1wm_Import_Database {
 		// Set the new sites links
 		update_option( AI1WM_SITES_LINKS, $sites_links );
 
-		if ( AI1WM_DEFAULT_BACKUPS_PATH !== AI1WM_BACKUPS_PATH ) {
-			// Set new backups path
-			update_option( AI1WM_BACKUPS_PATH_OPTION, AI1WM_BACKUPS_PATH );
-		}
+		// Set new backups path
+		update_option( AI1WM_BACKUPS_PATH_OPTION, AI1WM_BACKUPS_PATH );
 
 		return $params;
 	}

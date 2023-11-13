@@ -4,7 +4,9 @@ namespace WebpConverter\Service;
 
 use WebpConverter\Conversion\FilesTreeFinder;
 use WebpConverter\Conversion\Format\AvifFormat;
+use WebpConverter\Conversion\Format\FormatFactory;
 use WebpConverter\Conversion\Format\WebpFormat;
+use WebpConverter\Conversion\Method\MethodFactory;
 use WebpConverter\Conversion\Method\MethodIntegrator;
 use WebpConverter\Conversion\PathsFinder;
 use WebpConverter\HookableInterface;
@@ -28,9 +30,26 @@ class WpCliManager implements HookableInterface {
 	 */
 	private $token_repository;
 
-	public function __construct( PluginData $plugin_data, TokenRepository $token_repository ) {
+	/**
+	 * @var MethodFactory
+	 */
+	private $method_factory;
+
+	/**
+	 * @var FormatFactory
+	 */
+	private $format_factory;
+
+	public function __construct(
+		PluginData $plugin_data,
+		TokenRepository $token_repository,
+		MethodFactory $method_factory,
+		FormatFactory $format_factory
+	) {
 		$this->plugin_data      = $plugin_data;
 		$this->token_repository = $token_repository;
+		$this->method_factory   = $method_factory;
+		$this->format_factory   = $format_factory;
 	}
 
 	/**
@@ -41,8 +60,23 @@ class WpCliManager implements HookableInterface {
 			return;
 		}
 
-		\WP_CLI::add_command( 'converter-for-media calculate', [ $this, 'calculate_images' ] );
-		\WP_CLI::add_command( 'converter-for-media regenerate', [ $this, 'regenerate_images' ] );
+		\WP_CLI::add_command(
+			'converter-for-media calculate',
+			[ $this, 'calculate_images' ],
+			[]
+		);
+		\WP_CLI::add_command(
+			'converter-for-media regenerate',
+			[ $this, 'regenerate_images' ],
+			[
+				'synopsis' => [
+					'type'        => 'flag',
+					'name'        => 'force',
+					'description' => __( 'Force the conversion of all images again', 'webp-converter-for-media' ),
+				],
+			]
+		);
+
 		\WP_CLI::add_command( 'webp-converter calculate', [ $this, 'calculate_images' ] );
 		\WP_CLI::add_command( 'webp-converter regenerate', [ $this, 'regenerate_images' ] );
 	}
@@ -55,12 +89,12 @@ class WpCliManager implements HookableInterface {
 			__( 'How many images to convert are remaining on my website?', 'webp-converter-for-media' )
 		);
 
-		$stats_data = ( new FilesTreeFinder( $this->plugin_data ) )
+		$stats_data = ( new FilesTreeFinder( $this->plugin_data, $this->format_factory ) )
 			->get_tree( [ WebpFormat::FORMAT_EXTENSION, AvifFormat::FORMAT_EXTENSION ] );
 
 		\WP_CLI::success(
 			sprintf(
-			/* translators: %1$s: images count */
+			/* translators: %1$s: images count, %2$s: images count */
 				__( '%1$s for AVIF and %2$s for WebP', 'webp-converter-for-media' ),
 				number_format( $stats_data['files_unconverted'][ AvifFormat::FORMAT_EXTENSION ], 0, '', ' ' ),
 				number_format( $stats_data['files_unconverted'][ WebpFormat::FORMAT_EXTENSION ], 0, '', ' ' )
@@ -69,15 +103,29 @@ class WpCliManager implements HookableInterface {
 	}
 
 	/**
-	 * @param string[] $args .
+	 * @param string[] $args       .
+	 * @param string[] $assoc_args .
 	 *
 	 * @return void
 	 */
-	public function regenerate_images( array $args ) {
-		$skip_converted    = ( ( $args[0] ?? '' ) !== '-force' );
-		$paths_chunks      = ( new PathsFinder( $this->plugin_data, $this->token_repository ) )
-			->get_paths_by_chunks( $skip_converted );
-		$conversion_method = ( new MethodIntegrator( $this->plugin_data ) );
+	public function regenerate_images( array $args, array $assoc_args = [] ) {
+		$force_flag        = ( isset( $assoc_args['force'] ) || in_array( '-force', $args ) );
+		$conversion_method = ( new MethodIntegrator( $this->plugin_data, $this->method_factory ) );
+		$method_used       = $conversion_method->get_method_used();
+
+		if ( $method_used === null ) {
+			\WP_CLI::error(
+				sprintf(
+				/* translators: %1$s: open anchor tag, %2$s: close anchor tag */
+					__( 'GD or Imagick library is not installed on your server.', 'webp-converter-for-media' ) . ' ' . __( 'This means that you cannot convert images to the WebP format on your server, because it does not meet the plugin requirements described in %1$sthe plugin FAQ%2$s. This issue is not dependent on the plugin.', 'webp-converter-for-media' ),
+					'<a href="https://url.mattplugins.com/converter-error-libs-not-installed-faq" target="_blank">',
+					'</a>'
+				)
+			);
+		}
+
+		$paths_chunks = ( new PathsFinder( $this->plugin_data, $this->token_repository, $this->format_factory ) )
+			->get_paths_by_chunks( ! $force_flag );
 
 		$count = 0;
 		foreach ( $paths_chunks as $chunk_data ) {
@@ -97,7 +145,8 @@ class WpCliManager implements HookableInterface {
 			foreach ( $chunk_data['files'] as $images_paths ) {
 				$response = $conversion_method->init_conversion(
 					$this->parse_files_paths( $images_paths, $chunk_data['path'] ),
-					! $skip_converted
+					$force_flag,
+					true
 				);
 
 				if ( $response !== null ) {

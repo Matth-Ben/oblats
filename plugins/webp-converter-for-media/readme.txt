@@ -3,9 +3,9 @@ Contributors: mateuszgbiorczyk
 Donate link: https://url.mattplugins.com/converter-readme-donate-link
 Tags: convert webp, webp, optimize images, image optimization, compress images
 Requires at least: 4.9
-Tested up to: 6.1
+Tested up to: 6.4
 Requires PHP: 7.0
-Stable tag: 5.6.4
+Stable tag: 5.11.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -83,6 +83,18 @@ When adding a thread, follow these steps and reply to each of them:
 **4.** Please do the test, which is described in the FAQ in the question "How to check if the plugin works?". Please send a screenshot of Devtools with the test results.
 
 Please remember to include the answers to all questions by adding a thread. It is much easier and accelerates the solution of your problem.
+
+= Configuration for Nginx =
+
+If you are using a Nginx server that does not support .htaccess rules, additional Nginx server configuration is required for the plugin to work properly.
+
+Please read [this tutorial](https://url.mattplugins.com/converter-plugin-faq-nginx-configuration-instruction) for more information.
+
+= Configuration for Nginx Proxy =
+
+If you are using a Nginx server that supports .htaccess rules, but you still have a server configuration error on the plugin settings page, additional Nginx server configuration is required for the plugin to work properly.
+
+Please read [this tutorial](https://url.mattplugins.com/converter-plugin-faq-nginx-proxy-configuration-instruction) for more information.
 
 = Error on plugin settings screen? =
 
@@ -246,11 +258,11 @@ It is a solution for advanced users. If you would like to integrate with another
 
 You can manually run converting selected files, you can use the action to which you will pass an array with a list of paths *(they must be absolute server paths)*:
 
-`do_action( 'webpc_convert_paths', $paths );`
+`do_action( 'webpc_convert_paths', $paths, true );`
 
 An alternative method is to manually start converting the selected attachment by passing the post ID from the Media Library. Remember to run this action after registering all image sizes *(i.e. after running the `add_image_size` function)*:
 
-`do_action( 'webpc_convert_attachment', $post_id );`
+`do_action( 'webpc_convert_attachment', $post_id, true );`
 
 To delete manually converted files, use the following action, providing as an argument an array of absolute server paths to the files *(this will delete manually converted files)*:
 
@@ -270,7 +282,7 @@ Converting all images:
 
 Converting all images (with "Force convert all images again" option):
 
-`wp converter-for-media regenerate -force`
+`wp converter-for-media regenerate --force`
 
 = Does plugin support CDN? =
 
@@ -278,68 +290,8 @@ The website files (WordPress files) and the images from the Media Library must b
 
 If only your images are on another CDN server, unfortunately correct operation is impossible, because such images are managed by another server.
 
-= Configuration for Nginx =
-
-For Nginx server that does not support .htaccess rules, additional Nginx server configuration is required for the plugin to function properly.
-
-Follow the 4 steps below **(please do all of them)**:
-
-**Step 1**
-
-Find the configuration file in one of the paths *(remember to select configuration file used by your vhost)*:
-- `/etc/nginx/sites-available/` or `/etc/nginx/sites-enabled/`
-- `/etc/nginx/conf.d/`
-
-and add this code *(add these lines at the beginning of the `server { ... }` block)* - **remember to add these rules before any other `location {}` rules**:
-
-`# BEGIN Converter for Media`
-`set $ext_avif ".avif";`
-`if ($http_accept !~* "image/avif") {`
-`	set $ext_avif "";`
-`}`
-``
-`set $ext_webp ".webp";`
-`if ($http_accept !~* "image/webp") {`
-`	set $ext_webp "";`
-`}`
-``
-`location ~ /wp-content/(?<path>.+)\.(?<ext>jpe?g|png|gif|webp)$ {`
-`	add_header Vary Accept;`
-`	expires 365d;`
-`	try_files`
-`		/wp-content/uploads-webpc/$path.$ext$ext_avif`
-`		/wp-content/uploads-webpc/$path.$ext$ext_webp`
-`		$uri =404;`
-`}`
-`# END Converter for Media`
-
-**Step 2**
-
-Look in the configuration file for other rules affecting images, e.g.:
-
-`location ~* ^.+\.(css|js|jpg|jpeg|png|gif|webp|ico|eot|otf|woff|woff2|ttf)$ {`
-`	expires max;`
-`}`
-
-If you find such rules, remove the following formats from them: jpg, jpeg, png, gif and webp.
-
-**Step 3**
-
-Then add support for the required MIME types, if they are not supported. Edit the configuration file:
-- `/etc/nginx/mime.types`
-
-and add this code *(add these lines inside the `types { ... }` block)*:
-
-`image/webp webp;`
-`image/avif avif;`
-
-**Step 4**
-
-After making changes, remember to restart the machine:
-
-`systemctl restart nginx`
-
-In case of problems, please contact us in [the support forum](https://url.mattplugins.com/converter-plugin-faq-nginx-configuration-contact). We will try to help.
+Current list of supported CDN servers:
+- BunnyCDN (refer to [the instructions](https://url.mattplugins.com/converter-plugin-faq-cdn-bunny-instruction) before use)
 
 == Screenshots ==
 
@@ -347,38 +299,35 @@ In case of problems, please contact us in [the support forum](https://url.mattpl
 2. Advanced tab of the plugin settings
 3. Bulk optimization of images
 4. Optimization statistics of Media Library
+5. Ability to manually undo optimization of selected image
 
 == Changelog ==
 
-= 5.6.4 (2023-01-21) =
-* `[Fixed]` Error detection of cached redirects of images to WebP files
+= 5.11.3 (2023-11-09) =
+* `[Fixed]` Automatically conversion of images from /uploads directory, but not from Media Library
+* `[Added]` Support for WordPress 6.4
 
-= 5.6.3 (2023-01-10) =
-* `[Changed]` Error message for bypassing_apache error in server configuration
+= 5.11.2 (2023-10-16) =
+* `[Added]` Button to expand/collapse list of directories to optimize in Bulk Optimization of Images section
+* `[Added]` Notification about plugin requirements in WordPress Playground environment
+
+= 5.11.1 (2023-10-02) =
+* `[Fixed]` Duplicated rewrite rules for .jpeg files
 * `[Changed]` Error message for rewrites_not_executed error in server configuration
-* `[Changed]` Error message for rewrites_cached error in server configuration
+
+= 5.11.0 (2023-09-27) =
+* `[Added]` Ability to manually optimize selected images in Media Library
+* `[Added]` Ability to manually undo optimization of selected images in Media Library
+
+= 5.10.1 (2023-09-10) =
+* `[Fixed]` Detection of bypassing_apache error in server configuration
+
+= 5.10.0 (2023-09-09) =
+* `[Fixed]` Removing files from /uploads-webpc directory after uninstalling plugin
 * `[Changed]` Error message for rewrites_not_working error in server configuration
-* `[Changed]` Error message for token_invalid error in server configuration
-* `[Changed]` Error message for token_limit error in server configuration
-
-= 5.6.2 (2023-01-05) =
-* `[Changed]` List of extra features in Advanced settings
-* `[Changed]` Notification about Cloudflare cache
-* `[Added]` Ability to disable exclusion of converted images in backups generated by other plugins
-* `[Added]` Error message for incorrect configuration of Cloudflare CDN cache
-* `[Added]` Warning about unconverted images when deactivating plugin
-* `[Added]` Warning when forcing all images to be reconverted
-
-= 5.6.1 (2022-12-28) =
-* `[Fixed]` No support for .jpeg files in default plugin settings
-* `[Added]` Ability to auto clear Cloudflare CDN cache (beta version)
-
-= 5.6.0 (2022-12-21) =
-* `[Added]` Ability to convert images from /cache directory
-* `[Added]` Automatic cleaning of LiteSpeed Cache
-* `[Added]` Exception for blocked REST API endpoints by Disable REST API plugin
-* `[Added]` Exception for blocked REST API endpoints by Disable WP REST API plugin
-* `[Added]` Exception for blocked REST API endpoints by WordPress REST API Authentication plugin
+* `[Changed]` Verification of correct operation of rewrites from .htaccess file
+* `[Added]` Changes to improve performance of plugin
+* `[Added]` Changes to improve loading time of plugin settings
 
 See [changelog.txt](https://url.mattplugins.com/converter-readme-changelog) for previous versions.
 

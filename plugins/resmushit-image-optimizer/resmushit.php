@@ -4,14 +4,14 @@
  * @author    Charles Bourgeaux <hello@resmush.it>
  * @license   GPL-2.0+
  * @link      http://www.resmush.it
- * @copyright 2022 Resmush.it
+ * @copyright 2023 Resmush.it
  *
  * @wordpress-plugin
  * Plugin Name:       reSmush.it Image Optimizer
  * Plugin URI:        https://wordpress.org/plugins/resmushit-image-optimizer/
  * Description:       Image Optimization API. Provides image size optimization
- * Version:           0.4.11
- * Timestamp:         2022.11.08
+ * Version:           0.4.13
+ * Timestamp:         2023.10.14
  * Author:            reSmush.it
  * Author URI:        https://resmush.it
  * Author:            Charles Bourgeaux
@@ -69,8 +69,8 @@ function resmushit_activate() {
 			update_option( 'resmushit_remove_unsmushed', 0 );
 		if(get_option('resmushit_has_no_backup_files') === false || get_option('resmushit_has_no_backup_files') == "")
 			update_option( 'resmushit_has_no_backup_files', 0 );
-		if(get_option('resmushit_notice_close') === false || get_option('resmushit_notice_close') == "")
-			update_option( 'resmushit_notice_close', 0 );
+		if(get_option('resmushit_notice_close_eoldec23') === false || get_option('resmushit_notice_close_eoldec23') == "")
+			update_option( 'resmushit_notice_close_eoldec23', 0 );
 	}
 }
 register_activation_hook( __FILE__, 'resmushit_activate' );
@@ -581,7 +581,7 @@ function resmushit_notice_close() {
 		wp_send_json(json_encode(array('error' => 'User must be at least administrator to retrieve these data')));
 		die();
 	}
-	if(update_option( 'resmushit_notice_close', 1 )) {
+	if(update_option( 'resmushit_notice_close_eoldec23', 1 )) {
 		$return = TRUE;
 	}
 	wp_send_json(json_encode(array('status' => $return)));
@@ -599,15 +599,16 @@ add_action( 'wp_ajax_resmushit_notice_close', 'resmushit_notice_close' );
 */
 function resmushit_general_admin_notice(){	
 	// Expired offer
-	if(time() > strtotime("21 November 2022")) {
+	if(time() > strtotime("31 December 2023")) {
 		return FALSE;
 	}
 	// Already seen notice
-	if(get_option('resmushit_notice_close') == 1) {
+	if(get_option('resmushit_notice_close_eoldec23') == 1) {
 		return FALSE;
 	}
 	$allowed_pages = array(
 		'media_page_resmushit_options',
+		'dashboard', 
 		'upload', 
 		'plugins',
 		'edit-post',
@@ -621,9 +622,17 @@ function resmushit_general_admin_notice(){
 	if ( isset( $current_page->id ) && in_array( $current_page->id, $allowed_pages ) ) {
 		echo "
 			<div class='notice notice-success is-dismissible rsmt-notice' data-csrf='" . wp_create_nonce( 'notice_close' ) . "' data-dismissible='disable-done-notice-forever' data-notice='resmushit-notice-shortpixel'>
-			<div class='txt-center'><img src='". RESMUSHIT_BASE_URL . "images/shortpixel-resmushit.png' /></div>
-				<div class='extra-padding'><h4 class='no-uppercase'>Limited time, unique offer in partnership with <a target='_blank' href='https://www.shortpixel.com' title='Shortpixel'>ShortPixel</a></h4> <ul><li><em>Unlimited</em> monthly credits</li><li>Optimize All your website's JPEG, PNG, (animated)GIF and PDFs with ShortPixel's SmartCompress algorithms.</li><li>Generate <em>next-gen image</em> <a href='https://shortpixel.com/blog/how-webp-images-can-speed-up-your-site/' title='How WebP can speed up your website' target='_blank'>format WebP</a> for ALL your images.</li><li>No size limit</li><li><em><a href='https://status.shortpixel.com/' target='_blank' title='Status page of Shortpixel'>99.9%</a></em> service availability</li></ul> </div>
-				<div class='txt-center'><a class='button button-primary' target='_blank' href='https://unlimited.shortpixel.com' title='Subscribe to the premium offer'>Subscribe for <span class='txt-through'>$41.66</span> $9.99/mo  until Nov 20th</a></div>
+			<div class='txt-center'><img src='". RESMUSHIT_BASE_URL . "images/patreon.png' /></div>
+				<div class='extra-padding'><h4 class='no-uppercase'>🫶Thanks a lot! reSmush.it will continue for now!</h4>
+				<p>First, we'd really like to thank members of the community who have supported us by participating to the patreon. As you may know, over the last months, the cost of servers has increased and we were not able to maintain this service without the community's help. reSmush.it has been provided for FREE during 7 years</p>
+				<p>As we're getting very close to the target, we're able to preserve reSmush.it for now. <em>However, we still need your financial support to enhance new features on reSmush.it, such as faster servers, webp and next generations format support and new exciting features!</em></p>				
+				<p>So, we're kindly asking our community to participate for those who haven't, in order to preserve blazing fast images optimizations for everyone !</p>
+				<p>Your help will be deeply appreciated to continue this fabulous adventure! 🚀</p>
+				<p></p>
+				<p>Kind regards ❤️,</p>
+				<p>Charles, <i>founder of reSmush.it</i></p>
+				</div>
+				<div class='txt-center'><a class='button button-primary' target='_blank' href='https://www.patreon.com/resmushit' title='Help us to maintain the service'>Support us on Patreon from $5/mo</a></div>
 			
 		</div>";
 	}
