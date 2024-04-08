@@ -14,18 +14,16 @@
       </div>
       <div class="container-fluid">
         <div class="row">
-          <div class="col-22 col-lg-15 offset-1">
+          <div class="col-22 @if ($dataSidebar) col-lg-15 @endif offset-1">
             {!! the_content() !!}
           </div>
-          <div class="col-24 col-lg-7 offset-1">
-            <div class="home-sidebar sidebar">
-              @if ($dataSidebar)
-                @include('blocks/sidebar', ['data' => $dataSidebar])
-              @else                
-                {!! dynamic_sidebar('primary') !!}
-              @endif
+          @if ($dataSidebar)
+            <div class="col-22 col-lg-7 offset-1">
+              <div class="home-sidebar sidebar">
+                  @include('blocks/sidebar', ['data' => $dataSidebar])
+              </div>
             </div>
-          </div>
+          @endif
         </div>
       </div>
     </div>

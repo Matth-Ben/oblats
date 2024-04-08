@@ -2,14 +2,16 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-22 col-lg-12 offset-1 offset-lg-0">
-        <div class="footer-logo">
-          <a href="{{ home_url() }}" aria-label="Accueil" class="footer-logo__img">
-            @include('elements/image', ['data' => $GLOBALS['options']['footer']['logo']])
-          </a>
-          @if ($GLOBALS['options']['footer']['description'])
-            <div class="footer-description">{{ $GLOBALS['options']['footer']['description'] }}</div>
-          @endif
-        </div>
+        @if ($GLOBALS['options']['footer']['logo']['url'])
+          <div class="footer-logo">
+            <a href="{{ home_url() }}" aria-label="Accueil" class="footer-logo__img">
+              @include('elements/image', ['data' => $GLOBALS['options']['footer']['logo']])
+            </a>
+            @if ($GLOBALS['options']['footer']['description'])
+              <div class="footer-description">{{ $GLOBALS['options']['footer']['description'] }}</div>
+            @endif
+          </div>
+        @endif
         <div class="footer-copyright">Copyright © 2021 Oblats france. Site créé par Matthias BENOIT</div>
       </div>
       <div class="col-22 col-lg-5 offset-1">

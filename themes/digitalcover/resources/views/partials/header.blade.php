@@ -1,14 +1,4 @@
 <header class="header">
-  <div class="header-top">
-    <div class="container-fluid">
-      <div class="header-top__wrapper">
-        <div class="header-top__nav ">
-          <a class="header-top__button body-sm" href="{!! $GLOBALS['options']['header']['button']['url'] !!}">{!! $GLOBALS['options']['header']['button']['title'] !!}</a>
-          <a class="header-top__button login body-sm" href="{!! $GLOBALS['options']['header']['login']['url'] !!}">{!! $GLOBALS['options']['header']['login']['title'] !!}</a>
-        </div>
-      </div>
-    </div>
-  </div>
   <div class="header-nav">
     <div class="container-fluid">
       <div class="row align-items-center">
@@ -22,11 +12,11 @@
           <div style="--transition-order: 0"></div>
           <div style="--transition-order: 1"></div>
         </div>
-        <div class="header-nav__list">
+        <ul class="header-nav__list">
           @foreach ($GLOBALS['navigation']['primary_navigation'] as $item)
-            <div class="header-nav__item @if($item['children']){{'dropdown'}}@endif">
+            <li class="header-nav__item">
               @if ($item['children'])
-                <a href="{{ $item['url'] }}" class="header-nav__item-link">
+                <a href="{{ $item['url'] }}" class="header-nav__item-link @if($item['children']){{'dropdown'}}@endif">
                   {!! $item['title'] !!}
                   <span>{{ display_svg('arrow') }}</span>
                 </a>
@@ -42,9 +32,9 @@
                   {!! $item['title'] !!}
                 </a>
               @endif
-            </div>
+            </li>
           @endforeach
-        </div>
+        </ul>
       </div>
     </div>
   </div>

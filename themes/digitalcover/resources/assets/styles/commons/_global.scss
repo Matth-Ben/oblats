@@ -15,6 +15,27 @@ html {
 
 body {
   &.open { overflow: hidden; }
+
+  .wp-container-core-columns-layout-1.wp-container-core-columns-layout-1 {
+    flex-wrap: wrap;
+  }
+
+  .is-layout-flex {
+    @include media-breakpoint-down(lg) {
+      gap: 0;
+
+      .is-layout-flow.wp-block-column-is-layout-flow {
+        flex-basis: 100% !important;
+
+        .u-margin { margin-top: 0; }
+      }
+    }
+
+    @include media-breakpoint-up(lg) {
+      flex-wrap: nowrap !important;
+      align-items: start;
+    }
+  }
 }
 
 section {
@@ -28,13 +49,19 @@ section {
 .home-head,
 .news-head,
 .single-head,
-.necrologie-head,
-.single-necrologie {
-  .b-cover {
-    margin-top: 4rem;
+.necrologie-head {
+  .b-cover,
+  .b-cover-slider {
+    padding-top: 4rem;
 
-    @include media-breakpoint-up(lg) { margin-top: 12rem; }
+    @include media-breakpoint-up(lg) { padding-top: 12rem; }
   }
+}
+
+.single-necrologie {
+  padding-top: 4rem;
+
+  @include media-breakpoint-up(lg) { padding-top: 12rem; }
 }
 
 .e-link {
@@ -53,10 +80,7 @@ a {
 }
 
 .sidebar {
-  display: none;
   margin: 3rem auto;
-
-  @include media-breakpoint-up(lg) { display: block; }
 
   .widget {
     margin-bottom: 2.5rem;

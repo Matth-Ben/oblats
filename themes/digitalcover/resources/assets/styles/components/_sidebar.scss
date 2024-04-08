@@ -1,0 +1,10 @@
+.custom-sidebar {
+  .f-text {
+    &__excerpt {
+      iframe {
+        width: 100%;
+        height: 18rem;
+      }
+    }
+  }
+}

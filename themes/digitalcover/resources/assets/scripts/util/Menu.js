@@ -27,59 +27,52 @@ export default class Menu {
     this.$items = this.$nav.querySelectorAll('.header-nav__item-link')
     this.$login = this.$nav.querySelector('.login-label')
     this.$logo = document.querySelector('.header-nav__logo')
-    this.$submenu = document.querySelectorAll('.header-nav__item.dropdown')
+    this.$itemsDropdown = document.querySelectorAll('.header-nav__item-link.dropdown')
     this.$dropdowns = document.querySelectorAll('.header-nav__item-dropdown')
     this.$contents = document.querySelectorAll('.header-nav__item-dropdown__list')
   
     this.stop = false
+    this.isAnimating = false
+    this.currentItem = 0
+    this.currentSubMenu = 0
+    this.submenuIsOpen = false
   }
 
   addEvents() {
     this.$toggler && this.$toggler.addEventListener('click', this.toggle)
 
-    // for (let i = 0; i < this.$submenu.length; i++) {
-    //   this.$submenu[i].addEventListener('mouseover', (e) => {
-    //     console.log(this.$submenu[i]);
-    //     console.log(e);
-    //     this.submenu(i)
-    //   })
-    //   // this.$submenu[i].addEventListener('mouseleave', () => this.submenu(i))
-    // }
-
-    this.$submenu.forEach((element, i) => {
-      const itemDropdown = element.querySelector('.header-nav__item-dropdown')
-
-      element.addEventListener('mouseenter', () => {
-        if (this.isAnimating) return
-
-        if (!this.$submenu[i].classList.contains('active')) {
-          this.openSubmenu(i)
-        }
-      })
-
-      itemDropdown.addEventListener('mouseleave', () => {
-        this.closeSubmenu(i)
-        this.stop = false
-      })
-
-      element.addEventListener('mouseleave', (e) => {
-        itemDropdown.addEventListener('mouseenter', () => {
-          this.stop = true
+    if (window.innerWidth < 1024) {
+      this.$itemsDropdown.forEach((item, i) => {
+        item.addEventListener('click', () => {
+          this.toggleDropdown(item, i)
         })
-        
-        setTimeout(() => {
-          if (!this.stop) {
-            this.closeSubmenu(i)
-          }
-        }, 600)
-      })
-    });
+      });
+    } else {
+      this.$itemsDropdown.forEach((item, i) => {
+        item.addEventListener('mouseenter', () => {
+          this.toggleDropdown(item, i)
+        })
+  
+        item.parentNode.addEventListener('mouseleave', () => {
+          this.submenuClose(item, i)
+        })
+      });
+    }
   }
 
   init() {
     const tl = gsap.timeline()
 
     tl.set(this.$list, { xPercent: window.innerWidth < 1025 ? 100 : 0 })
+
+    if (window.innerWidth < 1024) {
+      this.$dropdowns.forEach((element) => {
+        tl.set(element, {
+          height: 0,
+          scaleY: 0
+        })
+      });
+    }
   }
 
   toggle() {
@@ -87,6 +80,29 @@ export default class Menu {
 
     if (this.menuOpen) this.close()
     else this.open()
+  }
+
+  toggleDropdown(item, index) {
+    if (window.innerWidth < 1024) {
+      if (!this.isAnimating) {
+        if (item.parentNode.classList.contains('active')) {
+          this.submenuClose(item, index)
+        } else {
+          this.submenuOpen(item, index)
+        }
+
+        // if (item !== this.currentItem) {
+        //   this.submenuClose(this.currentItem, this.currentSubMenu)
+        // }
+      }
+    } else {
+      this.isAnimating = true
+      this.currentSubMenu = index
+      this.currentItem = item
+
+      this.submenuOpen(item, index)
+      this.submenuIsOpen = true
+    }
   }
 
   open() {
@@ -131,54 +147,70 @@ export default class Menu {
         ease: 'power3.out'
       }, 0)
 
-      for (let i = 0; i < this.$submenu.length; i++) {
-        if (this.$submenu[i].classList.contains('active')) {
-          this.closeSubmenu(i)
+      this.$itemsDropdown.forEach((item, index) => {
+        if (item.parentNode.classList.contains('active')) {
+          this.submenuClose(item, index)
         }
-      }
+      });
 
       resolve()
     })
   }
 
-  submenu(i) {
-    if (this.isAnimating) return
+  submenuOpen(item, i) {
+    item.parentNode.classList.add('active')
 
-    if (this.$submenu[i].classList.contains('active')) {
-      this.closeSubmenu(i)
+    if (window.innerWidth < 1024) {
+      gsap.to(this.$dropdowns[i], {
+        height: 'auto',
+        scaleY: 1,
+        ease: 'power3.out',
+        onComplete: () => {
+          this.isAnimating = false
+        }
+      })
     } else {
-      this.openSubmenu(i)
+      gsap.to(this.$dropdowns[i], {
+        transform: 'scale(1)',
+        ease: 'power3.out'
+      })
+  
+      gsap.to(this.$contents[i], {
+        opacity: '1',
+        ease: 'power3.out',
+        onComplete: () => {
+          this.isAnimating = false
+        }
+      })
     }
   }
 
-  openSubmenu(i) {
-    const tl = gsap.timeline({
-      ease: 'power3.out'
-    })
+  submenuClose(item, i) {
+    item.parentNode.classList.remove('active')
 
-    for (let index = 0; index < this.$submenu.length; index++) {
-      if (this.$submenu[index].classList.contains('active')) {
-        this.closeSubmenu(index)
-      }
+    if (window.innerWidth < 1024) {
+      gsap.to(this.$dropdowns[i], {
+        height: 0,
+        scaleY: 0,
+        ease: 'power3.out',
+        onComplete: () => {
+          this.isAnimating = false
+        }
+      })
+    } else {
+      gsap.to(this.$contents[i], {
+        opacity: '0',
+        ease: 'power3.out'
+      })
+
+      gsap.to(this.$dropdowns[i], {
+        transform: 'scale(0)',
+        ease: 'power3.out',
+        onComplete: () => {
+          this.isAnimating = false
+        }
+      })
     }
-
-    tl
-      .to(this.$dropdowns[i], { transform: 'scale(1)' })
-      .to(this.$contents[i], { opacity: '1' })
-
-    this.$submenu[i].classList.add('active')
-  }
-
-  closeSubmenu(i) {
-    const tl = gsap.timeline({
-      ease: 'power3.out'
-    })
-
-    tl
-      .to(this.$contents[i], { opacity: '0' })
-      .to(this.$dropdowns[i], { transform: 'scale(0)' })
-
-    this.$submenu[i].classList.remove('active')
   }
 
   resize() {
@@ -190,43 +222,14 @@ export default class Menu {
   scroll() {
     if (store.detect.isMobile) return
 
-    const last = this.currentScroll
     const scroll = store.smoothScroll.scroll
 
     this.currentScroll = scroll
 
-    for (let i = 0; i < this.$submenu.length; i++) {
-      if (this.$submenu[i].classList.contains('active')) {
-        this.closeSubmenu(i)
+    for (let i = 0; i < this.$itemsDropdown.length; i++) {
+      if (this.$itemsDropdown[i].classList.contains('active')) {
+        this.submenuClose(i)
       }
-    }
-
-    if (last < this.currentScroll && this.currentScroll > 200) {
-      gsap.to([this.$top, this.$nav], {
-        y: '-4rem',
-        padding: '0 1rem',
-        duration: 0.8,
-        ease: 'power3.out'
-      })
-
-      gsap.to(this.$logo, {
-        scale: 0.7,
-        duration: 0.8,
-        ease: 'power3.out'
-      })
-    } else if (last > this.currentScroll) {
-      gsap.to([this.$top, this.$nav], {
-        y: 0,
-        padding: '1rem',
-        duration: 0.8,
-        ease: 'power3.out'
-      })
-
-      gsap.to(this.$logo, {
-        scale: 1,
-        duration: 0.8,
-        ease: 'power3.out'
-      })
     }
   }
 

@@ -1,0 +1,30 @@
+.b-list-post {
+  &__card {
+    width: 15rem;
+    height: 15rem;
+
+    &s {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+    font-style: italic;
+    text-decoration: none;
+
+    .image {
+      width: 15rem;
+      height: 15rem;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+  }
+}

@@ -118,6 +118,37 @@ class Block extends Controller {
     ];
   }
 
+  public static function listPost($data) {
+    if ($data['display-list-post']) {
+      for ($i = 0; $i < $data['repeater-list-custom']; $i++) {
+        $posts[] = [
+          'image' => $data['repeater-list-custom_' . $i . '_image-list-custom']
+            ? Element::image($data['repeater-list-custom_' . $i . '_image-list-custom'], '109px')
+            : '',
+          'link' => $data['repeater-list-custom_' . $i . '_link-list-custom']
+            ? $data['repeater-list-custom_' . $i . '_link-list-custom']
+            : '',
+        ];
+      }
+    } else {
+      for ($i=0; $i < count($data['relation-list-post']); $i++) { 
+        $posts[$i] = [
+          'title' => get_the_title($data['relation-list-post'][$i]),
+          'image' => Element::image(get_post_thumbnail_id($data['relation-list-post'][$i]), '109px'),
+          'link' => get_permalink($data['relation-list-post'][$i]),
+        ];
+      }
+      foreach ($data['relation-list-post'] as $post) {
+        
+      }
+    }
+
+    return [
+      'display' => $data['display-list-post'],
+      'list' => $posts
+    ];
+  }
+
   public static function testimonial($data) {
     return [
       'position' => $data['position'],
