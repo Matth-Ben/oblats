@@ -11,7 +11,7 @@ namespace Simple_History;
  *      simple_history_instance:Simple_History,
  *      wpdb:\wpdb
  * } $args
- **/
+ */
 
 defined( 'ABSPATH' ) || die();
 
@@ -39,7 +39,7 @@ foreach ( $tables_info as $table_info ) {
 }
 
 echo wp_kses(
-	Helpers::get_settings_section_title_output( __('Debug', 'simple-history'), 'build' ),
+	Helpers::get_settings_section_title_output( __( 'Debug', 'simple-history' ), 'build' ),
 	[
 		'span' => [
 			'class' => [],
@@ -97,14 +97,18 @@ if ( sizeof( $table_size_result ) === 0 ) {
 
 echo '</table>';
 
+/**
+ * Number of rows in database
+ */
 $logQuery = new Log_Query();
+
 $rows = $logQuery->query(
 	array(
 		'posts_per_page' => 1,
 	)
 );
 
-// This is the number of rows with occasions taken into consideration
+// This is the number of rows with occasions taken into consideration.
 $total_accassions_rows_count = $rows['total_row_count'];
 
 echo '<p>';
@@ -208,8 +212,6 @@ foreach ( $args['instantiated_dropins'] as $oneDropin ) {
 
 echo '</table>';
 
-// echo "<h4>Clear history interval</h4>";
-// echo "<p>" . $this->simple_history->get_clear_history_interval() . "</p>";
 /**
  * Output a list of all active loggers, including name, slug, comment, message, capability and number of rows
  * Retrieve them in order by the number of rows they have in the db
@@ -295,7 +297,7 @@ foreach ( $logger_rows_count as $one_logger_slug => $one_logger_val ) {
 	if ( isset( $logger_rows_count[ $one_logger_slug ] ) ) {
 		$one_logger_count = $logger_rows_count[ $one_logger_slug ];
 	} else {
-		// logger was not is sql result, so fake result
+		// logger was not is sql result, so fake result.
 		$one_logger_count = new \stdClass();
 		$one_logger_count->count = 0;
 	}
@@ -359,7 +361,7 @@ foreach ( $logger_rows_count as $one_logger_slug => $one_logger_val ) {
             </td>
 		</tr>
 		',
-		number_format_i18n( $one_logger_count->count ),
+		esc_html( number_format_i18n( $one_logger_count->count ) ),
 		esc_html( $one_logger_slug ), // 2
 		esc_html( $logger_info['name'] ),
 		esc_html( $logger_info['description'] ), // 4
@@ -374,7 +376,7 @@ foreach ( $logger_rows_count as $one_logger_slug => $one_logger_val ) {
 
 echo '</table>';
 
-// List installed plugins
+// List installed plugins.
 echo '<h2>' . esc_html_x( 'Plugins', 'debug dropin', 'simple-history' ) . '</h2>';
 
 echo '<p>' . esc_html_x( 'As returned from get_plugins().', 'debug dropin', 'simple-history' ) . '</p>';

@@ -11,7 +11,9 @@ use Simple_History\Helpers;
  * Author: Pär Thernström
  */
 class Export_Dropin extends Dropin {
-
+	/**
+	 * @inheritdoc
+	 */
 	public function loaded() {
 		$this->simple_history->register_settings_tab(
 			array(
@@ -24,21 +26,23 @@ class Export_Dropin extends Dropin {
 		);
 
 		add_action( 'init', array( $this, 'downloadExport' ) );
-
 	}
 
+	/**
+	 * Download export file.
+	 */
 	public function downloadExport() {
 		if ( isset( $_POST['simple-history-action'] ) && $_POST['simple-history-action'] === 'export-history' ) {
 			// Will die if nonce not valid.
 			check_admin_referer( self::class . '-action-export' );
 
-			$export_format = $_POST['format'] ?? 'json';
+			$export_format = sanitize_text_field( wp_unslash( $_POST['format'] ?? 'json' ) );
 
 			// Disable relative time output in header.
 			add_filter( 'simple_history/header_time_ago_max_time', '__return_zero' );
 			add_filter( 'simple_history/header_just_now_max_time', '__return_zero' );
 
-			// Don't use "You" if event is initiated by the same user that does the export
+			// Don't use "You" if event is initiated by the same user that does the export.
 			add_filter( 'simple_history/header_initiator_use_you', '__return_false' );
 
 			$query = new Log_Query();
@@ -69,10 +73,9 @@ class Export_Dropin extends Dropin {
 			} elseif ( 'html' == $export_format ) {
 				$filename = 'simple-history-export-' . time() . '.html';
 				header( 'Content-Type: text/html' );
-				// header("Content-Disposition: attachment; filename='{$filename}'");
 			}
 
-			// Some formats need to output some stuff before the actual loops
+			// Some formats need to output some stuff before the actual loops.
 			if ( 'json' == $export_format ) {
 				$json_row = '[';
 				fwrite( $fp, $json_row );
@@ -91,9 +94,9 @@ class Export_Dropin extends Dropin {
 			// Paginate through all pages and all their rows.
 			$row_loop = 0;
 			while ( $page_current <= $pages_count + 1 ) {
-				// if ($page_current > 1) { break; } # To debug/test
+
 				foreach ( $events['log_rows'] as $one_row ) {
-					// if ( $row_loop > 10) { break; } # To debug/test
+
 					set_time_limit( 30 );
 
 					if ( 'csv' == $export_format ) {
@@ -105,18 +108,29 @@ class Export_Dropin extends Dropin {
 						$user_email = empty( $one_row->context['_user_email'] ) ? null : $one_row->context['_user_email'];
 						$user_login = empty( $one_row->context['_user_login'] ) ? null : $one_row->context['_user_login'];
 
+						// User roles, at time of export.
+						$user = get_user_by( 'email', $user_email );
+						$user_roles = $user->roles ?? array();
+						$user_roles_comma_separated = implode( ', ', $user_roles );
+
+						// Date local time.
+						$date_local = wp_date( 'Y-m-d H:i:s', strtotime( $one_row->date ) );
+
 						fputcsv(
 							$fp,
 							array(
 								$this->esc_csv_field( $one_row->date ),
+								$this->esc_csv_field( $date_local ),
 								$this->esc_csv_field( $one_row->logger ),
 								$this->esc_csv_field( $one_row->level ),
 								$this->esc_csv_field( $one_row->initiator ),
 								$this->esc_csv_field( $one_row->context_message_key ),
 								$this->esc_csv_field( $user_email ),
 								$this->esc_csv_field( $user_login ),
+								$this->esc_csv_field( $user_roles_comma_separated ),
 								$this->esc_csv_field( $header_output ),
 								$this->esc_csv_field( $message_output ),
+								// phpcs:ignore WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase
 								$this->esc_csv_field( $one_row->subsequentOccasions ),
 							)
 						);
@@ -150,20 +164,13 @@ class Export_Dropin extends Dropin {
 					$row_loop++;
 				}// End foreach().
 
-				// echo "<br>memory_get_usage:<br>"; print_r(memory_get_usage());
-				// echo "<br>memory_get_peak_usage:<br>"; print_r(memory_get_peak_usage());
-				// echo "<br>fetch next page";
 				flush();
 
 				// Fetch next page
-				// @TODO: must take into consideration that new items can be added while we do the fetch
+				// @TODO: must take into consideration that new items can be added while we do the fetch.
 				$page_current++;
 				$query_args['paged'] = $page_current;
 				$events = $query->query( $query_args );
-
-				// echo "<br>did fetch next page";
-				// echo "<br>memory_get_usage:<br>"; print_r(memory_get_usage());
-				// echo "<br>memory_get_peak_usage:<br>"; print_r(memory_get_peak_usage());
 			}// End while().
 
 			if ( 'json' == $export_format ) {
@@ -178,11 +185,12 @@ class Export_Dropin extends Dropin {
 			flush();
 
 			exit;
-
-			// echo "<br>done";
 		}// End if().
 	}
 
+	/**
+	 * Output for the export tab on the settings page.
+	 */
 	public function output() {
 		?>
 
@@ -250,6 +258,11 @@ class Export_Dropin extends Dropin {
 	 * @return string
 	 */
 	public function esc_csv_field( $field ) {
+		// Bail if not string.
+		if ( ! is_string( $field ) ) {
+			return '';
+		}
+
 		$active_content_triggers = array( '=', '+', '-', '@' );
 
 		if ( in_array( substr( $field, 0, 1 ), $active_content_triggers, true ) ) {

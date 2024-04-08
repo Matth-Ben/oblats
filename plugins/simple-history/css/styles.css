@@ -1,5 +1,13 @@
 @import url(icons.css);
 
+/**
+ * Use SuitCSS based classnames.
+ */
+:root {
+	--sh-color-gray: #c3c4c7;
+	--sh-color-green: #3f9349;
+}
+
 /* clearfix */
 .SimpleHistory__cf:before,
 .SimpleHistory__cf:after {
@@ -277,7 +285,12 @@ Style different log levels.
 	color: rgb(137, 143, 156);
 	margin-top: 0.4em;
 	line-height: 1;
-	max-height: 1em;
+	/* max-height: 1em; */
+}
+
+.SimpleHistoryLogitem__occasionsAddOnsText {
+	margin: 0.4em 0 0 0;
+	line-height: 1;
 }
 
 .SimpleHistoryLogitem__details {
@@ -466,7 +479,6 @@ i.e. the log is inside a .postbox element.
 	background-repeat: no-repeat;
 	background-size: 20px;
 	background-position: 12px center;
-	/* -webkit-mask-image: url(./simple-history-logo-icon.svg); */
 }
 
 .postbox.closed .sh-Dashboard-settingsLink {
@@ -965,9 +977,6 @@ Modal window with detailss
 	width: auto;
 }
 
-/**
- * SuitCSS based classnames.
- */
 .sh-ExternalLink::after {
 	/* External icon on link */
 	content: "\f504";
@@ -975,13 +984,8 @@ Modal window with detailss
 	line-height: 1;
 }
 
-:root {
-	--sh-color-gray: #c3c4c7;
-	--sh-color-green: #3f9349;
-}
-
 /**
- * White page header. Used for plugin title, tab navigation, maybe settings to the right.
+ * White page header. Used for plugin title, tab navigation, settings/tools to the right.
  * Based on style uses by core for Site Health and Privacy Policy, to keep things consistent.
  */
 .sh-PageHeader {
@@ -993,6 +997,14 @@ Modal window with detailss
 	flex-wrap: wrap;
 	justify-content: space-between;
 	column-gap: 1rem;
+}
+
+/* 
+When an admin notice with additional class "inline" is added it is shown above the header,
+so add some extra place then to make it look a bit less ugly.
+*/
+.notice + .sh-PageHeader {
+	margin-top: 25px;
 }
 
 .sh-PageHeader-title {
@@ -1228,3 +1240,39 @@ a.sh-SettingsTabs-link:hover {
 .form-table .sh-LicencesPage-plugin-active {
 	margin-bottom: 1rem;
 }
+
+.sh-FeedIntroduction {
+	background: #f6f7f7;
+	border-radius: 5px;
+	padding: 1em;
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+	max-width: 80ch;
+	font-size: 15px;
+}
+
+.sh-FeedIntroduction img {
+	border-radius: 10px;
+	width: 1.25rem;
+	height: auto;
+	line-height: 1;
+	vertical-align: text-bottom;
+}
+
+.sh-FeedIntroduction-row {
+	display: flex;
+	gap: 1em;
+	margin: 0;
+	font-size: 1em;
+}
+
+.sh-FeedIntroduction-emoji {
+	display: block;
+	font-size: 1.5em;
+	line-height: 1;
+}
+
+/* .sh-FeedIntroduction-ps {
+	font-size: 13px;
+} */

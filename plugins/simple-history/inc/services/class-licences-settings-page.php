@@ -6,6 +6,9 @@ use Simple_History\Helpers;
 use Simple_History\Services\AddOns_Licences;
 use Simple_History\AddOn_Plugin;
 
+/**
+ * Settings page for licences.
+ */
 class Licences_Settings_Page extends Service {
 	/** @var AddOns_Licences $licences_service */
 	private $licences_service;
@@ -16,6 +19,7 @@ class Licences_Settings_Page extends Service {
 	private const OPTION_NAME_LICENSE_KEY = 'shp_license_key';
 	private const OPTION_LICENSE_MESSAGE = 'example_plugin_license_message';
 
+	/** @inheritdoc */
 	public function loaded() {
 		$licences_service = $this->simple_history->get_service( AddOns_Licences::class );
 
@@ -37,14 +41,14 @@ class Licences_Settings_Page extends Service {
 		);
 	}
 
+	/**
+	 * Add settings tab after plugins has loaded.
+	 */
 	public function on_plugins_loaded() {
-		if ( $this->licences_service->has_add_ons() ) {
-			$this->add_settings_tab();
-			// add_action( 'admin_menu', array( $this, 'add_settings_tab' ) );
-			add_action( 'admin_menu', array( $this, 'register_and_add_settings' ) );
-		}
-	}
+		$this->add_settings_tab();
 
+		add_action( 'admin_menu', array( $this, 'register_and_add_settings' ) );
+	}
 
 	/**
 	 * Get user entered license key.
@@ -81,6 +85,9 @@ class Licences_Settings_Page extends Service {
 		);
 	}
 
+	/**
+	 * Register settings and add settings fields.
+	 */
 	public function register_and_add_settings() {
 		// Register setting options.
 		register_setting(
@@ -118,6 +125,9 @@ class Licences_Settings_Page extends Service {
 		);
 	}
 
+	/**
+	 * Output for the settings section.
+	 */
 	public function settings_section_output() {
 		?>
 		<div class="sh-SettingsSectionIntroduction">
@@ -180,7 +190,7 @@ class Licences_Settings_Page extends Service {
 		// Check for posted form for this plugin.
 		$form_success_message = null;
 		$form_error_message = null;
-		$nonce_valid = wp_verify_nonce( $_POST['_wpnonce'] ?? '', 'sh-plugin-keys' ) !== false;
+		$nonce_valid = wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['_wpnonce'] ?? '' ) ), 'sh-plugin-keys' ) !== false;
 
 		if ( $nonce_valid && isset( $_POST['plugin_slug'] ) && $_POST['plugin_slug'] === $plus_plugin->slug ) {
 			$action_activate = boolval( $_POST['activate'] ?? false );
@@ -312,6 +322,9 @@ class Licences_Settings_Page extends Service {
 		<?php
 	}
 
+	/**
+	 * Output for the tab.
+	 */
 	public function activated_sites_settings_output() {
 		$link_my_orders_start = '<a href="https://app.lemonsqueezy.com/my-orders/" class="sh-ExternalLink" target="_blank">';
 		$link_my_orders_end = '</a>';

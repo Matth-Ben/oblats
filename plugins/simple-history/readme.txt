@@ -4,7 +4,7 @@ Contributors: eskapism
 Donate link: https://www.paypal.me/eskapism
 Tags: history, log, changes, changelog, audit, audit log, event log, user tracking, trail, pages, attachments, users, dashboard, admin, syslog, feed, activity, stream, audit trail, brute-force
 Tested up to: 6.4
-Stable tag: 4.7.2
+Stable tag: 4.12.0
 
 View changes made by users within WordPress. See who created a page, uploaded an attachment or approved an comment, and more.
 
@@ -14,7 +14,7 @@ Simple History shows recent changes made within WordPress, directly on your dash
 
 The plugin works as a log/history/audit log/version history of the most important events that occur in WordPress.
 
-It’s a plugin that is good to have on websites where several people are involved in editing the content.
+It's a plugin that is good to have on websites where several people are involved in editing the content.
 
 Out of the box Simple History has support for:
 
@@ -33,6 +33,8 @@ Out of the box Simple History has support for:
 - **User profiles** – info about added, updated or removed users
 
 - **User logins** – see when a user login & logout. Also see when a user fails to login (good way to catch brute-force login attempts).
+
+- **User edits** – see when a user is added, updated or removed, and get detailed information about the changes made to the user.
 
 - **Failed user logins** – see when someone has tried to log in, but failed. The log will then include ip address of the possible hacker.
 
@@ -164,11 +166,13 @@ If you want to translate Simple History to your language then read about how thi
 Development of this plugin takes place at GitHub. Please join in with feature requests, bug reports, or even pull requests!
 <a href="https://github.com/bonny/WordPress-Simple-History">https://github.com/bonny/WordPress-Simple-History</a>
 
-### Donation
+### Sponsor this project
 
 If you like this plugin please consider donating to support the development.
 
 You can [donate using PayPal](https://www.paypal.me/eskapism) or you can [become a GitHub sponsor](https://github.com/sponsors/bonny).
+
+There is also some [add-ons](https://simple-history.com/add-ons/) that you can buy to support the development of this plugin and get some extra features.
 
 ## Frequently Asked Questions
 
@@ -208,6 +212,84 @@ This can be modified using the filter [`simple_history/db_purge_days_interval`](
    A simple way to see any uncommon activity, for example an increased number of logins or similar.
 
 ## Changelog
+
+### 4.12.0 (februari 2024)
+
+**Added**
+
+- Theme activation/switch done via WP CLI (e.g. `wp theme activate twentytwentyone`) is now logged.
+
+**Fixed**
+
+- Message type search/filter not working. [#428](https://github.com/bonny/WordPress-Simple-History/issues/428)
+- PHP notice when user has no roles. [#429](https://github.com/bonny/WordPress-Simple-History/issues/429).
+
+### 4.11.0 (february 2024)
+
+This version introduces improved user role support and enhanced export functionality. For more details and screenshots, check out the [release post](https://simple-history.com/2024/simple-history-4-11-0/).
+
+**Added**
+
+- Improved support for detecting and displaying changes to user role(s), including showing the adding and removal of multiple roles. This improvement is tested with the [Member](https://wordpress.org/plugins/members/) plugin and the [Multiple Roles](https://wordpress.org/plugins/multiple-roles/) plugin. [#424](https://github.com/bonny/WordPress-Simple-History/issues/424).
+- Column with user role(s) are included in the CSV and JSON exports. [#423](https://github.com/bonny/WordPress-Simple-History/issues/423).
+- Column with event date based on current timezone added to CSV export, in addition the the existing GMT date. [#422](https://github.com/bonny/WordPress-Simple-History/issues/422).
+
+**Fixed**
+
+- Ensure only strings are escaped in csv export. [#426](https://github.com/bonny/WordPress-Simple-History/issues/426).
+
+### 4.10.0 (January 2024)
+
+This version introduces new features and improvements, including an enhanced first experience for new users. For more details and screenshots, check out the [release post](https://simple-history.com/2024/simple-history-4-10-0/).
+
+**Added**
+
+- Add logging of terms (custom taxonomies and built in tags and categories supported) added or removed to a post. [#214](https://github.com/bonny/WordPress-Simple-History/issues/214).
+
+**Improved**
+
+- Terms that are added, removed, or modified are now grouped. [#398](https://github.com/bonny/WordPress-Simple-History/issues/398).
+- Show a more user-friendly and informative welcome message after installation. [#418](https://github.com/bonny/WordPress-Simple-History/issues/418).
+
+**Fixed**
+
+- Missing translation in sidebar. [#417](https://github.com/bonny/WordPress-Simple-History/issues/417).
+- 'Activated plugin "{plugin_name}"' message after first install.
+- Duplicated plugin installed and activated messages after first install. [#317](https://github.com/bonny/WordPress-Simple-History/issues/317).
+
+**Removed**
+
+- Remove usage of [load_plugin_textdomain()](https://developer.wordpress.org/reference/functions/load_plugin_textdomain/) since it's not required for plugins that are translated via https://translate.wordpress.org/. [#419](https://github.com/bonny/WordPress-Simple-History/issues/419).
+
+### 4.9.0 (January 2024)
+
+This release comes with improvements to the SQL queries that the plugin use to fetch events. These optimizations enhance query performance and reliability on both MySQL and MariaDB. Additionally, the plugin now provides support for SQLite databases.
+
+Read the [release post](https://simple-history.com/?p=2229) for more information.
+
+- Added: support for SQLite Database. Tested with the WordPress [SQLite Database Integration](https://wordpress.org/plugins/sqlite-database-integration/) feature plugin. See [Let's make WordPress officially support SQLite](https://make.wordpress.org/core/2022/09/12/lets-make-wordpress-officially-support-sqlite/) and [Help us test the SQLite implementation](https://make.wordpress.org/core/2022/12/20/help-us-test-the-sqlite-implementation/) for more information about the SQLite integration in WordPress and the current status. Fixes [#394](https://github.com/bonny/WordPress-Simple-History/issues/394) and [#411](https://github.com/bonny/WordPress-Simple-History/issues/411).
+- Added: Support for plugin preview button that soon will be available in the WordPress.org plugin directory. This is a very nice way to quickly test plugins in your web browser. Read more in blog post ["Plugin Directory: Preview button revisited"](https://make.wordpress.org/meta/2023/11/22/plugin-directory-preview-button-revisited/) and follow progress in [trac ticket "Add a Preview in Playground button to the plugin directory"](https://meta.trac.wordpress.org/ticket/7251). You can however already test the functionality using this link: [Preview Simple History plugin](https://playground.wordpress.net/?plugin=simple-history&blueprint-url=https://wordpress.org/plugins/wp-json/plugins/v1/plugin/simple-history/blueprint.json).
+- Added: IP addresses are now shown on occasions.
+- Added: Helper functions `get_cache_group()`, `clear_cache()`.
+- Changed: Better support for MariaDB and MySQL 8 by using full group by in the query. Fixes multiple database related errors. Fixes [#397](https://github.com/bonny/WordPress-Simple-History/issues/397), [#409](https://github.com/bonny/WordPress-Simple-History/issues/409), and [#405](https://github.com/bonny/WordPress-Simple-History/issues/405).
+- Changed: Misc code cleanup and improvements and GUI changes.
+- Removed: Usage of `SQL_CALC_FOUND_ROWS` since it's deprecated in MySQL 8.0.17. Also [this should make the query faster](https://stackoverflow.com/a/188682). Fixes [#312](https://github.com/bonny/WordPress-Simple-History/issues/312).
+- Removed: Columns "rep", "repeated" and "occasionsIDType" are removed from return value in `Log_Query()`.
+- Fixed: Stats widget counting could be wrong due to incorrect loggers included in stats query.
+
+### 4.8.0 (December 2023)
+
+🧩 This release contains minor fixes, some code cleanup, and adds [support for add-ons](https://simple-history.com/2023/simple-history-4-8-0-introducing-add-ons/)!
+
+- Add support for add-ons. Add-ons are plugins that extends Simple History with new features. The first add-on is [Simple History Extended Settings](https://simple-history.com/add-ons/extended-settings?utm_source=wpadmin) that adds a new settings page with more settings for Simple History.
+- Add `last_insert_data` property to `Logger` class.
+- Fix position of navigation bar when admin notice with additional class "inline" is shown. Fixes [#408](https://github.com/bonny/WordPress-Simple-History/issues/408).
+- Update logotype.
+- Fix notice when visiting the "hidden" options page `/wp-admin/options.php`.
+- Move functions `get_pager_size()`, `get_pager_size_dashboard()`, `user_can_clear_log()`, `clear_log()`, `get_clear_history_interval()`, `get_view_history_capability()`, `get_view_settings_capability()`, `is_on_our_own_pages()`, `does_database_have_data()`, `setting_show_on_dashboard()`, `setting_show_as_page()`, `get_num_events_last_n_days()`, `get_num_events_per_day_last_n_days()`, `get_unique_events_for_days()` from `Simple_History` class to `Helpers` class.
+- Remove unused function `filter_option_page_capability()`.
+- Update coding standards to [WordPressCS 3](https://make.wordpress.org/core/2023/08/21/wordpresscs-3-0-0-is-now-available/).
+- Misc code cleanup and improvements.
 
 ### 4.7.2 (October 2023)
 

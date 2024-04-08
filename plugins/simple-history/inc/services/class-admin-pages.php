@@ -5,7 +5,11 @@ namespace Simple_History\Services;
 use Simple_History\Helpers;
 use Simple_History\Simple_History;
 
+/**
+ * Add pages (history page and settings page).
+ */
 class Admin_Pages extends Service {
+	/** @inheritdoc */
 	public function loaded() {
 		add_action( 'admin_menu', array( $this, 'add_admin_pages' ) );
 	}
@@ -14,8 +18,8 @@ class Admin_Pages extends Service {
 	 * Add pages (history page and settings page)
 	 */
 	public function add_admin_pages() {
-		// Add a history page as a sub-page below the Dashboard menu item
-		if ( $this->simple_history->setting_show_as_page() ) {
+		// Add a history page as a sub-page below the Dashboard menu item.
+		if ( Helpers::setting_show_as_page() ) {
 			/**
 			 * Filter to determine if history page should be added to page below dashboard or not
 			 *
@@ -30,7 +34,7 @@ class Admin_Pages extends Service {
 					apply_filters( 'simple_history/admin_location', 'index' ) . '.php',
 					_x( 'Simple History', 'dashboard title name', 'simple-history' ),
 					_x( 'Simple History', 'dashboard menu name', 'simple-history' ),
-					$this->simple_history->get_view_history_capability(),
+					Helpers::get_view_history_capability(),
 					'simple_history_page',
 					array( $this, 'history_page_output' )
 				);
@@ -42,7 +46,7 @@ class Admin_Pages extends Service {
 	 * Output for page with the history.
 	 */
 	public function history_page_output() {
-		$pager_size = $this->simple_history->get_pager_size();
+		$pager_size = Helpers::get_pager_size();
 
 		/**
 		 * Filter the pager size setting for the history page
@@ -58,7 +62,7 @@ class Admin_Pages extends Service {
 
 			<header class="sh-PageHeader">
 				<h1 class="sh-PageHeader-title SimpleHistoryPageHeadline">
-					<img width="1102" height="196" class="sh-PageHeader-logo" src="<?php echo esc_attr( SIMPLE_HISTORY_DIR_URL ); ?>css/simple-history-logo.svg" alt="Simple History logotype"/>
+					<img width="1102" height="196" class="sh-PageHeader-logo" src="<?php echo esc_attr( SIMPLE_HISTORY_DIR_URL ); ?>css/simple-history-logo.png" alt="Simple History logotype"/>
 				</h1>
 
 				<?php
@@ -68,7 +72,7 @@ class Admin_Pages extends Service {
 				
 				<?php
 				// Add link to settings & tools.
-				if ( current_user_can( $this->simple_history->get_view_settings_capability() ) ) {
+				if ( current_user_can( Helpers::get_view_settings_capability() ) ) {
 					?>
 					<a href="<?php echo esc_url( menu_page_url( $this->simple_history::SETTINGS_MENU_SLUG, false ) ); ?>" class="sh-PageHeader-rightLink">
 						<span class="sh-PageHeader-settingsLinkIcon sh-Icon sh-Icon--settings"></span>
@@ -79,7 +83,7 @@ class Admin_Pages extends Service {
 				?>
 			</header>
 
-			<?php // WordPress will add notices after element with class .wp-header-end ?>
+			<?php // WordPress will add notices after element with class .wp-header-end. ?>
 			<hr class="wp-header-end">
 
 			<div class="wrap">

@@ -51,7 +51,7 @@ class Plugin_Updater {
 	 * @param string $plugin_id   The ID of the plugin.
 	 * @param string $plugin_slug The slug of the plugin.
 	 * @param string $version     The current version of the plugin.
-	 * @param string $version     The API URL to the update server.
+	 * @param string $api_url     The API URL to the update server.
 	 */
 	public function __construct( $plugin_id, $plugin_slug, $version, $api_url ) {
 		$this->plugin_id     = $plugin_id;
@@ -127,6 +127,7 @@ class Plugin_Updater {
 			|| 200 !== wp_remote_retrieve_response_code( $remote )
 			|| empty( wp_remote_retrieve_body( $remote ) )
 		) {
+			// Cache errors for 10 minutes.
 			set_transient( $this->cache_key, 'error', MINUTE_IN_SECONDS * 10 );
 
 			return false;
@@ -134,8 +135,8 @@ class Plugin_Updater {
 
 		$payload = wp_remote_retrieve_body( $remote );
 
-		// TODO: Increase cache when tested more.
-		set_transient( $this->cache_key, $payload, MINUTE_IN_SECONDS );
+		// Cache response for 1 hour.
+		set_transient( $this->cache_key, $payload, HOUR_IN_SECONDS );
 
 		return json_decode( $payload );
 	}
@@ -145,9 +146,9 @@ class Plugin_Updater {
 	 *
 	 * @see https://developer.wordpress.org/reference/hooks/plugins_api/
 	 *
-	 * @param false|object|array $result
-	 * @param string $action
-	 * @param object $args
+	 * @param false|object|array $result False if nothing is found, default WP_Error if request failed. An array of data on success.
+	 * @param string             $action The type of information being requested from the Plugin Install API.
+	 * @param object             $args  Plugin API arguments.
 	 * @return object|bool
 	 */
 	public function on_plugins_api_handle_plugin_info( $result, $action, $args ) {
@@ -169,7 +170,7 @@ class Plugin_Updater {
 
 		// Here: Get plugin info from simple-history.com.
 		// URLs for a plugin will be like:
-		// https://simple-history.com/wp-json/simple-history/v1/plugins/simple-history-extended-settings
+		// https://simple-history.com/wp-json/simple-history/v1/plugins/simple-history-extended-settings.
 		$api_url_base = 'https://simple-history.com/wp-json/simple-history/v1/plugins/';
 		$api_for_plugin = $api_url_base . $this->plugin_slug;
 		$plugin_info_response = wp_remote_get( $api_for_plugin );
@@ -208,8 +209,8 @@ class Plugin_Updater {
 	 *
 	 * @see https://make.wordpress.org/core/2020/07/30/recommended-usage-of-the-updates-api-to-support-the-auto-updates-ui-for-plugins-and-themes-in-wordpress-5-5/
 	 *
-	 * @param object $transient
-	 * @return object
+	 * @param object $transient The pre-saved, cached data for plugins.
+	 * @return object $transient
 	 */
 	public function site_transient_update_plugins_update( $transient ) {
 		if ( empty( $transient->checked ) ) {
@@ -257,8 +258,8 @@ class Plugin_Updater {
 	 *
 	 * @see https://developer.wordpress.org/reference/hooks/upgrader_process_complete/
 	 *
-	 * @param WP_Upgrader $upgrader
-	 * @param array $options
+	 * @param WP_Upgrader $upgrader The WP_Upgrader instance.
+	 * @param array       $options Array of bulk item update arguments.
 	 * @return void
 	 */
 	public function purge( $upgrader, $options ) {

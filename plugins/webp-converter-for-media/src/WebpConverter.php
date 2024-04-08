@@ -45,7 +45,6 @@ class WebpConverter {
 		( new Notice\NoticeIntegrator( $plugin_info, new Notice\ThanksNotice() ) )->init_hooks();
 		( new Notice\NoticeIntegrator( $plugin_info, new Notice\CloudflareNotice() ) )->init_hooks();
 		( new Notice\NoticeIntegrator( $plugin_info, new Notice\TokenInactiveNotice( $plugin_data, $token_repository ) ) )->init_hooks();
-		( new Notice\NoticeIntegrator( $plugin_info, new Notice\BlackFridayNotice( $plugin_data ) ) )->init_hooks();
 		( new Notice\NoticeIntegrator( $plugin_info, new Notice\UpgradeNotice( $plugin_data ) ) )->init_hooks();
 		( new Loader\LoaderIntegrator( new Loader\HtaccessLoader( $plugin_info, $plugin_data, $format_factory ) ) )->init_hooks();
 		( new Loader\LoaderIntegrator( new Loader\HtaccessBypassingLoader( $plugin_info, $plugin_data, $format_factory ) ) )->init_hooks();
@@ -60,6 +59,7 @@ class WebpConverter {
 			->set_page_integration( new Page\CdnSettingsPage( $plugin_info, $plugin_data, $token_repository, $format_factory ) )
 			->set_page_integration( new Page\DebugPage( $plugin_info, $plugin_data ) )
 			->set_page_integration( new Page\BulkOptimizationPage( $plugin_info, $plugin_data, $token_repository, $format_factory ) )
+			->set_page_integration( new Page\ExpertSettingsPage( $plugin_info, $plugin_data, $token_repository, $format_factory ) )
 			->init_hooks();
 		( new Service\BackupExcluder( $plugin_data ) )->init_hooks();
 		( new Service\CacheIntegrator( $plugin_info ) )->init_hooks();
