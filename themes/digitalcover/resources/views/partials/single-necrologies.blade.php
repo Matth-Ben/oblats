@@ -20,13 +20,13 @@
                 </div>
                 <div class="single-necrologie__content subcol-lg-8 offset-1">
                   <div>
-                    <p>Nous vous informons que <strong>{{ $data['name'] }}</strong> est décédé le <strong>{{ $data['date_du_deces'] }}</strong> à <strong>{{ $data['lieu_du_deces'] }}</strong>. Il avait <strong>{{ $data['age'] }}</strong> ans.</p>
-                    <p><strong>{{ $data['name'] }}</strong> était né en <strong>{{ $data['date_de_naissance'] }}</strong></p>
+                    <p>Nous vous informons que <strong>{{ $data['name'] }}</strong> est décédé {{ $data['date_du_deces'] }} à {{ $data['lieu_du_deces'] }}. Il avait {{ $data['age'] }} ans.</p>
+                    <p>{{ $data['name'] }} était né {{ $data['date_de_naissance'] }}</p>
                     @if ($data['voeux_perpetuels'])
-                      <p>Il avait prononcé ses vœux ches les OMI en <strong>{{ $data['voeux_perpetuels'] }}</strong></p>
+                      <p>Il avait prononcé ses vœux ches les OMI {{ $data['voeux_perpetuels'] }}</p>
                     @endif
                     @if ($data['ordination'])
-                      <p>Il avait été ordonné prêtre en <strong>{{ $data['ordination'] }}</strong></p>
+                      <p>Il avait été ordonné prêtre {{ $data['ordination'] }}</p>
                     @endif
                   </div>
                 </div>
