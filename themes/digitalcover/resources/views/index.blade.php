@@ -5,7 +5,7 @@
   $data = Block::cover($block['data'] = $field);
   $categories = get_categories();
   $zones = get_terms(['taxonomy' => 'zones']);
-  $dataSidebar = get_field('custom_sidebar');
+  $dataSidebar = $field['custom_sidebar'];
 @endphp
 
 @section('content')
@@ -16,27 +16,25 @@
       </div>
       <div class="container-fluid">
         <div class="row">
-          <div class="col-22 col-lg-15 offset-1">
+          <div class="col-22 @if ($dataSidebar) col-lg-15 @endif offset-1">
             <div class="news-body u-margin">
               <div class="news-filter"></div>
               <div class="news-posts">
                 @while(have_posts()) @php the_post() @endphp
-                  <div class="subcol-lg-7">
+                  <div class="subcol-xxs-22 @if ($dataSidebar) subcol-lg-7 @else subcol-lg-4 @endif">
                     @include('components/card-post', ['id' => get_the_ID()])
                   </div>
                 @endwhile
               </div>
             </div>
           </div>
-          <div class="col-22 col-lg-7 offset-1">
-            <div class="news-body sidebar">
-              @if ($dataSidebar)
+          @if ($dataSidebar)
+            <div class="col-22 col-lg-7 offset-1">
+              <div class="single-necrologie-sidebar sidebar">
                 @include('blocks/sidebar', ['data' => $dataSidebar])
-              @else                
-                {!! dynamic_sidebar('sidebar-primary') !!}
-              @endif
+              </div>
             </div>
-          </div>
+          @endif
         </div>
       </div>
 
