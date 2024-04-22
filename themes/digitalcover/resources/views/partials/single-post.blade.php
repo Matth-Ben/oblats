@@ -16,7 +16,7 @@
       </div>
       <div class="container-fluid">
         <div class="row">
-          <div class="col-22 col-lg-15 offset-1">
+          <div class="col-22 @if ($dataSidebar) col-lg-15 @endif offset-1">
             <div class="single-back button-back">
               <a class="button" href={{ get_post_type_archive_link('post') }}>Retour</a>
             </div>
@@ -24,15 +24,13 @@
               {!! the_content() !!}
             </div>
           </div>
-          <div class="col-22 col-lg-7 offset-1">
-            <div class="single-sidebar sidebar">
-              @if ($dataSidebar)
-                @include('blocks/sidebar', ['data' => $dataSidebar])
-              @else                
-                {!! dynamic_sidebar('sidebar-blog') !!}
-              @endif
+          @if ($dataSidebar)
+            <div class="col-22 col-lg-7 offset-1">
+              <div class="single-sidebar sidebar">
+                  @include('blocks/sidebar', ['data' => $dataSidebar])
+              </div>
             </div>
-          </div>
+          @endif
         </div>
       </div>
     </section>
